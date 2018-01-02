@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class IntroCondoPriceHandler implements CommandHandler{
 
-	@RequestMapping( "/introCondoPriceHandler" )
+	@RequestMapping( "/introCondoPrice" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

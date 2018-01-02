@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class IntroSlopeHandler implements CommandHandler{
 
-	@RequestMapping( "/introSlopeHandler" )
+	@RequestMapping( "/introSlope" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

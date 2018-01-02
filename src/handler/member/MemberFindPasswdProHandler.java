@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class MemberFindPasswdProHandler implements CommandHandler{
 
-	@RequestMapping( "/memberFindPasswdProHandler" )
+	@RequestMapping( "/memberFindPasswdPro" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

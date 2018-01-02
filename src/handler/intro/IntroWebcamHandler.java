@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class IntroWebcamHandler implements CommandHandler{
 
-	@RequestMapping( "/introWebcamHandler" )
+	@RequestMapping( "/introWebcam" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

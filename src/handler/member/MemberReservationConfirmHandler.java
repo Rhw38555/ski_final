@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class MemberReservationConfirmHandler implements CommandHandler{
 
-	@RequestMapping( "/memberReservationConfirmHandler" )
+	@RequestMapping( "/memberReservationConfirm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

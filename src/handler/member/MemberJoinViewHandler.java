@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class MemberJoinViewHandler implements CommandHandler{
 
-	@RequestMapping( "/memberJoinViewHandler" )
+	@RequestMapping( "/memberJoinView" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

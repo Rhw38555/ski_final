@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class ReversePayFormHandler implements CommandHandler{
 
-	@RequestMapping( "/reversePayFormHandler" )
+	@RequestMapping( "/reversePayForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

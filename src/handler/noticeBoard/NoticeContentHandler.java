@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class NoticeContentHandler implements CommandHandler{
 
-	@RequestMapping( "/noticeContentHandler" )
+	@RequestMapping( "/noticeContent" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

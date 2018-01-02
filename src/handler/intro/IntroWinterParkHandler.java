@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class IntroWinterParkHandler implements CommandHandler{
 
-	@RequestMapping( "/introWinterParkHandler" )
+	@RequestMapping( "/introWinterPark" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
