@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class AdminFFListHandler implements CommandHandler{
 
-	@RequestMapping( "/adminFFListHandler" )
+	@RequestMapping( "/adminFFList" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

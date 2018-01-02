@@ -13,11 +13,11 @@ import handler.CommandHandler;
 @Controller
 public class AdminFFModifyFormHandler implements CommandHandler{
 
-	@RequestMapping( "/adminFFModifyFormHandler" )
+	@RequestMapping( "/adminFFModifyForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
-		return new ModelAndView( "eventBoard/adminFFModifyForm" );
+		return new ModelAndView( "ffBoard/adminFFModifyForm" );
 	}
 
 }

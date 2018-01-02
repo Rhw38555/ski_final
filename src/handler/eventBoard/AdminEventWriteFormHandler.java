@@ -10,13 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
 import handler.CommandHandler;
 
 @Controller
-public class EventWriteProHandler implements CommandHandler{
+public class AdminEventWriteFormHandler implements CommandHandler{
 
-	@RequestMapping( "/eventWriteProHandler" )
+	@RequestMapping( "/adminEventWriteForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
-		return new ModelAndView( "eventBoard/eventWritePro" );
+		return new ModelAndView( "eventBoard/adminEventWriteForm" );
 	}
 
 }

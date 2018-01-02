@@ -10,13 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
 import handler.CommandHandler;
 
 @Controller
-public class FFWriteFormHandler implements CommandHandler{
+public class AdminFFWriteFormHandler implements CommandHandler{
 
-	@RequestMapping( "/ffWriteFormHandler" )
+	@RequestMapping( "/adminFFWriteForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
-		return new ModelAndView( "ffBoard/ffWriteForm" );
+		return new ModelAndView( "ffBoard/adminFFWriteForm" );
 	}
 
 }

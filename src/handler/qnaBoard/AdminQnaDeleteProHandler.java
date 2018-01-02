@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class AdminQnaDeleteProHandler implements CommandHandler{
 
-	@RequestMapping( "/adminQnaDeleteProHandler" )
+	@RequestMapping( "/adminQnaDeletePro" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
