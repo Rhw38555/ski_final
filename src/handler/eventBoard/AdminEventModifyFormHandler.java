@@ -13,7 +13,7 @@ import handler.CommandHandler;
 @Controller
 public class AdminEventModifyFormHandler implements CommandHandler{
 
-	@RequestMapping( "/adminEventModifyFormHandler" )
+	@RequestMapping( "/adminEventModifyForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

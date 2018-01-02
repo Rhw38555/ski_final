@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class AdminQnaModifyProHandler implements CommandHandler{
 
-	@RequestMapping( "/adminQnaModifyProHandler" )
+	@RequestMapping( "/adminQnaModifyPro" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

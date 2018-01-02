@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class EventContentHandler implements CommandHandler{
 
-	@RequestMapping( "/eventContentHandler" )
+	@RequestMapping( "/eventContent" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

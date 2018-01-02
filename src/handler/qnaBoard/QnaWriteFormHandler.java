@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class QnaWriteFormHandler implements CommandHandler{
 
-	@RequestMapping( "/qnaWriteFormHandler" )
+	@RequestMapping( "/qnaWriteForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

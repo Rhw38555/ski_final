@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class AdminFFDeleteProHandler implements CommandHandler{
 
-	@RequestMapping( "/adminFFDeleteProHandler" )
+	@RequestMapping( "/adminFFDeletePro" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
