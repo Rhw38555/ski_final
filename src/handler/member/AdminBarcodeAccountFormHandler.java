@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class AdminBarcodeAccountFormHandler implements CommandHandler{
 
-	@RequestMapping( "/adminBarcodeAccountFormHandler" )
+	@RequestMapping( "/adminBarcodeAccountForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
