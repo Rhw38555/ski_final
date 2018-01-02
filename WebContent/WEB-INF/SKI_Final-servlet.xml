@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Spring-servlet.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util-4.3.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-4.3.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">		
+	
+	<context:component-scan base-package="handler"/>
+	<context:component-scan base-package="handler.member"/>
+	<context:component-scan base-package="member"/>
+	<context:component-scan base-package="db"/>
+	<context:component-scan base-package="barcode"/>
+	<context:component-scan base-package="handler.eventBoard"/>
+	<context:component-scan base-package="eventBoard"/>
+	<context:component-scan base-package="handler.ffBoard"/>
+	<context:component-scan base-package="ffBoard"/>
+	<context:component-scan base-package="handler.intro"/>
+	<context:component-scan base-package="handler.main"/>
+	<context:component-scan base-package="handler.noticeBoard"/>
+	<context:component-scan base-package="noticeBoard"/>
+	<context:component-scan base-package="handler.qnaBoard"/>
+	<context:component-scan base-package="qnaBoard"/>
+	<context:component-scan base-package="handler.reverse"/>
+	<context:component-scan base-package="reverse"/>
+			
+</beans>	
+
+
+
+
+
+
+
