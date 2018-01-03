@@ -20,3 +20,4 @@ public class AdminBarcodeAccountFormHandler implements CommandHandler{
 	}
 
 }
+
