@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class AdminMemberUseHistoryHandler implements CommandHandler{
 
-	@RequestMapping( "/adminMemberUseHistoryHandler" )
+	@RequestMapping( "/adminMemberUseHistory" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

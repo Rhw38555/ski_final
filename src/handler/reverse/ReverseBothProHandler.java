@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class ReverseBothProHandler implements CommandHandler{
 
-	@RequestMapping( "/reverseBothProHandler" )
+	@RequestMapping( "/reverseBothPro" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

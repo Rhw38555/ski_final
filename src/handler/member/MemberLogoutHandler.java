@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class MemberLogoutHandler implements CommandHandler{
 
-	@RequestMapping( "/memberLogoutHandler" )
+	@RequestMapping( "/memberLogout" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		//request.getSession().removeAttribute( "memId" );

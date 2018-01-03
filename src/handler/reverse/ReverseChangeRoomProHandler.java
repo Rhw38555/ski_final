@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class ReverseChangeRoomProHandler implements CommandHandler{
 
-	@RequestMapping( "/reverseChangeRoomProHandler" )
+	@RequestMapping( "/reverseChangeRoom" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

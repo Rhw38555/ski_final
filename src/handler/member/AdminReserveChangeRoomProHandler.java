@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class AdminReserveChangeRoomProHandler implements CommandHandler{
 
-	@RequestMapping( "/adminReserveChangeRoomProHandler" )
+	@RequestMapping( "/adminReserveChangeRoomPro" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

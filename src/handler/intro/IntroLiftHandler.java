@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class IntroLiftHandler implements CommandHandler{
 
-	@RequestMapping( "/introLiftHandler" )
+	@RequestMapping( "/introLift" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

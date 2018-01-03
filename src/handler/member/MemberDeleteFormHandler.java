@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class MemberDeleteFormHandler implements CommandHandler{
 
-	@RequestMapping( "/memberDeleteFormHandler" )
+	@RequestMapping( "/memberDeleteForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class AdminReserveChangeSkiProHandler implements CommandHandler{
 
-	@RequestMapping( "/adminReserveChangeSkiProHandler" )
+	@RequestMapping( "/adminReserveChangeSkiPro" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

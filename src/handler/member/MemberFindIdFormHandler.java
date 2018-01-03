@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class MemberFindIdFormHandler implements CommandHandler{
 
-	@RequestMapping( "/memberFindIdFormHandler" )
+	@RequestMapping( "/memberFindIdForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class MemberModifyFormHandler implements CommandHandler{
 
-	@RequestMapping( "/memberModifyFormHandler" )
+	@RequestMapping( "/memberModifyForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
