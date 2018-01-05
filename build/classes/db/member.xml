@@ -3,7 +3,27 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="Member">
-  	
-  </mapper>
+<mapper namespace="Member">
+	<insert id="insertMember" parameterType="member.LogonDataBean">
+		insert into WP_member values( #{id}, #{passwd}, #{name}, #{tel}, #{email}, 0 )
+	</insert>
+	<select id="check" parameterType="String" resultType="int">
+		select count(*) from WP_member where id=#{id}
+	</select>
+	<select id="getMember" parameterType="String" resultType="member.LogonDataBean">
+		select * from WP_member where id=#{id}
+	</select>
+	<delete id="deleteMember" parameterType="String">
+		delete from WP_member where id=#{id}
+	</delete>
+	<update id="updateMember" parameterType="member.LogonDataBean">
+		update WP_member set passwd=#{passwd}, tel=#{tel}, email=#{email} where id=#{id}
+	</update>
+	<select id="findId" parameterType="String" resultType="String">
+		select id from WP_member where email=#{email}
+	</select>
+	<select id="findPasswd" parameterType="Map" resultType="String">
+		select passwd from WP_member where id=#{id} and email=#{email}
+	</select>
+</mapper>
   

@@ -10,14 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
 import handler.CommandHandler;
 
 @Controller
-public class MemberLogoutHandler implements CommandHandler{
+public class MemberIdcheck implements CommandHandler{
 
-	@RequestMapping( "/memberLogout" )
+	@RequestMapping( "/memberIdcheck" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		
-		request.getSession().removeAttribute( "memId" );
-		return new ModelAndView( "main/main" );
+
+		return new ModelAndView( "member/memberIdcheck" );
 	}
 
 }

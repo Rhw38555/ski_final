@@ -12,7 +12,7 @@ import handler.CommandHandler;
 @Controller
 public class AdminMainHandler implements CommandHandler{
 
-	@RequestMapping( "/adminMainHandler" )
+	@RequestMapping( "/adminMain" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 

@@ -8,16 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import handler.CommandHandler;
+import member.MemberEmailConfirm;
 
 @Controller
-public class MemberLogoutHandler implements CommandHandler{
+public class MemberEmailCheckHandler implements CommandHandler{
 
-	@RequestMapping( "/memberLogout" )
+	@RequestMapping( "/memberEmailCheck" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		String email = request.getParameter("email");
+		MemberEmailConfirm emailconfirm = new MemberEmailConfirm();
+		String authNum=emailconfirm.loginconnectEmail(email);
 		
-		request.getSession().removeAttribute( "memId" );
-		return new ModelAndView( "main/main" );
+		request.setAttribute("authNum", authNum);
+		return new ModelAndView( "member/memberEmailCheck" );
 	}
 
 }
