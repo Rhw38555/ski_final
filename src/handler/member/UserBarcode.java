@@ -11,25 +11,17 @@ import org.springframework.web.servlet.ModelAndView;
 import barcode.BarcodeDao;
 import handler.CommandHandler;
 
-/*
- * 
- * 
- */
 @Controller
-public class AdminBarcodeAccountProHandler implements CommandHandler{
+public class UserBarcode implements CommandHandler{
+
 	@Resource
-	private BarcodeDao barcodeDao;
+	private BarcodeDao barcodeDao;	
 	
-	
-	@RequestMapping( "/adminBarcodeAccountPro" )
+	@RequestMapping( "/userBarcode" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		//String productsPrice = request.getParameter("productsPrice");
-		//String userPrice = request.getParameter("userPrice");
-		String calPrice = request.getParameter("calPrice");
-		int result= barcodeDao.modifyUserBarcode(calPrice);
-		request.setAttribute( "result", result );
-		return new ModelAndView( "member/adminBarcodeAccountPro" );
+		
+		return new ModelAndView( "member/userBarcode" );
 	}
 
 }

@@ -4,8 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="Barcode">
-  
-  	
+  	<select id="checkProductBarcode"  parameterType="String" resultType="barcode.ProductBarcodeDataBean"> 
+		select * from wp_product_barcodes where product_barcode=#{product_barcode}
+	</select>
+  	<update id="modifyUserBarcode" parameterType="String">
+  		update wp_user_barcodes set wallet=#{calPrice}
+  	</update>
   </mapper>
   
   
