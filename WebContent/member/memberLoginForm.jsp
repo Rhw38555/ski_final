@@ -6,10 +6,10 @@
 <script src="${project}member/script.js"></script>
 
 <h2> ${page_login} </h2>
-
-<body onload="mainfocus()">
-	<form name="mainform" method="post" action="memberLoginPro.do"
-		onsubmit="return maincheck()">
+<!-- 아이디 찾기, 비밀번호 찾기 -->
+<body onload="loginfocus()">
+	<form name="loginform" method="post" action="memberLoginPro.do"
+		onsubmit="return logincheck()">
 		<table>
 			<tr>
 				<th colspan="4">
@@ -36,7 +36,6 @@
 			</tr>
 			<tr>
 				<th colspan="4">
-				<!-- 버튼 테두리 없애고 왼쪽정렬하기 -->
 					<input class="inputbutton" type="button" value="${msg_btn_id}" onclick="location='memberFindIdForm.do'" style="width:300px">			
 					<input class="inputbutton" type="button" value="${msg_btn_passwd}" onclick="location='memberFindPasswdForm.do'" style="width:300px">			
 				</th>

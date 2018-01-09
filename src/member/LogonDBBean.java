@@ -1,10 +1,35 @@
 package member;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Map;
+
+import javax.naming.NamingException;
 
 import db.SqlMapClient;
 
 public class LogonDBBean implements LogonDao{
+	
+	// 아이디별 번호
+	public int numcheck(String id, String passwd) {
+		int num = -1;
+		int count = check(id);
+		if( count!=0 ) {
+			LogonDataBean logonDto = getMember(id);
+			
+			if( passwd.equals( logonDto.getPasswd() ) ) {
+				num = SqlMapClient.getSqlSession().selectOne("Member.numcheck", id);
+			} else {
+				num = -1;
+			}				
+		} else {
+			num = -2;
+		}			
+		System.out.println(num);
+		return num;
+	}
 	
 	// 회원가입
 	public int insertMember( LogonDataBean logonDto ) {

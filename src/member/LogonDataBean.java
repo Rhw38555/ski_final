@@ -7,6 +7,7 @@ public class LogonDataBean {
 	private String name;
 	private String email;
 	private String tel;
+	private int num;
 	
 	public String getId() {
 		return id;
@@ -37,6 +38,12 @@ public class LogonDataBean {
 	}
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 	
 }

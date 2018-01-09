@@ -1,60 +1,75 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-	
-<%@ include file="../member/setting.jsp"%>
-<link href="${project}member/style.css" rel="stylesheet" type="text/css">
-<script src="${project}member/script.js"></script>	
-	
-<c:if test="${sessionScope.memId == null}">
-	<body onload="mainfocus()">
-		<form method="post" action="memberLoginPro.do" name="mainform"
-			onsubmit="return maincheck()">
+    pageEncoding="UTF-8"%>  
+<%@ include file="../member/setting.jsp" %>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			aside {
+				width : 150px;
+				height : 500px;				
+				float : left;
+			}
+			section {
+				width : 1300px;			
+				height : 500px;
+				float : left;
+			}
+			footer {
+				clear : left;
+				height : 50px;
+			}	
+			header, aside, section, footer {
+				border : 1px solid black;
+				margin : 0px;
+			}
+		</style>		
+	</head>
+
+	<body>
+	<script src="${project}member/script.js"></script>    
+ 	<%@include file="/include/mainheader.jsp" %>
+ 	<%@include file="/include/mainnav.jsp" %>
+		<aside>
 			<table>
 				<tr>
-					<th colspan="2">${msg_main}</th>
-				</tr>
-				<tr>
-					<th>${str_id}</th>
-					<td><input class="input" type="text" name="id" maxlength="15">
+					<td>
+						<c:set var="wfKor" value="${wfKor}"/>
+						<c:if test="${fn:contains(wfKor, '구름')}">
+							<img src="/SKI_Final/images/구름.PNG"/>
+						</c:if>
+						<c:if test="${fn:contains(wfKor, '눈')}">
+							<img src="/SKI_Final/images/구름.PNG"/>
+						</c:if>
+						<c:if test="${fn:contains(wfKor, '맑음')}">
+							<img src="/SKI_Final/images/구름.PNG"/>
+						</c:if>
+						<c:if test="${fn:contains(wfKor, '비')}">
+							<img src="/SKI_Final/images/구름.PNG"/>
+						</c:if>
+						<c:if test="${fn:contains(wfKor, '흐림')}">
+							<img src="/SKI_Final/images/구름.PNG"/>
+						</c:if>
 					</td>
 				</tr>
 				<tr>
-					<th>${str_passwd}</th>
-					<td><input class="input" type="password" name="passwd"
-						maxlength="15"></td>
+					<td> 최저온도 : ${tmn}</td>
 				</tr>
 				<tr>
-					<th colspan="2">
-						<input class="inputbutton" type="submit" value="${btn_login}"> 
-						<input class="inputbutton" type="reset" value="${btn_cancel}">						 
-						<input class="inputbutton" type="button" value="${btn_join}"
-							onclick="location='memberJoinForm.do'"></th>
+					<td> 최고온도 : ${tmx}</td>
 				</tr>
-	
+				<tr>
+					<td> ${wfKor} </td>
+				</tr>
 			</table>
-		</form>
+		</aside>
+		<section></section>
 	</body>
-</c:if>
-<c:if test="${sessionScope.memId != null}">
-	<table>
-		<tr>
-			<th><span>${sessionScope.memId}</span> ${msg_loginmain}
-			</th>
-		</tr>
-		<tr>
-			<td align="center">
-				<input class="inputbutton" type="button" value="${btn_logout}" 
-					onclick="location='memberLogout.do'"> 
-				<input class="inputbutton" type="button" value="${btn_modify}"
-					onclick="location='memberModifyForm.do'">
-				<input class="inputbutton" type="button" value="${btn_delete}"
-					onclick="location='memberDeleteForm.do'">
-			</td>
-		</tr>
-		
-	</table>
-</c:if>
-
-
+</html>
 
 	

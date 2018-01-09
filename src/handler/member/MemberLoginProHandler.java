@@ -23,12 +23,15 @@ public class MemberLoginProHandler implements CommandHandler{
 
 		String id = request.getParameter( "id" );
 		String passwd = request.getParameter( "passwd" );
-
+		
+		int num = logonDao.numcheck(id, passwd);
 		int result = logonDao.check( id, passwd );
 	
 		request.setAttribute( "result", result );
 		request.setAttribute( "id", id );		
+		request.setAttribute("num", num);
 		
+		System.out.println("실제 핸들러"+num);
 		return new ModelAndView( "member/memberLoginPro" );
 	}
 

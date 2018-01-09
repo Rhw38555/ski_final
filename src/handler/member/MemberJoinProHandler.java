@@ -1,7 +1,5 @@
 package handler.member;
 
-import java.sql.Timestamp;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,10 +24,10 @@ public class MemberJoinProHandler implements CommandHandler{
 
 		request.setCharacterEncoding( "utf-8" );
 		
-		LogonDataBean memberDto = new LogonDataBean();
-		memberDto.setId( request.getParameter( "id" ) );
-		memberDto.setPasswd( request.getParameter( "passwd" ) );
-		memberDto.setName( request.getParameter( "name" ) );
+		LogonDataBean logonDto = new LogonDataBean();
+		logonDto.setId( request.getParameter( "id" ) );
+		logonDto.setPasswd( request.getParameter( "passwd" ) );
+		logonDto.setName( request.getParameter( "name" ) );
 	
 		// tel
 		String tel = null;
@@ -41,22 +39,22 @@ public class MemberJoinProHandler implements CommandHandler{
 			&& ! tel3.equals( "" ) ) {
 			tel = tel1 + "-" + tel2 + "-" + tel3; 
 		}
-		memberDto.setTel( tel );	
+		logonDto.setTel( tel );	
 	
 		// email
 		String email = null;
+		String email0 = request.getParameter("email0");
 		String email1 = request.getParameter( "email1" );
 		String email2 = request.getParameter( "email2" );
-		if( ! email1.equals( "" ) ) {
-			if( email2.equals( "0" ) ) {
-				email = email1;	
-			} else {
-				email = email1 + "@" + email2;
-			}
+		if( email2.equals("")) {
+			email = email0;
+			System.out.println(email);
+		} else {
+			email = email1 + email2;	
 		}
-		memberDto.setEmail( email );
+		logonDto.setEmail( email );
 
-		int result = logonDao.insertMember( memberDto );
+		int result = logonDao.insertMember( logonDto );
 	
 		request.setAttribute( "result", result );			
 		
