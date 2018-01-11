@@ -7,7 +7,7 @@
     
     
 <sql:query var="rs" dataSource="jdbc/kh">
-	select * from wp_product_barcodes where product_barcode=?
+	select * from wp_user_barcodes where user_barcode =?
 	<sql:param value="${param.value}"/>
 </sql:query>
 
@@ -18,10 +18,8 @@
 			member : [
 				<c:forEach var="row" items="${rs.rows}">
 					{
-						product_barcode : "${row.product_barcode}",
-						product_name : "${row.product_name}",
-						price : "${row.price}",
-						maket : "${row.maket}"
+						user_barcode  : "${row.user_barcode}",
+						wallet : "${row.wallet}"
 					},
 				</c:forEach>
 			]
