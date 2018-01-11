@@ -1,55 +1,46 @@
 /**
- * JSON Module
+ * XMLHttpRequest Module
  */
 
-function HttpRequest(callback,url,params,method){
-	this.callback = callback;
-	this.url = url;
-	this.params= params;
-	this.method = method;
-	this.request = null;
-}
-
-HttpRequest.prototype = {
-		getXMLHttpRequest : function(){
-			if(window.ActiveXObject){
-				try{
-					this.request = new ActiveXObject("Msxml2.XMLHTTP");
-				}catch(e){
-					try{
-						this.request = new ActiveXObejct("Microsoft.XMLHTTP");
-					}catch(ee){
-						return null;
-					}
-				}
-			}else{
-				try{
-					this.request = new XMLHttpRequest();
-				}catch(e){
-					return null;
-				}
+var request = null;
+function getXMLHttpRequest() {
+	if( window.ActiveXObject) {
+		try {
+			return new ActiveXObject( "Msxml2.XMLHTTP");
+		} catch( e ) {
+			try {
+				return new ActiveXObject( "Microsoft.XMLHTTP");
+			} catch( ee ) {
+				return null;
 			}
-		},
-		sendRequest : function(){
-			this.getXMLHttpRequest();
-			
-			//callback
-			this.request.onreadystatechange = this.callback;
-			
-			//method
-			var httpMethod = this.method ? this.method : "GET";
-			if(httpMethod != "GET" && httpMethod !="POST"){
-				httpMethod = "GET";
-			}
-			//params
-			var httpParams = this.params ==null || this.params ==""?
-							null : this.params;
-			//url 
-			var httpUrl = httpMethod =="GET" ? this.url+"?"+ httpParams : this.url;
-			
-			this.request.open(httpMethod,httpUrl,true);
-			this.request.setRequestHeader("content-type",
-					"application/x-www-form-urlencoded");
-			this.request.send(httpMethod=="POST" ? httpParams : null);
 		}
-};
+	} else {
+		try{
+			return new XMLHttpRequest();
+		} catch( e ) {
+			return null;
+		}
+	}
+}
+function sendRequest( callback, url, params, method) {
+	request = getXMLHttpRequest();
+	
+	// callback
+	request.onreadystatechange = callback;
+	
+	// method
+	var  httpMethod = method ? method : "GET";
+	if( httpMethod != "GET" && httpMethod != "POST") {
+		httpMethod = "GET";
+	} 
+	
+	// params
+	var httpParams = params == null || params == "" ? null : params;
+	
+	// url
+	var httpUrl = httpMethod == "GET" ? url + "?" + httpParams : url;
+	
+	request.open(httpMethod, httpUrl, true);
+	request.setRequestHeader( "content-type", "application/x-www-form-urlencoded");
+	request.send( httpMethod == "POST" ? httpParams : null);
+}

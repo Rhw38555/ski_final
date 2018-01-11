@@ -221,8 +221,6 @@
 							}
 						);//finduserbtn		
 					
-					
-					
 					$(document).on(
 							'click','.findcount',
 							function(event){

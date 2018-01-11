@@ -5,7 +5,7 @@
   
 <mapper namespace="Member">
 	<insert id="insertMember" parameterType="member.LogonDataBean">
-		insert into WP_member values( #{id}, #{passwd}, #{name}, #{tel}, #{email}, 0 )
+		insert into WP_member values( #{id}, #{passwd}, #{name}, #{tel}, #{email}, 0,'0')
 	</insert>
 	<select id="check" parameterType="String" resultType="int">
 		select count(*) from WP_member where id=#{id}
