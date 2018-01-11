@@ -23,7 +23,7 @@
 	<body>
 	<script src="${project}member/script.js"></script>   
 		<nav>
-			<input class="menubutton" type="button" value="${btn_winterPark}" onclick="location='.do'"> 
+			<input class="menubutton" type="button" value="${btn_winterPark}" onclick="location='adminintroWinterPark.do'"> 
 			<input class="menubutton" type="button" value="${btn_reservation}" onclick="location='adminreverseRoomForm.do'">
 			<input class="menubutton" type="button" value="${btn_skioom}" onclick="location='.do'">
 			<input class="menubutton" type="button" value="${btn_eat}" onclick="location='adminFFList.do'">

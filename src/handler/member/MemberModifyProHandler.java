@@ -39,12 +39,15 @@ public class MemberModifyProHandler implements CommandHandler{
 		}
 		logonDto.setTel( tel );
 	
+		// email
 		String email = null;
+		String email0 = request.getParameter("email0");
 		String email1 = request.getParameter( "email1" );
 		String email2 = request.getParameter( "email2" );
-		if( ! email1.equals( "" ) 
-			&& ! email2.equals( "" ) ) {
-			email = email1 + "@" + email2;
+		if( email2.equals("")) {
+			email = email0;
+		} else {
+			email = email1 + email2;	
 		}
 		logonDto.setEmail( email );
 

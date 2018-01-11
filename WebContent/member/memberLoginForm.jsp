@@ -12,7 +12,7 @@
 		onsubmit="return logincheck()">
 		<table>
 			<tr>
-				<th colspan="4">
+				<th colspan="5">
 					${msg_login}
 				</th>
 			</tr>
@@ -27,6 +27,9 @@
 				<th rowspan="2">
 					<input class="inputbutton" type="button" value="${btn_join}" onclick="location='memberJoinForm.do'">
 				</th>
+				<th rowspan="2">
+					<input class="inputbutton" type="button" value="${btn_main}" onclick="location='main.do'">
+				</th>
 			</tr>
 			<tr>
 				<th> ${str_passwd} </th>
@@ -35,7 +38,7 @@
 				</td>
 			</tr>
 			<tr>
-				<th colspan="4">
+				<th colspan="5">
 					<input class="inputbutton" type="button" value="${msg_btn_id}" onclick="location='memberFindIdForm.do'" style="width:300px">			
 					<input class="inputbutton" type="button" value="${msg_btn_passwd}" onclick="location='memberFindPasswdForm.do'" style="width:300px">			
 				</th>

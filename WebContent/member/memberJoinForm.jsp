@@ -71,7 +71,7 @@
 			<tr>
 				<th colspan="2">
 					<input class="inputbutton" type="submit" value="${btn_in}">
-					<input class="inputbutton" type="button" value="${btn_in_cancel}" onclick="location='memberLoginForm.do'">
+					<input class="inputbutton" type="button" value="${btn_in_cancel}" onclick="location='main.do'">
 				</th>
 			</tr>			
 		</table>

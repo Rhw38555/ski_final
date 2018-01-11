@@ -33,7 +33,6 @@
 		<%@include file="/include/mypageaside.jsp" %>
 		<section>
 			<table>
-			<!-- for문 돌리기 -->
 				<tr>
 					<th colspan="3"> 사용 내역 </th>
 				</tr>
@@ -43,9 +42,9 @@
 					<th> 누적 </th>
 				</tr>
 				<tr>
-					<td>김치찌개</td>
-					<td>6,000원</td>
-					<td>6,000원</td>
+						<td>김치찌개</td><!-- name -->
+						<td>6,000원</td><!-- product_price -->
+						<td>6,000원</td><!-- 전금액+product_price -->
 				</tr>
 			</table>
 			<table>

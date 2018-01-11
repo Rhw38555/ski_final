@@ -48,7 +48,6 @@ public class MemberJoinProHandler implements CommandHandler{
 		String email2 = request.getParameter( "email2" );
 		if( email2.equals("")) {
 			email = email0;
-			System.out.println(email);
 		} else {
 			email = email1 + email2;	
 		}

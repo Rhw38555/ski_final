@@ -30,8 +30,7 @@ public class MemberLoginProHandler implements CommandHandler{
 		request.setAttribute( "result", result );
 		request.setAttribute( "id", id );		
 		request.setAttribute("num", num);
-		
-		System.out.println("실제 핸들러"+num);
+
 		return new ModelAndView( "member/memberLoginPro" );
 	}
 

@@ -222,6 +222,7 @@ function repasswdcheck() {
 		repasswdchk.innerHTML = repasswd_x;
 	}
 }
+
 // 회원가입 (이메일 인증)
 function chageLangSelect() {
 	var Select = document.getElementById("select");
@@ -287,83 +288,78 @@ function mailsubmit(submit){
 
 // 회원 정보 수정
 function viewfocus() {
-	viewform.passwd.focus();
+	joinform.passwd.focus();
+	shortemail.style.display = "none";
+	shortemail2.style.display = "none";
 }
 function viewcheck() {
-	var tel1 = viewform.tel1.value;
-	var tel2 = viewform.tel2.value;
-	var tel3 = viewform.tel3.value;
-	if( ! viewform.passwd.value ) {
+	var tel1 = joinform.tel1.value;
+	var tel2 = joinform.tel2.value;
+	var tel3 = joinform.tel3.value;
+	if( ! joinform.passwd.value ) {
 		alert( passwderror );
-		viewform.passwd.focus();
+		joinform.passwd.focus();
 		return false;
-	} else if( viewform.passwd.value != viewform.repasswd.value ) {
+	} else if( joinform.passwd.value != joinform.repasswd.value ) {
 		alert( repasswderror );
-		viewform.repasswd.focus();
+		joinform.repasswd.focus();
 		return false;
 	}
-	if( ! viewform.tel1.value || ! viewform.tel2.value || ! viewform.tel3.value ){
+	if( ! joinform.tel1.value || ! joinform.tel2.value || ! joinform.tel3.value ){
 		alert( telerror );
-		viewform.tel1.focus();
+		joinform.tel1.focus();
 		return false;
-	} else if( viewform.tel1.value.length < 3 || viewform.tel2.value.length < 4 || viewform.tel3.value.length < 4) {
+	} else if( joinform.tel1.value.length < 3 || joinform.tel2.value.length < 4 || joinform.tel3.value.length < 4) {
 		alert( errortel );
-		viewform.tel1.focus();
+		joinform.tel1.focus();
 		return false;
 	} else if( isNaN(tel1) || isNaN(tel2) || isNaN(tel3)) {
 		alert( telnumerror);
-		viewform.tel1.value="";
-		viewform.tel2.value="";
-		viewform.tel3.value="";
-		viewform.tel1.focus();
+		joinform.tel1.value="";
+		joinform.tel2.value="";
+		joinform.tel3.value="";
+		joinform.tel1.focus();
 		return false;			
 	}
-	if( ! viewform.email1.value || ! viewform.email2.value ) {
-			alert( emailerror );
-			viewform.email1.focus();
-			return false;
-	} else if( viewform.email1.value.indexOf( "@" ) != -1 
-		||	viewform.email2.value.indexOf( "@" ) != -1	) {
-			alert( emailerror );
-			viewform.email1.focus();
-			return false;
-	}
-}
-// 회원 정보 수정 (중복확인)
-function modpasswdcheck() {
-	var passwd = viewform.passwd.value;
-	var passwdchk = document.getElementById("passwdchk");
-	if(isNaN(passwd)) {
-		passwdchk.innerHTML = passwd_o;
-	} else {
-		passwdchk.innerHTML = passwd_x;
-	}
-}
-function modrepasswdcheck() {
-	var repasswd = viewform.repasswd.value;
-	var passwd = viewform.passwd.value;
-	var repasswdchk = document.getElementById("repasswdchk");
-	if(passwd == repasswd) {
-		repasswdchk.innerHTML = repasswd_o;
-	} else {
-		repasswdchk.innerHTML = repasswd_x;
-	}
-}
-// 회원수정 포커스넘기기
-function modnexttel1() {
-	if( viewform.tel1.value.length == 3 ) {
-		viewform.tel2.focus();
-	}
-}
-function modnexttel2() {
-	if( viewform.tel2.value.length == 4 ) {
-		viewform.tel3.focus();
-	}
-}
-function modnextemail() {
-	if( viewform.tel3.value.length == 4 ) {
-		viewform.email1.focus();
+	if(joinform.hiddenemailvalue.value == joinform.email0.value) {
+		document.joinform.hiddenemail.value="1";
+	}else if(joinform.hiddenemailvalue.value != joinform.email0.value) {
+		document.joinform.hiddenemail.value="0";
+		if( shortemail.style.display == "none") {  //
+			if( ! joinform.email0.value) {
+				alert( emailerror );
+				joinform.email0.focus();
+				return false;
+			} else if( joinform.email0.value.indexOf( "@" ) == -1 ) {
+				// @가 없다
+				alert( erroremail );
+				joinform.email0.focus();
+				return false;
+			}	
+		} else if( fullemail.style.display == "none") {  //
+			if( ! joinform.email1.value) {
+				alert( emailerror );
+				joinform.email1.focus();
+				return false; 	
+			} else if( joinform.email1.value.indexOf( "@" ) != -1 ) {
+				// @가 있다
+				alert( erroremail );
+				joinform.email1.focus();
+				return false;
+			}	
+		}
 	}	
+	if(joinform.hiddenemail.value != "1"){
+		if(fullemail.style.display == "none") {
+			alert( emailiconerror );
+			joinform.email1.focus();
+			return false;
+		} else {
+			alert( emailiconerror );
+			joinform.email0.focus();
+			return false;			
+		}
+	}
 }
 
 // 회원 탈퇴
@@ -377,12 +373,6 @@ function delpasswdcheck() {
 		return false;
 	}
 }
-
-
-
-
-
-
 
 
 

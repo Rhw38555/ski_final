@@ -27,7 +27,6 @@ public class LogonDBBean implements LogonDao{
 		} else {
 			num = -2;
 		}			
-		System.out.println(num);
 		return num;
 	}
 	

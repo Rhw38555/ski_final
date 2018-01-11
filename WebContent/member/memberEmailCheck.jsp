@@ -3,7 +3,7 @@
 
 <%@ include file="setting.jsp" %>
 <link href="${project}member/style.css" rel="stylesheet" type="text/css">
-
+<script src="${project}member/script.js"></script> 
 <body>	
 	<form method="post" action="" name="mailform">				
 		<c:if test="${authNum != ''}">
@@ -13,7 +13,7 @@
 					<td>
 					<input type="text" class="inputbutton" name="textsub" style="width:100px;">
 				<br>
-				<input class="inputbutton" type="button" value="인증" onclick="mailsubmit(${authNum})">
+				<input class="inputbutton" type="button" value="인증" onclick="modmailsubmit(${authNum})">
 				<input class="inputbutton" type="button" value="취소" onclick="self.close()">
 				</td>
 				</tr>
