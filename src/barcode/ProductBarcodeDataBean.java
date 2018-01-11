@@ -2,6 +2,7 @@ package barcode;
 
 public class ProductBarcodeDataBean {
 	private String product_barcode;
+	private String product_name;
 	private String market;
 	private int price;
 	private String use_check;
@@ -13,6 +14,13 @@ public class ProductBarcodeDataBean {
 	}
 	public void setProduct_barcode(String product_barcode) {
 		this.product_barcode = product_barcode;
+	}
+	
+	public String getProduct_name() {
+		return product_name;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
 	public String getMarket() {
 		return market;

@@ -4,11 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %> 
 
-    
-    
+  
 <sql:query var="rs" dataSource="jdbc/kh">
-	select * from wp_product_barcodes where product_barcode=?
-	<sql:param value="${param.value}"/>
+	select * from wp_member
 </sql:query>
 
 <members>
@@ -18,14 +16,15 @@
 			member : [
 				<c:forEach var="row" items="${rs.rows}">
 					{
-						product_barcode : "${row.product_barcode}",
-						product_name : "${row.product_name}",
-						price : "${row.price}",
-						maket : "${row.maket}"
+						id : "${row.id}",
+						passwd : "${row.passwd}",
+						name : "${row.name}",
+						tel : "${row.tel}",
+						email : "${row.email}",
+						ban : "${row.ban}"
 					},
 				</c:forEach>
 			]
 		}
-		
 	</data>
 </members>

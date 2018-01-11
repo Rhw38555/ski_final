@@ -24,6 +24,8 @@
 				<tr>
 					<td>
 						<input class="findP" type="text" name="product${num}">
+						<input class="findPn" type="text" name="productName${num}">
+						<input type="hidden" name="productMaket${num}">
 						<input class="findbtn" type="button" name="productButton${num}" 
 						value="초기화">
 					</td>
@@ -32,9 +34,10 @@
 					<td><input class="findcount" type="number" name="productCounts${num}"></td>
 				</tr>
 			</c:forEach>
+			
 			<tbody id="findtr"></tbody>
 		</table>
-		<input type="button" value="계산 추가" onclick="appendtr()">
+		<input type="hidden" name="checknum" value="1">
 		<br><br>
 		<table border="1">
 			<tr>
@@ -135,14 +138,21 @@
 													//var num = event.target.name.substr(7);
 													var nextnum = Number(num)+1;
 													$('input[name=product'+num+']').val(memberdata.member[0].product_barcode);
-													$('input[name=product'+num+']').attr("disabled",true);
+													$('input[name=product'+num+']').attr("readonly",true);
+													
+													$('input[name=productName'+num+']').val(memberdata.member[0].product_name);
+													$('input[name=productMaket'+num+']').val(memberdata.member[0].maket);
+													$('input[name=productName'+num+']').attr("readonly",true);
 													$('input[name=product'+nextnum+']').focus();
+													
+													
 													$('input[name=price'+num+']').val(memberdata.member[0].price);
 													$('input[name=productCounts'+num+']').val(1);
 													$('input[name=hiddenprice'+num+']').val(memberdata.member[0].price);
 													
 													allProductPrice();
 													calbarcodes();
+													appendtr();
 												}
 												
 											},
@@ -153,7 +163,7 @@
 										}		
 									);//ajax
 								
-								
+									
 							});//findp
 							
 						
@@ -189,9 +199,12 @@
 							
 							
 							//$('input[name=calPrice]').val("");
-							$('input[name=product'+num+']').removeAttr("disabled");
+							$('input[name=product'+num+']').attr("readonly",false);
+							$('input[name=productName'+num+']').attr("readonly",false);
 							$('input[name=product'+num+']').val("");
 							$('input[name=price'+num+']').val("");
+							$('input[name=productName'+num+']').val("");
+							$('input[name=productMaket'+num+']').val("");
 							$('input[name=productCounts'+num+']').val("");
 						}
 					);//findbtn	
@@ -200,7 +213,7 @@
 					$(document).on(
 							'click','input[name=finduserbtn]',
 							function(event){
-								$('input[name=userBarcode]').removeAttr("disabled");
+								$('input[name=userBarcode]').attr("readonly",false);
 								$('input[name=userBarcode]').val("");
 								$('input[name=userPrice').val("");
 								$('input[name=calPrice').val("");
@@ -247,7 +260,7 @@
 														var memberdata = eval("("+$(data).find('data').text()+")");
 														
 														$('input[name=userBarcode]').val(memberdata.member[0].user_barcode);
-														$('input[name=userBarcode]').attr("disabled",true);
+														$('input[name=userBarcode]').attr("readonly",true);
 														$('input[name=userPrice]').val(memberdata.member[0].wallet);
 														
 
@@ -272,7 +285,7 @@
 										
 										$('input[type=text]').val("");
 										$('input[type=number]').val("");
-										$('input[type=text]').removeAttr("disabled");
+										$('input[type=text]').attr("readonly",false);
 										
 									}
 								);//findbtn			
@@ -291,9 +304,6 @@
 				
 							
 			}		
-			
-			
-			
 			
 		);//onready
    
@@ -314,60 +324,62 @@
     	$('input[name=calPrice]').val(calPrice);
     }
     function appendtr(){
+    	var boolarray = new Array();
+    	var fullcheck=false;
     	var newnum;
     	var fornum;
     	var total = $('.findP').length;
-    	
+    	var checknum = Number($('input[name=checknum]').val())+1;
+    	$('input[name=checknum]').val(checknum);
     	$('.findP').each( function(index,item) {
+    		if( $(item).attr("readonly")=="readonly" ){
+    			boolarray[index-1] = "readonly";
+    		}else{
+    			boolarray[index-1] = "undefined";
+    		}
+    		
 			if(index=== total-1){
 				newnum = index+2;
 				fornum =  newnum+10;
-			}	    	
-    	}
-    	);
-    	var msg="";
-    	//var allmsg="";
-    	for(var i=newnum; i < fornum; i++){
-    		msg += "<tr>"
-			+ "<td>"
-			+ "<input class='findP' type='text' name='product"+i+"'> "
-			+ "<input class='findbtn' type='button' name='productButton"+i+"' value='초기화'>"
-			+"</td>"
-			+"<td>"
-			+"<input class='findprice' type='text' name='price"+i+"'>"
-			+"<input type='hidden' name='hiddenprice"+i+"'>"
-			+"</td>"
-			+"<td>"
-			+"<input class='findcount' type='number' name='productCounts"+i+"'>"
-			+"</td>"
-			+"</tr>";
-    		
+			}	   
 			
+    	});//.findP
+    	for(var i=0; i<boolarray.length;i++){
+    		if(boolarray[i]=="readonly"){
+    			fullcheck=true;
+    		}else if(boolarray[i]=="undefined"){
+    			fullcheck=false;
+    		}
     	}
-
-		$('#findtr').html($('#findtr').html()+msg);
+    	if(fullcheck){
+    		var msg="";
+        	for(var i=newnum; i < fornum; i++){
+        		
+        		msg += "<tr>"
+    			+ "<td>"
+    			+ "<input class='findP' type='text' name='product"+i+"'> "
+    			+"<input class='findPn' type='text' name='productName"+i+"'> "
+    			+"<input type='hidden' name='productMaket"+i+"'>"
+    			+ "<input class='findbtn' type='button' name='productButton"+i+"' value='초기화'>"
+    			+"</td>"
+    			+"<td>"
+    			+"<input class='findprice' type='text' name='price"+i+"'>"
+    			+"<input type='hidden' name='hiddenprice"+i+"'>"
+    			+"</td>"
+    			+"<td>"
+    			+"<input class='findcount' type='number' name='productCounts"+i+"'>"
+    			+"</td>"
+    			+"</tr>";
+        	}
+    		
+        	$('#findtr').append($('#findtr').text()+msg);
+    	}else{
+    		
+    	}
+    	
     }
    //-->
 </script>
-<div>
-	
-	CREATE TABLE WP_product_barcodes<br>
-(<br>
-	product_barcode varchar2(50) NOT NULL,<br>
-	maket varchar2(30) NOT NULL,<br>
-	price varchar2(30) NOT NULL,<br>
-	use_check varchar2(2) NOT NULL,<br>
-	all_count number,<br>
-	PRIMARY KEY (product_barcode)<br>
-);
-<br><br>
-CREATE TABLE WP_user_barcodes<br>
-(<br>
-	user_barcode varchar2(50) NOT NULL,<br>
-	wallet number,<br>
-	id varchar2(20) NOT NULL,<br>
-	PRIMARY KEY (user_barcode)<br>
-);<br>
-	</div>
+
 </html>
 

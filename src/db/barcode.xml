@@ -7,9 +7,28 @@
   	<select id="checkProductBarcode"  parameterType="String" resultType="barcode.ProductBarcodeDataBean"> 
 		select * from wp_product_barcodes where product_barcode=#{product_barcode}
 	</select>
+	<select id="getReceipt_barcode" resultType="String"> 
+		select RECEIPT_BARCODE from WP_useHistory where rownum =1 and buydate = (select MAX(buydate) from WP_useHistory)
+	</select>
+	
   	<update id="modifyUserBarcode" parameterType="String">
   		update wp_user_barcodes set wallet=#{calPrice}
   	</update>
+  	<update id="modifyProductAllcount" parameterType="barcode.UseHistoryDataBean">
+  		update wp_product_barcodes set all_count=all_count-#{product_count} where product_barcode = #{product_barcode}
+  	</update>
+  	<insert id="insertUseHistory" parameterType="barcode.UseHistoryDataBean">
+		insert into wp_useHistory values(#{receipt_barcode},#{user_barcode},#{product_barcode},#{product_name},#{product_price},#{product_count},#{maket},sysdate)
+	</insert>
+
+	<update id="refundModifyProductAllcount" parameterType="barcode.UseHistoryDataBean">
+  		update wp_product_barcodes set all_count=all_count + #{product_count} where product_barcode = #{product_barcode}
+  	</update>
+	
+	<delete id="deleteUseHistory" parameterType="barcode.UseHistoryDataBean">
+		delete from wp_useHistory where product_barcode = #{product_barcode} and user_barcode=#{user_barcode} and buydate= TO_DATE(#{buydate},'YYYYMMDDHH24MISS') 
+	</delete>
+	
   </mapper>
   
   
