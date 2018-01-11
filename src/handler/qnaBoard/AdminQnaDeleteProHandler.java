@@ -1,5 +1,6 @@
 package handler.qnaBoard;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,14 +9,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import handler.CommandHandler;
+import qnaBoard.QnaBoardDao;
 
 @Controller
 public class AdminQnaDeleteProHandler implements CommandHandler{
-
+	
+	@Resource
+	QnaBoardDao qnaDao;
+	
 	@RequestMapping( "/adminQnaDeletePro" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-
+		
+		int num = Integer.parseInt( request.getParameter( "num" ) );
+		
+		int result = qnaDao.deleteArticle( num );
+		
+		request.setAttribute( "result", result );
+		request.setAttribute( "pageNum", request.getParameter( "pageNum" ) );
+		
 		return new ModelAndView( "qnaBoard/adminQnaDeletePro" );
 	}
 

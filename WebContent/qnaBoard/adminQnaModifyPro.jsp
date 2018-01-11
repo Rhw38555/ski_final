@@ -1,3 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<h2>관리자 QnA 수정 Pro</h2>
+<%@ include file="setting.jsp"%>
+
+<c:if test="${result == 0}">
+	<script type="text/javascript">
+		<!--
+		erroralert( writeerror );
+		//-->
+	</script>
+</c:if>
+<c:if test="${result == 1}">
+	<c:redirect url="adminQnaList.do"/>
+</c:if>	
