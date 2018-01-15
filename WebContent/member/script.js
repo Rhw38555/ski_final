@@ -396,3 +396,103 @@ function adminBarcodeRefundCheck(){
 	}
 }
 
+function generateBarcode(user_barcode) {
+    //var value = $("#barcodeValue").val();	//바코드 밑에 달리는 내용
+    //var btype = $("input[name=btype]:checked").val();// 바코드 타입만드는부분
+    //var renderer = $("input[name=renderer]:checked").val();// css로 결정
+    var value = user_barcode;
+    var btype = "code128";
+    var renderer ="css";
+    
+	var quietZone = false;
+    if ($("#quietzone").is(':checked') || $("#quietzone").attr('checked')){
+      quietZone = true;
+    }
+	
+    var settings = {
+      output:renderer,
+      bgColor: "#FFFFFF",
+      color: "#000000",
+      barWidth: "1",
+      barHeight: "50",
+      moduleSize: "5",
+      posX: "10",
+      posY: "20",
+      addQuietZone: "1"
+    };
+    if ($("#rectangular").is(':checked') || $("#rectangular").attr('checked')){
+        value = {code:value, rect: true};
+      }
+      if (renderer == 'canvas'){
+        clearCanvas();
+        $("#barcodeTarget").hide();
+        $("#canvasTarget").show().barcode(value, btype, settings);
+      } else {
+        $("#canvasTarget").hide();
+        $("#barcodeTarget").html("").show().barcode(value, btype, settings);
+      }
+  }
+
+
+function memberUseHistoryCheck(user_barcode){
+	$.ajax(
+			{
+				type : "POST",
+				url : "memberUseHistoryCheck.do",
+				/*data : params,*/
+				data : {
+					value : user_barcode
+				},
+				
+				//data : $('form').serialize(),
+				dataType : 'xml',
+				success : function(data){
+					
+					//var code = $(data).find('code').text();
+					var codeconfrim = $(data).find('code').text();
+					if(codeconfrim=='success'){
+						var memberdata = eval("("+$(data).find('data').text()+")");
+						var calPrice=0;
+						msg ="<tr><th>영수증 바코드</th><th>상품 이름</th><th>상품 가격</th><th>상품 개수</th><th>마켓명</th><th>구매일</th></tr>"
+						
+						for(var i=0; i<memberdata.member.length;i++){
+						msg+="<tr>"
+							+"<td>"
+							+ memberdata.member[i].receipt_barcode
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].product_name
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].product_price
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].product_count
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].maket
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].buydate
+							+"</td>"
+							+"</tr>";
+							
+							calPrice += Number(memberdata.member[i].product_price) * Number(memberdata.member[i].product_count);
+						}
+						msg+="<tr>"
+							+"<th colspan='6'>"
+							+"총 가격 : " + calPrice;
+							+"</th>"
+							+"</tr>";
+							
+						$('#findtr').append($('#findtr').text()+msg);	
+					}//success
+					
+				},
+				error : function(e){
+					event.target.value="";
+				}
+				
+			}		
+		);//ajax
+}

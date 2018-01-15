@@ -7,8 +7,10 @@
 	<meta charset="UTF-8">
 </head>
 <body>
+
 	<script src="/SKI_Final/member/jquery-3.2.1.js"></script>
 	<script src="${project}member/script.js"></script>
+	
 	<form method="post" action="adminBarcodeAccountPro.do"
 		name="inputform" onsubmit="return adminBarcodeAccountCheck()">
 		<input type="hidden" name="confirm" value="0">

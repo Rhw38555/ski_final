@@ -4,6 +4,8 @@
 
 <!DOCTYPE html>
 <html>
+	 <script src="${project}member/jquery-3.2.1.js"></script>
+	 <script src="${project}member/jquery-barcode.js"></script>
 	<head>
 		<meta charset="UTF-8">
 		<style type="text/css">
@@ -42,14 +44,20 @@
 				border : 1px solid black;
 				margin : 0px;
 			}
-		</style>		
+		</style>
+		
+			
 	</head>
 
-	<body>
-	<script src="${project}member/script.js"></script>    
+	<body onload="generateBarcode('${user_barcode}')">
+	<script src="${project}member/script.js"></script> 
+	 
+    
  	<%@include file="/include/mainheader.jsp" %>
  	<%@include file="/include/mainnav.jsp" %>
+		
 		<section>
+		
 			<table>
 				<tr>
 					<th>
@@ -62,6 +70,7 @@
 				<input class="topright" type="button" value="부대시설" onclick="location='adminMain.do'">
 				<input class="bottomleft" type="button" value="이벤트정보" onclick="location='adminMain.do'">
 				<input class="bottomright" type="button" value="할인정보" onclick="location='adminMain.do'">
+					
 					</th>
 				</tr>
 			</table>
@@ -92,12 +101,15 @@
 						 최고온도 : ${tmx}
 					<br>
 						${wfKor}
+							
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<input class="button" type="button" value="WinterPark 오시는길" onclick="location='adminMain.do'">
+						<div id="barcodeTarget" class="barcodeTarget"></div>
 					</td>
+					
 				</tr>
 			</table>
 		</aside>	
