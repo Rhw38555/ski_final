@@ -4,7 +4,6 @@
 <%@ include file="setting.jsp"%>
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 
-<c:set var="memId" value="user1" scope="session"/>
 <!-- 정보 리스트 -->	          
  
 	<c:if test="${count == 0}">
@@ -28,7 +27,7 @@
 		<table class="table">
 			<tr>
 				<th colspan=4 align="right">
-					<c:if test="${sessionScope.adminId != null}">
+					<c:if test="${sessionScope.memId != null}">
 						<a href="QnaWriteForm.do">1:1문의 등록</a>
 					</c:if>
 				</th>

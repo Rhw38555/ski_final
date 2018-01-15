@@ -41,7 +41,7 @@ public class AdminFFWriteProHandler implements CommandHandler{
 		String path = request.getServletContext().getRealPath( "/ff" );
 		new File( path ).mkdir();
 		
-		System.out.println( "path : " + path ); // path √º≈©
+		System.out.println( "path : " + path ); // path Ï≤¥ÌÅ¨
 		
 		MultipartRequest multi
 			= new MultipartRequest( request, path, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy() );
@@ -56,9 +56,9 @@ public class AdminFFWriteProHandler implements CommandHandler{
 		System.out.println( "img : " + multi.getParameter( "img" ) );
 		System.out.println( "division : " + multi.getParameter( "division" ) );
 		
-		// Ω√º≥∏Ì set
+		// name set
 		ffDto.setName( multi.getParameter( "name" ) );
-		// ¡¶∏Ò set
+		// subject set
 		ffDto.setSubject( multi.getParameter( "subject" ) );
 		// category set
 		ffDto.setCategory( multi.getParameter( "category" ) );
