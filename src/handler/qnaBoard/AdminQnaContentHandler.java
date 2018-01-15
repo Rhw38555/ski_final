@@ -26,7 +26,7 @@ public class AdminQnaContentHandler implements CommandHandler{
 		String pageNum = request.getParameter( "pageNum" );
 		String current_status = request.getParameter( "current_status" );
 		
-		if( current_status.equals( "Á¢¼ö´ë±â" ) ) {
+		if( current_status.equals( "ì ‘ìˆ˜ëŒ€ê¸°" ) ) {
 			qnaDao.changeCurrentStatus( num );
 		}
 		
