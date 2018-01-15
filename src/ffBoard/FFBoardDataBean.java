@@ -1,16 +1,16 @@
 package ffBoard;
 
-// FF °Ô½ÃÆÇ µ¥ÀÌÅÍ ºó
+// FF ê²Œì‹œíŒ ë°ì´í„° ë¹ˆ
 public class FFBoardDataBean {
-	private int num; // ±Û¹øÈ£
-	private String name; // »óÈ£¸í / ½Ã¼³¸í
-	private String subject; // ±ÛÁ¦¸ñ
-	private String category; // °¡°Ô / ½Ã¼³ ºĞ·ù (ÇÑ/ÀÏ/¾ç/Áß/½º³¼ µî or ¾È³»/ÀÇ·á µî)
-	private String introduce; // °¡°Ô / ½Ã¼³ÀÇ ¼Ò°³±Û
-	private String location; // °¡°Ô / ½Ã¼³ÀÇ À§Ä¡
-	private String thumbnail; // °¡°Ô / ½Ã¼³ÀÇ ¼¶³×ÀÏ »çÁø
-	private String images; // °¡°Ô / ½Ã¼³ÀÇ ÀÚ¼¼ÇÑ »çÁøµé (µ¨¸®¹ÌÅÍ ±¸ºĞ ¿¹Á¤)
-	private String division; // °¡°Ô / ½Ã¼³ ±¸ºĞ. 0Àº °¡°Ô, 1Àº ½Ã¼³
+	private int num; // ê¸€ë²ˆí˜¸
+	private String name; // ìƒí˜¸ëª… / ì‹œì„¤ëª…
+	private String subject; // ê¸€ì œëª©
+	private String category; // ê°€ê²Œ / ì‹œì„¤ ë¶„ë¥˜ (í•œ/ì¼/ì–‘/ì¤‘/ìŠ¤ë‚µ ë“± or ì•ˆë‚´/ì˜ë£Œ ë“±)
+	private String introduce; // ê°€ê²Œ / ì‹œì„¤ì˜ ì†Œê°œê¸€
+	private String location; // ê°€ê²Œ / ì‹œì„¤ì˜ ìœ„ì¹˜
+	private String thumbnail; // ê°€ê²Œ / ì‹œì„¤ì˜ ì„¬ë„¤ì¼ ì‚¬ì§„
+	private String images; // ê°€ê²Œ / ì‹œì„¤ì˜ ìì„¸í•œ ì‚¬ì§„ë“¤ (ë¸ë¦¬ë¯¸í„° êµ¬ë¶„ ì˜ˆì •)
+	private String division; // ê°€ê²Œ / ì‹œì„¤ êµ¬ë¶„. 0ì€ ê°€ê²Œ, 1ì€ ì‹œì„¤
 	
 	
 	public int getNum() {

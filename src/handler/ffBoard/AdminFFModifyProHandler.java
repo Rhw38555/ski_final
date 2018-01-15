@@ -40,7 +40,7 @@ public class AdminFFModifyProHandler implements CommandHandler{
 		String path = request.getServletContext().getRealPath( "/ff" );
 		new File( path ).mkdir();
 		
-		System.out.println( "path : " + path ); // path √º≈©
+		System.out.println( "path : " + path ); // path Ï≤¥ÌÅ¨
 		
 		MultipartRequest multi
 			= new MultipartRequest( request, path, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy() );
@@ -61,14 +61,14 @@ public class AdminFFModifyProHandler implements CommandHandler{
 		// num set
 		ffDto.setNum( num );
 		
-		// Ω√º≥∏Ì set
+		// name set
 		if( multi.getParameter( "name" ) == null || multi.getParameter( "name" ).equals( "" ) ) {
 			ffDto.setName( ffOld.getName() );
 		} else {
 			ffDto.setName( multi.getParameter( "name" ) );
 		}
 		
-		// ¡¶∏Ò set
+		// ÔøΩÔøΩÔøΩÔøΩ set
 		if( multi.getParameter( "subject" ) == null || multi.getParameter( "subject" ).equals( "" ) ) {
 			ffDto.setSubject( ffOld.getSubject() );
 		} else {

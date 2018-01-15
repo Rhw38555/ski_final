@@ -39,7 +39,7 @@ public class AdminEventModifyProHandler implements CommandHandler{
 		String path =  request.getServletContext().getRealPath( "/event" );
 		new File( path ).mkdir();
 		
-		System.out.println("path: "+path); // path √º≈©
+		System.out.println("path: "+path); // path Ï≤¥ÌÅ¨
 		
 		MultipartRequest multi 
 			= new MultipartRequest( request, path, 1024*1024*10, "utf-8", new DefaultFileRenamePolicy() );			
@@ -47,7 +47,7 @@ public class AdminEventModifyProHandler implements CommandHandler{
 		// num set
 		eventDto.setNum( Integer.parseInt( multi.getParameter( "num" ) ) );
 		
-		//¿Ã∫•∆Æ ¡¶∏Ò set
+		//Ïù¥Î≤§Ìä∏ Ï†úÎ™© set
 		eventDto.setSubject( multi.getParameter( "subject" ) );                             
         System.out.println( eventDto.getSubject() );
 		// img set
@@ -78,8 +78,8 @@ public class AdminEventModifyProHandler implements CommandHandler{
         	ImageIO.write(tbuffer, "png", new File( timage ) );
         	ImageIO.write(tbuffer, "gif", new File( timage ) );
     	}
-    	System.out.println( "≥—:"+eventDto.getNum() );
-    	System.out.println( "ΩÊ≥◊¿œ:"+eventDto.getThumbnail() );
+    	System.out.println( "ÎÑò:"+eventDto.getNum() );
+    	System.out.println( "Ïç∏ÎÑ§Ïùº:"+eventDto.getThumbnail() );
 
     	// DB insert
 		int result = eventDao.updateArticle( eventDto );

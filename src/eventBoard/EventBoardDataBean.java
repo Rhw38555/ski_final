@@ -1,11 +1,11 @@
 package eventBoard;
 
-// ÀÌº¥Æ® °Ô½ÃÆÇ
+// ì´ë²¤íŠ¸ ê²Œì‹œíŒ
 public class EventBoardDataBean {
-	private int num; // ±Û¹øÈ£
-	private String subject; // ±ÛÁ¦¸ñ
-	private String thumbnail; // ¼¶³×ÀÏ °æ·Î
-	private String image; // ÀÌº¥Æ® ÀÌ¹ÌÁö °æ·Î
+	private int num; // ê¸€ë²ˆí˜¸
+	private String subject; // ê¸€ì œëª©
+	private String thumbnail; // ì„¬ë„¤ì¼ ê²½ë¡œ
+	private String image; // ì´ë²¤íŠ¸ ì´ë¯¸ì§€ ê²½ë¡œ
 	
 	public int getNum() {
 		return num;

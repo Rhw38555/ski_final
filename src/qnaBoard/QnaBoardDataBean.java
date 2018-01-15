@@ -1,13 +1,13 @@
 package qnaBoard;
 
-// QnA °Ô½ÃÆÇ
+// QnA ê²Œì‹œíŒ
 public class QnaBoardDataBean {
-	private int num; // ±Û¹øÈ£
-	private String id; // ÀÛ¼ºÀÚ
-	private String subject; // Á¦¸ñ
-	private String content; // ³»¿ë
-	private String answer; // ´äº¯³»¿ë
-	private String current_status; // ÇöÀç ±Û »óÅÂ
+	private int num; // ê¸€ë²ˆí˜¸
+	private String id; // ì‘ì„±ì
+	private String subject; // ì œëª©
+	private String content; // ë‚´ìš©
+	private String answer; // ë‹µë³€ë‚´ìš©
+	private String current_status; // í˜„ì¬ ê¸€ ìƒíƒœ
 	
 
 	public int getNum() {

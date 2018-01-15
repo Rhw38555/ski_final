@@ -23,7 +23,7 @@ public class AdminEventModifyFormHandler implements CommandHandler{
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
-		System.out.println( "num : " + request.getParameter("num")); // num üũ
+		System.out.println( "num : " + request.getParameter("num")); // num 체크
 		
 		int num = Integer.parseInt( request.getParameter("num"));
 		String pageNum = request.getParameter("pageNum");

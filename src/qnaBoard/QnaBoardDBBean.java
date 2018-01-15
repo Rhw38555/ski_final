@@ -6,73 +6,73 @@ import java.util.Map;
 import db.SqlMapClient;
 
 public class QnaBoardDBBean implements QnaBoardDao{
-	// ÀüÃ¼ ±Û °³¼ö °¡Á®¿À´Â getCountAdmin
+	// ì „ì²´ ê¸€ ê°œìˆ˜ ê°€ì ¸ì˜¤ëŠ” getCountAdmin
 	@Override
 	public int getCountAdmin() {
 		return SqlMapClient.getSqlSession().selectOne( "qnaBoard.getCountAdmin" );
 	}
 	
-	// »óÅÂº° ±Û °³¼ö °¡Á®¿À´Â getCountStatus
+	// ìƒíƒœë³„ ê¸€ ê°œìˆ˜ ê°€ì ¸ì˜¤ëŠ” getCountStatus
 	@Override
 	public int getCountStatus(String current_status) {
 		return SqlMapClient.getSqlSession().selectOne( "qnaBoard.getCountStatus", current_status );
 	}
 	
-	// ÇØ´ç À¯Àú ±Û °³¼ö °¡Á®¿À´Â getCount
+	// í•´ë‹¹ ìœ ì € ê¸€ ê°œìˆ˜ ê°€ì ¸ì˜¤ëŠ” getCount
 	@Override
 	public int getCount(String id) {
 		return SqlMapClient.getSqlSession().selectOne( "qnaBoard.getCount", id );
 	}
 	
-	// »õ·Î¿î ±Û µî·ÏÇÏ´Â insertAtricle
+	// ìƒˆë¡œìš´ ê¸€ ë“±ë¡í•˜ëŠ” insertAtricle
 	@Override
 	public int insertArticle(QnaBoardDataBean qnaDto) {
 		
 		return SqlMapClient.getSqlSession().insert( "qnaBoard.insertArticle", qnaDto );
 	}
 	
-	// ³» ±Û ¸ñ·Ï °¡Á®¿À´Â getMyArticles
+	// ë‚´ ê¸€ ëª©ë¡ ê°€ì ¸ì˜¤ëŠ” getMyArticles
 	@Override
 	public List<QnaBoardDataBean> getArticles(Map<String, Object> map) {
 		return SqlMapClient.getSqlSession().selectList( "qnaBoard.getArticles", map );
 	}
 	
-	// ±Û ¸ñ·Ï °¡Á®¿À´Â getArticles
+	// ê¸€ ëª©ë¡ ê°€ì ¸ì˜¤ëŠ” getArticles
 	@Override
 	public List<QnaBoardDataBean> getArticlesAdmin(Map<String, Object> map) {
 		return SqlMapClient.getSqlSession().selectList( "qnaBoard.getArticlesAdmin", map );
 	}
-	// »óÅÂ¿¡ µû¸¥ ±Û ¸ñ·Ï °¡Á®¿À´Â getArticlesStatus
+	// ìƒíƒœì— ë”°ë¥¸ ê¸€ ëª©ë¡ ê°€ì ¸ì˜¤ëŠ” getArticlesStatus
 	@Override
 	public List<QnaBoardDataBean> getArticlesStatus(Map<String, Object> map) {
 		return SqlMapClient.getSqlSession().selectList( "qnaBoard.getArticlesStatus", map );
 	}
 	
-	// ±Û ÇÑ°³ÀÇ ³»¿ëÀ» °¡Á®¿À´Â getArticle
+	// ê¸€ í•œê°œì˜ ë‚´ìš©ì„ ê°€ì ¸ì˜¤ëŠ” getArticle
 	@Override
 	public QnaBoardDataBean getArticle(int num) {
 		return SqlMapClient.getSqlSession().selectOne( "qnaBoard.getArticle", num );
 	}
 	
-	// ±Û Á¤º¸¸¦ À¯Àú°¡ ¼öÁ¤ÇÏ´Â updateUserArticle
+	// ê¸€ ì •ë³´ë¥¼ ìœ ì €ê°€ ìˆ˜ì •í•˜ëŠ” updateUserArticle
 	@Override
 	public int updateUserArticle(QnaBoardDataBean qnaDto) {
 		return SqlMapClient.getSqlSession().update( "qnaBoard.updateArticle", qnaDto );
 	}
 	
-	// ±Û Á¶È¸ ½Ã Ã³¸®ÁßÀ¸·Î º¯°æÇÏ´Â changeCurrentStatus
+	// ê¸€ ì¡°íšŒ ì‹œ ì²˜ë¦¬ì¤‘ìœ¼ë¡œ ë³€ê²½í•˜ëŠ” changeCurrentStatus
 	@Override
 	public void changeCurrentStatus(int num) {
 		SqlMapClient.getSqlSession().update( "qnaBoard.changeCurrentStatus", num );
 	}
 	
-	// ±Û¿¡ ´äº¯À» ´Ù´Â updateAnswerArticle
+	// ê¸€ì— ë‹µë³€ì„ ë‹¤ëŠ” updateAnswerArticle
 	@Override
 	public int updateAnswerArticle( Map<String, Object> map ) {
 		return SqlMapClient.getSqlSession().update( "qnaBoard.updateAnswerArticle", map );
 	}
 	
-	// ±ÛÀ» »èÁ¦ÇÏ´Â deleteArticle
+	// ê¸€ì„ ì‚­ì œí•˜ëŠ” deleteArticle
 	@Override
 	public int deleteArticle(int num) {
 		return SqlMapClient.getSqlSession().delete( "qnaBoard.deleteArticle", num );

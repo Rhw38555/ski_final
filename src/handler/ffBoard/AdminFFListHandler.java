@@ -26,24 +26,24 @@ public class AdminFFListHandler implements CommandHandler{
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
-		int count = 0;				// ÀüÃ¼±Û¼ö
+		int count = 0;				// ì „ì²´ê¸€ìˆ˜
 		
-		int pageBlock = 10;			// ÆäÀÌÁö ºí·Ï ¼ö
-		int pageSize = 8;			// ÇÑ ÆäÀÌÁö¿¡ Ãâ·ÂÇÒ ±ÛÀÇ ¼ö
-		String pageNum = null;		// ÇöÀçÆäÀÌÁö
-		int currentPage = 0;		// ÇöÀçÆäÀÌÁö
-		int start = 0;				// ÇöÀçÆäÀÌÁö ½ÃÀÛ ±Û¹øÈ£
-		int end = 0;				// ÇöÀçÆäÀÌÁö ³¡ ±Û¹øÈ£
-		int number = 0;				// Ãâ·ÂÇÒ ±Û¹øÈ£
+		int pageBlock = 10;			// í˜ì´ì§€ ë¸”ë¡ ìˆ˜
+		int pageSize = 8;			// í•œ í˜ì´ì§€ì— ì¶œë ¥í•  ê¸€ì˜ ìˆ˜
+		String pageNum = null;		// í˜„ì¬í˜ì´ì§€
+		int currentPage = 0;		// í˜„ì¬í˜ì´ì§€
+		int start = 0;				// í˜„ì¬í˜ì´ì§€ ì‹œì‘ ê¸€ë²ˆí˜¸
+		int end = 0;				// í˜„ì¬í˜ì´ì§€ ë ê¸€ë²ˆí˜¸
+		int number = 0;				// ì¶œë ¥í•  ê¸€ë²ˆí˜¸
 		
-		int startPage = 0;			// ÆäÀÌÁöÀÇ ½ÃÀÛ
-		int endPage = 0;			// ÆäÀÌÁöÀÇ ³¡
-		int pageCount = 0;			// ÆäÀÌÁöÀÇ °³¼ö
+		int startPage = 0;			// í˜ì´ì§€ì˜ ì‹œì‘
+		int endPage = 0;			// í˜ì´ì§€ì˜ ë
+		int pageCount = 0;			// í˜ì´ì§€ì˜ ê°œìˆ˜
 		String division = null;
 		
-		division = request.getParameter( "division" );		// ½Ã¼³ ±¸ºĞ 0 ÀüÃ¼ 1 ½ÄÀ½ 2 ºÎ´ë
+		division = request.getParameter( "division" );		// ì‹œì„¤ êµ¬ë¶„ 0 ì „ì²´ 1 ì‹ìŒ 2 ë¶€ëŒ€
 		
-		System.out.println("±¸ºĞ : " + division);
+		System.out.println("êµ¬ë¶„ : " + division);
 		
 		if( division == null || division.equals("0") ) {
 			division = "0";
@@ -51,16 +51,16 @@ public class AdminFFListHandler implements CommandHandler{
 		} else if ( ! division.equals( "0" ) && division != null ) {
 			String div = division;
 			if( div.equals("1") ) {
-				div = "½ÄÀ½½Ã¼³";
+				div = "ì‹ìŒì‹œì„¤";
 			} else if( div.equals("2") ) {
-				div = "ºÎ´ë½Ã¼³";
+				div = "ë¶€ëŒ€ì‹œì„¤";
 			}
 			count = ffDao.getCount( div );
 			System.out.println( div );
 		}
 		
-		System.out.println("Àç±¸ºĞ : " + division);
-		System.out.println("AdminEventBoard Ä«¿îÆ® : " + count);	// Ä«¿îÆ® Ã¼Å©¿ë ÄÜ¼Ö
+		System.out.println("ì¬êµ¬ë¶„ : " + division);
+		System.out.println("AdminEventBoard ì¹´ìš´íŠ¸ : " + count);	// ì¹´ìš´íŠ¸ ì²´í¬ìš© ì½˜ì†”
 		
 		request.setAttribute( "division", division );
 		request.setAttribute( "count", count );
@@ -115,9 +115,9 @@ public class AdminFFListHandler implements CommandHandler{
 				articles = ffDao.getArticles( map );
 			} else {
 				if( division.equals( "1" ) ) {
-					division = "½ÄÀ½½Ã¼³";
+					division = "ì‹ìŒì‹œì„¤";
 				} else if( division.equals( "2" ) ) {
-					division = "ºÎ´ë½Ã¼³";
+					division = "ë¶€ëŒ€ì‹œì„¤";
 				}
 				System.out.println(division);
 				map.put( "division", division );

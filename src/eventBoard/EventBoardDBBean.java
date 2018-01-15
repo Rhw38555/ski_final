@@ -6,38 +6,38 @@ import java.util.Map;
 import db.SqlMapClient;
 
 public class EventBoardDBBean implements EventBoardDao{
-	// ÀüÃ¼ ±Û °³¼ö °¡Á®¿À´Â getCount
+	// ì „ì²´ ê¸€ ê°œìˆ˜ ê°€ì ¸ì˜¤ëŠ” getCount
 	@Override
 	public int getCount() {
 		return SqlMapClient.getSqlSession().selectOne( "eventBoard.getCount" );
 	}
 	
-	// »õ·Î¿î ±Û µî·ÏÇÏ´Â insertAtricle
+	// ìƒˆë¡œìš´ ê¸€ ë“±ë¡í•˜ëŠ” insertAtricle
 	@Override
 	public int insertArticle(EventBoardDataBean eventDto) {
 		
 		return SqlMapClient.getSqlSession().insert( "eventBoard.insertArticle", eventDto );
 	}
 	
-	// ±Û ¸ñ·Ï °¡Á®¿À´Â getArticles
+	// ê¸€ ëª©ë¡ ê°€ì ¸ì˜¤ëŠ” getArticles
 	@Override
 	public List<EventBoardDataBean> getArticles(Map<String, Integer> map) {
 		return SqlMapClient.getSqlSession().selectList( "eventBoard.getArticles", map );
 	}
 	
-	// ±Û ÇÑ°³ÀÇ ³»¿ëÀ» °¡Á®¿À´Â getArticle
+	// ê¸€ í•œê°œì˜ ë‚´ìš©ì„ ê°€ì ¸ì˜¤ëŠ” getArticle
 	@Override
 	public EventBoardDataBean getArticle(int num) {
 		return SqlMapClient.getSqlSession().selectOne( "eventBoard.getArticle", num );
 	}
 	
-	// ±Û Á¤º¸¸¦ ¼öÁ¤ÇÏ´Â updateArticle
+	// ê¸€ ì •ë³´ë¥¼ ìˆ˜ì •í•˜ëŠ” updateArticle
 	@Override
 	public int updateArticle(EventBoardDataBean eventDto) {
 		return SqlMapClient.getSqlSession().update( "eventBoard.updateArticle", eventDto );
 	}
 	
-	// ±ÛÀ» »èÁ¦ÇÏ´Â deleteArticle
+	// ê¸€ì„ ì‚­ì œí•˜ëŠ” deleteArticle
 	@Override
 	public int deleteArticle(int num) {
 		return SqlMapClient.getSqlSession().delete( "eventBoard.deleteArticle", num );

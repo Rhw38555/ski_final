@@ -26,23 +26,23 @@ public class EventListHandler implements CommandHandler{
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 	
-		int count = 0;				// ÀüÃ¼±Û¼ö
+		int count = 0;				// ì „ì²´ê¸€ìˆ˜
 		
-		int pageBlock = 10;			// ÆäÀÌÁö ºí·Ï ¼ö
-		int pageSize = 8;			// ÇÑ ÆäÀÌÁö¿¡ Ãâ·ÂÇÒ ±ÛÀÇ ¼ö
-		String pageNum = null;		// ÇöÀçÆäÀÌÁö
-		int currentPage = 0;		// ÇöÀçÆäÀÌÁö
-		int start = 0;				// ÇöÀçÆäÀÌÁö ½ÃÀÛ ±Û¹øÈ£
-		int end = 0;				// ÇöÀçÆäÀÌÁö ³¡ ±Û¹øÈ£
-		int number = 0;				// Ãâ·ÂÇÒ ±Û¹øÈ£
+		int pageBlock = 10;			// í˜ì´ì§€ ë¸”ë¡ ìˆ˜
+		int pageSize = 8;			// í•œ í˜ì´ì§€ì— ì¶œë ¥í•  ê¸€ì˜ ìˆ˜
+		String pageNum = null;		// í˜„ì¬í˜ì´ì§€
+		int currentPage = 0;		// í˜„ì¬í˜ì´ì§€
+		int start = 0;				// í˜„ì¬í˜ì´ì§€ ì‹œì‘ ê¸€ë²ˆí˜¸
+		int end = 0;				// í˜„ì¬í˜ì´ì§€ ë ê¸€ë²ˆí˜¸
+		int number = 0;				// ì¶œë ¥í•  ê¸€ë²ˆí˜¸
 		
-		int startPage = 0;			// ÆäÀÌÁöÀÇ ½ÃÀÛ
-		int endPage = 0;			// ÆäÀÌÁöÀÇ ³¡
-		int pageCount = 0;			// ÆäÀÌÁöÀÇ °³¼ö
+		int startPage = 0;			// í˜ì´ì§€ì˜ ì‹œì‘
+		int endPage = 0;			// í˜ì´ì§€ì˜ ë
+		int pageCount = 0;			// í˜ì´ì§€ì˜ ê°œìˆ˜
 	
 		count = eventDao.getCount();
 		
-		System.out.println("eventBoard Ä«¿îÆ® : " + count);	// Ä«¿îÆ® Ã¼Å©¿ë ÄÜ¼Ö
+		System.out.println("eventBoard ì¹´ìš´íŠ¸ : " + count);	// ì¹´ìš´íŠ¸ ì²´í¬ìš© ì½˜ì†”
 		
 		request.setAttribute( "count", count );
 		

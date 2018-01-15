@@ -7,48 +7,48 @@ import db.SqlMapClient;
 
 public class FFBoardDBBean implements FFBoardDao{
 	
-	// ÀüÃ¼ ±Û °³¼ö °¡Á®¿À´Â getCount
+	// ì „ì²´ ê¸€ ê°œìˆ˜ ê°€ì ¸ì˜¤ëŠ” getCount
 	@Override
 	public int getCount() {
 		return SqlMapClient.getSqlSession().selectOne( "ffBoard.getCount" );
 	}
 	
-	// ½Ã¼³ ±¸ºĞÇÏ¿© ±Û °³¼ö °¡Á®¿À´Â getCount
+	// ì‹œì„¤ êµ¬ë¶„í•˜ì—¬ ê¸€ ê°œìˆ˜ ê°€ì ¸ì˜¤ëŠ” getCount
 	public int getCount( String division ) {
 		return SqlMapClient.getSqlSession().selectOne( "ffBoard.getCountDivision", division );
 	}
 	
-	// »õ·Î¿î ±Û µî·ÏÇÏ´Â insertAtricle
+	// ìƒˆë¡œìš´ ê¸€ ë“±ë¡í•˜ëŠ” insertAtricle
 	@Override
 	public int insertArticle(FFBoardDataBean ffDto) {
 		
 		return SqlMapClient.getSqlSession().insert( "ffBoard.insertArticle", ffDto );
 	}
 	
-	// ±Û ¸ñ·Ï °¡Á®¿À´Â getArticles
+	// ê¸€ ëª©ë¡ ê°€ì ¸ì˜¤ëŠ” getArticles
 	@Override
 	public List<FFBoardDataBean> getArticles(Map<String, Object> map) {
 		return SqlMapClient.getSqlSession().selectList( "ffBoard.getArticles", map );
 	}
 	
-	// ½Ã¼³º° ¸ñ·Ï °¡Á®¿À´Â getDivisionArticle
+	// ì‹œì„¤ë³„ ëª©ë¡ ê°€ì ¸ì˜¤ëŠ” getDivisionArticle
 	@Override
 	public List<FFBoardDataBean> getDivisionArticles(Map<String, Object> map) {
 		return SqlMapClient.getSqlSession().selectList( "ffBoard.getDivisionArticles", map );
 	}
-	// ±Û ÇÑ°³ÀÇ ³»¿ëÀ» °¡Á®¿À´Â getArticle
+	// ê¸€ í•œê°œì˜ ë‚´ìš©ì„ ê°€ì ¸ì˜¤ëŠ” getArticle
 	@Override
 	public FFBoardDataBean getArticle(int num) {
 		return SqlMapClient.getSqlSession().selectOne( "ffBoard.getArticle", num );
 	}
 	
-	// ±Û Á¤º¸¸¦ ¼öÁ¤ÇÏ´Â updateArticle
+	// ê¸€ ì •ë³´ë¥¼ ìˆ˜ì •í•˜ëŠ” updateArticle
 	@Override
 	public int updateArticle(FFBoardDataBean ffDto) {
 		return SqlMapClient.getSqlSession().update( "ffBoard.updateArticle", ffDto );
 	}
 	
-	// ±ÛÀ» »èÁ¦ÇÏ´Â deleteArticle
+	// ê¸€ì„ ì‚­ì œí•˜ëŠ” deleteArticle
 	@Override
 	public int deleteArticle(int num) {
 		return SqlMapClient.getSqlSession().delete( "ffBoard.deleteArticle", num );

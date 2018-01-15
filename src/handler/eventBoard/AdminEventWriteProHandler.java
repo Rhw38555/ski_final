@@ -39,12 +39,12 @@ public class AdminEventWriteProHandler implements CommandHandler{
 		String path =  request.getServletContext().getRealPath( "/event" );
 		new File( path ).mkdir();
 		
-		System.out.println("path: "+path); // path Ã¼Å©
+		System.out.println("path: "+path); // path ì²´í¬
 		
 		MultipartRequest multi 
 			= new MultipartRequest( request, path, 1024*1024*10, "utf-8", new DefaultFileRenamePolicy() );			
 		
-		//ÀÌº¥Æ® Á¦¸ñ set
+		// ì´ë²¤íŠ¸ ì œëª© set
 		eventDto.setSubject( multi.getParameter( "subject" ) );                             
         
 		// img set
