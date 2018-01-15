@@ -15,7 +15,13 @@ public class AdminEventDeleteFormHandler implements CommandHandler{
 	@RequestMapping( "/adminEventDeleteForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-
+		
+		int num = Integer.parseInt( request.getParameter("num"));
+		String pageNum = request.getParameter("pageNum");
+		
+		request.setAttribute( "num", num );
+		request.setAttribute( "pageNum", pageNum );
+		
 		return new ModelAndView( "eventBoard/adminEventDeleteForm" );
 	}
 

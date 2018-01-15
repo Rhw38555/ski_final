@@ -3,7 +3,42 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="FFBoard">
-  
-  	
+  <mapper namespace="ffBoard">
+  	<select id="getCount" resultType="int">
+  		select count(*) from WP_ffboard
+  	</select>
+  	<select id="getCountDivision" resultType="int" parameterType="String">
+  		select count(*) from WP_ffboard where division=#{division}
+  	</select>
+  	<insert id="insertArticle" parameterType="ffBoard.FFBoardDataBean">
+  		insert into WP_ffboard values( WP_ffboard_seq.NEXTVAL, #{name}, #{subject}, #{category},
+  		#{introduce}, #{location}, #{thumbnail}, #{images}, #{division}
+  		)
+  	</insert>
+  	<select id="getArticles" parameterType="HashMap" resultType="ffBoard.FFBoardDataBean">
+  		<![CDATA[
+  		select num, name, subject, category, introduce, location, thumbnail, division, r from
+  		( select num, name, subject, category, introduce, location, thumbnail, division, rownum r from 
+  		( select * from WP_ffboard order by num desc ) order by num desc ) where r >= #{start} and r <= #{end}
+  		]]>
+  	</select>
+  	<select id="getDivisionArticles" parameterType="HashMap" resultType="ffBoard.FFBoardDataBean">
+  		<![CDATA[
+  		select num, name, subject, category, introduce, location, thumbnail, division, r from
+  		( select num, name, subject, category, introduce, location, thumbnail, division, rownum r from 
+  		( select * from WP_ffboard where division=#{division} order by num desc ) 
+  		order by num desc ) where r >= #{start} and r <= #{end}
+  		]]>
+  	</select>
+  	<select id="getArticle" parameterType="int" resultType="ffBoard.FFBoardDataBean">
+  		select * from WP_ffboard where num = #{num}
+  	</select>
+  	<delete id="deleteArticle" parameterType="int">
+  		delete from WP_ffboard where num = #{num}
+  	</delete>
+  	<update id="updateArticle" parameterType="ffBoard.FFBoardDataBean">
+  		update WP_ffboard set name = #{name}, subject = #{subject},
+  		introduce = #{introduce}, location = #{location}, thumbnail = #{thumbnail}, images = #{images} 
+  		where num = #{num}
+  	</update>
   </mapper>

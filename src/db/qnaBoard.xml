@@ -3,7 +3,65 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="QnaBoard">
-  
-  	
+  <mapper namespace="qnaBoard">
+  	<select id="getCountAdmin" resultType="int">
+  		select count(*) from WP_qnaboard
+  		order by num desc
+  	</select>
+  	<select id="getCountStatus" resultType="int">
+  		select count(*) from WP_qnaboard
+  		where current_status = #{current_status}
+  		order by num desc
+  	</select>
+  	<select id="getCount" parameterType="String" resultType="int">
+  		select count(*) from WP_qnaboard
+  		where id = #{id}
+  		order by num desc
+  	</select>
+  	<insert id="insertArticle" parameterType="qnaBoard.QnaBoardDataBean">
+  		insert into WP_qnaboard( num, id, subject, content ) 
+  		values( WP_qnaboard_seq.NEXTVAL, #{id}, #{subject}, #{content} )
+  	</insert>
+  	<select id="getArticles" parameterType="HashMap" resultType="qnaBoard.QnaBoardDataBean">
+  		<![CDATA[
+  		select num, id, subject, content, answer, current_status, r from
+  		( select num, id, subject, content, answer, current_status, rownum r from 
+  		( select * from WP_qnaboard where id = #{id} order by num desc ) order by num desc ) 
+  		where r >= #{start} and r <= #{end}
+  		]]>
+  	</select>
+  	<select id="getArticlesAdmin" parameterType="HashMap" resultType="qnaBoard.QnaBoardDataBean">
+  		<![CDATA[
+  		select num, id, subject, content, answer, current_status, r from
+  		( select num, id, subject, content, answer, current_status, rownum r from 
+  		( select * from WP_qnaboard order by num desc ) order by num desc ) 
+  		where r >= #{start} and r <= #{end}
+  		]]>
+  	</select>
+  	<select id="getArticlesStatus" parameterType="HashMap" resultType="qnaBoard.QnaBoardDataBean">
+  		<![CDATA[
+  		select num, id, subject, content, answer, current_status, r from
+  		( select num, id, subject, content, answer, current_status, rownum r from 
+  		( select * from WP_qnaboard where current_status = #{current_status} order by num desc ) order by num desc ) 
+  		where r >= #{start} and r <= #{end}
+  		]]>
+  	</select>
+  	<select id="getArticle" parameterType="int" resultType="qnaBoard.QnaBoardDataBean">
+  		select * from WP_qnaboard where num = #{num}
+  	</select>
+  	<delete id="deleteArticle" parameterType="int">
+  		delete from WP_qnaboard where num = #{num}
+  	</delete>
+  	<update id="updateUserArticle" parameterType="qnaBoard.QnaBoardDataBean">
+  		update WP_qnaboard set subject = #{subject}, content = #{content} 
+  		where num = #{num}
+  	</update>
+  	<update id="changeCurrentStatus" parameterType="int">
+  		update WP_qnaboard set current_status = '처리중'
+  		where num = #{num}
+  	</update>
+  	<update id="updateAnswerArticle" parameterType="qnaBoard.QnaBoardDataBean">
+  		update WP_qnaboard set answer = #{answer}, current_status = '답변완료' 
+  		where num = #{num}
+  	</update>
   </mapper>

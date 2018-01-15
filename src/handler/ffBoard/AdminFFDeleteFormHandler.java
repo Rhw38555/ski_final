@@ -15,7 +15,11 @@ public class AdminFFDeleteFormHandler implements CommandHandler{
 	@RequestMapping( "/adminFFDeleteForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-
+		
+		request.setAttribute( "num", request.getParameter( "num" ) );
+		request.setAttribute( "pageNum", request.getParameter( "pageNum" ) );
+		request.setAttribute( "division", request.getParameter( "division" ) );
+		
 		return new ModelAndView( "ffBoard/adminFFDeleteForm" );
 	}
 
