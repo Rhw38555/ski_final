@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <center>
 <html>
+<script src="${project}member/script.js"></script> 
+<script src="${project}member/jquery-3.2.1.js"></script>
 	<head>
 		<meta charset="UTF-8">
 		<style type="text/css">
@@ -26,32 +28,13 @@
 		</style>		
 	</head>
 
-	<body onload="viewfocus()">
-<script src="${project}member/script.js"></script>    
-	
+	<body onload="memberUseHistoryCheck('${user_barcode}')">
+   
 		<header>${page_UseHistory}</header>
 		<%@include file="/include/mypageaside.jsp" %>
 		<section>
-			<table>
-				<tr>
-					<th colspan="3"> 사용 내역 </th>
-				</tr>
-				<tr>
-					<th> 품목 </th>
-					<th> 가격 </th>
-					<th> 누적 </th>
-				</tr>
-				<tr>
-						<td>김치찌개</td><!-- name -->
-						<td>6,000원</td><!-- product_price -->
-						<td>6,000원</td><!-- 전금액+product_price -->
-				</tr>
-			</table>
-			<table>
-				<tr>
-				<!-- 금액 받아오기 -->
-					<th> 총 금액 : 200,000원 </th>
-				</tr>
+			<table border="1"> 
+				<tbody id="findtr"></tbody>
 			</table>
 		</section>
 	</body>

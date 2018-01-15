@@ -67,5 +67,7 @@ public class BarcodeDBBean implements BarcodeDao{
 		return SqlMapClient.getSqlSession().selectOne("Barcode.getReceipt_barcode");
 	}
 	
-	
+	public String getUser_barcode(String id) {
+		return SqlMapClient.getSqlSession().selectOne("Barcode.getUser_barcode",id);
+	}
 }
