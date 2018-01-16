@@ -69,7 +69,6 @@
 				<input class="topright" type="button" value="부대시설" onclick="location='adminMain.do'">
 				<input class="bottomleft" type="button" value="이벤트정보" onclick="location='adminMain.do'">
 				<input class="bottomright" type="button" value="할인정보" onclick="location='adminMain.do'">
-					
 					</th>
 				</tr>
 			</table>
