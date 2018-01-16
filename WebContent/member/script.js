@@ -434,7 +434,7 @@ function generateBarcode(user_barcode) {
   }
 
 
-function memberUseHistoryCheck(user_barcode){
+function memberUseHistoryCheck(user_barcode) {
 	$.ajax(
 			{
 				type : "POST",
@@ -496,3 +496,120 @@ function memberUseHistoryCheck(user_barcode){
 			}		
 		);//ajax
 }
+
+function memberReserveCheck(memId){
+	$.ajax(
+			{
+				type : "POST",
+				url : "memberReservationCheck.do",
+				/*data : params,*/
+				data : {
+					value : memId
+				},
+				
+				//data : $('form').serialize(),
+				dataType : 'xml',
+				success : function(data){
+					
+					//var code = $(data).find('code').text();
+					var codeconfrim = $(data).find('code').text();
+					if(codeconfrim=='success'){
+						var memberdata = eval("("+$(data).find('data').text()+")");
+						var calPrice=0;
+						var msg ="<tr><th>아이디</th><th>예악 시작 날짜</th><th>예약 끝 날짜</th>" 
+							+"<th>2인룸 개수 </th><th>4인룸 개수</th><th>8인룸 개수</th><th>예약자명</th>" 
+							+"<th>전화번호</th><th>차번호</th><th>룸가격</th></tr>" 
+						
+						for(var i=0; i<memberdata.member.length;i++){
+						msg+="<tr>"
+							+"<td>"
+							+ memberdata.member[i].id
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].reg_date
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].room_date
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].room_2
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].room_4
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].room_8
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].name
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].tel
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].carnum
+							+"</td>"
+							+"<td>"
+							+ memberdata.member[i].room_price
+							+"</td>"
+							+"</tr>";
+							
+							calPrice += Number(memberdata.member[i].room_price);
+						}
+						
+					
+						var msg2 ="<tr><th>아이디</th><th>예악 시작 날짜</th><th>예약 끝 날짜</th>" 
+								+"<th>주간 스키권 개수 </th><th>야간 스키권 개수</th><th>일일 스키권 개수</th><th>예약자명</th>" 
+								+"<th>전화번호</th><th>차번호</th><th>룸가격</th></tr>" 
+								
+								for(var i=0; i<memberdata.member2.length;i++){
+									msg2+="<tr>"
+										+"<td>"
+										+ memberdata.member2[i].id
+										+"</td>"
+										+"<td>"
+										+ memberdata.member2[i].reg_date
+										+"</td>"
+										+"<td>"
+										+ memberdata.member2[i].ski_date
+										+"</td>"
+										+"<td>"
+										+ memberdata.member2[i].ski_morning
+										+"</td>"
+										+"<td>"
+										+ memberdata.member2[i].ski_night
+										+"</td>"
+										+"<td>"
+										+ memberdata.member2[i].ski_day
+										+"</td>"
+										+"<td>"
+										+ memberdata.member2[i].name
+										+"</td>"
+										+"<td>"
+										+ memberdata.member2[i].tel
+										+"</td>"
+										+"<td>"
+										+ memberdata.member2[i].carnum
+										+"</td>"
+										+"<td>"
+										+ memberdata.member2[i].ski_price
+										+"</td>"
+										+"</tr>";
+										
+										calPrice += Number(memberdata.member2[i].ski_price);
+									}
+								
+						
+						$('#allPrice').val(calPrice);	
+						$('#findtr').append($('#findtr').text()+msg);	
+						$('#findtr2').append($('#findtr2').text()+msg2);	
+					}//success
+					
+				},
+				error : function(e){
+					event.target.value="";
+				}
+			}		
+		);//ajax
+}
+

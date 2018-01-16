@@ -10,13 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
 import handler.CommandHandler;
 
 @Controller
-public class MemberReservationConfirmHandler implements CommandHandler{
+public class MemberReservationCheck implements CommandHandler{
 
-	@RequestMapping( "/memberReservationConfirm" )
+	@RequestMapping( "/memberReservationCheck" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
-		return new ModelAndView( "member/memberReservationConfirm" );
+		return new ModelAndView( "member/memberReservationCheck" );
 	}
 
 }

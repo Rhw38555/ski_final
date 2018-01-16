@@ -57,7 +57,6 @@
  	<%@include file="/include/mainnav.jsp" %>
 		
 		<section>
-		
 			<table>
 				<tr>
 					<th>
