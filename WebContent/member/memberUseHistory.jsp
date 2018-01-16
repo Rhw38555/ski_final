@@ -29,7 +29,6 @@
 	</head>
 
 	<body onload="memberUseHistoryCheck('${user_barcode}')">
-   
 		<header>${page_UseHistory}</header>
 		<%@include file="/include/mypageaside.jsp" %>
 		<section>
