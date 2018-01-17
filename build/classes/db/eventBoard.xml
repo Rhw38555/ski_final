@@ -3,7 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="EventBoard">
-  
-  	
+  <mapper namespace="eventBoard">
+  	<select id="getCount" resultType="int">
+  		select count(*) from WP_eventboard
+  	</select>
+  	<insert id="insertArticle" parameterType="eventBoard.EventBoardDataBean">
+  		insert into WP_eventboard values( WP_eventboard_seq.NEXTVAL, #{subject}, #{thumbnail}, #{image}	)
+  	</insert>
+  	<select id="getArticles" parameterType="HashMap" resultType="eventBoard.EventBoardDataBean">
+  		<![CDATA[
+  		select num, subject, thumbnail, r from
+  		( select num, subject, thumbnail, rownum r from 
+  		( select * from WP_eventboard order by num desc ) order by num desc ) 
+  		where r >= #{start} and r <= #{end}
+  		]]>
+  	</select>
+  	<select id="getArticle" parameterType="int" resultType="eventBoard.EventBoardDataBean">
+  		select * from WP_eventboard where num = #{num}
+  	</select>
+  	<delete id="deleteArticle" parameterType="int">
+  		delete from WP_eventboard where num = #{num}
+  	</delete>
+  	<update id="updateArticle" parameterType="eventBoard.EventBoardDataBean">
+  		update WP_eventboard set subject = #{subject}, thumbnail = #{thumbnail}, image = #{image} 
+  		where num = #{num}
+  	</update>  	
   </mapper>

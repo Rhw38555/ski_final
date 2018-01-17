@@ -15,7 +15,7 @@ public class MemberReservationConfirmHandler implements CommandHandler{
 	@RequestMapping( "/memberReservationConfirm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-
+		
 		return new ModelAndView( "member/memberReservationConfirm" );
 	}
 

@@ -13,11 +13,11 @@
     
     <script type="text/javascript">
     
-      function generateBarcode(barcode_name) {
+      function generateBarcode() {
         //var value = $("#barcodeValue").val();	//바코드 밑에 달리는 내용
         //var btype = $("input[name=btype]:checked").val();// 바코드 타입만드는부분
         //var renderer = $("input[name=renderer]:checked").val();// css로 결정
-        var value = barcode_name;
+        var value = "money_100000";
         var btype = "code128";
         var renderer ="css";
         
@@ -50,23 +50,14 @@
           }
       }
          
-//      <canvas id="canvasTarget" width="150" height="150"></canvas>
-
     </script>
   </head>
   
   <body onload="generateBarcode()">
   
-    <table border="1">
-    	<tr>
-    		<th>바코드</th>
-    		<td>
-	    		<div id="barcodeTarget" class="barcodeTarget"></div>
-	    		
-    		</td>
-    	<tr>
-    </table>
     
+	    		<div id="barcodeTarget" class="barcodeTarget"></div>
+	    	
   
   </body>
 </html>

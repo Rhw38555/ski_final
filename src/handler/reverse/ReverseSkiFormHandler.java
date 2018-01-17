@@ -15,7 +15,9 @@ public class ReverseSkiFormHandler implements CommandHandler{
 	@RequestMapping( "/reverseSkiForm" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-
+		
+		
+		
 		return new ModelAndView( "reverse/reverseSkiForm" );
 	}
 

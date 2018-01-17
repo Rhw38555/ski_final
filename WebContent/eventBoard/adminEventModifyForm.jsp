@@ -1,3 +1,72 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<h2>관리자 이벤트 수정 폼</h2>
+
+<%@ include file="setting.jsp"%>
+<link href="${project}${location}style.css" rel="stylesheet" type="text/css">
+<script src="${project}jquery-3.2.1.js"></script>
+
+
+<body>
+	<form method="post" enctype="multipart/form-data" action="adminEventModifyPro.do"
+	 	name="modifyform">
+		
+		<input type="hidden" name="num" value="${num}">
+		
+		<table>
+			<tr>
+				<th colspan="2" align="right">
+					&nbsp;&nbsp;&nbsp;
+				</th>
+			</tr>
+			<tr>
+				<th> ${str_subject} </th>
+				<td>
+					<input class="input" type="text" name="subject"
+						maxlength="50" style="width: 286px"
+					value="${eventDto.subject}">
+				</td>
+			</tr>
+			<tr>
+				<th> ${str_img} </th>
+				<td>
+					<input type="file" name="image" id="image" accept="image/*"	/><br>
+					<label for="image"></label>
+					<div id="imageP"></div>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="2">	
+					<input class="inputbutton" type="submit" value="${btn_mod}">
+					<input class="inputbutton" type="button" value="${btn_mod_cancel}"
+						onclick="location='adminEventList.do'">
+				</th>
+			</tr>
+		</table>	
+	</form>
+</body>
+
+<script>
+	//<!--
+	// 업로드 이미지 미리보기
+	$('#image').change(function() {
+		readImgUrlAndPreview(this);
+		function readImgUrlAndPreview(input){
+			if (input.files && input.files[0]) {
+		    	var reader = new FileReader();
+		        reader.onload = function (e) {			            	
+		        	var imageP = document.getElementById( "imageP" );
+		        	imageP.innerHTML = "<br><img src='"+e.target.result+"' style='width:100%;'>";
+				}
+		    };
+		reader.readAsDataURL(input.files[0]);
+		}	
+	});
+	// 기존 이미지 미리보기
+	$('document').ready(
+		function() {
+			var imageP = document.getElementById( "imageP" );
+			imageP.innerHTML = "<br><img src='${project}event/${eventDto.image}' style='width:100%;'>";
+		}		
+	);
+	//-->
+</script>

@@ -1,7 +1,19 @@
 package handler.main;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.OnClose;
+import javax.websocket.OnError;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.PathParam;
+import javax.websocket.server.ServerEndpoint;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -12,11 +24,17 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import barcode.BarcodeDao;
 import handler.CommandHandler;
+
 
 @Controller
 public class MainHandler implements CommandHandler{
-
+	
+	
+	@Resource
+	private BarcodeDao barcodeDao;
+	
 	@RequestMapping( "/main" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -46,7 +64,11 @@ public class MainHandler implements CommandHandler{
 	            }
 	         }//for node
 	        }
-		
+		if(request.getSession().getAttribute("memId") !=null && request.getSession().getAttribute("memId")!="") {
+			String user_barcode = barcodeDao.getUser_barcode((String)request.getSession().getAttribute("memId"));
+			request.setAttribute("user_barcode", user_barcode);
+			System.out.println(user_barcode);
+		}
 		
 		
 		return new ModelAndView( "main/main" );
