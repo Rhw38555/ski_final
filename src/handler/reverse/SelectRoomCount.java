@@ -10,15 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 import handler.CommandHandler;
 
 @Controller
-public class ReverseSkiFormHandler implements CommandHandler{
-
-	@RequestMapping( "/reverseSkiForm" )
+public class SelectRoomCount implements CommandHandler{
+	@RequestMapping( "/selectRoomCount" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		
-		
-		
-		return new ModelAndView( "reverse/reverseSkiForm" );
-	}
 
+		return new ModelAndView( "reverse/selectRoomCount" );
+	}
 }

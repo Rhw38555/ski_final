@@ -3,7 +3,54 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="Reverse">
+  <mapper namespace="reserve">
   
+  	<select id="ski_getcnt" resultType="int">
+  		select count(*) from WP_skireserve
+  	</select>
+  	
+  	<select id="ski_maxnum" parameterType="int" resultType="int">
+  		select max(num) from WP_skireserve
+  	</select>
+  	
+  	<insert id="ski_insert" parameterType="reverse.SkiReverseDataBean">
+  		insert into WP_skireserve values(#{num},#{id},#{reg_date},#{ski_date},#{ski_morning},
+  		#{ski_night},#{ski_day},#{name},#{tel},#{carnum, jdbcType=VARCHAR},#{ski_price})
+  	</insert>
+  	
+  	<select id="ski_getreserve" parameterType="int" resultType="reverse.SkiReverseDataBean">
+  		select * from wp_skireserve where num=#{num}
+  	</select> 
+  	
+  	<delete id="ski_delete" parameterType="reverse.SkiReverseDataBean">
+		delete from wp_skireserve where num=#{num}
+  	</delete> 
+  	
+  	<select id="room_getcnt" resultType="int">
+  		select count(*) from WP_roomreserve
+  	</select>
+  	
+  	<select id="room_maxnum" parameterType="int" resultType="int">
+  		select max(num) from WP_roomreserve
+  	</select>
+  	
+  	<insert id="room_insert" parameterType="reverse.RoomReverseDataBean">
+  		insert into WP_roomreserve values(#{num},#{id},#{reg_date},#{room_date},#{room_2},
+  		#{room_4},#{room_8},#{name},#{tel},#{carnum, jdbcType=VARCHAR},#{room_check},#{room_price})
+  	</insert>
+  	
+  	<select id="room_getreserve" parameterType="int" resultType="reverse.RoomReverseDataBean">
+  		select * from wp_roomreserve where num=#{num}
+  	</select>
+  	
+  	<delete id="room_delete" parameterType="reverse.RoomReverseDataBean">
+		delete from wp_roomreserve where num=#{num}
+  	</delete> 	
   	
   </mapper>
+  
+  
+  
+  
+  
+  
