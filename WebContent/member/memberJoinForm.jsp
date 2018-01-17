@@ -27,7 +27,7 @@
 			<tr>		
 				<th rowspan="2"> ${str_passwd} </th>
 				<td>
-					<input class="input" type="password" name="passwd" maxlength="15" onkeyup="passwdcheck()">
+					<input class="input" type="password" name="passwd" pattern="(?=.*\d)(?=.*[a-z]).{8,}" maxlength="15" onkeyup="passwdcheck()">
 				</td>
 				<td width="200"> <div id="passwdchk"></div> </td>
 			</tr>
