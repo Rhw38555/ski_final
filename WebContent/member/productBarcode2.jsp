@@ -5,9 +5,9 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %> 
 
     
-<!-- 상품정보 가져오기 -->
+<!--  -->
 <sql:query var="rs" dataSource="jdbc/kh">
-	select * from wp_product_barcodes where product_barcode=?
+	select * from wp_product_barcodes where maket=?
 	<sql:param value="${param.value}"/>
 </sql:query>
 
@@ -21,7 +21,8 @@
 						product_barcode : "${row.product_barcode}",
 						product_name : "${row.product_name}",
 						price : "${row.price}",
-						maket : "${row.maket}"
+						maket : "${row.maket}",
+						all_count : "${row.all_count}"
 					},
 				</c:forEach>
 			]

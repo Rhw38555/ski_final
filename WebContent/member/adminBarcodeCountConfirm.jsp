@@ -9,6 +9,10 @@
 <body>
 	<script src="/SKI_Final/member/jquery-3.2.1.js"></script>
 	<script src="${project}member/script.js"></script>
+	
+	<input type="button" value="계산하기" onclick="location.href='adminBarcodeAccountForm.do'">
+	<input type="button" value="환불하기" onclick="location.href='adminBarcodeRefundForm.do'">
+	
 	<form method="post" action="adminBarcodeAccountPro.do"
 		name="inputform" onsubmit="return adminBarcodeAccountCheck()">
 		<input type="hidden" name="confirm" value="0">
@@ -16,7 +20,7 @@
 			<tr>
 				<th>상품명</th>
 				<th>단가</th>
-				<th>수량</th>
+				<th>수량(재고수량)</th>
 				<th>구매일</th>
 			</tr>
 			<c:set var="num" value="0"/>
@@ -39,11 +43,19 @@
 		</table>
 		<input type="hidden" name="checknum" value="1">
 		<input class="sellbtn" type="button" value="가게 판매 내역 확인">
+		<input class="maketcount" type="button" value="가게 재고 확인">
 		<input type="reset" value="초기화">
 		</form>
 		</body>
 		<script type="text/javascript">
   		 //<!--
+  		 $(document).on(
+					$("input:text").keydown(
+					function(evt) { 
+						if (evt.keyCode == 13) return false; 
+						}
+					);
+				);
   		 
   		 $(document).on(
 						'keyup','.findP',
@@ -189,13 +201,62 @@
 													error : function(e){
 														
 													}
-													
 												}		
 											);//ajax
-										
-										
 									}
-								);//findbtn	
+								);//sellbtn	
+								
+								$(document).on(
+										'click','.maketcount',
+										function(event){
+											
+											$.ajax(
+													{
+														type : "POST",
+														url : "productBarcode2.do",
+														/*data : params,*/
+														data : {
+															value : 'A'
+														},
+														
+														//data : $('form').serialize(),
+														dataType : 'xml',
+														success : function(data){
+															//var code = $(data).find('code').text();
+															var codeconfrim = $(data).find('code').text();
+															if(codeconfrim=='success'){
+																
+																var memberdata = eval("("+$(data).find('data').text()+")");
+																
+																//var num = event.target.name.substr(7);
+																var num;
+																for(var i=0;i<memberdata.member.length;i++){
+																	num = Number(i)+1;
+																	appendtr();
+																	
+																	$('input[name=product'+(num)+']').val(memberdata.member[i].product_barcode);
+																	$('input[name=product'+(num)+']').attr("readonly",true);
+																	$('input[name=productName'+(num)+']').val(memberdata.member[i].product_name);
+																	$('input[name=productName'+(num)+']').attr("readonly",true);
+																	$('input[name=price'+(num)+']').val(memberdata.member[i].price);
+																	$('input[name=price'+(num)+']').attr("readonly",true);
+																	$('input[name=productCounts'+(num)+']').val(memberdata.member[i].all_count);
+																	var hiddenprice = memberdata.member[i].price/memberdata.member[i].product_count;
+																	$('input[name=hiddenprice'+(num)+']').val(hiddenprice);
+																
+																}
+																
+															}
+															
+														},
+														error : function(e){
+															
+														}
+													}		
+												);//ajax
+										}
+									);//maketcount
+								
   		 
   		 function appendtr(){
     	var boolarray = new Array();

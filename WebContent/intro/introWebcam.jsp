@@ -11,20 +11,19 @@
 
 <p><embed style="width: 480px; height: 380px;" 
 title="동영상 프레임" type="application/x-shockwave-flash" 
-src="show1.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
+src="/SKI_Final/intro/show1.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
 allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false">
 </p> 
 <p><embed style="width: 480px; height: 380px;" 
 title="동영상 프레임" type="application/x-shockwave-flash" 
-src="show2.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
+src="/SKI_Final/intro/show2.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
 allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false">
 </p> 
 <p><embed style="width: 480px; height: 380px;" 
 title="동영상 프레임" type="application/x-shockwave-flash" 
-src="show3.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
+src="/SKI_Final/intro/show3.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
 allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false">
 </p> 
-
 <input type="button" value="레몬탑승장" onclick="lemon()">
 <input type="button" value="오렌지탑승장" onclick="orange()">
 <input type="button" value="뉴오렌지탑승장" onclick="neworange()">
