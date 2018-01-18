@@ -1,5 +1,6 @@
-package handler.main;
+package handler.intro;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -7,18 +8,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import handler.CommandHandler;
-
+import member.LogonDao;
 
 @Controller
-public class MainHeaderHandler implements CommandHandler{
+public class AdminIntroCondoHandler implements CommandHandler{
 
-	@RequestMapping( "/mainheader" )
+	@Resource
+	private LogonDao logonDao;	
+	
+	@RequestMapping( "/adminintroCondo" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+
 		
-		return new ModelAndView( "include/mainheader" );
+		return new ModelAndView( "intro/adminintroCondo" );
 	}
 
 }

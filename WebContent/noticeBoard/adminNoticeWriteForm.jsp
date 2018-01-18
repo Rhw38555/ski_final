@@ -5,6 +5,10 @@
 <link href="${project}noticeBoard/style.css" rel="stylesheet" type="text/css">
 <script src="${project}noticeBoard/script.js"></script>
 
+<%@include file="/include/adminmainheader.jsp" %>
+<%@include file="/include/adminmainnav.jsp" %>
+<%@include file="/include/adminWinterParkaside.jsp" %>
+
 <h2> ${page_write} </h2>
 
 <body onload="writefocus()">
