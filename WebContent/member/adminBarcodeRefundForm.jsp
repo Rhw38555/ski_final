@@ -11,6 +11,7 @@
 	<script src="${project}member/script.js"></script>
 	
 	<input type="button" value="계산하기" onclick="location.href='adminBarcodeAccountForm.do'">
+	<input type="button" value="환불하기" onclick="location.href='adminBarcodeRefundForm.do'">
 	<input type="button" value="재고확인" onclick="location.href='adminBarcodeCountConfirm.do'">
 	
 	<form method="post" action="adminBarcodeRefundPro.do"

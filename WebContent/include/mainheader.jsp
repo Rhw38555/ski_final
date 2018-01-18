@@ -18,7 +18,8 @@
 				text-align: center;
 			}
 			header {
-				height : 100px;
+
+				height : 50%;
 				border : 1px solid black;
 			}
 			.loginbutton {
@@ -64,16 +65,16 @@
 				<c:if test="${sessionScope.memId != null}">
 					<table>
 						<tr>
-							<th>${user_barcode} ${sessionScope.memId} ${msg_loginmain}
+							<th>${sessionScope.memId} ${msg_loginmain}
 							</th>
 							<td>
 								<div id="barcodeTarget" class="barcodeTarget"></div>
 							</td>
+
 							<td>	 
 								<input class="loginbutton" type="button" value="${btn_logout}" onclick="location='memberLogout.do'"> 
 								<input class="loginbutton" type="button" value="${btn_mypage}" onclick="location='memberModifyForm.do'">
 								<!-- 바코드 버튼으로 변경하기 -->
-								
 							</td>
 							
 						</tr>
