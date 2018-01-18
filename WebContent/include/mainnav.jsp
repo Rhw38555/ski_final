@@ -23,9 +23,9 @@
 	<body>
 	<script src="${project}member/script.js"></script>   
 		<nav>
-			<input class="menubutton" type="button" value="${btn_winterPark}" onclick="location='introWinterPark.do'"> 
+			<input class="menubutton" type="button" value="${btn_winterPark}" onclick="location='WinterParkLiftPrice.do'"> 
 			<input class="menubutton" type="button" value="${btn_reservation}" onclick="location='reverseRoomForm.do'">
-			<input class="menubutton" type="button" value="${btn_skioom}" onclick="location='introCondoView.do'">
+			<input class="menubutton" type="button" value="${btn_skioom}" onclick="location='introSki.do'">
 			<input class="menubutton" type="button" value="${btn_eat}" onclick="location='ffList.do'">
 			<input class="menubutton" type="button" value="${btn_event}" onclick="location='eventList.do'">
 			<input class="menubutton" type="button" value="${btn_qa}" onclick="location='qnaList.do'">
