@@ -28,9 +28,6 @@
 	<select id="numcheck" parameterType="String" resultType="int">
 		select num from WP_member where id=#{id}
 	</select>	
-	<select id="getUsers" resultType="member.LogonDataBean">
-		select * from WP_member
-	</select>
 	
 </mapper>
   

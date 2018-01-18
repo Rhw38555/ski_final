@@ -9,7 +9,21 @@
 
 <h2> 실시간 웹캠 </h2>
 
-<h3> 화면 송출 부분 </h3>
+<p><embed style="width: 480px; height: 380px;" 
+title="동영상 프레임" type="application/x-shockwave-flash" 
+src="show1.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
+allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false">
+</p> 
+<p><embed style="width: 480px; height: 380px;" 
+title="동영상 프레임" type="application/x-shockwave-flash" 
+src="show2.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
+allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false">
+</p> 
+<p><embed style="width: 480px; height: 380px;" 
+title="동영상 프레임" type="application/x-shockwave-flash" 
+src="show3.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
+allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false">
+</p> 
 
 <input type="button" value="레몬탑승장" onclick="lemon()">
 <input type="button" value="오렌지탑승장" onclick="orange()">

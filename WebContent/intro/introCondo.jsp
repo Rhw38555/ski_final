@@ -7,9 +7,9 @@
 <%@include file="/include/mainnav.jsp" %>
 <%@include file="/include/introaside.jsp" %>
 <h2> 리프트요금안내 </h2>
-
+<c:if test="${ num == 0}">
 <input type="button" value="${btn_Reservation}" onclick="location='reverseRoomForm.do'">
-
+</c:if>
 <table border="1">
 	<tr>
 		<th rowspan="2"> 구분 </th>

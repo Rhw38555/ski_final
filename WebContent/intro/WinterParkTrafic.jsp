@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="setting.jsp" %>
+<script src="${project}${folder}script.js"></script>
+ 
+<%@include file="/include/mainheader.jsp" %>
+<%@include file="/include/mainnav.jsp" %>
+<%@include file="/include/WinterParkaside.jsp" %>
 	<h2>교통정보</h2>
 <%@ include file="setting.jsp" %>
 <script src="/SKI_Final/intro/jquery-3.2.1.js"></script>
