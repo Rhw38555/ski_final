@@ -24,11 +24,11 @@
 	<script src="${project}member/script.js"></script>   
 		<nav>
 			<input class="menubutton" type="button" value="${btn_winterPark}" onclick="location='adminWinterParkLiftPrice.do'"> 
-			<input class="menubutton" type="button" value="${btn_reservation}" onclick="location='adminreverseRoomForm.do'">
+			<input class="menubutton" type="button" value="${btn_reservation}" onclick="location='reverseRoomForm.do'">
 			<input class="menubutton" type="button" value="${btn_skioom}" onclick="location='adminintroSki.do'">
 			<input class="menubutton" type="button" value="${btn_eat}" onclick="location='adminFFList.do'">
 			<input class="menubutton" type="button" value="${btn_event}" onclick="location='adminEventList.do'">
-			<input class="menubutton" type="button" value="${btn_qa}" onclick="location='adminQnaList.do'">
+			<input class="menubutton" type="button" value="${btn_qa}" onclick="location='adminQnaList.do'">	
 		</nav>
 	</body>
 </html>

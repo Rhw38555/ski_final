@@ -103,7 +103,7 @@
 				
 				<tr>
 					<td>
-						<input class="button" type="button" value="WinterPark 오시는길" onclick="location='adminMain.do'">
+						<input class="button" type="button" value="WinterPark 오시는길" onclick="location='WinterParkTrafic.do'">
 						
 					</td>
 				</tr>
