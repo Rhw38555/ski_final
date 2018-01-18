@@ -47,13 +47,13 @@
 		</style>
 	</head>
 
-	<body onload="generateBarcode('${user_barcode}')">
+	<body>
 	<script src="${project}member/script.js"></script> 
 	
     
  	<%@include file="/include/mainheader.jsp" %>
  	<%@include file="/include/mainnav.jsp" %>
-		
+	
 		<section>
 			<table>
 				<tr>
@@ -104,7 +104,7 @@
 				<tr>
 					<td>
 						<input class="button" type="button" value="WinterPark 오시는길" onclick="location='adminMain.do'">
-						<div id="barcodeTarget" class="barcodeTarget"></div>
+						
 					</td>
 				</tr>
 			</table>

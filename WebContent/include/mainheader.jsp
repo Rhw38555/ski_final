@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %> 
+    
 <%@ include file="../member/setting.jsp" %>
 <!-- 로그인 -->
 <!-- 오른쪽 정렬-->
@@ -10,6 +13,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<style type="text/css">
+			
 			body{
 				text-align: center;
 			}
@@ -26,11 +30,24 @@
 				color : red;
 				border : 1px;
 			}
+			.barcodeTarget{
+				width: 50%;
+				height: 50%;
+			}
 		</style>
 		
 	</head>
-
-	<body>
+	<sql:query var="rs" dataSource="jdbc/kh">
+      select user_barcode from wp_user_barcodes where id=?
+   <sql:param value="${sessionScope.memId}"/>
+   </sql:query>
+   
+            <c:forEach var="row" items="${rs.rows}">
+                  <c:set var="user_barcode" value="${row.user_barcode}"/>
+            </c:forEach>
+            
+	<body onload="generateBarcode('${user_barcode}')">
+	
 	<script src="${project}member/script.js"></script>
 		<header> 
 			<form>
@@ -47,9 +64,11 @@
 				<c:if test="${sessionScope.memId != null}">
 					<table>
 						<tr>
-							<th>${sessionScope.memId} ${msg_loginmain}
+							<th>${user_barcode} ${sessionScope.memId} ${msg_loginmain}
 							</th>
 							<td>
+								<div id="barcodeTarget" class="barcodeTarget"></div>
+							
 								<input class="loginbutton" type="button" value="${btn_logout}" onclick="location='memberLogout.do'"> 
 								<input class="loginbutton" type="button" value="${btn_mypage}" onclick="location='memberModifyForm.do'">
 								<!-- 바코드 버튼으로 변경하기 -->
