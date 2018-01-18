@@ -11,9 +11,9 @@
 	<script src="/SKI_Final/member/jquery-3.2.1.js"></script>
 	<script src="${project}member/script.js"></script>
 	
+	<input type="button" value="계산하기" onclick="location.href='adminBarcodeAccountForm.do'">
 	<input type="button" value="환불하기" onclick="location.href='adminBarcodeRefundForm.do'">
 	<input type="button" value="재고확인" onclick="location.href='adminBarcodeCountConfirm.do'">
-	
 	
 	<form method="post" action="adminBarcodeAccountPro.do"
 		name="inputform" onsubmit="return adminBarcodeAccountCheck()">

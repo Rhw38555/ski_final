@@ -13,7 +13,7 @@
 				text-align: center;
 			}
 			aside {
-				width : 199px;
+				width : 199px;	
 				height : 280px;				
 				float : left;
 			}
@@ -108,9 +108,6 @@
 					</td>
 				</tr>
 			</table>
-			
-			
-
 		<br><br>
 		<div id="result"></div>
 		
@@ -118,5 +115,3 @@
 		<%@include file="/include/mainfooter.jsp" %>
 	</body>
 </html>
-
-	
