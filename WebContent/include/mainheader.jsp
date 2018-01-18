@@ -18,7 +18,7 @@
 				text-align: center;
 			}
 			header {
-				height : 50px;
+				height : 100px;
 				border : 1px solid black;
 			}
 			.loginbutton {
@@ -31,8 +31,8 @@
 				border : 1px;
 			}
 			.barcodeTarget{
-				width: 50%;
-				height: 50%;
+				width: 50px;
+
 			}
 		</style>
 		
@@ -68,7 +68,8 @@
 							</th>
 							<td>
 								<div id="barcodeTarget" class="barcodeTarget"></div>
-							
+							</td>
+							<td>	 
 								<input class="loginbutton" type="button" value="${btn_logout}" onclick="location='memberLogout.do'"> 
 								<input class="loginbutton" type="button" value="${btn_mypage}" onclick="location='memberModifyForm.do'">
 								<!-- 바코드 버튼으로 변경하기 -->
