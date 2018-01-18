@@ -6,6 +6,10 @@
 <%@ include file="setting.jsp"%>
 <script src="${project}noticeBoard/script.js"></script>
 
+<%@include file="/include/adminmainheader.jsp" %>
+<%@include file="/include/adminmainnav.jsp" %>
+<%@include file="/include/adminWinterParkaside.jsp" %>
+
 <h2> ${page_write} </h2>
 
 <c:if test="${result == 0}">

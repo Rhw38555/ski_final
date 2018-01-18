@@ -7,6 +7,10 @@
 <%@ include file="setting.jsp"%>
 <link href="${project}noticeBoard/style.css" rel="stylesheet" type="text/css">
 
+<%@include file="/include/adminmainheader.jsp" %>
+<%@include file="/include/adminmainnav.jsp" %>
+<%@include file="/include/adminWinterParkaside.jsp" %>
+
 <h2> ${page_content} </h2>
 <table>
 	<tr>
