@@ -49,52 +49,7 @@
 
 	<body onload="generateBarcode('${user_barcode}')">
 	<script src="${project}member/script.js"></script> 
-	<script type="text/javascript">
-		//<!--
-		
-		$(document).ready(
-			openserver()
-		);
-		
-		var ws = null;
-		function openserver() {
-			if(!window.WebSocket) {
-				return;
-			}
-			
-			//ws = new WebSocket("ws://echo.websocket.org");
-			//websocket/chat은 내가 맘대로
-			ws = new WebSocket("ws://localhost:8080/SKI_Final/main/main.do/'${sessionScope.memId}'");
-			if(!ws){
-				result.innerHTML +="서버 연결 실패<br>";
-			}else{
-				ws.onopen = function(){//연결할때
-					result.innerHTML +="서버 연결 성공<br>";
-				}
-				
-				ws.onclose = function(){
-					result.innerHTML +="서버 연결 종료<br>";
-				}
-				
-				ws.onmessage = function(evt){//서버로 들어온 메세지 수신
-					var msg = document.getElementById("msg");
-					msg.innerHTML += evt.data + "<br>";
-					result.innerHTML +="메세지 수신 성공<br>";
-				}
-			}
-		}
-		
-		function sendmsg(){
-			var result = document.getElementById("result");
-			var msg = inputform.id.value + ":" + inputform.message.value;
-			alert(msg);
-			ws.send("하이");
-			inputform.message.value="";
-			inputform.message.focus();
-			result.innerHTML +="메세지 송신 성공<br>";
-		}
-		//-->
-		</script> 
+	
     
  	<%@include file="/include/mainheader.jsp" %>
  	<%@include file="/include/mainnav.jsp" %>
@@ -153,30 +108,12 @@
 					</td>
 				</tr>
 			</table>
-			<form name="inputform">
-			<table border="1">
-				<tr>
-					<th>메세지</th>
-					<th>
-						<input type="text" name="id" size="5px"
-						 placeholder="대화명">
-					</th>
-					<td>
-					<input type="text" name="message" autofocus
-						placeholder="대화를 입력하세요">
-					</td>
-					<th>
-						<input type="button" value="전송" onclick="sendmsg()">
-					</th>
-					</tr>
-					<tr>
-						<th colspan="4">
-							<div id="msg"></div>
-						</th>
-					</tr>
-			</table>
-			</form>
-			<div id="result"></div>
+			
+			
+
+		<br><br>
+		<div id="result"></div>
+		
 		</aside>	
 		<%@include file="/include/mainfooter.jsp" %>
 	</body>
