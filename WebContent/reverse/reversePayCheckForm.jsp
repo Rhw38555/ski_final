@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 
 <c:if test="${check == 'ski'}">
 	<h2> 스키스키 </h2>
@@ -48,8 +46,7 @@
 				<th> 차량번호 </th>
 				<td colspan="3"> ${re.get(0).carnum} </td>
 			</tr>
-		</c:if>
-		
+		</c:if>		
 		<tr>
 			<th colspan="4"> 
 				<input type="button" value="확인">

@@ -1,64 +1,7 @@
 /*!
  */
  
-body{
-	font-family: "Trebuchet MS", sans-serif;
-	margin: 50px;
-}
-.totalbox{
-	float : left;
-}
-.checkbox{
-	border : 1px solid blue;
-	width : 200px;
-	height : 250px;
-	float : left;
-}
-.stepbox{
-	border : 1px solid black;
-	width : 100px;
-	height : 300px;
-	margin : 10px;
-	float : left;
-	clear : left;
-}
-.selectbox{
-	border : 2px solid green;
-	width : 700px;
-	height : 300px;
-	float : left;
-	margin : 10px;
-}
-#calbox{
-	float : left;
-	margin : 10px;
-}
-#roomcntbox{
-	float : center;
-	margin : 20px;
-}
-#btbox{
-	clear : left;
-	margin-left : auto;
-	margin-right : auto;
-}
-.count{
-	width : 30px;
-	border : 0px;
-	text-align : center;
-}
-#textbox{
-	float : center;
-	margin : 30px;
-}
-#roompricebox {
-	border : solid 1px black;
-	width : 150px;
-	height : 50px;
-}
-#bt1,#bt2,#bt3{
-	float : right;
-}
+
 
 
 

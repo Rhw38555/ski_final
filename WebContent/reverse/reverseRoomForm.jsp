@@ -7,28 +7,42 @@
       <title>reserveRoomForm</title>
       <link href="/SKI_Final/reverse/jquery-ui.css" rel="stylesheet">
       <link href="/SKI_Final/reverse/datepicker.css" rel="stylesheet">  
+      <link href="/SKI_Final/reverse/css/re.css" rel="stylesheet">  
+      
       <script src="/SKI_Final/reverse/jquery.js"></script>     
       <script src="/SKI_Final/reverse/reserveRoom.js"></script>   
 	  <script src="/SKI_Final/reverse/request.js"></script>
-	  <script src="/SKI_Final/reverse/jquery-ui.js"></script>	    
+	  <script src="/SKI_Final/reverse/jquery-ui.js"></script>	 
+	 
+	  <script src="./assets/js/jquery-migrate-1.2.1.min.js"></script>
+	  <script src="./assets/js/bootstrap.min.js"></script>
+	  <script src="./assets/js/jquery.actual.min.js"></script>
+	  <script src="./assets/js/jquery.scrollTo.min.js"></script>
+	  <script src="./assets/js/script.js"></script>
+		   
+	  <%@include file="/include/mainnav.jsp" %>
    </head>
 
    <body>   
+ 	
 	   <form method="post" action="reverseRoomPro.do">
-	   <input type="hidden" name="room_date" id="room_date">
-	   <input type="hidden" name="room_cnt" id="room_cnt">
-	   <input type="hidden" name="room_price" id="room_price">
-	   
-	   <input type="hidden" name="room_check" id="room_check">
+		   <input type="hidden" name="room_date" id="room_date">
+		   <input type="hidden" name="room_cnt" id="room_cnt">
+		   <input type="hidden" name="room_price" id="room_price">	   
+		   <input type="hidden" name="room_check" id="room_check">
 	   
 	      <!-- Datepicker -->
+      <div class="container">
+        <div class="row">
 	      <div class="totalbox">
+	      
 	         <div id="box1">
 	            <div class="stepbox">
-	               step 1<br>
-	               날짜 선택
-	            </div>
+	                step 1<br>
+	               	날짜 선택
+	            </div><!-- stepbox -->
 	            <div class="selectbox">
+	            <div class="calbox">
 	               <div id="calbox">   
 	                  <div id="datepicker1"></div>
 	                  <div id="re"></div>
@@ -37,11 +51,13 @@
 	                  <div id="datepicker2"></div>
 	                  <div id="re2"></div>
 	               </div>
+	            </div>
 	               <div id="btbox">
 	                  <input type="button" id="bt1" value="다음">
 	               </div>
-	            </div>
-	         </div>
+	            </div><!-- selectbox -->
+	         </div><!-- box1 -->
+	     
 	         <div id="box2">
 	            <div class="stepbox">
 	               step 2<br>
@@ -69,7 +85,7 @@
 		                    <input class="count" id="cnt8_0" value="0" readonly name="">
 		                    <input class="ran" id="pran8_0" value="+" count_range="p" type="button">
 		                  </div>
-	                  </div>
+	                  </div> <!-- roomdate1 -->
 	                  <div id="roomdate2">
 	                  	<div class="date" id="date2"></div>
 		                  <div class="__count_range">
@@ -90,7 +106,7 @@
 		                    <input class="count" id="cnt8_1" value="0" readonly name="">
 		                    <input class="ran" id="pran8_1" value="+" count_range="p" type="button">
 		                  </div>
-	                  </div>
+	                  </div><!-- roomdate2 -->
 	                  <div id="roomdate3">
 	                  	<div class="date" id="date3"></div>
 		                  <div class="__count_range">
@@ -111,7 +127,7 @@
 		                    <input class="count" id="cnt8_2" value="0" readonly name="">
 		                    <input class="ran" id="pran8_2" value="+" count_range="p" type="button">
 		                  </div>
-	                  </div>
+	                  </div><!-- roomdate3 -->
 	                  <br>            		                  
 		                          총 가격 : <div id="roompricebox"> </div>
 	                  <br><br>
@@ -137,8 +153,10 @@
 	               		<input type="button" id="backbt2" value="이전으로">	
 	               		<input type="button" id="bt3" value="다음">
 	            	</div> <!-- btbox -->
-	            </div>
-	         </div>
+	            </div> <!-- selectbox -->
+	         </div> <!-- box3 -->
+	      </div> <!-- totalbox -->
+	      </div>
 	      </div>
 	      <div class="checkbox">
 	         <table border="1">
@@ -152,11 +170,13 @@
 	            <input type="button" id="resetbt" value="다시설정">
 	            <input type="submit" id="paybt" value="결제">
 	         </div> <!-- btbox -->
-	      </div>
+	      </div><!-- checkbox -->
       </form>
       <div id="result"></div>
       <div id="result2"></div>
       <div id="result3"></div>
       <div id="result4"></div>
+      
    </body>
+   
 </html>
