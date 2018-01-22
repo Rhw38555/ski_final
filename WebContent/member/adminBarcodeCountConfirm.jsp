@@ -5,19 +5,72 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	
+<style>
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #5e5e5e; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td
+{
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even)
+{
+    background-color: #f2f2f2;
+}
+
+form {
+  background: -webkit-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  background: linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  margin: auto;
+  position: relative;
+  width: 95%; 
+  height: 450px;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 24px;
+  font-weight: bold;
+  color: #09C;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #999;
+  border: inset 1px solid #333;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+</style>
+
 </head>
 <body>
 	<script src="/SKI_Final/member/jquery-3.2.1.js"></script>
 	<script src="${project}member/script.js"></script>
-	
+	&nbsp;&nbsp;&nbsp;&nbsp;
 	<input type="button" value="계산하기" onclick="location.href='adminBarcodeAccountForm.do'">
 	<input type="button" value="환불하기" onclick="location.href='adminBarcodeRefundForm.do'">
 	<input type="button" value="재고확인" onclick="location.href='adminBarcodeCountConfirm.do'">
-	
+	<br><br>
 	<form method="post" action="adminBarcodeAccountPro.do"
 		name="inputform" onsubmit="return adminBarcodeAccountCheck()">
 		<input type="hidden" name="confirm" value="0">
-		<table border="1">
+		<div style="width:100%; height:450px; overflow:auto">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<th>상품명</th>
 				<th>단가</th>
@@ -42,6 +95,8 @@
 			</c:forEach>
 			<tbody id="findtr"></tbody>
 		</table>
+		</div>
+		<br>
 		<input type="hidden" name="checknum" value="1">
 		<input class="sellbtn" type="button" value="가게 판매 내역 확인">
 		<input class="maketcount" type="button" value="가게 재고 확인">
@@ -50,14 +105,14 @@
 		</body>
 		<script type="text/javascript">
   		 //<!--
-  		 $(document).on(
-					$("input:text").keydown(
-					function(evt) { 
-						if (evt.keyCode == 13) return false; 
+  		 $('form[name=inputform]').on(
+						'keydown',
+						function(evt){
+							if (evt.keyCode == 13) return false; 
 						}
-					);
-				);
-  		 
+					);//자동으로 서브밋 넘기는거 막기
+					
+					
   		 $(document).on(
 						'keyup','.findP',
 						function(event) {
