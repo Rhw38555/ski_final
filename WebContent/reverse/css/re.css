@@ -1,0 +1,131 @@
+/*
+*/
+
+.stepbox{
+	background-color : #FFF;
+	width : 200px;
+	min-height : 350px;
+	margin : 10px;
+	float : left;
+	clear : left;
+	text-color : gray; 
+	text-align : center;
+
+
+
+}
+.selectbox {
+    /*width:60%;*/
+    padding: 2em;
+    margin: 0 auto;
+    background:rgba(0, 142, 159, 0.74);
+    display: block;
+    
+	width : 700px;
+	min-height : 350px;
+	float : left;
+	margin : 10px;
+
+		
+}
+
+input[type="button"]{
+
+}
+#box1, #box2, #box3{
+
+}
+.ran{
+   margin-left: 5px;
+   margin-right: 5px;
+   box-shadow: 0px 5px 50px 0px rgba(0, 0, 0, 0.2);
+   height: 2.375rem;
+   min-width: 2.375rem;
+   width: 2.375rem;
+   padding: 0;
+   font-size: 0.9375rem;
+   overflow: hidden;
+   position: relative;
+   line-height: normal;
+   background-color: #FFFFFF;
+   color: #888;
+}
+
+.ran:focus{
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+#multipick {
+
+}
+.calbox{
+	margin : auto;
+}
+
+#re, #re2{
+    color: #FFFFFF;
+    font-size: 1em;
+    font-style: normal;
+    margin: .8em 0 0;
+    text-align : center;
+}
+
+.totalbox{
+	float : left;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.checkbox{
+	border : 1px solid blue;
+	width : 200px;
+	height : 250px;
+	float : left;
+	margin-left: 75%;
+}
+
+
+#calbox{
+	float : left;
+	margin : 10px;
+}
+#roomcntbox{
+	float : center;
+	margin : 20px;
+}
+#btbox{
+	clear : left;
+	margin-left : auto;
+	margin-right : auto;
+}
+.count{
+	width : 30px;
+	border : 0px;
+	text-align : center;
+}
+#textbox{
+	float : center;
+	margin : 30px;
+}
+#roompricebox {
+	border : solid 1px black;
+	width : 150px;
+	height : 50px;
+}
+#bt1,#bt2,#bt3,#backbt,#backbt1{
+	float : right;
+	font-weight: 400;
+    font-size: 0.8571em;
+    line-height: 1.35em;
+    margin: 5px 1px;
+    border: none;
+    cursor: pointer;
+    background-color: #888;
+    color: #FFFFFF;
+    border-width: 1px;
+    border-radius: 30px !important;
+    padding: 11px 23px;
+}

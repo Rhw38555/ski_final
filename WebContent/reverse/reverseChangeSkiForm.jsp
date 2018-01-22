@@ -14,43 +14,39 @@
 		<script src="/SKI_Final/reverse/request.js"></script>
 		<script src="/SKI_Final/reverse/jquery-ui.js"></script>
 		<script src="/SKI_Final/reverse/jquery-ui.multidatespicker.js"></script>
-		<script type="text/javascript">
-			
-	   </script>
 	</head>
 	<body>
-   <c:set var="cnt" value="0"/>
-   <c:forEach var="rs" items="${re}">
-   		<c:set var="cnt" value="${cnt+1}"/>
-   </c:forEach>
 	<form method="post" action="reverseChangeSkiPro.do" onsubmit="return finalcheck()">
-	   <input type="hidden" id="datecnt" value="${cnt}">
-	   <input type="hidden" id="finalcnt" name="finalcnt" value="0">
-	   <input type="hidden" name="num" id="num" value="${re.get(0).num}">
-	   <input type="hidden" id="reset_name" value="${re.get(0).name}">
-	   <input type="hidden" id="reset_ski_price" value="${re.get(0).ski_price}">
-	   <input type="hidden" id="reset_carnum" value="${re.get(0).carnum}">
-	   <input type="hidden" id="reset_tel" value="${re.get(0).tel}">
-	   <input type="hidden" id="reset_ski_date1" value="${re.get(0).ski_date}">
-	   <input type="hidden" id="reset_ski2_cnt0" value="${re.get(0).ski_morning}">
-	   <input type="hidden" id="reset_ski4_cnt0" value="${re.get(0).ski_night}">
-	   <input type="hidden" id="reset_ski8_cnt0" value="${re.get(0).ski_day}">
-	   <input type="hidden" class="skidateval" id="skidateval0" value="0">
-	   <input type="hidden" class="skidateval" id="skidateval1" value="0">
-	   <input type="hidden" class="skidateval" id="skidateval2" value="0">
-	   <c:if test="${cnt > 1}">
-	   	   <input type="hidden" id="reset_ski_date2" value="${re.get(1).ski_date}">
-		   <input type="hidden" id="reset_ski2_cnt1" value="${re.get(1).ski_morning}">
-		   <input type="hidden" id="reset_ski4_cnt1" value="${re.get(1).ski_night}">
-		   <input type="hidden" id="reset_ski8_cnt1" value="${re.get(1).ski_day}">
-	   </c:if>
-	   <c:if test="${cnt > 2}">
-	   	   <input type="hidden" id="reset_ski_date3" value="${re.get(2).ski_date}">
-	   	   <input type="hidden" id="reset_ski2_cnt2" value="${re.get(2).ski_morning}">
-		   <input type="hidden" id="reset_ski4_cnt2" value="${re.get(2).ski_night}">
-		   <input type="hidden" id="reset_ski8_cnt2" value="${re.get(2).ski_day}">
-	   </c:if>	 
-	
+		<c:set var="cnt" value="0"/>
+	    <c:forEach var="rs" items="${re}">
+	   		<c:set var="cnt" value="${cnt+1}"/>
+	    </c:forEach>
+		<input type="hidden" id="datecnt" value="${cnt}">
+		<input type="hidden" id="finalcnt" name="finalcnt" value="0">
+		<input type="hidden" name="num" id="num" value="${re.get(0).num}">
+		<input type="hidden" id="reset_name" value="${re.get(0).name}">
+		<input type="hidden" id="reset_ski_price" value="${re.get(0).ski_price}">
+		<input type="hidden" id="reset_carnum" value="${re.get(0).carnum}">
+		<input type="hidden" id="reset_tel" value="${re.get(0).tel}">
+		<input type="hidden" id="reset_ski_date1" value="${re.get(0).ski_date}">
+		<input type="hidden" id="reset_ski2_cnt0" value="${re.get(0).ski_morning}">
+		<input type="hidden" id="reset_ski4_cnt0" value="${re.get(0).ski_night}">
+		<input type="hidden" id="reset_ski8_cnt0" value="${re.get(0).ski_day}">
+		<input type="hidden" class="skidateval" id="skidateval0" value="0">
+		<input type="hidden" class="skidateval" id="skidateval1" value="0">
+		<input type="hidden" class="skidateval" id="skidateval2" value="0">
+		<c:if test="${cnt > 1}"> <!--스키예약 이틀 이상 했을 경우--> 
+			<input type="hidden" id="reset_ski_date2" value="${re.get(1).ski_date}">
+			<input type="hidden" id="reset_ski2_cnt1" value="${re.get(1).ski_morning}">
+			<input type="hidden" id="reset_ski4_cnt1" value="${re.get(1).ski_night}">
+			<input type="hidden" id="reset_ski8_cnt1" value="${re.get(1).ski_day}">
+		</c:if>
+		<c:if test="${cnt > 2}"> <!--스키예약 3일 다 했을 경우--> 
+			<input type="hidden" id="reset_ski_date3" value="${re.get(2).ski_date}">
+			<input type="hidden" id="reset_ski2_cnt2" value="${re.get(2).ski_morning}">
+			<input type="hidden" id="reset_ski4_cnt2" value="${re.get(2).ski_night}">
+			<input type="hidden" id="reset_ski8_cnt2" value="${re.get(2).ski_day}">
+		</c:if>	 
 		<input type="hidden" id="ski_date" name="ski_date">
 		<input type="hidden" id="ski_count" name="ski_count">
 		<input type="hidden" id="ski_price" name="ski_price">
@@ -65,117 +61,120 @@
 					<div id="multipick"></div>
 					<div id="a"></div>
 				</div>
-			</div>
+			</div><!-- box1 -->
 			<div id="box2">
 				<div class="stepbox">
-	                 step 2<br>
-	             	  스키권 선택
-	            </div>
-	            <div class="selectbox">
-                  <div id="skicntbox">              
-                     	<div id="skidate0">
-                        <div class="date" id="date0">
-                           <fmt:formatDate value="${re.get(0).ski_date}"
-                                 type="both" pattern="yyyy-MM-dd"/>
-                        </div>
-                        <div class="__count_range">
-                          2인실 (20,000) &nbsp;&nbsp;&nbsp;
-                          <input class="ran" id="mran2_0" type="button" value="-" count_range="m" >
-                          <input class="count" id="cnt2_0" value="${re.get(0).ski_morning}" readonly name="">
-                          <input class="ran" id="pran2_0" type="button" value="+" count_range="p" >
-                        </div>
-                        <div class="__count_range">
-                          4인실 (40,000)&nbsp;&nbsp;&nbsp;
-                          <input class="ran" id="mran4_0" value="-" count_range="m" type="button">
-                          <input class="count" id="cnt4_0" value="${re.get(0).ski_night}" readonly name="">
-                          <input class="ran" id="pran4_0" value="+" count_range="p" type="button">
-                        </div>
-                        <div class="__count_range">
-                          8인실 (80,000)&nbsp;&nbsp;&nbsp;
-                          <input class="ran" id="mran8_0" value="-" count_range="m" type="button">
-                          <input class="count" id="cnt8_0" value="${re.get(0).ski_day}" readonly name="">
-                          <input class="ran" id="pran8_0" value="+" count_range="p" type="button">
-                        </div>
-                     </div>
-                        <div id="skidate1">
-                           <div class="date" id="date1">
-                               <c:if test="${cnt > 1}">
-                                 <fmt:formatDate value="${re.get(1).ski_date}"
-                           type="both" pattern="yyyy-MM-dd"/>
-                           <c:set var="ski_2_1" value="${re.get(1).ski_morning}"/>
-                           <c:set var="ski_4_1" value="${re.get(1).ski_night}"/>
-                           <c:set var="ski_8_1" value="${re.get(1).ski_day}"/>
-                         </c:if>   
-                         <c:if test="${cnt < 2}">
-                            <c:set var="ski_2_1" value="0"/>
-                            <c:set var="ski_4_1" value="0"/>
-                            <c:set var="ski_8_1" value="0"/>
-                         </c:if>
-                           </div>
-                           <div class="__count_range">
-                             2인실 (20,000) &nbsp;&nbsp;&nbsp;
-                             <input class="ran" id="mran2_1" type="button" value="-" count_range="m" >
-                             <input class="count" id="cnt2_1" value="${ski_2_1}" readonly name="">
-                             <input class="ran" id="pran2_1" type="button" value="+" count_range="p" >
-                           </div>
-                           <div class="__count_range">
-                             4인실 (40,000)&nbsp;&nbsp;&nbsp;
-                             <input class="ran" id="mran4_1" value="-" count_range="m" type="button">
-                             <input class="count" id="cnt4_1" value="${ski_4_1}" readonly name="">
-                             <input class="ran" id="pran4_1" value="+" count_range="p" type="button">
-                           </div>
-                           <div class="__count_range">
-                             8인실 (80,000)&nbsp;&nbsp;&nbsp;
-                             <input class="ran" id="mran8_1" value="-" count_range="m" type="button">
-                             <input class="count" id="cnt8_1" value="${ski_8_1}" readonly name="">
-                             <input class="ran" id="pran8_1" value="+" count_range="p" type="button">
-                           </div>
-                        </div>
-                    
-                        <div id="skidate2">
-                           <div class="date" id="date2">
-                                <c:if test="${cnt > 2}">
-						              <fmt:formatDate value="${re.get(2).ski_date}"
-						        type="both" pattern="yyyy-MM-dd"/>
-						        <c:set var="ski_2_2" value="${re.get(2).ski_morning}"/>
-						        <c:set var="ski_4_2" value="${re.get(2).ski_night}"/>
-						        <c:set var="ski_8_2" value="${re.get(2).ski_day}"/>
-						      </c:if> 
-						      <c:if test="${cnt < 3}">
-					           <c:set var="ski_2_2" value="0"/>
-					           <c:set var="ski_4_2" value="0"/>
-					           <c:set var="ski_8_2" value="0"/>
-					        </c:if>  
-                           </div>
-                           <div class="__count_range">
-                             2인실 (20,000) &nbsp;&nbsp;&nbsp;
-                             <input class="ran" id="mran2_2" type="button" value="-" count_range="m" >
-                             <input class="count" id="cnt2_2" value="${ski_2_2}" readonly name="">
-                             <input class="ran" id="pran2_2" type="button" value="+" count_range="p" >
-                           </div>
-                           <div class="__count_range">
-                             4인실 (40,000)&nbsp;&nbsp;&nbsp;
-                             <input class="ran" id="mran4_2" value="-" count_range="m" type="button">
-                             <input class="count" id="cnt4_2" value="${ski_4_2}" readonly name="">
-                             <input class="ran" id="pran4_2" value="+" count_range="p" type="button">
-                           </div>
-                           <div class="__count_range">
-                             8인실 (80,000)&nbsp;&nbsp;&nbsp;
-                             <input class="ran" id="mran8_2" value="-" count_range="m" type="button">
-                             <input class="count" id="cnt8_2" value="${ski_8_2}" readonly name="">
-                             <input class="ran" id="pran8_2" value="+" count_range="p" type="button">
-                           </div>
-                  </div>                    
-                     <br>                                    
-                                총 가격 : <div id="skipricebox">${re.get(0).ski_price}</div>
-                     <br><br>
-                  </div> <!-- skicntbox -->
-               </div> <!-- selectbox -->
-            </div> <!-- box2 -->
+					step 2<br>
+					스키권 선택
+				</div>
+				<div class="selectbox">
+					<div id="skicntbox">              
+						<div id="skidate0">
+							<div class="date" id="date0">
+								<fmt:formatDate value="${re.get(0).ski_date}"
+									type="both" pattern="yyyy-MM-dd"/>
+							</div>
+							<div class="__count_range">
+								2인실 (20,000) &nbsp;&nbsp;&nbsp;
+								<input class="ran" id="mran2_0" type="button" value="-" count_range="m" >
+								<input class="count" id="cnt2_0" value="${re.get(0).ski_morning}" readonly name="">
+								<input class="ran" id="pran2_0" type="button" value="+" count_range="p" >
+							</div>
+							<div class="__count_range">
+								4인실 (40,000)&nbsp;&nbsp;&nbsp;
+								<input class="ran" id="mran4_0" value="-" count_range="m" type="button">
+								<input class="count" id="cnt4_0" value="${re.get(0).ski_night}" readonly name="">
+								<input class="ran" id="pran4_0" value="+" count_range="p" type="button">
+							</div>
+							<div class="__count_range">
+								8인실 (80,000)&nbsp;&nbsp;&nbsp;
+								<input class="ran" id="mran8_0" value="-" count_range="m" type="button">
+								<input class="count" id="cnt8_0" value="${re.get(0).ski_day}" readonly name="">
+								<input class="ran" id="pran8_0" value="+" count_range="p" type="button">
+							</div>
+						</div> <!-- skidate0 -->
+						<div id="skidate1">
+							<div class="date" id="date1">
+								<c:if test="${cnt > 1}">
+									<fmt:formatDate value="${re.get(1).ski_date}"
+										type="both" pattern="yyyy-MM-dd"/>
+									<c:set var="ski_2_1" value="${re.get(1).ski_morning}"/>
+									<c:set var="ski_4_1" value="${re.get(1).ski_night}"/>
+									<c:set var="ski_8_1" value="${re.get(1).ski_day}"/>
+								</c:if>   
+								<c:if test="${cnt < 2}">
+									<c:set var="ski_2_1" value="0"/>
+									<c:set var="ski_4_1" value="0"/>
+									<c:set var="ski_8_1" value="0"/>
+								</c:if>
+							</div>
+							<div class="__count_range">
+								2인실 (20,000) &nbsp;&nbsp;&nbsp;
+								<input class="ran" id="mran2_1" type="button" value="-" count_range="m" >
+								<input class="count" id="cnt2_1" value="${ski_2_1}" readonly name="">
+								<input class="ran" id="pran2_1" type="button" value="+" count_range="p" >
+							</div>
+							<div class="__count_range">
+								4인실 (40,000)&nbsp;&nbsp;&nbsp;
+								<input class="ran" id="mran4_1" value="-" count_range="m" type="button">
+								<input class="count" id="cnt4_1" value="${ski_4_1}" readonly name="">
+								<input class="ran" id="pran4_1" value="+" count_range="p" type="button">
+							</div>
+							<div class="__count_range">
+							8인실 (80,000)&nbsp;&nbsp;&nbsp;
+								<input class="ran" id="mran8_1" value="-" count_range="m" type="button">
+								<input class="count" id="cnt8_1" value="${ski_8_1}" readonly name="">
+								<input class="ran" id="pran8_1" value="+" count_range="p" type="button">
+							</div>
+						</div><!-- skidate1 -->
+					
+						<div id="skidate2">
+							<div class="date" id="date2">
+								<c:if test="${cnt > 2}">
+									<fmt:formatDate value="${re.get(2).ski_date}"
+										type="both" pattern="yyyy-MM-dd"/>
+									<c:set var="ski_2_2" value="${re.get(2).ski_morning}"/>
+									<c:set var="ski_4_2" value="${re.get(2).ski_night}"/>
+									<c:set var="ski_8_2" value="${re.get(2).ski_day}"/>
+								</c:if> 
+									<c:if test="${cnt < 3}">
+									<c:set var="ski_2_2" value="0"/>
+									<c:set var="ski_4_2" value="0"/>
+									<c:set var="ski_8_2" value="0"/>
+								</c:if>  
+							</div>
+							<div class="__count_range">
+								2인실 (20,000) &nbsp;&nbsp;&nbsp;
+								<input class="ran" id="mran2_2" type="button" value="-" count_range="m" >
+								<input class="count" id="cnt2_2" value="${ski_2_2}" readonly name="">
+								<input class="ran" id="pran2_2" type="button" value="+" count_range="p" >
+							</div>
+							<div class="__count_range">
+								4인실 (40,000)&nbsp;&nbsp;&nbsp;
+								<input class="ran" id="mran4_2" value="-" count_range="m" type="button">
+								<input class="count" id="cnt4_2" value="${ski_4_2}" readonly name="">
+								<input class="ran" id="pran4_2" value="+" count_range="p" type="button">
+							</div>
+							<div class="__count_range">
+								8인실 (80,000)&nbsp;&nbsp;&nbsp;
+								<input class="ran" id="mran8_2" value="-" count_range="m" type="button">
+								<input class="count" id="cnt8_2" value="${ski_8_2}" readonly name="">
+								<input class="ran" id="pran8_2" value="+" count_range="p" type="button">
+							</div>
+						</div> <!-- skidate2 -->                    
+						<br> 
+						총 가격 : 
+						<div id="skipricebox">
+							${re.get(0).ski_price}
+						</div> 
+						<br><br>
+					</div> <!-- skicntbox -->
+				</div> <!-- selectbox -->
+			</div> <!-- box2 -->
             <div id="box3">
                <div class="stepbox">
-                  step3<br>
-                  세부사항입력
+					step3<br>
+					세부사항입력
                </div>
                <div class="selectbox">
                   <div id="textbox">
@@ -183,104 +182,100 @@
                            value="${re.get(0).name}" onkeyup="name_keyup()"> <br>
                         *휴대폰번호 <input type="text" id="tel" name="tel" placeholder="-을 빼고 입력해주세요" 
                            value="${re.get(0).tel}" onkeyup="tel_keyup()"> <br>
-                        차량번호 <input type="text" id="carnum" name="carnum" placeholder="차량번호를 입력해주세요" 
+						차량번호 <input type="text" id="carnum" name="carnum" placeholder="차량번호를 입력해주세요" 
                            value="${re.get(0).carnum}" onkeyup="carnum_keyup()"> <br>
-                     </div>
-               </div>
-            </div>
-         </div>
+                  </div>
+               </div><!-- selectbox -->
+            </div><!-- box3 -->
+         </div> <!-- totalbox -->
          <div class="checkbox">
-            <table border="1">
-               <tr>
-                  <th colspan="4">예약 정보</th>
-               </tr>
-               <tbody  id="ta">
-                  <tr>
-                     <td> 날짜 </td>
-                     <td> 오전권 </td>
-                     <td> 야간권 </td>
-                     <td> 종일권 </td>
-                  </tr>
-                  <tr id="skiski_0">
-                     <th id="ski_date_0">  
-                        <fmt:formatDate value="${re.get(0).ski_date}"
-                     type="both" pattern="yyyy-MM-dd"/>
-                     </th>
-                     <td id="ski2_0"> ${re.get(0).ski_morning } </td>
-                     <td id="ski4_0"> ${re.get(0).ski_night } </td>
-                     <td id="ski8_0"> ${re.get(0).ski_day } </td>
-                  </tr>
-                  
-                  <tr id="skiski_1">
-                     <th id="ski_date_1">  
-                        <c:if test="${cnt > 1}">
-                           <fmt:formatDate value="${re.get(1).ski_date}"
-                        type="both" pattern="yyyy-MM-dd"/>
-                        <c:set var="ski2_1" value="${re.get(1).ski_morning }"/>
-                        <c:set var="ski4_1" value="${re.get(1).ski_night }"/>
-                        <c:set var="ski8_1" value="${re.get(1).ski_day }"/>
-                     </c:if>
-                     <c:if test="${cnt < 2}">
-                        <c:set var="ski2_1" value="0"/>
-                        <c:set var="ski4_1" value="0"/>
-                        <c:set var="ski8_1" value="0"/>
-                     </c:if>
-                     </th>
-                     <td id="ski2_1"> ${ski2_1} </td>
-                     <td id="ski4_1"> ${ski4_1} </td>
-                     <td id="ski8_1"> ${ski8_1} </td>
-                  </tr>
-                  
-                  <tr id="skiski_2">
-                     <th id="ski_date_2">  
-                        <c:if test="${cnt > 2}">
-                           <fmt:formatDate value="${re.get(2).ski_date}"
-                        type="both" pattern="yyyy-MM-dd"/>
-                        <c:set var="ski2_2" value="${re.get(2).ski_morning}"/>
-                        <c:set var="ski4_2" value="${re.get(2).ski_night }"/>
-                        <c:set var="ski8_2" value="${re.get(2).ski_day }"/>
-                     </c:if>
-                     <c:if test="${cnt < 3}">
-                        <c:set var="ski2_2" value="0"/>
-                        <c:set var="ski4_2" value="0"/>
-                        <c:set var="ski8_2" value="0"/>
-                     </c:if>                        
-                     </th>
-                     <td id="ski2_2"> ${ski2_2} </td>
-                     <td id="ski4_2"> ${ski4_2} </td>
-                     <td id="ski8_2"> ${ski8_2} </td>
-                  </tr>
-                  
-                  <tr>
-                     <th> 이름 </th>
-                     <td colspan="3" id="nametd"> ${re.get(0).name} </td>
-                  </tr>
-                  <tr>
-                     <th> 전화번호 </th>
-                     <td colspan="3" id="teltd"> ${re.get(0).tel} </td>
-                  </tr>
-                  
-                  <tr>
-                     <th> 차량번호 </th>
-                     <td colspan="3" id="carnumtd"> 
-                        <c:if test="${re.get(0).carnum != null}">
-                           ${re.get(0).carnum} 
-                        </c:if>
-                     </td>
-                  </tr>                     
-               </tbody>
-            </table>
-            <div id="btbox">
-               <input type="button" id="resetbt" value="다시설정">
-               <input type="button" id="back" value="변경취소">
-               <input type="submit" id="paybt" value="변경">
-            </div> <!-- btbox -->
-         </div>
-	 </form>
-	 <div id="result"></div>
-	 <div id="result2"></div>
-	 <div id="result3"></div>
-	 <div id="result4"></div>
+			<table border="1">
+				<tr>
+					<th colspan="4">예약 정보</th>
+				</tr>
+				<tbody  id="ta">
+					<tr>
+						<td> 날짜 </td>
+						<td> 오전권 </td>
+						<td> 야간권 </td>
+						<td> 종일권 </td>
+					</tr>
+					<tr id="skiski_0">
+						<th id="ski_date_0">  
+							<fmt:formatDate value="${re.get(0).ski_date}"
+								type="both" pattern="yyyy-MM-dd"/>
+						</th>
+						<td id="ski2_0"> ${re.get(0).ski_morning } </td>
+						<td id="ski4_0"> ${re.get(0).ski_night } </td>
+						<td id="ski8_0"> ${re.get(0).ski_day } </td>
+					</tr>			
+					<tr id="skiski_1">
+						<th id="ski_date_1">  
+							<c:if test="${cnt > 1}">
+								<fmt:formatDate value="${re.get(1).ski_date}"
+									type="both" pattern="yyyy-MM-dd"/>
+								<c:set var="ski2_1" value="${re.get(1).ski_morning }"/>
+								<c:set var="ski4_1" value="${re.get(1).ski_night }"/>
+								<c:set var="ski8_1" value="${re.get(1).ski_day }"/>
+							</c:if>
+								<c:if test="${cnt < 2}">
+								<c:set var="ski2_1" value="0"/>
+								<c:set var="ski4_1" value="0"/>
+								<c:set var="ski8_1" value="0"/>
+							</c:if>
+						</th>
+						<td id="ski2_1"> ${ski2_1} </td>
+						<td id="ski4_1"> ${ski4_1} </td>
+						<td id="ski8_1"> ${ski8_1} </td>
+					</tr>			
+					<tr id="skiski_2">
+						<th id="ski_date_2">  
+							<c:if test="${cnt > 2}">
+								<fmt:formatDate value="${re.get(2).ski_date}"
+									type="both" pattern="yyyy-MM-dd"/>
+								<c:set var="ski2_2" value="${re.get(2).ski_morning}"/>
+								<c:set var="ski4_2" value="${re.get(2).ski_night }"/>
+								<c:set var="ski8_2" value="${re.get(2).ski_day }"/>
+							</c:if>
+							<c:if test="${cnt < 3}">
+								<c:set var="ski2_2" value="0"/>
+								<c:set var="ski4_2" value="0"/>
+								<c:set var="ski8_2" value="0"/>
+							</c:if>                        
+						</th>
+						<td id="ski2_2"> ${ski2_2} </td>
+						<td id="ski4_2"> ${ski4_2} </td>
+						<td id="ski8_2"> ${ski8_2} </td>
+					</tr>			
+					<tr>
+						<th> 이름 </th>
+						<td colspan="3" id="nametd"> ${re.get(0).name} </td>
+					</tr>
+					<tr>
+						<th> 전화번호 </th>
+						<td colspan="3" id="teltd"> ${re.get(0).tel} </td>
+					</tr>
+					<tr>
+						<th> 차량번호 </th>
+						<td colspan="3" id="carnumtd"> 
+							<c:if test="${re.get(0).carnum != null}">
+								${re.get(0).carnum} 
+							</c:if>
+						</td>
+					</tr>                     
+				</tbody>
+			</table>
+				<div id="btbox">
+					<input type="button" id="resetbt" value="다시설정">
+					<input type="button" id="back" value="변경취소">
+					<input type="submit" id="paybt" value="변경">
+				</div> <!-- btbox -->
+			</div> <!-- checkbox -->
+		</form>
+		<div id="result"></div>
+		<div id="result2"></div>
+		<div id="result3"></div>
+		<div id="result4"></div>
 	</body>
 </html>  
     

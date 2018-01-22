@@ -9,7 +9,9 @@ var a = null;
 var first = 0;
 
 $(document).ready(function(){
-	//alert($('#reset_room_date1').val());
+	
+	setTimeout("getdate()",500);
+	
 	$('#reset_room_date1').val($('#date1').text());
 	$('#roomdate2').css('display','none');
 	$('#roomdate3').css('display','none');
@@ -24,16 +26,12 @@ $(document).ready(function(){
 			$('#roomdateval2').val('1');
 		}
 	}
-    setTimeout("getdate()",500);
     
-/*///////////////////////////////////////
- * 		달력1 / 2
-/*///////////////////////////////////////   
-
+    
+//// 달력
 	var date1 = null;
 	var date0 = strMindate($('#roomdate0').val());
-	var date11 = strMindate($('#roomdate1').val());
-	
+	var date11 = strMindate($('#roomdate1').val());	
     $('#datepicker1').datepicker({
         dateFormat: 'yy-mm-dd',
         inline: true,
@@ -59,8 +57,7 @@ $(document).ready(function(){
             	if(first != 1){
             		//alert(first);
             		modcount(); //원래 날짜 카운트는 빼준다.
-            	}           	   
-            	
+            	}           	              	
 		        if(getdateresult == 0){
 		    	    a = new Array();;
 			     	var recount = 0;
@@ -156,8 +153,7 @@ $(document).ready(function(){
         inline: true,
         minDate: date0,
         maxDate: date11,
-        onSelect: function(){
-        	
+        onSelect: function(){      	
         	date2 = $("#datepicker2").datepicker('getDate');
         	var day2 = $("#datepicker2").datepicker('getDate').getDate();                
 	        var month2  = $("#datepicker2").datepicker('getDate').getMonth() + 1;             
@@ -171,104 +167,16 @@ $(document).ready(function(){
         	}else if(strMindate($('#re').text()) == mydate){
         		alert('체크인과 체크아웃 날짜가 같습니다');
          		return;
-        	} 
-        	
-	        $('#re2').text(fullDate);
-	        
+        	}       	
+	        $('#re2').text(fullDate);	        
         	if(strMindate($('#re').text()) < mydate){  
         		modcount();
         		showstep2();
         	}           
         }
     });// Datepicker2
-    
-	function showstep2(){
-		if( $('#re').text() == '' ){
-			//alert('re.text 없ㅇ');
-			$('#roomcntbox').css('display','none');
-			$('#check_in').text('');
-			$('#check_out').text('');
-			return;
-		}else if( $('#re2').text() == '' ){
-			//alert('re2.text 없ㅇ');
-			$('#roomcntbox').css('display','none');
-			$('#check_in').text('');
-			$('#check_out').text('');
-			return;
-		}else{
-			$('#roomcntbox').css('display','');		
-			$('#roomdate1').css('display','none');
-			$('#roomdate2').css('display','none');
-			$('#roomdate3').css('display','none');
-			$('#roompricebox').text('');
-			for(var i=0; i<3; i++){
-				$('#roomdateval'+i).val('0');
-				$('#roomroom_'+i).css('display','none');
-				$('#room_date_'+i).text('');
-				$('#room2_'+i).text('0');
-				$('#room4_'+i).text('0');
-				$('#room8_'+i).text('0');
-				$('#cnt2_'+i).val('0');
-				$('#cnt4_'+i).val('0');
-				$('#cnt8_'+i).val('0');
-			}
-			var dat1 = strMindate($('#re').text());
-			var dat2 = strMindate($('#re2').text());			
-			var time = (dat2 - dat1)/(24 * 60 * 60 * 1000);
-			//alert(time);
-			  
-			$('#check_in').text($('#re').text());
-			$('#check_out').text($('#re2').text());
-			   
-			if(time >= 1){
-				$('#date1').text($('#re').text());
-				$('#room_date_0').text($('#re').text());
-				$('#roomdate1').css('display','');
-				$('#roomroom_0').css('display','');
-				$('#roomdateval0').val('1');
-				
-				if(time >= 2){					
-					//alert('2 들어와');
-					var date2 = new Date($('#re').text());
-					//alert(date2.getDate());
-					date2.setDate (date2.getDate() + 1);
-					var day = date2.getDate();                 
-					var month = date2.getMonth() + 1;             
-					var year = date2.getFullYear();
-					if(day.length == 1) day = "0"+day;
-					if(month.length == 1) month = "0"+month;
-					var datestr = year + "-" + month + "-" + day; 
-					//alert(datestr);
-					$('#room_date_1').text(datestr);
-					$('#date2').text(datestr);
-					//alert($('#date2').text());
-					$('#roomdate2').css('display','');
-					$('#roomroom_1').css('display','');
-					$('#roomdateval1').val('1');
-					
-					if(time >= 3){
-						$('#roomdate3').css('display','');
-						$('#roomroom_2').css('display','');
-						$('#roomdateval2').val('1');
-						date2.setDate (date2.getDate() + 1);
-						day = date2.getDate();                 
-						month = date2.getMonth() + 1;             
-						year = date2.getFullYear();
-						if(day.length == 1) day = "0"+day;
-						if(month.length == 1) month = "0"+month;
-						datestr = year + "-" + month + "-" + day; 
-						$('#date3').text(datestr);
-						$('#room_date_2').text(datestr);
-					}
-				}
-			}
-		//setcount = setInterval("getcount()",1000);
-		}              
-	}
-    
-/*///////////////////////////////////////
- * 		+ - 클릭
-/*///////////////////////////////////////    
+
+   
     $('.__count_range input[count_range]').click(function(e){
         e.preventDefault();
         var type = $(this).attr('count_range');
@@ -289,31 +197,6 @@ $(document).ready(function(){
         price();
     });
 
-	 function price(){
-		 var price=(parseInt($('#cnt2_0').val())*20000)
-			 +(parseInt($('#cnt2_1').val())*20000)
-			 +(parseInt($('#cnt2_2').val())*20000)
-			 +(parseInt($('#cnt4_0').val())*40000)
-			 +(parseInt($('#cnt4_1').val())*40000)
-			 +(parseInt($('#cnt4_2').val())*40000)
-			 +(parseInt($('#cnt8_0').val())*80000)
-			 +(parseInt($('#cnt8_1').val())*80000)
-			 +(parseInt($('#cnt8_2').val())*80000);  	
-		 $('#roompricebox').text(price); 		 
-		 $('#room2_0').text($('#cnt2_0').val());
-		 $('#room4_0').text($('#cnt4_0').val());
-		 $('#room8_0').text($('#cnt8_0').val());
-		 if($('#datecnt').val() > 1){
-			 $('#room2_1').text($('#cnt2_1').val());
-			 $('#room4_1').text($('#cnt4_1').val());
-			 $('#room8_1').text($('#cnt8_1').val());
-			 if($('#datecnt').val() > 2){
-				 $('#room2_2').text($('#cnt2_2').val());
-				 $('#room4_2').text($('#cnt4_2').val());
-				 $('#room8_2').text($('#cnt8_2').val());
-			 }
-		 }		 
-	 } //price
 
     $(document).on('click','#mran2_0',function(e){
 		insertcnt($('#date1').text(),'1','room_2');		
@@ -417,9 +300,116 @@ $(document).ready(function(){
 	});	
 });//ready
  
-////////////////////////////////////////////////////
+function showstep2(){
+	if( $('#re').text() == '' ){
+		//alert('re.text 없ㅇ');
+		$('#roomcntbox').css('display','none');
+		$('#check_in').text('');
+		$('#check_out').text('');
+		return;
+	}else if( $('#re2').text() == '' ){
+		//alert('re2.text 없ㅇ');
+		$('#roomcntbox').css('display','none');
+		$('#check_in').text('');
+		$('#check_out').text('');
+		return;
+	}else{
+		$('#roomcntbox').css('display','');		
+		$('#roomdate1').css('display','none');
+		$('#roomdate2').css('display','none');
+		$('#roomdate3').css('display','none');
+		$('#roompricebox').text('');
+		for(var i=0; i<3; i++){
+			$('#roomdateval'+i).val('0');
+			$('#roomroom_'+i).css('display','none');
+			$('#room_date_'+i).text('');
+			$('#room2_'+i).text('0');
+			$('#room4_'+i).text('0');
+			$('#room8_'+i).text('0');
+			$('#cnt2_'+i).val('0');
+			$('#cnt4_'+i).val('0');
+			$('#cnt8_'+i).val('0');
+		}
+		var dat1 = strMindate($('#re').text());
+		var dat2 = strMindate($('#re2').text());			
+		var time = (dat2 - dat1)/(24 * 60 * 60 * 1000);
+		//alert(time);
+		  
+		$('#check_in').text($('#re').text());
+		$('#check_out').text($('#re2').text());
+		   
+		if(time >= 1){
+			$('#date1').text($('#re').text());
+			$('#room_date_0').text($('#re').text());
+			$('#roomdate1').css('display','');
+			$('#roomroom_0').css('display','');
+			$('#roomdateval0').val('1');
+			
+			if(time >= 2){					
+				//alert('2 들어와');
+				var date2 = new Date($('#re').text());
+				//alert(date2.getDate());
+				date2.setDate (date2.getDate() + 1);
+				var day = date2.getDate();                 
+				var month = date2.getMonth() + 1;             
+				var year = date2.getFullYear();
+				if(day.length == 1) day = "0"+day;
+				if(month.length == 1) month = "0"+month;
+				var datestr = year + "-" + month + "-" + day; 
+				//alert(datestr);
+				$('#room_date_1').text(datestr);
+				$('#date2').text(datestr);
+				//alert($('#date2').text());
+				$('#roomdate2').css('display','');
+				$('#roomroom_1').css('display','');
+				$('#roomdateval1').val('1');
+				
+				if(time >= 3){
+					$('#roomdate3').css('display','');
+					$('#roomroom_2').css('display','');
+					$('#roomdateval2').val('1');
+					date2.setDate (date2.getDate() + 1);
+					day = date2.getDate();                 
+					month = date2.getMonth() + 1;             
+					year = date2.getFullYear();
+					if(day.length == 1) day = "0"+day;
+					if(month.length == 1) month = "0"+month;
+					datestr = year + "-" + month + "-" + day; 
+					$('#date3').text(datestr);
+					$('#room_date_2').text(datestr);
+				}
+			}
+		}
+	//setcount = setInterval("getcount()",1000);
+	}              
+}
 
-///////////////////////////////////////////////////
+function price(){
+	 var price=(parseInt($('#cnt2_0').val())*20000)
+		 +(parseInt($('#cnt2_1').val())*20000)
+		 +(parseInt($('#cnt2_2').val())*20000)
+		 +(parseInt($('#cnt4_0').val())*40000)
+		 +(parseInt($('#cnt4_1').val())*40000)
+		 +(parseInt($('#cnt4_2').val())*40000)
+		 +(parseInt($('#cnt8_0').val())*80000)
+		 +(parseInt($('#cnt8_1').val())*80000)
+		 +(parseInt($('#cnt8_2').val())*80000);  	
+	 $('#roompricebox').text(price); 		 
+	 $('#room2_0').text($('#cnt2_0').val());
+	 $('#room4_0').text($('#cnt4_0').val());
+	 $('#room8_0').text($('#cnt8_0').val());
+	 if($('#datecnt').val() > 1){
+		 $('#room2_1').text($('#cnt2_1').val());
+		 $('#room4_1').text($('#cnt4_1').val());
+		 $('#room8_1').text($('#cnt8_1').val());
+		 if($('#datecnt').val() > 2){
+			 $('#room2_2').text($('#cnt2_2').val());
+			 $('#room4_2').text($('#cnt4_2').val());
+			 $('#room8_2').text($('#cnt8_2').val());
+		 }
+	 }		 
+} //price
+
 function finalcheck(){
 	var cnt1 = parseInt($('#cnt2_0').val())+parseInt($('#cnt4_0').val())+parseInt($('#cnt8_0').val());
     var cnt2 = parseInt($('#cnt2_1').val())+parseInt($('#cnt4_1').val())+parseInt($('#cnt8_1').val());
