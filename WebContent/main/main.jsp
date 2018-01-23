@@ -8,6 +8,7 @@
 	 <script src="${project}member/jquery-barcode.js"></script>
 	<head>
 		<meta charset="UTF-8">
+		<!-- 
 		<style type="text/css">
 			body{
 				text-align: center;
@@ -45,32 +46,58 @@
 				margin : 0px;
 			}
 		</style>
+		 -->
 	</head>
 
 	<body>
 	<script src="${project}member/script.js"></script> 
 	
-    
+    <%@include file="/include/mainnav.jsp" %>
  	<%@include file="/include/mainheader.jsp" %>
- 	<%@include file="/include/mainnav.jsp" %>
-	
-		<section>
-			<table>
-				<tr>
-					<th>
-				<input class="admin" type="button" value="공지사항" onclick="location='adminMain.do'">
-					</th>
-				</tr>
-				<tr>
-					<th>	
-				<input class="topleft" type="button" value="먹거리" onclick="location='adminMain.do'">
-				<input class="topright" type="button" value="부대시설" onclick="location='adminMain.do'">
-				<input class="bottomleft" type="button" value="이벤트정보" onclick="location='adminMain.do'">
-				<input class="bottomright" type="button" value="할인정보" onclick="location='adminMain.do'">
-					</th>
-				</tr>
-			</table>
-		</section>
+ 	
+	<div class="content-block" id="portfolio">
+		<div class="container">
+			<section class="block-body">
+				<div class="row">
+					<div class="col-sm-4 blog-post">
+						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
+							<h2 style="color:white">먹거리</h2>
+						</a>
+					</div>
+					<div class="col-sm-4 blog-post">
+						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
+							<h2 style="color:white">부대시설</h2>
+						</a>
+					</div>
+					<div class="col-sm-4 blog-post">
+						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
+							<h2 style="color:white">이벤트 정보</h2>
+						</a>
+					</div>
+					
+				</div>
+				<div class="row">
+					<div class="col-sm-4 blog-post">
+						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
+							<h2 style="color:white">할인 정보</h2>
+						</a>
+					</div>
+					<div class="col-sm-4 blog-post">
+						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
+							<h2 style="color:white">공지사항</h2>
+						</a>
+					</div>
+					<div class="col-sm-4 blog-post">
+						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
+							<h2 style="color:white">통합예약</h2>
+						</a>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div><!-- #portfolio -->
+			
+
 		<aside>
 			<table border="1">
 				<tr>
@@ -110,7 +137,7 @@
 			</table>
 		<br><br>
 		<div id="result"></div>
-		
+		</div>
 		</aside>	
 		<%@include file="/include/mainfooter.jsp" %>
 	</body>

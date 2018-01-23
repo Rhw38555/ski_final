@@ -12,6 +12,7 @@
 	 <script src="${project}member/jquery-barcode.js"></script>
 	<head>
 		<meta charset="UTF-8">
+		<!-- 
 		<style type="text/css">
 			
 			body{
@@ -36,7 +37,7 @@
 
 			}
 		</style>
-		
+		 -->
 	</head>
 	<sql:query var="rs" dataSource="jdbc/kh">
       select user_barcode from wp_user_barcodes where id=?
@@ -51,38 +52,34 @@
 	
 	<script src="${project}member/script.js"></script>
 		<header> 
-			<form>
-				<c:if test="${sessionScope.memId == null}">
-					<table>
-						<tr>
-							<th colspan="3">		 
-								<input class="loginbutton" type="button" value="${btn_login}" onclick="location='memberLoginForm.do'">
-								<input class="loginbutton" type="button" value="${btn_join}" onclick="location='memberJoinForm.do'">
-							</th>
-						</tr>
-					</table>
-				</c:if>
-				<c:if test="${sessionScope.memId != null}">
-					<table>
-						<tr>
-							<th>${sessionScope.memId} ${msg_loginmain}
-							</th>
-							<td>
-								<div id="barcodeTarget" class="barcodeTarget"></div>
-							</td>
 
-							<td>	 
-								<input class="loginbutton" type="button" value="${btn_logout}" onclick="location='memberLogout.do'"> 
-								<input class="loginbutton" type="button" value="${btn_mypage}" onclick="location='memberModifyForm.do'">
-								<!-- 바코드 버튼으로 변경하기 -->
-							</td>
-							
-						</tr>
-					</table>
-					
-				</c:if>			
-			</form>	
 		</header>
+		<div id="wrapper">
+			<div id="header" class="content-block header-wrapper">
+				<div class="header-wrapper-inner">
+					<section class="top clearfix">
+						<div class="pull-left">
+							<h1><a class="logo" href="main.do">WinterPark</a></h1>
+						</div>
+						<div class="pull-right">
+							<a class="toggleDrawer" href="#"><i class="fa fa-bars fa-2x"></i></a>
+						</div>
+					</section>
+					<section class="center">
+						<div class="slogan">
+							스키 &amp; 콘도
+						</div>
+						<div class="secondary-slogan">
+							여기는 공간입니다.
+						</div>
+					</section>
+					<section class="bottom">
+						<a id="scrollToContent" href="#">
+							?
+						</a>
+					</section>
+				</div>
+			</div><!-- header -->
 	</body>
 </html>
 	
