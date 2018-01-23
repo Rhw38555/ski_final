@@ -7,27 +7,26 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<style type="text/css">
-			body{
-				text-align: center;
-			}
-			footer {
-				height : 50px;
-				border : 1px solid black;
-			}
-			.loginbutton {
-				width : 100px;
-				margin-top : 23px;
-				float: right;
-			}
-		</style>		
+	
 	</head>
 
 	<body>
-	<script src="${project}member/script.js"></script>   
-		<footer>
+		<div class="content-block" id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-6">&copy; Copyright Flusk 2014</div>
+					<div class="col-xs-6 text-right">winter_park</a></div>
+				</div>
+			</div>
+		</div><!-- #footer -->
 		
-		</footer>
+		<script src="./assets/js/jquery-2.1.3.min.js"></script>
+		<script src="./assets/js/jquery-migrate-1.2.1.min.js"></script>
+		<script src="./assets/js/bootstrap.min.js"></script>
+		<script src="./assets/js/jquery.actual.min.js"></script>
+		<script src="./assets/js/jquery.scrollTo.min.js"></script>
+		<script src="./assets/js/script.js"></script>
 	</body>
+
 </html>
 	

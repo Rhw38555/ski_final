@@ -6,6 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<!-- 
 		<style type="text/css">
 			body{
 				text-align: center;
@@ -20,7 +21,8 @@
 			.button {
 				width : 150px;
 			}
-		</style>		
+		</style>
+		 -->		
 	</head>
 
 	<body>
