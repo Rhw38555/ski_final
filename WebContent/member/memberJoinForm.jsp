@@ -2,11 +2,64 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="setting.jsp" %>
-<link href="${project}member/style.css" rel="stylesheet" type="text/css">
+    <%@include file="/include/mainnav.jsp" %>
+ 	<%@include file="/include/mainheader.jsp" %>
 <script src="${project}member/script.js"></script>
 <script src="${project}member/request.js"></script>
 
-<!-- 이메일 인증 -->
+<body onload="joinfocus()">
+	<div class="content-block" id="contact">
+		<div class="container text-center">
+			<header class="block-heading cleafix">
+				<h1>${msg_join}</h1>
+			</header>
+			<section class="block-body">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<form role="form" method="post" action="memberJoinPro.do" name="joinform" onsubmit="return joincheck()">
+							<input type="hidden" name="hiddenemail" value="0">
+							<div class="form-group">
+								<input class="form-control form-control-white" type="text" name="id" maxlength="15" onkeyup="idcheck()" placeholder="${str_id}" required>
+								<div id="idchk"></div>
+							</div>
+							<div class="form-group">
+						    	<input class="form-control form-control-white" type="password" name="passwd" maxlength="15" onkeyup="passwdcheck()" placeholder="${str_passwd}" required>
+						  		<div id="passwdchk"></div>
+						  	</div>
+						    <div class="form-group">
+						    	<input class="form-control form-control-white" type="password" name="repasswd" maxlength="15" onkeyup="repasswdcheck()" placeholder="${str_passwd}" required>
+						    	<div id="repasswdchk"></div>
+						    </div>
+						    <div class="form-group">
+						    	<input class="form-control form-control-white" type="text" name="name" maxlength="30" placeholder="${str_name}" required>
+						    </div>
+						    <div class="form-group">
+						    	<input class="form-control form-control-white" type="text" name="tel1" maxlength="3" style="width: 28px" onkeyup="nexttel1()">
+								- <input class="form-control form-control-white" type="text" name="tel2" maxlength="4" style="width: 35px" onkeyup="nexttel2()">
+								- <input class="form-control form-control-white" type="text" name="tel3" maxlength="4" style="width: 35px" onkeyup="nextemail()">	
+						    </div>
+						    <div class="form-group">
+						    	<input id="fullemail" class="form-control form-control-white" type="text" name="email0" maxlength="30" style="width:200px">
+								<input id="shortemail" class="form-control form-control-white" type="text" name="email1" maxlength="30" style="width:100px">
+								<input id="shortemail2" class="form-control form-control-white" type="text" name="email2" maxlength="15" style="width:100px" readonly>
+								<select class="input" id="select" name="selectemail" onchange="chageLangSelect()">
+									<option value="0"> 직접입력 </option>
+									<option value="@naver.com"> 네이버 </option>
+									<option value="@daum.net"> 다음 </option>
+									<option value="@gmail.com"> 구글 </option>
+									<option value="@nate.com"> 네이트 </option>
+								</select>
+								
+								<input class="inputbutton" type="button" value="${btn_confiremail}" style="width: 80px" onclick="confirmemail()">
+						    </div>
+						  <input type="submit" class="btn btn-o-white" value="Say Hello">
+						</form>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div><!-- #contact -->
+<!-- 
 <body onload="joinfocus()">
 	<form method="post" action="memberJoinPro.do"
 		name="joinform" onsubmit="return joincheck()">
@@ -77,8 +130,8 @@
 		</table>
 	</form>
 </body>
-
-
+ -->
+<%@include file="/include/mainfooter.jsp" %>
 
 
 
