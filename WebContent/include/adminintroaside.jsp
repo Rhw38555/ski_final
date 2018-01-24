@@ -14,7 +14,6 @@
 				width : 150px;
 				height : 100%;				
 				float : left;
-				border : 1px solid black;
 				margin : 0px;
 			}
 			.button {

@@ -93,52 +93,34 @@
 		
 		//-->
 		</script>
-		<!-- 
-		<style type="text/css">
-			body{
-				text-align: center;
-			}
-			aside {
-				width : 199px;	
-				height : 280px;				
-				float : left;
-			}
-			section {
-				width : 1300px;			
-				height : 1000px;
-				float : left;
-			}
-			.topleft, .topright, .bottomleft, .bottomright{
-				width : 200px;
-				height : 200px;
-				margin : 50px;
-			}
-			.admin {
-				width : 500px;
-				height : 200px;
-				margin : 50px;
-			}
-			.button {
-				width : 190px;
-				height : 100px;
-			}
-			footer {
-				clear : left;
-				height : 50px;
-			}	
-			header, aside, section, footer {
-				border : 1px solid black;
-				margin : 0px;
-			}
-		</style>
-		 -->
 	</head>
 
 	<body onload="openserver()">
 	<script src="${project}member/script.js"></script> 
-	
-    <%@include file="/include/mainnav.jsp" %>
+
  	<%@include file="/include/mainheader.jsp" %>
+ 	
+ 				<!--Slider-->
+			<div class="slider">
+				<div class="callbacks_container">
+					<ul class="rslides" id="slider">
+						<li>
+							<div class="slider-img slider-img1 "></div>
+						</li>
+						<li>
+							<div class="slider-img slider-img2"></div>
+						</li>
+						<li>
+							<div class="slider-img slider-img3"></div>
+
+						</li>
+						<li>
+							<div class="slider-img slider-img4"></div>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
  	
 	<div class="content-block" id="portfolio">
 		<div class="container">
