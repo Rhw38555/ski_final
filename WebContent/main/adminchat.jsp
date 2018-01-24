@@ -91,9 +91,6 @@
 			//result.innerHTML +="메세지 송신 성공<br>";
 		}
 		
-		
-		
-		
 		//-->
 		</script>
 		</head>

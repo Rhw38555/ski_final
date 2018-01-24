@@ -1,9 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>  
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ include file="../member/setting.jsp" %>
 <!-- 메뉴바 -->
 <!DOCTYPE html>
 <html>
+
+	<script src="${project}member/jquery-3.2.1.js"></script>
+	 <script src="${project}member/jquery-barcode.js"></script>
 	<head>
 		<meta charset="UTF-8">
 		<title>wp_메인</title>
@@ -49,7 +55,16 @@
 		</style>
 		-->		
 	</head>
-	<body>
+	<sql:query var="rs" dataSource="jdbc/kh">
+      select user_barcode from wp_user_barcodes where id=?
+   <sql:param value="${sessionScope.memId}"/>
+   </sql:query>
+   
+            <c:forEach var="row" items="${rs.rows}">
+                  <c:set var="user_barcode" value="${row.user_barcode}"/>
+            </c:forEach>
+            
+	<body onload="generateBarcode('${user_barcode}')">
 	<script src="${project}member/script.js"></script>   
 	
 			<div id="drawer-right">
@@ -57,6 +72,7 @@
 				<a class="toggleDrawer" href="#"><i class="fa fa-times-circle fa-2x"></i></a>
 			</div>
 			<h2>Menu</h2>
+			
 			<nav>
 			<div>
 				<ul class="nav nav-pills nav-stacked">
@@ -87,10 +103,10 @@
 					<c:if test="${sessionScope.memId != null}">
 						<li>	
 							<a href="memberLogout.do"><i class="fa fa-thumbs-up"></i>${btn_logout}</a>	
-							<a href="memberModifyForm.do"><i class="fa fa-thumbs-up"></i>${btn_mypage}</a> 
+							<a href="memberModifyForm.do"><i class="fa fa-thumbs-up"></i>${btn_mypage}</a>
+							<div id="barcodeTarget" class="barcodeTarget"></div>
 						</li>				
-					</c:if>	
-					
+					</c:if>
 				</ul>
 				</div>
 			</nav>

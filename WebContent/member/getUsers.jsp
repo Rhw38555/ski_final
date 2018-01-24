@@ -6,7 +6,7 @@
 
   
 <sql:query var="rs" dataSource="jdbc/kh">
-	select * from wp_member
+	select * from wp_member where num=0
 </sql:query>
 
 <members>

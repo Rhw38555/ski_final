@@ -18,7 +18,6 @@
 		<script type="text/javascript">
 		//<!--
 		
-		
 		var ws = null;
 		function openserver(){
 			var result = document.getElementById("result");
@@ -77,10 +76,6 @@
 		}
 		
 		
-		
-		
-		
-		
 		function sendmsg(id){
 			var chatcontent = $("#message").val();
 			$("#starter").append(chatcontent);
@@ -93,9 +88,6 @@
 			inputform.message.focus();
 			//result.innerHTML +="메세지 송신 성공<br>";
 		}
-		
-		
-		
 		
 		//-->
 		</script>
