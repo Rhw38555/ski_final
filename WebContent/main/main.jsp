@@ -211,7 +211,6 @@
 		<div id="result"></div>
 		
 		</aside>
-
  	
  				<!--Slider-->
 			<div class="slider">
@@ -294,16 +293,7 @@
 			</section>
 		</div>
 	</div>
-	<!-- //Locations -->
-				
-				
 			
-			</section>
-		</div>
-	</div><!-- #portfolio -->
-			
-
-
 		<%@include file="/include/mainfooter.jsp" %>
 	</body>
 </html>

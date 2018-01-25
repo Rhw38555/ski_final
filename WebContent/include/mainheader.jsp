@@ -79,7 +79,7 @@
 						<nav class="navbar navbar-default">
 							<!-- Brand and toggle get grouped for better mobile display -->
 							<div class="navbar-header">
-								
+
 								<h1><a class="navbar-brand" href="main.do">WinterPark<sup><i class="fa fa-snowflake-o" aria-hidden="true"></i><sup></a></h1>
 							</div>
 							<!-- Collect the nav links, forms, and other content for toggling -->
@@ -102,7 +102,7 @@
 			<!--//Top-Bar-->
 		</header>
 			
-		
+
 		<!-- js -->
 		<script type="text/javascript" src="${project}assets/js/jquery-2.1.4.min.js"></script>
 	 	<script src="${project}member/jquery-barcode.js"></script>
@@ -177,7 +177,7 @@
 			});
 		</script>
 		<!-- start-smoth-scrolling -->
-			`			
+			
 	</body>
 </html>
 	
