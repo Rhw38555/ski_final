@@ -191,6 +191,11 @@ background:url(../images/banner5.jpg)no-repeat 0px 0px;
 .events {
 	list-style: none;
 }
+.join-container{
+	top : 10px;
+	position: fiexd;
+    float: none;
+}
 .callbacks_container {
     position: relative;
     float: none;
@@ -411,7 +416,7 @@ font-weight:600;
   border-color: #012231;
 }
 .navbar-default .navbar-brand {
-	color:#168eea !important;
+	color:#168eea!important;
 	font-size:37px;
 	text-decoration: none;
 }

@@ -84,16 +84,10 @@ function passwdconfirm(){
 }
 
 //회원 가입
-function joinfocus() {
-	joinform.id.focus();
-	shortemail.style.display = "none";
-	shortemail2.style.display = "none";
-}
 function joincheck() {
 	var tel1 = joinform.tel1.value;
 	var tel2 = joinform.tel2.value;
 	var tel3 = joinform.tel3.value;
-	pattern="(?=.*\d)(?=.*[a-z]).{8,}";
 	if( ! joinform.id.value ) {
 		alert( iderror );
 		joinform.id.focus();
