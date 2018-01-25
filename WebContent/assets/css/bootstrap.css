@@ -13,6 +13,16 @@ html {
 body {
   margin: 0;
 }
+header {
+	float : right;
+	width : 95%;
+}
+.member-button, .barcodeTarget{
+	float : right;
+}
+.weather {
+	font-size : 10px;
+}
 article,
 aside,
 details,
@@ -2266,7 +2276,7 @@ th {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  padding: 8px;
+  padding: 5px;
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #ddd;
@@ -4069,7 +4079,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
+  margin-top: 50px;
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -4083,8 +4093,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-collapse {
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
   overflow-x: visible;
   -webkit-overflow-scrolling: touch;
   border-top: 1px solid transparent;
