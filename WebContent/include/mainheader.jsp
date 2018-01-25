@@ -27,14 +27,14 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="${project}assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- Chocolat-CSS -->
-		<link rel="stylesheet" href="css/chocolat.css"	  type="text/css" media="all">
+		<link rel="stylesheet" href="${project}assets/css/chocolat.css"	  type="text/css" media="all">
 		<link href="//fonts.googleapis.com/css?family=Montserrat+Alternates:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 		<link href="//fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
 		<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 		<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 		<!--//fonts-->
 		<!-- Supportive-JavaScript -->
-		<script src="js/modernizr.js"></script>
+		<script src="./assets/js/modernizr.js"></script>
 		<!-- //Supportive-JavaScript -->	
 	</head>
 	
@@ -101,7 +101,6 @@
 			</div>
 			<!--//Top-Bar-->
 		</header>
-			
 
 		<!-- js -->
 		<script type="text/javascript" src="${project}assets/js/jquery-2.1.4.min.js"></script>

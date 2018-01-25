@@ -31,6 +31,8 @@ public class ReverseChangeRoomProHandler implements CommandHandler{
 		String[] date = (request.getParameter("room_date")).split(",");
 		String[] cnt = (request.getParameter("room_cnt")).split(",");
 		
+		String id = (String) request.getSession().getAttribute("memId");
+		
 		SimpleDateFormat tran = new SimpleDateFormat("yyyy-MM-dd");
 		System.out.println(date.length);
 		Date date1 = tran.parse(date[0]);
@@ -55,7 +57,7 @@ public class ReverseChangeRoomProHandler implements CommandHandler{
 			roomDto_1.setRoom_2(cnt2_1);
 			roomDto_1.setRoom_4(cnt4_1);
 			roomDto_1.setRoom_8(cnt8_1);
-			roomDto_1.setId("id1");
+			roomDto_1.setId(id);
 			roomDto_1.setName(request.getParameter("name"));
 			roomDto_1.setTel(request.getParameter("tel"));
 			roomDto_1.setCarnum(request.getParameter("carnum"));
@@ -74,7 +76,7 @@ public class ReverseChangeRoomProHandler implements CommandHandler{
 				roomDto_2.setRoom_2(cnt2_2);
 				roomDto_2.setRoom_4(cnt4_2);
 				roomDto_2.setRoom_8(cnt8_2);
-				roomDto_2.setId("id1");
+				roomDto_2.setId(id);
 				roomDto_2.setName(request.getParameter("name"));
 				roomDto_2.setTel(request.getParameter("tel"));
 				roomDto_2.setCarnum(request.getParameter("carnum"));
@@ -93,7 +95,7 @@ public class ReverseChangeRoomProHandler implements CommandHandler{
 					roomDto_3.setRoom_2(cnt2_3);
 					roomDto_3.setRoom_4(cnt4_3);
 					roomDto_3.setRoom_8(cnt8_3);
-					roomDto_3.setId("id1");
+					roomDto_3.setId(id);
 					roomDto_3.setName(request.getParameter("name"));
 					roomDto_3.setTel(request.getParameter("tel"));
 					roomDto_3.setCarnum(request.getParameter("carnum"));

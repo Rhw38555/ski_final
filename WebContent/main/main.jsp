@@ -4,65 +4,61 @@
 
 <!DOCTYPE html>
 <html>
-	 <script src="${project}member/jquery-3.2.1.js"></script>
-	 <script src="${project}member/jquery-barcode.js"></script>
+	 
 	<head>
 		<meta charset="UTF-8">
 		<style type="text/css">
-			#msg
-				{
-					height : 300px;
-					width : 100%;
-					overflow: auto;
-					text-align : left;
-				}
+			#msg{
+				height : 300px;
+				width : 100%;
+				overflow: auto;
+				text-align : left;
+			}
 			blockquote{
-    border-left:none
-}
-
-.quote-badge{
-    background-color: rgba(0, 0, 0, 0.2);   
-}
-
-.quote-box{
-    
-    overflow: hidden;
-    margin-top: -50px;
-    padding-top: -100px;
-    border-radius: 17px;
-    background-color: #4ADFCC;
-    margin-top: 25px;
-    color:white;
-    width: 325px;
-    box-shadow: 2px 2px 2px 2px #E0E0E0;
-    
-}
-
-.quotation-mark{
-    
-    margin-top: -10px;
-    font-weight: bold;
-    font-size:100px;
-    color:white;
-    font-family: "Times New Roman", Georgia, Serif;
-    
-}
-
-.quote-text{
-    
-    font-size: 19px;
-    margin-top: -65px;
-}
+			    border-left:none
+			}
+			
+			.quote-badge{
+			    background-color: rgba(0, 0, 0, 0.2);   
+			}
+			
+			.quote-box{			    
+			    overflow: hidden;
+			    margin-top: -50px;
+			    padding-top: -100px;
+			    border-radius: 17px;
+			    background-color: #4ADFCC;
+			    margin-top: 25px;
+			    color:white;
+			    width: 325px;
+			    box-shadow: 2px 2px 2px 2px #E0E0E0;			    
+			}
+			
+			.quotation-mark{			    
+			    margin-top: -10px;
+			    font-weight: bold;
+			    font-size:100px;
+			    color:white;
+			    font-family: "Times New Roman", Georgia, Serif;		    
+			}
+			
+			.quote-text{			    
+			    font-size: 19px;
+			    margin-top: -65px;
+			}
 		</style>
+		<script src="${project}member/jquery-3.2.1.js"></script>
+	 	<script src="${project}member/jquery-barcode.js"></script>
 		<script type="text/javascript">
 		//<!--
 		$(document).ready(function() {
 			if($('#user_barcode').val()!=null)
 				generateBarcode($('#user_barcode').val());
+			
+			openserver();
 		});
 		
-		function generateBarcode(user_barcode) {
-		    
+		function generateBarcode(user_barcode) {		    
 		    var value = user_barcode;
 		    var btype = "code128";
 		    var renderer ="css";
@@ -150,8 +146,7 @@
 				}
 			}
 		}
-		
-		
+				
 		function sendmsg(id){
 			var chatcontent = $("#message").val();
 			$("#starter").append(chatcontent);
@@ -164,17 +159,14 @@
 			inputform.message.focus();
 			//result.innerHTML +="메세지 송신 성공<br>";
 		}
-		
-		
-		
 		//-->
 		</script>
 	</head>
 
-	<body onload="openserver()">
+	<body>
 	<script src="${project}member/script.js"></script> 
 
- 	<%@include file="/include/mainheader.jsp"%>
+ 		<%@include file="/include/mainheader.jsp"%>
  			<aside>
 		 	<div class="weather">
 				<ul>
@@ -259,37 +251,30 @@
 					</div>
 					<div class="grid">
 						<figure class="col-md-4 effect-zoe"><img src="/SKI_Final/images/calendar.jpg" alt="Odyssey"><figcaption><h4>예약하기</h4></figcaption></figure>
-					</div>
-				
+					</div>				
 				</div>
-				
-				<center>
-				<form name="inputform">
-				<table border="1">
-				<tr>
-					<th>메세지</th>	
-					<td>
-					<input type="text" name="message" autofocus
-						placeholder="대화를 입력하세요">
-					<input type="hidden" id="hiddenid" value="${sessionScope.memId}">
-					</td>
-					<th>
-						<input type="button" value="전송" onclick="sendmsg('${sessionScope.memId}')">
-					</th>
-				</tr>
-				<tr>
-					<th colspan="3">
-						
-					<div id="msg">
-						<div id="starter"></div>
-					</div>
-							
-					</th>
-				</tr>
-			</table>
-			
-			</form>
-			</center>
+					<form name="inputform">
+						<table border="1">
+						<tr>
+							<th>메세지</th>	
+							<td>
+							<input type="text" name="message" autofocus
+								placeholder="대화를 입력하세요">
+							<input type="hidden" id="hiddenid" value="${sessionScope.memId}">
+							</td>
+							<th>
+								<input type="button" value="전송" onclick="sendmsg('${sessionScope.memId}')">
+							</th>
+						</tr>
+						<tr>
+							<th colspan="3">						
+								<div id="msg">
+									<div id="starter"></div>
+								</div>								
+							</th>
+						</tr>
+					</table>			
+				</form>			
 			</section>
 		</div>
 	</div>

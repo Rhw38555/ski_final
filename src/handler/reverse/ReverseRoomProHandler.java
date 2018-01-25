@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import barcode.BarcodeDao;
 import handler.CommandHandler;
 import reverse.ReverseDao;
 import reverse.RoomReverseDataBean;
@@ -21,7 +22,9 @@ import reverse.SkiReverseDataBean;
 public class ReverseRoomProHandler implements CommandHandler{
 	
 	@Resource
-	private ReverseDao reserveDao;
+	private ReverseDao reserveDao;	
+	@Resource
+	private BarcodeDao barcode;
 
 	@RequestMapping( "/reverseRoomPro" )
 	@Override
@@ -33,6 +36,8 @@ public class ReverseRoomProHandler implements CommandHandler{
 		String[] cnt = (request.getParameter("room_cnt")).split(",");
 		
 		SimpleDateFormat tran = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String id = (String) request.getSession().getAttribute("memId");
 		
 		Date date1 = tran.parse(date[0]);
 		int cnt2_1 = Integer.parseInt(cnt[0]);
@@ -52,7 +57,7 @@ public class ReverseRoomProHandler implements CommandHandler{
 		roomDto_1.setRoom_2(cnt2_1);
 		roomDto_1.setRoom_4(cnt4_1);
 		roomDto_1.setRoom_8(cnt8_1);
-		roomDto_1.setId("id1");
+		roomDto_1.setId(id);
 		roomDto_1.setName(request.getParameter("name"));
 		roomDto_1.setTel(request.getParameter("tel"));
 		roomDto_1.setCarnum(request.getParameter("carnum"));
@@ -71,7 +76,7 @@ public class ReverseRoomProHandler implements CommandHandler{
 			roomDto_2.setRoom_2(cnt2_2);
 			roomDto_2.setRoom_4(cnt4_2);
 			roomDto_2.setRoom_8(cnt8_2);
-			roomDto_2.setId("id1");
+			roomDto_2.setId(id);
 			roomDto_2.setName(request.getParameter("name"));
 			roomDto_2.setTel(request.getParameter("tel"));
 			roomDto_2.setCarnum(request.getParameter("carnum"));
@@ -90,7 +95,7 @@ public class ReverseRoomProHandler implements CommandHandler{
 				roomDto_3.setRoom_2(cnt2_3);
 				roomDto_3.setRoom_4(cnt4_3);
 				roomDto_3.setRoom_8(cnt8_3);
-				roomDto_3.setId("id1");
+				roomDto_3.setId(id);
 				roomDto_3.setName(request.getParameter("name"));
 				roomDto_3.setTel(request.getParameter("tel"));
 				roomDto_3.setCarnum(request.getParameter("carnum"));
@@ -99,8 +104,14 @@ public class ReverseRoomProHandler implements CommandHandler{
 				result = reserveDao.room_insert(roomDto_3);
 			}
 		}		
+		
+
+		barcode.insertUserBarcode(id);
+		
+		
 		request.setAttribute("result", result);
 		request.setAttribute("num", num);
+		
 		
 		return new ModelAndView( "reverse/reverseRoomPro" );
 	}
