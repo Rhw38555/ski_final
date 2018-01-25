@@ -54,7 +54,6 @@
 		</script>
 	</head>	
 	<body onload="InitializeStaticMenu()" class="rebody">
-	<%@include file="/include/mainnav.jsp" %>
 		<form method="post" action="reverseSkiPro.do">
 			<input type="hidden" id="ski_date" name="ski_date">
 			<input type="hidden" id="ski_count" name="ski_count">
@@ -156,7 +155,7 @@
 					</tbody>
 				</table>
 				<div id="btbox">
-					<input type="button" id="resetbt" value="다시설정" onclick="reset()">
+					<input type="button" id="resetbt" value="다시설정">
 					<input type="submit" id="paybt" value="결제">
 				</div> <!-- btbox -->
 			</div> <!-- checkbox -->

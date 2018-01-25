@@ -87,7 +87,7 @@
 								<nav class="cl-effect-15" id="cl-effect-15">
 								<ul>
 									<li><a href="WinterParkLiftPrice.do" data-hover="${btn_winterPark}">${btn_winterPark}</a></li>
-									<li><a href="reverseRoomForm.do" data-hover="${btn_reservation}">${btn_reservation}</a></li>
+									<li><a href="reverseRoomForm.do" target="_blank" data-hover="${btn_reservation}">${btn_reservation}</a></li>
 									<li><a href="introSki.do" data-hover="${btn_skioom}">${btn_skioom}</a></li>
 									<li><a href="ffList.do" data-hover="${btn_eat}">${btn_eat}</a></li>
 									<li><a href="eventList.do" data-hover="${btn_event}">${btn_event}</a></li>

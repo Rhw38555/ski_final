@@ -21,8 +21,7 @@
 	  <script src="./assets/js/jquery.actual.min.js"></script>
 	  <script src="./assets/js/jquery.scrollTo.min.js"></script>
 	  <script src="./assets/js/script.js"></script>
-		   
-	  <%@include file="/include/mainnav.jsp" %> 
+
    </head>
 
    <body class="rebody"> 

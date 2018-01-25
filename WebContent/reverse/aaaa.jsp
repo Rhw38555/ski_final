@@ -245,3 +245,31 @@ var strfull = fullDate.split('-');
             }
             */
              --%>
+                /*
+    * window.addEventListener("beforeunload", function (e) {
+		      var confirmationMessage = "\o/";   
+		      (e || window.event).returnValue =   confirmationMessage; //Gecko + IE   
+		      alert('들어왔당1'); 
+		      
+		      	//modcount();    
+		         //insertcount();
+		         //return confirmationMessage; //Webkit, Safari, Chrome
+		         
+		   });
+	browser_Event();
+	function browser_Event(){	
+		if(event.clientY<0){	
+		 	alert("browser closed!!!");	
+		 	
+		}	
+		else{	
+			 if(document.readyState=="complete"){	
+		 	 //새로고침	
+				 alert("새로고침");	
+			 }else if(document.readyState=="loading"){	
+			 //다른 페이지 이동	
+				 alert("ㅎ");
+			}	
+		}	
+	} 
+	*/
