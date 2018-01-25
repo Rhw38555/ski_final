@@ -34,6 +34,7 @@
 		<header>${page_reservationConfirm}</header>
 		<%@include file="/include/mypageaside.jsp" %>
 		<section>
+		<input type="hidden" id="user_barcode" value="${user_barcode}">
 			<table border="1"> 
 				<tr>
 					<th colspan="10">콘도 예약 정보</th>

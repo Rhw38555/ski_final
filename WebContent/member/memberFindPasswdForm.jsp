@@ -6,6 +6,7 @@
 <script src="${project}member/script.js"></script>
     
 <form name="passwdform" method="post" action="memberFindPasswdPro.do" onsubmit="return passwdconfirm()">                              
+	<input type="hidden" id="user_barcode" value="${user_barcode}">
 	<table>
 		<tr>
 	      <th>아이디</th>

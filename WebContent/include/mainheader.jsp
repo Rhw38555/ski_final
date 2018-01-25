@@ -52,38 +52,34 @@
 	<script src="${project}member/script.js"></script>
 		<!--Header-->
 		<header> 
+			
 			<div class="header" id="home">
 			<!--Top-Bar-->
+			
 				<div class="top-bar">
 				<div class="container-fluid">
-				
 				<c:if test="${sessionScope.memId == null}">
                			<div class="member-button">
                         <input type="button" value="${btn_login}" onclick="location='memberLoginForm.do'">
                         <input type="button" value="${btn_join}" onclick="location='memberJoinForm.do'">
                   		</div>
-            </c:if>
+            	</c:if>
             <c:if test="${sessionScope.memId != null}">
+                    	 
                     	<div class="member-button"> 
+                    	<div id="barcodeTarget" class="barcodeTarget"></div>
                     	${sessionScope.memId} ${msg_loginmain}
-                        <div id="barcodeTarget" class="barcodeTarget"></div>
                         <input type="button" value="${btn_logout}" onclick="location='memberLogout.do'"> 
                         <input type="button" value="${btn_mypage}" onclick="location='memberModifyForm.do'">
-                        </div>
                         
+                        </div>
+                    	
             </c:if>
-            
-			
 					<div class="header-nav">
 						<nav class="navbar navbar-default">
 							<!-- Brand and toggle get grouped for better mobile display -->
 							<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
+								
 								<h1><a class="navbar-brand" href="main.do">WinterPark<sup><i class="fa fa-snowflake-o" aria-hidden="true"></i><sup></a></h1>
 							</div>
 							<!-- Collect the nav links, forms, and other content for toggling -->
@@ -105,13 +101,14 @@
 			</div>
 			<!--//Top-Bar-->
 		</header>
+			
 		
 		<!-- js -->
 		<script type="text/javascript" src="${project}assets/js/jquery-2.1.4.min.js"></script>
 	 	<script src="${project}member/jquery-barcode.js"></script>
 		<script src="${project}assets/js/responsiveslides.min.js"></script>
 		
-				<script>
+				<script>	
 						$(function () {
 							$("#slider").responsiveSlides({
 								auto: true,

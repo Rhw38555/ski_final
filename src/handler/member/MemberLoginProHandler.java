@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import barcode.BarcodeDao;
 import handler.CommandHandler;
 import member.LogonDao;
 
@@ -16,6 +17,7 @@ public class MemberLoginProHandler implements CommandHandler{
 
 	@Resource
 	private LogonDao logonDao;	
+	
 	
 	@RequestMapping( "/memberLoginPro" )
 	@Override
@@ -30,7 +32,6 @@ public class MemberLoginProHandler implements CommandHandler{
 		request.setAttribute( "result", result );
 		request.setAttribute( "id", id );		
 		request.setAttribute("num", num);
-
 		return new ModelAndView( "member/memberLoginPro" );
 	}
 
