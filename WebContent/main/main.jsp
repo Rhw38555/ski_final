@@ -99,25 +99,25 @@
 	<script src="${project}member/script.js"></script> 
 
  	<%@include file="/include/mainheader.jsp" %>
- 	
- 	<table border="1">
-				<tr>
-					<td>
+ 			<aside>
+		 	<div class="weather">
+				<ul>
+					<li>
 						<c:set var="wfKor" value="${wfKor}"/>
 						<c:if test="${fn:contains(wfKor, '구름')}">
-							<img src="/SKI_Final/images/구름.PNG" width="140px" height="100px"/>
+							<img src="/SKI_Final/images/구름.PNG" width="70px" height="50px"/>
 						</c:if>
 						<c:if test="${fn:contains(wfKor, '눈')}">
-							<img src="/SKI_Final/images/눈.PNG" width="140px" height="100px"/>
+							<img src="/SKI_Final/images/눈.PNG" width="70px" height="50px"/>
 						</c:if>
 						<c:if test="${fn:contains(wfKor, '맑음')}">
-							<img src="/SKI_Final/images/맑음.PNG" width="140px" height="100px"/>
+							<img src="/SKI_Final/images/맑음.PNG" width="70px" height="50px"/>
 						</c:if>
 						<c:if test="${fn:contains(wfKor, '비')}">
-							<img src="/SKI_Final/images/비.PNG" width="140px" height="100px"/>
+							<img src="/SKI_Final/images/비.PNG" width="70px" height="50px"/>
 						</c:if>
 						<c:if test="${fn:contains(wfKor, '흐림')}">
-							<img src="/SKI_Final/images/흐림.PNG" width="140px" height="100px"/>
+							<img src="/SKI_Final/images/흐림.PNG" width="70px" height="50px"/>
 						</c:if>
 					<br>
 						 최저온도 : ${tmn}
@@ -126,17 +126,14 @@
 					<br>
 						${wfKor}
 							
-					</td>
-				</tr>
-				
-				<tr>
-					<td>
-						<input class="button" type="button" value="WinterPark 오시는길" onclick="location='WinterParkTrafic.do'">
-						
-					</td>
-				</tr>
-				
-			</table>
+					</li>
+				</ul>	
+			</div>
+		<br><br>
+		<div id="result"></div>
+		
+		</aside>
+
  	
  	
  				<!--Slider-->
@@ -228,13 +225,7 @@
 	</div><!-- #portfolio -->
 			
 
-		<aside>
-			
-			
-		<br><br>
-		<div id="result"></div>
-		
-		</aside>
+
 		<%@include file="/include/mainfooter.jsp" %>
 	</body>
 </html>

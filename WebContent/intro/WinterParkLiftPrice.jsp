@@ -3,7 +3,6 @@
 <%@ include file="setting.jsp" %>
 <script src="${project}${folder}script.js"></script>
  
-<%@include file="/include/mainnav.jsp" %>
 <%@include file="/include/mainheader.jsp" %>
 <%@include file="/include/WinterParkaside.jsp" %>
 <h2> 리프트요금안내 </h2>
