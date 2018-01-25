@@ -50,9 +50,7 @@ label{
 /*-- Index-Page-Styling --*/
 /*-- Top-Bar --*/
 .header{
-	position:fixed;
-	top: 0px;
-    left: 0px;
+	position:relative;
 }
 .header-nav{
 	position:relative;
