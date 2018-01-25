@@ -92,6 +92,8 @@ public class AdminEventListHandler implements CommandHandler{
 			
 			List<EventBoardDataBean> articles
 				= eventDao.getArticles( map );
+			
+			System.out.println( articles.size() );
 			request.setAttribute( "articles", articles );
 		}
 		

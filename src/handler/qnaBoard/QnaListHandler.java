@@ -41,7 +41,6 @@ public class QnaListHandler implements CommandHandler{
 		int endPage = 0;			// 페이지의 끝
 		int pageCount = 0;			// 페이지의 개수
 		
-		request.getSession().setAttribute("memId", "user2");
 	    String id = (String)request.getSession().getAttribute("memId");
 	      
 		count = qnaDao.getCount(id);

@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="setting.jsp"%>
+<%@include file="/include/mainheader.jsp"%>
+<%@include file="/include/mainnav.jsp"%>
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 <script src="${project}jquery-3.2.1.js"></script>
 
