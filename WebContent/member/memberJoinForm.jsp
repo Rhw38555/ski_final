@@ -2,46 +2,75 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="setting.jsp" %>
-    <%@include file="/include/mainnav.jsp" %>
- 	<%@include file="/include/mainheader.jsp" %>
+<%@include file="/include/mainheader.jsp" %>
 <script src="${project}member/script.js"></script>
 <script src="${project}member/request.js"></script>
 
-<body onload="joinfocus()">
-	<div class="content-block" id="contact">
-		<div class="container text-center">
-			<header class="block-heading cleafix">
-				<h1>${msg_join}</h1>
-			</header>
-			<section class="block-body">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-						<form role="form" method="post" action="memberJoinPro.do" name="joinform" onsubmit="return joincheck()">
-							<input type="hidden" name="hiddenemail" value="0">
-							<div class="form-group">
-								<input class="form-control form-control-white" type="text" name="id" maxlength="15" onkeyup="idcheck()" placeholder="${str_id}" required>
-								<div id="idchk"></div>
+<body>
+	<form action="memberJoinPro.do" name="joinform" onsubmit="return joincheck()">
+		<input type="hidden" name="hiddenemail" value="0">
+		<div class="join-container">
+			<div class="row">
+				<div class="main-login main-center">
+				<h2>${msg_join}</h2>
+					<div class="form-group">
+						<label class="cols-sm-2 control-label">${str_id}</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input class="form-control" type="text" name="id" maxlength="15" onkeyup="idcheck()">
 							</div>
-							<div class="form-group">
-						    	<input class="form-control form-control-white" type="password" name="passwd" maxlength="15" onkeyup="passwdcheck()" placeholder="${str_passwd}" required>
-						  		<div id="passwdchk"></div>
-						  	</div>
-						    <div class="form-group">
-						    	<input class="form-control form-control-white" type="password" name="repasswd" maxlength="15" onkeyup="repasswdcheck()" placeholder="${str_passwd}" required>
-						    	<div id="repasswdchk"></div>
-						    </div>
-						    <div class="form-group">
-						    	<input class="form-control form-control-white" type="text" name="name" maxlength="30" placeholder="${str_name}" required>
-						    </div>
-						    <div class="form-group">
-						    	<input class="form-control form-control-white" type="text" name="tel1" maxlength="3" style="width: 28px" onkeyup="nexttel1()">
-								- <input class="form-control form-control-white" type="text" name="tel2" maxlength="4" style="width: 35px" onkeyup="nexttel2()">
-								- <input class="form-control form-control-white" type="text" name="tel3" maxlength="4" style="width: 35px" onkeyup="nextemail()">	
-						    </div>
-						    <div class="form-group">
-						    	<input id="fullemail" class="form-control form-control-white" type="text" name="email0" maxlength="30" style="width:200px">
-								<input id="shortemail" class="form-control form-control-white" type="text" name="email1" maxlength="30" style="width:100px">
-								<input id="shortemail2" class="form-control form-control-white" type="text" name="email2" maxlength="15" style="width:100px" readonly>
+							<div id="idchk"></div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="cols-sm-2 control-label">${str_passwd}</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+								<input class="form-control" type="password" name="passwd" maxlength="15" onkeyup="passwdcheck()">
+							</div>
+							<div id="passwdchk"></div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="cols-sm-2 control-label">${str_passwd}</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+								<input class="form-control" type="password" name="repasswd" maxlength="15" onkeyup="repasswdcheck()">
+							</div>
+							<div id="repasswdchk"></div>
+						</div>
+					</div>					
+					<div class="form-group">
+						<label class="cols-sm-2 control-label">${str_name}</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+								<input class="form-control" type="text" name="name" maxlength="30">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="cols-sm-2 control-label">${str_tel}</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+								<input type="text" name="tel1" maxlength="3" style="width: 35px" onkeyup="nexttel1()">
+								- <input type="text" name="tel2" maxlength="4" style="width: 40px" onkeyup="nexttel2()">
+								- <input type="text" name="tel3" maxlength="4" style="width: 40px" onkeyup="nextemail()">	
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="cols-sm-2 control-label">${str_email}</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+								<input id="fullemail" type="text" name="email0" maxlength="30" style="width:200px">
+								<input id="shortemail" type="text" name="email1" maxlength="30" style="width:200px">
+								<input id="shortemail2" type="text" name="email2" maxlength="15" style="width:100px" readonly>
 								<select class="input" id="select" name="selectemail" onchange="chageLangSelect()">
 									<option value="0"> 직접입력 </option>
 									<option value="@naver.com"> 네이버 </option>
@@ -51,88 +80,18 @@
 								</select>
 								
 								<input class="inputbutton" type="button" value="${btn_confiremail}" style="width: 80px" onclick="confirmemail()">
-						    </div>
-						  <input type="submit" class="btn btn-o-white" value="Say Hello">
-						</form>
+							</div>
+						</div>
+					</div>
+					<div class="form-group ">
+						<input class="inputbutton" type="submit" value="${btn_in}">
+						<input class="inputbutton" type="button" value="${btn_in_cancel}" onclick="location='main.do'">
 					</div>
 				</div>
-			</section>
+			</div>
 		</div>
-	</div><!-- #contact -->
-<!-- 
-<body onload="joinfocus()">
-	<form method="post" action="memberJoinPro.do"
-		name="joinform" onsubmit="return joincheck()">
-		<input type="hidden" name="hiddenemail" value="0">
-		<table border="1" width="800px">
-			<tr>	
-				<th colspan="2" width="150px">
-					${msg_join}
-				</th>
-			</tr>
-			<tr>		
-				<th> ${str_id} </th>
-				<td>
-					<input class="input" type="text" name="id" maxlength="15" onkeyup="idcheck()">
-				</td>
-				<td width="200"> <div id="idchk"></div> </td>
-			</tr>
-			<tr>		
-				<th rowspan="2"> ${str_passwd} </th>
-				<td>
-					<input class="input" type="password" name="passwd" maxlength="15" onkeyup="passwdcheck()">
-				</td>
-				<td width="200"> <div id="passwdchk"></div> </td>
-			</tr>
-			<tr>	
-				<td>
-					<input class="input" type="password" name="repasswd" maxlength="15" onkeyup="repasswdcheck()">
-				</td>
-				<td width="200"> <div id="repasswdchk"></div> </td>
-			</tr>
-			<tr>
-				<th> ${str_name} </th>
-				<td>
-					<input class="input" type="text" name="name" maxlength="30">
-				</td>
-			</tr>
-			<tr>	
-				<th> ${str_tel} </th>
-				<td>
-					<input class="input" type="text" name="tel1" maxlength="3" style="width: 28px" onkeyup="nexttel1()">
-					- <input class="input" type="text" name="tel2" maxlength="4" style="width: 35px" onkeyup="nexttel2()">
-					- <input class="input" type="text" name="tel3" maxlength="4" style="width: 35px" onkeyup="nextemail()">		
-				</td>				
-			</tr>
-			<tr>		
-				<th> ${str_email} </th>
-				<td>
-					<input id="fullemail" class="input" type="text" name="email0" maxlength="30" style="width:200px">
-					<input id="shortemail" class="input" type="text" name="email1" maxlength="30" style="width:100px">
-					<input id="shortemail2" class="input" type="text" name="email2" maxlength="15" style="width:100px" readonly>
-					<select class="input" id="select" name="selectemail" onchange="chageLangSelect()">
-						<option value="0"> 직접입력 </option>
-						<option value="@naver.com"> 네이버 </option>
-						<option value="@daum.net"> 다음 </option>
-						<option value="@gmail.com"> 구글 </option>
-						<option value="@nate.com"> 네이트 </option>
-					</select>
-					
-					<input class="inputbutton" type="button" value="${btn_confiremail}" style="width: 80px" onclick="confirmemail()">		
-				</td>
-			</tr>
-			<tr>
-				<th colspan="2">
-					<input class="inputbutton" type="submit" value="${btn_in}">
-					<input class="inputbutton" type="button" value="${btn_in_cancel}" onclick="location='main.do'">
-				</th>
-			</tr>			
-		</table>
 	</form>
+	<%@include file="/include/mainfooter.jsp" %>
+
 </body>
- -->
-<%@include file="/include/mainfooter.jsp" %>
-
-
-
 
