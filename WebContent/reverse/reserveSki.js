@@ -8,13 +8,14 @@
 	var setcount = 0;
 	var getdateresult = 0;
 $(function(){
-	
+	/*
 	window.addEventListener("beforeunload", function (e) {
 		var confirmationMessage = "\o/";	
 		(e || window.event).returnValue = confirmationMessage; //Gecko + IE			
 			return confirmationMessage; //Webkit, Safari, Chrome
 			modcount();
 	});
+	*/
 /*///////////////////////////////////////
  * 		document.ready
 /*///////////////////////////////////////	
@@ -348,6 +349,17 @@ $(function(){
 			$('#ski_price').val($('#skipricebox').text());
 			$('#ski_date').val(ski_date);
 			$('#ski_count').val(ski_count);
+			
+			$('<tr>'
+	        +'<th>이용자명</th> <td>'+($('#name').val())+'</td>'
+	        +'</tr>'
+	        +'<tr>'
+	        +'<th>전화번호</th> <td>'+($('#tel').val())+'</td>'
+	        +'</tr>'
+	        +'<tr>'
+	        +'<th>차량번호</th> <td>'+($('#carnum').val())+'</td>'
+	        +'</tr>'
+	       ).appendTo('#ta'); 
 	   	}
 	}); //bt3
 		
@@ -378,6 +390,10 @@ $(function(){
 		$('#bt2').css('display','');
 		setcount = setInterval("getcount()",1000);
 	}); // backbt2
+	
+	$('#resetbt').click(function(){
+		reset();
+	});
 });	//ready
 
 /*///////////////////////////////////////
@@ -386,22 +402,36 @@ $(function(){
 function reset(){
 	modcount();
 	$('#bt1').css('display','none');
+	$('#bt2').css('display','');
+	$('#bt3').css('display','');
+	$('#backbt1').css('display','');
+	$('#backbt2').css('display','');
     $('#paybt').css('display','none');
     $('#resetbt').css('display','none');
-    $('#backbt').css('display','none');
+    //$('#backbt').css('display','none');
 	$('#box2').css('display','none');
 	$('#box3').css('display','none');
 	$('#multipick').datepicker('option', 'disabled', false);
 	$('#multipick').datepicker('option', 'setDate', '');	
 	$('#ta > tr').remove();
+	$('#skipricebox').text('');
+	$('#name').val('');
+	$('#tel').val('');
+	$('#carnum').val('');
 	$('.skidate').each(function(i,t){
 		$(t).remove();
    	}); 
 	$('.ran').each(function(i,t){
 		t.attr('disabled', false);
 	});
+	$('.alt').each(function(i,t){
+		$(t).remove();
+	});
 	clearInterval(setcount);	
-	setdate = setInterval("getdate()",1000);
+	setdate = setTimeout("getdate()",1000);
+	if(getdateresult == 1){
+		$('#multipick').datepicker('option','beforeShowDay', gogogo);	
+	}
 }//reset
 
 function fulldate(date){

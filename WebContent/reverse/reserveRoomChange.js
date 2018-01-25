@@ -298,6 +298,13 @@ $(document).ready(function(){
 		$('#carnumtd').text($('#reset_carnum').val());
 		
 	});	
+	
+	
+	 $('#back').click(function(){
+		   //insertcount();
+		   modcount();
+		   self.close();
+	 });
 });//ready
  
 function showstep2(){

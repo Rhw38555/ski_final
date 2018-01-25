@@ -24,8 +24,7 @@
 	<script src="./assets/js/bootstrap.min.js"></script>
 	<script src="./assets/js/jquery.actual.min.js"></script>
 	<script src="./assets/js/jquery.scrollTo.min.js"></script>
-	<script src="./assets/js/script.js"></script>  
-	  <%@include file="/include/mainnav.jsp" %>
+	<script src="./assets/js/script.js"></script>
 	  	  <script type="text/javascript">
 		 var stmnLEFT = 10; // 오른쪽 여백 
 		 var stmnGAP1 = 0; // 위쪽 여백 

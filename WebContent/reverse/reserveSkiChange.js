@@ -212,6 +212,24 @@ $(function(){
    }
    
    $('#resetbt').click(function(){
+	   $('.alt').each(function(i,t){
+		   $(t).remove();
+	   });
+	   for(var i=0; i<3; i++){
+		   $('#skidate'+i).css('display','none');
+		   $('#skiski_'+i).css('display','none');
+	   } // step2 우선 다 막아놓기
+	   
+	   for(var i=0; i<$('#datecnt').val(); i++){
+		  $('#skidate'+i).css('display','');
+		  $('#skiski_'+i).css('display','');
+		  $('#skidateval'+i).val('1');
+		  
+	      var firstdate = fulldate(new Date($('#date'+i).text()));      
+	      firstarr.push(firstdate);
+	      $('<div class="alt" id="alt_'+ firstdate +'">'+firstdate+'</div>').appendTo('#a');
+	      $('#date'+i).text(firstdate);
+	   } // 예약날짜 수를 받아와서 그만큼 step1, 2에 채워넣어준다
 		firstcheck = 0;
 		$('#date1').text($('#reset_ski_date1').val());
 		$('#skidate2').css('display','none');
@@ -224,31 +242,20 @@ $(function(){
 		$('#ski4_0').text($('#reset_ski4_cnt0').val());
 		$('#ski8_0').text($('#reset_ski8_cnt0').val());
 		$('#multipick').datepicker('option','beforeShowDay',firstgo);
-		if($('#datecnt').val() > 1){
-			$('#skidate2').css('display','');
-			$('#date2').text($('#reset_ski_date2').val());
-			$('#skidateval1').val('1');
-			$('#ski_date_1').text($('#reset_ski_date2').val());
-			$('#ski2_1').text($('#reset_ski2_cnt1').val());
-			$('#ski4_1').text($('#reset_ski4_cnt1').val());
-			$('#ski8_1').text($('#reset_ski8_cnt1').val());
-			if($('#datecnt').val() >2){
-				$('#ski_date_2').text($('#reset_ski_date3').val());
-				$('#date2').text($('#reset_ski_date2').val());
-				$('#skidate3').css('display','');
-				$('#skidateval2').val('1');
-				$('#ski2_2').text($('#reset_ski2_cnt2').val());
-				$('#ski4_2').text($('#reset_ski4_cnt2').val());
-				$('#ski8_2').text($('#reset_ski8_cnt2').val());
-			}
-		}		
+		$('#skipricebox').text($('#reset_ski_price').val());	
 		$('#name').val($('#reset_name').val());
 		$('#tel').val($('#reset_tel').val());
 		$('#carnum').val($('#reset_carnum').val());
 		$('#nametd').text($('#reset_name').val());
 		$('#teltd').text($('#reset_tel').val());
 		$('#carnumtd').text($('#reset_carnum').val());		
-	}); //변경취소 클릭시   
+	}); //리셋버튼   
+   
+   $('#back').click(function(){
+	   insertcount();
+	   modcount();
+	   self.close();
+   });
 });   //ready
 
 function finalcheck(){
