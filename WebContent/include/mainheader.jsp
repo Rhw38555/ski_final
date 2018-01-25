@@ -27,14 +27,14 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="${project}assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- Chocolat-CSS -->
-		<link rel="stylesheet" href="css/chocolat.css"	  type="text/css" media="all">
+		<link rel="stylesheet" href="${project}assets/css/chocolat.css"	  type="text/css" media="all">
 		<link href="//fonts.googleapis.com/css?family=Montserrat+Alternates:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 		<link href="//fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
 		<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 		<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 		<!--//fonts-->
 		<!-- Supportive-JavaScript -->
-		<script src="js/modernizr.js"></script>
+		<script src="./assets/js/modernizr.js"></script>
 		<!-- //Supportive-JavaScript -->	
 	</head>
 	
@@ -101,83 +101,7 @@
 			</div>
 			<!--//Top-Bar-->
 		</header>
-			
 		
-		<!-- js -->
-		<script type="text/javascript" src="${project}assets/js/jquery-2.1.4.min.js"></script>
-	 	<script src="${project}member/jquery-barcode.js"></script>
-		<script src="${project}assets/js/responsiveslides.min.js"></script>
-		
-				<script>	
-						$(function () {
-							$("#slider").responsiveSlides({
-								auto: true,
-								pager: true,
-								nav: true,
-								speed: 1000,
-								namespace: "callbacks",
-								before: function () {
-									$('.events').append("<li>before event fired.</li>");
-								},
-								after: function () {
-									$('.events').append("<li>after event fired.</li>");
-								}
-							});
-						});
-					</script>
-			
-		<!-- Calendar -->
-					<link rel="stylesheet" href="${project}assets/css/jquery-ui.css" />
-					<script src="${project}assets/js/jquery-ui.js"></script>
-					  <script>
-							  $(function() {
-								$( "#datepicker,#datepicker1" ).datepicker();
-							  });
-					  </script>
-				<!-- //Calendar -->
-			<!-- Portfolio-Popup-Box-JavaScript -->
-					<script src="${project}assets/js/jquery.chocolat.js"></script>
-					<script type="text/javascript">
-						$(function() {
-							$('.w3portfolioaits-item a').Chocolat();
-						});
-					</script>
-				<!-- //Portfolio-Popup-Box-JavaScript -->
-				<!-- Tour-Locations-JavaScript -->
-					<script src="${project}assets/js/classie.js"></script>
-					<script src="${project}assets/js/helper.js"></script>
-					<script src="${project}assets/js/grid3d.js"></script>
-					<script>
-						new grid3D( document.getElementById( 'grid3d' ) );
-					</script>
-				<!-- //Tour-Locations-JavaScript -->
-					<script src="${project}assets/js/SmoothScroll.min.js"></script>
-				<!-- smooth scrolling-bottom-to-top -->
-						<script type="text/javascript">
-							$(document).ready(function() {
-							/*
-								var defaults = {
-								containerID: 'toTop', // fading element id
-								containerHoverID: 'toTopHover', // fading element hover id
-								scrollSpeed: 1200,
-								easingType: 'linear' 
-								};
-							*/								
-							$().UItoTop({ easingType: 'easeOutQuart' });
-							});
-						</script>
-						<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-				<!-- //smooth scrolling-bottom-to-top -->
-				<script type="text/javascript">
-			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-				});
-			});
-		</script>
-		<!-- start-smoth-scrolling -->
-			`			
 	</body>
 </html>
 	

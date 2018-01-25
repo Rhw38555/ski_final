@@ -75,6 +75,7 @@ public class BarcodeDBBean implements BarcodeDao{
 	public void insertUserBarcode(String id) {
 		
 		String calBarcode = SqlMapClient.getSqlSession().selectOne("Barcode.getUser_barcodeCount");
+		System.out.println("찾아온 바코드"+calBarcode);
 		String cloneBarcode;
 		String user_barcode;
 		int num;
