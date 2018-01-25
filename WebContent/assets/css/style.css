@@ -191,6 +191,11 @@ background:url(../images/banner5.jpg)no-repeat 0px 0px;
 .events {
 	list-style: none;
 }
+.join-container{
+	top : 10px;
+	position: fiexd;
+    float: none;
+}
 .callbacks_container {
     position: relative;
     float: none;

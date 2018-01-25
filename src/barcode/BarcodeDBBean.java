@@ -1,6 +1,8 @@
 package barcode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import db.SqlMapClient;
 
@@ -69,5 +71,23 @@ public class BarcodeDBBean implements BarcodeDao{
 	
 	public String getUser_barcode(String id) {
 		return SqlMapClient.getSqlSession().selectOne("Barcode.getUser_barcode",id);
+	}
+	public void insertUserBarcode(String id) {
+		
+		String calBarcode = SqlMapClient.getSqlSession().selectOne("Barcode.getUser_barcodeCount");
+		String cloneBarcode;
+		String user_barcode;
+		int num;
+		if(calBarcode==null || calBarcode=="") {
+			user_barcode = "user1";
+		}else {
+			cloneBarcode = calBarcode.substring(4);
+			num = Integer.parseInt(cloneBarcode)+1;
+			user_barcode = "user" + num;
+		}
+		Map<String, String> map = new HashMap<String, String>();
+		map.put( "user_barcode", user_barcode );
+		map.put( "id", id );
+		SqlMapClient.getSqlSession().insert("Barcode.insertUserBarcode", map);
 	}
 }

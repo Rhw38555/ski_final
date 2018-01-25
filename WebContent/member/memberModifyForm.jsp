@@ -47,6 +47,7 @@
 			<form name="joinform" method="post" action="memberModifyPro.do" onsubmit="return viewcheck()">
 			<input type="hidden" name="hiddenemail" value="1">
 			<input type="hidden" name="hiddenemailvalue" value="${logonDto.email}">
+			<input type="hidden" id="user_barcode" value="${user_barcode}">
 				<table class="table">
 					<tr>
 						<th> ${str_id} </th>

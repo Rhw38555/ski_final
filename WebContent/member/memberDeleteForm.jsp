@@ -23,7 +23,51 @@
 				border : 1px solid black;
 				margin : 0px;
 			}
-		</style>		
+		</style>	
+		
+		<script type="text/javascript">
+		//<!--
+		$(document).ready(function() {
+			if($('#user_barcode').val()!=null)
+				generateBarcode($('#user_barcode').val());
+		});
+		
+		function generateBarcode(user_barcode) {
+		    
+		    var value = user_barcode;
+		    var btype = "code128";
+		    var renderer ="css";
+		    
+			var quietZone = false;
+		    if ($("#quietzone").is(':checked') || $("#quietzone").attr('checked')){
+		      quietZone = true;
+		    }
+			
+		    var settings = {
+		      output:renderer,
+		      bgColor: "#FFFFFF",
+		      color: "#000000",
+		      barWidth: "1",
+		      barHeight: "50",
+		      moduleSize: "5",
+		      posX: "10",
+		      posY: "20",
+		      addQuietZone: "1"
+		    };
+		    if ($("#rectangular").is(':checked') || $("#rectangular").attr('checked')){
+		        value = {code:value, rect: true};
+		      }
+		      if (renderer == 'canvas'){
+		        clearCanvas();
+		        $("#barcodeTarget").hide();
+		        $("#canvasTarget").show().barcode(value, btype, settings);
+		      } else {
+		        $("#canvasTarget").hide();
+		        $("#barcodeTarget").html("").show().barcode(value, btype, settings);
+		      }
+		  }	
+		//-->
+		</script>	
 	</head>
 
 	<body onload="passwdfocus()">
@@ -34,6 +78,7 @@
 		<section>
 		<form name="delpasswdform" method="post" action="memberDeletePro.do"
 			onsubmit="return delpasswdcheck()">
+			<input type="hidden" id="user_barcode" value="${user_barcode}">
 			<table>
 				<tr>
 					<th colspan="2">
