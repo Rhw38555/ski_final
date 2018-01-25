@@ -47,6 +47,15 @@
 		delete from wp_roomreserve where num=#{num}
   	</delete> 	
   	
+  	<select id="roomCount" parameterType="HashMap" resultType="reverse.RoomReverseDataBean">
+  		select * from WP_roomreserve where 
+  		room_date BETWEEN to_date(#{startDate}, 'MMDDYYYY') AND to_date(#{endDate}, 'MMDDYYYY')
+  	</select>
+  	  	
+  	<select id="skiCount" parameterType="HashMap" resultType="reverse.SkiReverseDataBean">
+  		select * from WP_skireserve where 
+  		ski_date BETWEEN to_date(#{startDate}, 'MMDDYYYY') AND to_date(#{endDate}, 'MMDDYYYY')
+  	</select>
   </mapper>
   
   

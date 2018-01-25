@@ -2,16 +2,15 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="setting.jsp"%>
-<%@include file="/include/mainheader.jsp"%>
-<%@include file="/include/mainnav.jsp"%>
-<link href="${project}${location}style.css" rel="stylesheet" type="text/css">
+<%@include file="/include/adminmainheader.jsp"%>
+<%@include file="/include/adminmainnav.jsp"%>
+
 <style>
 .img {
 	max-width : 100%;
 	height : auto;
 }
 </style>
-
 
 <table class="table">
 	<tr>
@@ -30,8 +29,12 @@
 	</tr>
 	<tr>
 		<th colspan="2">
+			<input class="inputbutton" type="button" value="${btn_modify}"
+				onclick="location='adminEventModifyForm.do?num=${eventDto.num}&pageNum=${pageNum}'">
+			<input class="inputbutton" type="button" value="${btn_delete}"
+				onclick="location='adminEventDeleteForm.do?num=${eventDto.num}&pageNum=${pageNum}'">
 			<input class="inputbutton" type="button" value="${btn_list}"
-				onclick="location='eventList.do?pageNum=${pageNum}'">			
+				onclick="location='adminEventList.do?pageNum=${pageNum}'">
 		</th>
 	</tr>
 </table>

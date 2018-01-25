@@ -1,14 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ include file="setting.jsp"%>
+<%@include file="setting.jsp"%>
+<%@include file="/include/adminmainheader.jsp"%>
+<%@include file="/include/adminmainnav.jsp"%>
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 <script src="${project}jquery-3.2.1.js"></script>
-
-<table>
+<style>
+	#mainPanel{
+		width:100%;
+		height:auto;
+	}
+</style>
+<aside>
+<table style="width:100%;">
 	<tr>
 		<th colspan="6">${ffDto.name}<hr>
-		<div><a>시설 위치 약도</a><br></div>
+		<img src="${project}ff/${ffDto.location}" hidden="true">
+		<div><a href="#view" onclick="loadmap('${project}ff/${ffDto.location}')">시설 위치 약도</a><br></div>
 		</th>
 	</tr>
 	<tr>
@@ -49,4 +58,14 @@
 		'click',function(event){
 			$('#mainPanel').attr('src',$('img[name='+event.target.name+']').attr('src') );
 		});
+
+	function loadmap(location) {
+		var img = new Image();
+		img.src = location;
+		var OpenWindow=window.open('','_blank', 'width='+img.width+', height='+img.height+', menubars=no, scrollbars=auto');
+		OpenWindow.document.write("<style>body{margin:0px;padding:0px;}</style><img src='"+location+"' style='width:100%;height:auto;' onclick='window.close()'>");
+	}
+
 </script>
+</aside>
+<%@include file="/include/mainfooter.jsp" %>

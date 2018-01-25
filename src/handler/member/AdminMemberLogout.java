@@ -16,7 +16,11 @@ public class AdminMemberLogout implements CommandHandler{
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
-		//request.getSession().removeAttribute( "memId" );
+		if( request.getSession().getAttribute( "adminId" ) != null ) {
+			request.getSession().removeAttribute( "adminId" );
+		} else if( request.getSession().getAttribute( "barcodeadminId" ) != null ) {
+			request.getSession().removeAttribute( "barcodeadminId" );
+		}
 		
 		return new ModelAndView( "main/main" );
 	}

@@ -2,8 +2,12 @@
     pageEncoding="UTF-8"%>
 	
 <%@ include file="setting.jsp"%>
-<link href="${project}${location}style.css" rel="stylesheet" type="text/css">
+<%@include file="/include/adminmainheader.jsp" %>
+<%@include file="/include/adminmainnav.jsp" %>
 
+<link href="${project}${location}style.css" rel="stylesheet" type="text/css">
+ 	
+<aside>
 <c:set var="adminId" value="admin" scope="session"/>
 <!-- 정보 리스트 -->	           
 	<input type="button" value="전체 보기" onclick="location='adminFFList.do?division=0'">
@@ -81,3 +85,5 @@
 		<a href="adminFFList.do?pageNum=${pageCount}&division=${division}">[▶▶]</a>
 	</c:if>
 </c:if>
+</aside>
+<%@include file="/include/mainfooter.jsp" %>
