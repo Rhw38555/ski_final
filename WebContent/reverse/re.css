@@ -1,0 +1,478 @@
+/*
+*/
+
+.rebody{
+	/*background : #8C8C8C;*/
+	background-color : #24A6BD;
+	background-color: rgb( 255, 255, 255, 0.5 );
+}
+
+.totalbox{
+	float : left;
+	padding : 15px 15px 15px 15px;
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: 100px;
+	/*background-color : #FFF;*/
+	border-radius: 10px;
+	position: relative;
+	
+}
+
+.count{
+	background-color:transparent;	
+}
+
+#box1,#box2,#box3{
+	/*overflow: hidden;*/
+	 display: flex;
+	 margin : 10px;
+	 
+}
+
+.stepbox{
+	background-color : #B0B0B0;
+	/*background-color: rgba( 255, 255, 255, 0.6 );*/
+	width : 200px;
+	/*height : auto;*/
+	margin : 10px;
+	margin-right : 0px;
+	float : left;
+	clear : left;
+	text-color : #FFF; 
+	text-align : center;
+	overflow: hidden;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+	border-right : 1px;
+	box-shadow: 10px 10px 5px #686868;
+	
+}
+
+.stepbox > h3 ,
+.stepbox > h4 {
+	/*color : #FFF;*/
+}
+
+.selectbox {
+    /*width:60%;*/
+    padding: 2em;
+    padding-left : 0;
+    margin: 0 auto;
+    
+    background:#F6F6F6;
+    background-color: rgba( 255, 255, 255, 0.95 );
+    display: block;
+    box-shadow: 10px 10px 5px #686868;
+	width : 700px;
+	/*min-height : 350px;*/
+	/*height : auto;*/
+	float : left;
+	margin : 10px;
+	margin-left :0;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+		
+}
+.roomdate, .skidate{
+	padding : 10px;
+}
+
+input[type="button"]{
+
+}
+#box1, #box2, #box3{
+
+}
+.ran{
+    display: inline-block;
+    font-weight: 500;
+    text-align: top;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /*border: 1px solid transparent;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: .25rem;*/
+    transition: all .15s ease-in-out;
+    color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 20px;
+  /*line-height: 1.428571429;*/
+  border-radius: 15px;
+}
+
+.ran:focus,
+.ran:hover {
+    text-decoration: none
+}
+
+.ran.focus,
+.ran:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, .25)
+}
+
+.ran.disabled,
+.ran:disabled {
+    opacity: .65;
+    background-color : gray;
+}
+
+.ran.active,
+.ran:active {
+    background-image: none
+}
+
+
+#multipick {
+	
+}
+.multipickchange{
+	margin-left : 230px;
+}
+.calbox{
+	margin : auto;
+	margin-left : 65px;
+}
+
+#calbox{
+	float : left;
+	padding : 20px;
+	text-align : center;
+	/*color : #FFF;*/
+	
+}
+
+#skicalbox{
+	margin-left : 200px;
+	padding : 20px;
+}
+.a{
+	margin-left : -200px;
+}
+.alt{
+}
+
+.date{
+	float : left;
+	margin-left : 120px;
+	margin-top : 40px;
+	font-size : 20px;
+	font-weight : 500;
+	/*color : #FFF;*/
+}
+.__count_range{
+	margin-left : 350px;
+	font-size : 15px;
+	margin-bottom : 10px;
+}
+
+#re, #re2, #a{
+    /*color: #FFFFFF;*/
+    font-size: 15px;
+
+    margin: .8em 0 0;
+    text-align : center;
+}
+
+
+
+#roomcntbox, #skicntbox{
+	float : center;
+	margin : 20px;
+}
+
+#btbox{
+	clear : left;
+	margin-left : auto;
+	margin-right : auto;
+}
+
+.count{
+	width : 30px;
+	border : 0px;
+	text-align : center;
+}
+
+#textbox{
+	/*float : center;*/
+	margin-left : 50px;
+}
+
+.textbox{
+	
+}
+
+/*#textbox > input[type='text']*/
+#name, #tel, #carnum{
+	/*clear : left;*/
+
+}
+
+.textmention{
+	font-size : 15px;
+	width : 100px;
+	margin : 10px;
+	/*float : left;*/
+	/*margin-left : 30px;*/
+}
+
+
+#roompricebox{
+	/*border : solid 1px black;*/
+	width : 50%;
+	/*height : 50px;*/
+	font-size : 20px;
+	/*float : left;*/
+	position: absolute;
+	bottom: 5;
+	padding-left: 100px;
+}
+
+.roompricemention{
+	float : left;
+	padding-left: 30px;
+	position: absolute;
+	bottom: 1;
+	font-size : 15px;
+	padding-top: 5px;
+}
+#skipricebox {
+	/*border : solid 1px black;*/
+	width : 50%;
+	/*height : 50px;*/
+	font-size : 20px;
+	/*float : left;*/
+	position: absolute;
+	/*bottom: 5;*/
+	padding-left: 200px;
+}
+.skipricemention{
+	float : left;
+	padding-left: 140px;
+	position: absolute;
+	/*bottom: 10;*/
+	font-size : 15px;
+	padding-top: 5px;
+}
+
+#skipricemention{
+	float : left;
+	padding-left: 140px;
+	position: absolute;
+	/*bottom: 10;*/
+	font-size : 15px;
+	padding-top: 5px;
+}
+
+.roomprice{
+	float : left;
+	font-size : 15px;	
+	width : 100%;
+	padding-left: 50px;
+	padding-top: 30px;
+
+	/*position: relative;*/
+}
+
+#bt1,#bt2,#bt3,#backbt,#backbt1,#backbt2, #paybt, #resetbt, #back{
+	float : right;
+	font-weight: 400;
+    font-size: 0.8571em;
+    line-height: 1.35em;
+    /*margin: 5px 1px;*/
+    border: none;
+    cursor: pointer;
+    background-color: #FF5E00;
+    color: #FFFFFF;
+    border-width: 1px;
+    border-radius: 10px !important;
+    padding: 11px 23px;
+}
+
+
+.pageselbox{
+	margin : 0 auto;
+	padding : 10px;
+	/*margin-left: 200px;*/
+	margin-left: 120px;
+	margin-top: 30px;
+}
+
+.pageselbox > a , #topdiv{
+	color : #FFF;
+	font-size : 15px;
+	/*margin : 10px;*/
+	/*padding-bottom : 10px;*/
+	font-family: 'Noto Sans KR', normal;
+}
+.a{
+	padding-left : 20px;
+}
+/*
+#condobt{
+	width : 40%;
+	font-size : 20px;
+	margin : 0 auto;
+	padding : 5px;
+	position: relative;
+	color : #FFF;
+}
+
+#skibt{
+	width : 40%;
+	font-size : 20px;
+	margin : 0 auto;
+	padding : 5px;
+	position: relative;
+	color : #FFF;
+}
+*/
+
+
+#STATICMENU { 
+	margin: 0pt; 
+	padding: 0pt;  
+	position: absolute; 
+	top: 0px;
+	margin-right: 170px;
+}
+
+.image-container {
+  min-height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+.image-container:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  opacity: .3;
+}
+
+
+
+.checkbox{
+	width : 300px;
+	/*height : 250px;*/
+	min-height : 250px;
+	float : left;
+	margin-left: 55%;
+	background-color : #FFF;
+	background-color: rgba( 255, 255, 255, 0.3 );
+	border-radius: 15px;
+	padding : 10px;
+}
+
+.checktitle{
+	font-size : 15px;
+	text-align : center;
+	margin: 10px;
+	color: #393939;
+}
+
+table.type04 {
+	margin-left : 10px;
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #818181;
+    border-left: 0px;
+    border-right: 0px;
+ 	margin : 5px;
+ 	
+}
+table.type04 th {
+    width: 250px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #818181;
+    /*border-bottom: 0px;*/
+    border-left: 0px;
+    border-right: 0px;
+    text-align : center; 
+}
+table.type04 td {
+    width: 250px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #818181;
+    /*border-bottom: 0px;*/
+    border-left: 0px;
+    border-right: 0px;
+    text-align : center;
+}
+
+
+#paycheck{
+	background-color : #FFF;
+	background-color: rgba( 255, 255, 255, 0.8 );
+	border-radius: 15px;
+	width : 600px;
+	/*height : 250px;*/
+	/*min-height : 300px;*/
+	padding : 20px;
+	margin-left : 300px;
+	box-shadow: 10px 10px 5px #686868;
+	/*margin : 20px;*/
+	
+}
+
+#paycheckbt{
+	float : center;
+	font-weight: 400;
+    font-size: 1em;
+    line-height: 1.35em;
+    /*margin: 5px 1px;*/
+    border: none;
+    cursor: pointer;
+    background-color: #FF5E00;
+    color: #FFFFFF;
+    border-width: 1px;
+    border-radius: 5px !important;
+    padding: 11px 23px;
+    margin : 10px;
+    width : 120px;
+    height : 40px;
+}
+
+.paycheckbt{
+	margin-left : 150px;
+}
+
+.paycheckid{
+	margin : 50px;
+	text-align : center;
+	padding-left : 30px;
+}
+
+.paycheckid > h3{
+	color : #FFF;
+}
+
+.alt{
+	/*border : 1px solid black;*/
+}
+

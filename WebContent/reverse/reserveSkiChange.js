@@ -10,15 +10,7 @@
    var firstcheck = 0;
    var firstarr = new Array();   
 $(function(){
-   /*
-   window.addEventListener("beforeunload", function (e) {
-      var confirmationMessage = "\o/";   
-      (e || window.event).returnValue = confirmationMessage; //Gecko + IE   
-         modcount();      
-         return confirmationMessage; //Webkit, Safari, Chrome
-         
-   });
-   */	
+   
    setInterval("getcount()",1000); //선택한 날짜별로 스키권 남은 개수 알려준다
 	
    for(var i=0; i<3; i++){
@@ -30,12 +22,15 @@ $(function(){
 	  $('#skidate'+i).css('display','');
 	  $('#skiski_'+i).css('display','');
 	  $('#skidateval'+i).val('1');
+	  
       var firstdate = fulldate(new Date($('#date'+i).text()));      
       firstarr.push(firstdate);
       $('<div class="alt" id="alt_'+ firstdate +'">'+firstdate+'</div>').appendTo('#a');
       $('#date'+i).text(firstdate);
    } // 예약날짜 수를 받아와서 그만큼 step1, 2에 채워넣어준다
-    
+   insertcount();
+   modcount();
+   /*alert($('#skidateval0').val()+"/"+$('#skidateval1').val()+"/"+$('#skidateval2').val());*/
 /////// 달력
    $('#multipick').multiDatesPicker({
       maxPicks: 3,
@@ -56,7 +51,13 @@ $(function(){
          $('.alt').each(function(i,item){   
         	 
             var it = $(item).text();
-            if(it.length > 10) it = it.substring(0,9);
+            //alert(it);
+            //if(it.length > 10) it = it.substring(0,9);
+            if(it.length == 17) it = it.substring(8,18);
+            if(it.length == 18) it = it.substring(9,19);
+            //if(it.length == 16) it = it.substring(9,18);
+            //alert(it +"/" + fullDate);
+            
             if(it == fullDate){
                ch = 1;
                $(item).remove();	//step1 달력에서 고른 날짜랑 비교해서 같으면 지워준다   
@@ -100,10 +101,10 @@ $(function(){
                var alt = strdate($('.alt:first').text());
                var sel = strdate(fullDate);
                if(alt < sel){
-                  $('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('#a');
-               }else{
-                  $('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').prependTo('.alt:first');
-               }
+					$('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('#a');
+				}else{
+					$('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').prependTo('#a');
+				}
             }else if(count >= 2){                              
                clearInterval(setdate);               
                var alt1 = strdate($('.alt:first').text());
@@ -262,19 +263,24 @@ function finalcheck(){
     		skicnt += $('#cnt2_'+i).val()+","+$('#cnt4_'+i).val()+","+$('#cnt8_'+i).val()+",";
     	}
     }
-    alert(skistr+"/"+skicnt);
+   /* alert(skistr+"/"+skicnt);*/
     $('#ski_date').val(skistr);
     $('#ski_count').val(skicnt);
     $('#ski_price').val($('#skipricebox').text());
-    var c = 1;
-    if($('#skidateval1').val() == 1) ++c;
-    if($('#skidateval2').val() == 1) ++c;   
-    $('#finalcnt').val(c);
-    var delresult = deletecount();
-    if(delresult == 'fail'){
-	   alert('삭제 실패');
-	   return false;
+    var c = 0;
+    //if($('#skidateval1').val() == 1) ++c;
+    //if($('#skidateval2').val() == 1) ++c;   
+    for(var i=0; i<3; i++){
+    	if($('#skidateval'+i).val() == 1) ++c;
     }
+    $('#finalcnt').val(c);
+   // alert( $('#finalcnt').val());
+   // return false;
+    //var delresult = deletecount();
+    //if(delresult == 'fail'){
+	 //  alert('삭제 실패');
+	 //  return false;
+    //}
     if($('#skidateval0').val() == '1'){
 	   	if(cnt1 < 1){
 	   		alert($('#date1').text()+'일에 스키권 1개 이상 선택해주세여1');
@@ -532,7 +538,7 @@ function removedate(day,num){
          $('#cnt4_'+i).val('0');
          $('#cnt8_'+i).val('0');
          $('#date'+i).text('');
-         $('#skidateval'+i).val(0);
+         $('#skidateval'+i).val('0');
          $('#ski_date_'+i).text('');
          $('#ski2_'+i).text('0');
          $('#ski4_'+i).text('0');
@@ -594,5 +600,99 @@ function tel_keyup(){
 function carnum_keyup(){
 	$('#carnumtd').text($('#carnum').val());
 }//차량번호 onkeyup으로 테이블 연동
+
+
+function modcount(){
+	for(var i=0; i<3; i++){
+		if($('#skidateval'+i).val()==1){
+			var str = $('#date'+i).text().split('-');
+			if(str[2].length == 1) str[2] = '0'+str[2];
+			if(str[1].length == 1) str[1] = '0'+str[1];
+			var d = str[0]+str[1]+str[2];
+			var ski_0 = $('#cnt2_'+i).val();
+			var ski_1 = $('#cnt4_'+i).val();
+			var ski_2 = $('#cnt8_'+i).val();
+					
+			$.ajax(
+				{
+					url : 'modifySkiCount.do',
+					dataType : 'xml',
+					data : {
+						ski_date : d,
+						ski_morning : parseInt(ski_0),
+						ski_night : parseInt(ski_1),
+						ski_day : parseInt(ski_2)
+				},
+				success : function(data){
+					var code = $(data).find('code').text();
+					if(code == 'success'){									
+	                    $('#result4').text('modcount code 성공!!');
+					}else{
+						$('#result4').text('modcount code 실패');
+					}					                    
+					$('#result3').text('modcount 성공');
+				},
+				error : function(e){
+					$('#result3').html('modcount 실패'+e);
+				}
+			});//ajax
+		} //if
+	} //for	
+} // modcount 중간디비 빼기
+
+
+function insertcount(){
+	//alert('들어왔당');
+	//alert($('#datecnt').val());
+	//alert(firstarr[0]+"/"+firstarr[1]+"/"+firstarr[2]);
+	for(var i=0; i<3; i++){			
+		var ski2 = $('#reset_ski2_cnt'+i).val();
+		var ski4 = $('#reset_ski4_cnt'+i).val();
+		var ski8 = $('#reset_ski8_cnt'+i).val();
+		var day = firstarr[i];
+		//alert(ski2+"/"+ski4+"/"+ski8+"/"+day);
+		//++i;
+		//var day = $('#reset_ski_date'+i).val().substring(8,18);
+		//alert(firstday+'/'+day);
+		//var day = $('#reset_ski_date'+i).val().substring(0,10);
+    	//if(day.length < 5) day = $('#reset_ski_date'+i).val();
+		if(day == null || day == '' || day == 'undefined') return;
+		var str = day.split('-');
+		
+		if(str[2].length == 1) str[2] = '0'+str[2];
+		if(str[1].length == 1) str[1] = '0'+str[1];
+		var d = str[0]+str[1]+str[2];
+		//alert(d);
+					
+		$.ajax(
+	      {
+	         url : '/SKI_Final/reverse/insertSkiChangeCount.jsp',
+	         dataType : 'xml',
+	         data : {
+	            ski_date : d,
+	            ski_morning : parseInt(ski2),
+	            ski_night : parseInt(ski4),
+	            ski_day : parseInt(ski8)
+	         },
+	         success : function(data){
+	            var code = $(data).find('code').text();
+	            if(code == 'success'){                           
+	                    $('#result4').text('modcount code 성공!!');
+	            }else{
+	               $('#result4').text('modcount code 실패');
+	            }                                   
+	            $('#result3').text('modcount 성공');
+	         },
+	         error : function(e){
+	            $('#result3').html('modcount 실패'+e);
+	         }
+	      }      
+	   );//ajax	
+	}
+}
+
+
+
+
 
 

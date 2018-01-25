@@ -11,7 +11,6 @@ $(document).ready(function(){
  * 		load
 /*///////////////////////////////////////	
 	//setdate = setInterval("getdate()",1000);
-	
 	window.addEventListener("beforeunload", function (e) {
 		var confirmationMessage = "\o/";	
 		(e || window.event).returnValue = confirmationMessage; //Gecko + IE			
@@ -209,6 +208,9 @@ $(document).ready(function(){
             $('#bt1').css('display','none');
             $('#backbt1').css('display','');
             $('#bt2').css('display','');
+            $('#date1').text('');
+            $('#date2').text('');
+            $('#date3').text('');
             
             if(time >= 1){
            	 $('#date1').text($('#re').text());
