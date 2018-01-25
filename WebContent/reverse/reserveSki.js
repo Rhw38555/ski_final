@@ -46,7 +46,14 @@ $(function(){
 			$('.alt').each(function(i,item){	
 				if($(item).text() == fullDate){
 					ch = 1;
-					$(item).remove();					
+					$(item).remove();	
+					//aleret('dd');
+					//alert(getdateresult);
+					if(getdateresult == 0){
+						$('#multipick').datepicker('option','beforeShowDay', go);
+					}else{
+						$('#multipick').datepicker('option','beforeShowDay', gogogo);
+					}
 				}else {
 					++cnt;
 				}
@@ -54,6 +61,7 @@ $(function(){
 			});
 			
 			if(getdateresult == 1){
+				//alert(cc);
 				if(2 > cc) $('#multipick').datepicker('option','beforeShowDay', gogogo);				
 			}else{
 				if(ch == 1) setTimeout("getdate()",500);
@@ -94,13 +102,13 @@ $(function(){
 					$('#multipick').datepicker('option','maxPicks', '3');
 					$('#multipick').datepicker('option','beforeShowDay', gogo);
 					//alt1은 alt2보다 작은 상황
-					if(sel < alt1){
-						$('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').prependTo('#a');
-					}else if(sel > alt2){
-						$('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('#a');
-					}else{
-						$('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('.alt:first');
-					}
+				   if(sel < alt1){
+	                   $('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').prependTo('#a');
+	               }else if(sel > alt2){
+	                   $('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('#a');
+	               }else{
+	                   $('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').insertAfter('.alt:first');
+	               }
 				}
 			}			
 		}
@@ -244,7 +252,7 @@ $(function(){
 		
 			$('<div class="skidate" id="skidate_"'+i+'>'
 	          +'	<div class="date" id="date'+i+'">'+tstr+'</div>'
-	          +'	<div class="__count_range" > 오전권 (20,000) &nbsp;&nbsp;&nbsp;'
+	          +'	<div class="__count_range" > 오전권 (20,000) &nbsp;&nbsp;'
 	          +'		<input class="ran" id="mran2_'+i+'" type="button" value="-" count_range="m">'
 	          +'		<input class="count" id="cnt2_'+i+'" value="0" readonly name="">'
 	          +'		<input class="ran" id="pran2_'+i+'" type="button" value="+" count_range="p">'        
