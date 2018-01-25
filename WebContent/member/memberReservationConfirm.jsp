@@ -10,6 +10,7 @@
 			<script src="${project}member/jquery-3.2.1.js"></script>
 			<script type="text/javascript">
 				$(document).ready(function(){
+					//alert($('#userid').val());
 					memberReserveCheck($('#userid').val());
 				});
 			</script>
@@ -22,21 +23,23 @@
 			<header>${page_reservationConfirm}</header>
 			<%@include file="/include/mypageaside.jsp" %>
 			<section>
-				<input type="hidden" id="user_barcode" value="${user_barcode}">
-				<input type="hidden" id="userid" value="${sessionScope.memId}">
-					<table border="1"> 
-						<tr>
-							<th colspan="10">콘도 예약 정보</th>
-						</tr>
-						<tbody id="findtr"></tbody>
-					</table>				
-					<table border="1"> 
-						<tr>
-							<th colspan="10">스키 예약 정보</th>
-						</tr>
-						<tbody id="findtr2"></tbody>
-					</table>
-				총가격 : <input type="text" id="allPrice">
+				<form>
+					<input type="hidden" id="user_barcode" value="${user_barcode}">
+					<input type="hidden" id="userid" value="${sessionScope.memId}">
+						<table border="1"> 
+							<tr>
+								<th colspan="10">콘도 예약 정보</th>
+							</tr>
+							<tbody id="findtr"></tbody>
+						</table>				
+						<table border="1"> 
+							<tr>
+								<th colspan="10">스키 예약 정보</th>
+							</tr>
+							<tbody id="findtr2"></tbody>
+						</table>
+					총가격 : <input type="text" id="allPrice">
+				</form>
 			</section>
 		</body>
 		<%@include file="/include/mainfooter.jsp" %>

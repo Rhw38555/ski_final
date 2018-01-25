@@ -32,7 +32,9 @@
 						name : "${row.name}",
 						tel : "${row.tel}",
 						carnum : "${row.carnum}",
-						room_price : "${row.room_price}"
+						room_price : "${row.room_price}",
+						room_check : "${row.room_check}",
+						num : "${row.num}"
 					},
 				</c:forEach>
 			],
@@ -48,7 +50,8 @@
 						name : "${row2.name}",
 						tel : "${row2.tel}",
 						carnum : "${row2.carnum}",
-						ski_price : "${row2.ski_price}"
+						ski_price : "${row2.ski_price}",
+						num : "${row2.num}"
 					},
 				</c:forEach>
 			]
