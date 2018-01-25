@@ -8,13 +8,14 @@
 	var setcount = 0;
 	var getdateresult = 0;
 $(function(){
-	
+	/*
 	window.addEventListener("beforeunload", function (e) {
 		var confirmationMessage = "\o/";	
 		(e || window.event).returnValue = confirmationMessage; //Gecko + IE			
 			return confirmationMessage; //Webkit, Safari, Chrome
 			modcount();
 	});
+	*/
 /*///////////////////////////////////////
  * 		document.ready
 /*///////////////////////////////////////	
@@ -46,7 +47,14 @@ $(function(){
 			$('.alt').each(function(i,item){	
 				if($(item).text() == fullDate){
 					ch = 1;
-					$(item).remove();					
+					$(item).remove();	
+					//aleret('dd');
+					//alert(getdateresult);
+					if(getdateresult == 0){
+						$('#multipick').datepicker('option','beforeShowDay', go);
+					}else{
+						$('#multipick').datepicker('option','beforeShowDay', gogogo);
+					}
 				}else {
 					++cnt;
 				}
@@ -54,6 +62,7 @@ $(function(){
 			});
 			
 			if(getdateresult == 1){
+				//alert(cc);
 				if(2 > cc) $('#multipick').datepicker('option','beforeShowDay', gogogo);				
 			}else{
 				if(ch == 1) setTimeout("getdate()",500);
@@ -94,13 +103,13 @@ $(function(){
 					$('#multipick').datepicker('option','maxPicks', '3');
 					$('#multipick').datepicker('option','beforeShowDay', gogo);
 					//alt1은 alt2보다 작은 상황
-					if(sel < alt1){
-						$('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').prependTo('#a');
-					}else if(sel > alt2){
-						$('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('#a');
-					}else{
-						$('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('.alt:first');
-					}
+				   if(sel < alt1){
+	                   $('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').prependTo('#a');
+	               }else if(sel > alt2){
+	                   $('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('#a');
+	               }else{
+	                   $('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').insertAfter('.alt:first');
+	               }
 				}
 			}			
 		}
@@ -244,7 +253,7 @@ $(function(){
 		
 			$('<div class="skidate" id="skidate_"'+i+'>'
 	          +'	<div class="date" id="date'+i+'">'+tstr+'</div>'
-	          +'	<div class="__count_range" > 오전권 (20,000) &nbsp;&nbsp;&nbsp;'
+	          +'	<div class="__count_range" > 오전권 (20,000) &nbsp;&nbsp;'
 	          +'		<input class="ran" id="mran2_'+i+'" type="button" value="-" count_range="m">'
 	          +'		<input class="count" id="cnt2_'+i+'" value="0" readonly name="">'
 	          +'		<input class="ran" id="pran2_'+i+'" type="button" value="+" count_range="p">'        
@@ -340,6 +349,17 @@ $(function(){
 			$('#ski_price').val($('#skipricebox').text());
 			$('#ski_date').val(ski_date);
 			$('#ski_count').val(ski_count);
+			
+			$('<tr>'
+	        +'<th>이용자명</th> <td>'+($('#name').val())+'</td>'
+	        +'</tr>'
+	        +'<tr>'
+	        +'<th>전화번호</th> <td>'+($('#tel').val())+'</td>'
+	        +'</tr>'
+	        +'<tr>'
+	        +'<th>차량번호</th> <td>'+($('#carnum').val())+'</td>'
+	        +'</tr>'
+	       ).appendTo('#ta'); 
 	   	}
 	}); //bt3
 		
@@ -370,6 +390,10 @@ $(function(){
 		$('#bt2').css('display','');
 		setcount = setInterval("getcount()",1000);
 	}); // backbt2
+	
+	$('#resetbt').click(function(){
+		reset();
+	});
 });	//ready
 
 /*///////////////////////////////////////
@@ -378,22 +402,36 @@ $(function(){
 function reset(){
 	modcount();
 	$('#bt1').css('display','none');
+	$('#bt2').css('display','');
+	$('#bt3').css('display','');
+	$('#backbt1').css('display','');
+	$('#backbt2').css('display','');
     $('#paybt').css('display','none');
     $('#resetbt').css('display','none');
-    $('#backbt').css('display','none');
+    //$('#backbt').css('display','none');
 	$('#box2').css('display','none');
 	$('#box3').css('display','none');
 	$('#multipick').datepicker('option', 'disabled', false);
 	$('#multipick').datepicker('option', 'setDate', '');	
 	$('#ta > tr').remove();
+	$('#skipricebox').text('');
+	$('#name').val('');
+	$('#tel').val('');
+	$('#carnum').val('');
 	$('.skidate').each(function(i,t){
 		$(t).remove();
    	}); 
 	$('.ran').each(function(i,t){
 		t.attr('disabled', false);
 	});
+	$('.alt').each(function(i,t){
+		$(t).remove();
+	});
 	clearInterval(setcount);	
-	setdate = setInterval("getdate()",1000);
+	setdate = setTimeout("getdate()",1000);
+	if(getdateresult == 1){
+		$('#multipick').datepicker('option','beforeShowDay', gogogo);	
+	}
 }//reset
 
 function fulldate(date){

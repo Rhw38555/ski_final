@@ -32,6 +32,7 @@
 		<header>${page_UseHistory}</header>
 		<%@include file="/include/mypageaside.jsp" %>
 		<section>
+		<input type="hidden" id="user_barcode" value="${user_barcode}">
 			<table border="1"> 
 				<tbody id="findtr"></tbody>
 			</table>

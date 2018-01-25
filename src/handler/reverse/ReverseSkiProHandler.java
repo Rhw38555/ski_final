@@ -34,6 +34,8 @@ public class ReverseSkiProHandler implements CommandHandler{
 		
 		SimpleDateFormat tran = new SimpleDateFormat("yyyy-MM-dd");
 		
+		String id = (String) request.getSession().getAttribute("memId");
+		
 		Date date1 = tran.parse(date[0]);
 		int cnt2_1 = Integer.parseInt(cnt[0]);
 		int cnt4_1 = Integer.parseInt(cnt[1]);

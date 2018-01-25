@@ -3,9 +3,13 @@
 <!DOCTYPE HTML>
 
 <%@ include file="setting.jsp"%>
+<%@include file="/include/adminmainheader.jsp" %>
+<%@include file="/include/adminmainnav.jsp" %>
+
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 <script src="${project}jquery-3.2.1.js"></script>
 
+<aside>
 <body>
 	<form method="post" enctype="multipart/form-data" action="adminFFWritePro.do"
 	 	name="writeform" onsubmit="hiddeninput()">
@@ -81,7 +85,7 @@
 		<div id="test"></div>
 	</form>
 </body>
-
+</aside>
 <script>
 	//<!--
 	// 업로드 이미지 미리보기
@@ -114,7 +118,7 @@
         //$('writeform').append('<input type="hidden" name="img" value="'+img+'">');
    
       	var test = document.getElementById( "test" );
-      	test.innerHTML = img;
+      	//test.innerHTML = img;
       	test.innerHTML += "<input type='hidden' name='img' value='" + img + "'>";
     } else {
 	        console.log("Your browser does not support File API");
@@ -162,3 +166,4 @@
 	}
 	//-->
 </script>
+<%@include file="/include/mainfooter.jsp" %>

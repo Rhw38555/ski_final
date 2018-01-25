@@ -70,5 +70,14 @@ public class ReverseDBBean implements ReverseDao{
 	public int room_delete(int num) {
 		return sql.delete("reserve.room_delete",num);
 	}
-
+	
+	@Override
+	public List<RoomReverseDataBean> roomCount(Map<String, String> map) {
+		return sql.selectList( "reserve.roomCount", map );
+	}
+	
+	@Override
+	public List<SkiReverseDataBean> skiCount(Map<String, String> map) {
+		return sql.selectList( "reserve.skiCount", map );
+	}
 }

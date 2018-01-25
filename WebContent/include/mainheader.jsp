@@ -52,32 +52,34 @@
 	<script src="${project}member/script.js"></script>
 		<!--Header-->
 		<header> 
+			
 			<div class="header" id="home">
 			<!--Top-Bar-->
+			
 				<div class="top-bar">
 				<div class="container-fluid">
-				
 				<c:if test="${sessionScope.memId == null}">
                			<div class="member-button">
                         <input type="button" value="${btn_login}" onclick="location='memberLoginForm.do'">
                         <input type="button" value="${btn_join}" onclick="location='memberJoinForm.do'">
                   		</div>
-            </c:if>
+            	</c:if>
             <c:if test="${sessionScope.memId != null}">
+                    	 
                     	<div class="member-button"> 
+                    	<div id="barcodeTarget" class="barcodeTarget"></div>
                     	${sessionScope.memId} ${msg_loginmain}
-                        <div id="barcodeTarget" class="barcodeTarget"></div>
                         <input type="button" value="${btn_logout}" onclick="location='memberLogout.do'"> 
                         <input type="button" value="${btn_mypage}" onclick="location='memberModifyForm.do'">
-                        </div>
                         
+                        </div>
+                    	
             </c:if>
-            
-			
 					<div class="header-nav">
 						<nav class="navbar navbar-default">
 							<!-- Brand and toggle get grouped for better mobile display -->
 							<div class="navbar-header">
+
 								<h1><a class="navbar-brand" href="main.do">WinterPark<sup><i class="fa fa-snowflake-o" aria-hidden="true"></i><sup></a></h1>
 							</div>
 							<!-- Collect the nav links, forms, and other content for toggling -->
@@ -85,7 +87,7 @@
 								<nav class="cl-effect-15" id="cl-effect-15">
 								<ul>
 									<li><a href="WinterParkLiftPrice.do" data-hover="${btn_winterPark}">${btn_winterPark}</a></li>
-									<li><a href="reverseRoomForm.do" data-hover="${btn_reservation}">${btn_reservation}</a></li>
+									<li><a href="reverseRoomForm.do" target="_blank" data-hover="${btn_reservation}">${btn_reservation}</a></li>
 									<li><a href="introSki.do" data-hover="${btn_skioom}">${btn_skioom}</a></li>
 									<li><a href="ffList.do" data-hover="${btn_eat}">${btn_eat}</a></li>
 									<li><a href="eventList.do" data-hover="${btn_event}">${btn_event}</a></li>
@@ -99,9 +101,83 @@
 			</div>
 			<!--//Top-Bar-->
 		</header>
-		
+			
 
-			`			
+		<!-- js -->
+		<script type="text/javascript" src="${project}assets/js/jquery-2.1.4.min.js"></script>
+	 	<script src="${project}member/jquery-barcode.js"></script>
+		<script src="${project}assets/js/responsiveslides.min.js"></script>
+		
+				<script>	
+						$(function () {
+							$("#slider").responsiveSlides({
+								auto: true,
+								pager: true,
+								nav: true,
+								speed: 1000,
+								namespace: "callbacks",
+								before: function () {
+									$('.events').append("<li>before event fired.</li>");
+								},
+								after: function () {
+									$('.events').append("<li>after event fired.</li>");
+								}
+							});
+						});
+					</script>
+			
+		<!-- Calendar -->
+					<link rel="stylesheet" href="${project}assets/css/jquery-ui.css" />
+					<script src="${project}assets/js/jquery-ui.js"></script>
+					  <script>
+							  $(function() {
+								$( "#datepicker,#datepicker1" ).datepicker();
+							  });
+					  </script>
+				<!-- //Calendar -->
+			<!-- Portfolio-Popup-Box-JavaScript -->
+					<script src="${project}assets/js/jquery.chocolat.js"></script>
+					<script type="text/javascript">
+						$(function() {
+							$('.w3portfolioaits-item a').Chocolat();
+						});
+					</script>
+				<!-- //Portfolio-Popup-Box-JavaScript -->
+				<!-- Tour-Locations-JavaScript -->
+					<script src="${project}assets/js/classie.js"></script>
+					<script src="${project}assets/js/helper.js"></script>
+					<script src="${project}assets/js/grid3d.js"></script>
+					<script>
+						new grid3D( document.getElementById( 'grid3d' ) );
+					</script>
+				<!-- //Tour-Locations-JavaScript -->
+					<script src="${project}assets/js/SmoothScroll.min.js"></script>
+				<!-- smooth scrolling-bottom-to-top -->
+						<script type="text/javascript">
+							$(document).ready(function() {
+							/*
+								var defaults = {
+								containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear' 
+								};
+							*/								
+							$().UItoTop({ easingType: 'easeOutQuart' });
+							});
+						</script>
+						<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+				<!-- //smooth scrolling-bottom-to-top -->
+				<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+		<!-- start-smoth-scrolling -->
+			
 	</body>
 </html>
 	

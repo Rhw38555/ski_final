@@ -392,9 +392,7 @@ function adminBarcodeRefundCheck(){
 }
 
 function generateBarcode(user_barcode) {
-    //var value = $("#barcodeValue").val();	//바코드 밑에 달리는 내용
-    //var btype = $("input[name=btype]:checked").val();// 바코드 타입만드는부분
-    //var renderer = $("input[name=renderer]:checked").val();// css로 결정
+    
     var value = user_barcode;
     var btype = "code128";
     var renderer ="css";

@@ -12,15 +12,89 @@
 			#msg
 				{
 					height : 300px;
-					width : 1100px;
+					width : 100%;
 					overflow: auto;
 					text-align : left;
 				}
-			
+			blockquote{
+    border-left:none
+}
+
+.quote-badge{
+    background-color: rgba(0, 0, 0, 0.2);   
+}
+
+.quote-box{
+    
+    overflow: hidden;
+    margin-top: -50px;
+    padding-top: -100px;
+    border-radius: 17px;
+    background-color: #4ADFCC;
+    margin-top: 25px;
+    color:white;
+    width: 325px;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+    
+}
+
+.quotation-mark{
+    
+    margin-top: -10px;
+    font-weight: bold;
+    font-size:100px;
+    color:white;
+    font-family: "Times New Roman", Georgia, Serif;
+    
+}
+
+.quote-text{
+    
+    font-size: 19px;
+    margin-top: -65px;
+}
 		</style>
 		<script type="text/javascript">
 		//<!--
+		$(document).ready(function() {
+			if($('#user_barcode').val()!=null)
+				generateBarcode($('#user_barcode').val());
+		});
 		
+		function generateBarcode(user_barcode) {
+		    
+		    var value = user_barcode;
+		    var btype = "code128";
+		    var renderer ="css";
+		    
+			var quietZone = false;
+		    if ($("#quietzone").is(':checked') || $("#quietzone").attr('checked')){
+		      quietZone = true;
+		    }
+			
+		    var settings = {
+		      output:renderer,
+		      bgColor: "#FFFFFF",
+		      color: "#000000",
+		      barWidth: "1",
+		      barHeight: "50",
+		      moduleSize: "5",
+		      posX: "10",
+		      posY: "20",
+		      addQuietZone: "1"
+		    };
+		    if ($("#rectangular").is(':checked') || $("#rectangular").attr('checked')){
+		        value = {code:value, rect: true};
+		      }
+		      if (renderer == 'canvas'){
+		        clearCanvas();
+		        $("#barcodeTarget").hide();
+		        $("#canvasTarget").show().barcode(value, btype, settings);
+		      } else {
+		        $("#canvasTarget").hide();
+		        $("#barcodeTarget").html("").show().barcode(value, btype, settings);
+		      }
+		  }	
 		var ws = null;
 		function openserver(){
 			var result = document.getElementById("result");
@@ -91,6 +165,8 @@
 			//result.innerHTML +="메세지 송신 성공<br>";
 		}
 		
+		
+		
 		//-->
 		</script>
 	</head>
@@ -98,7 +174,7 @@
 	<body onload="openserver()">
 	<script src="${project}member/script.js"></script> 
 
- 	<%@include file="/include/mainheader.jsp" %>
+ 	<%@include file="/include/mainheader.jsp"%>
  			<aside>
 		 	<div class="weather">
 				<ul>
@@ -127,7 +203,9 @@
 						${wfKor}
 							
 					</li>
-				</ul>	
+				</ul>
+				<input type="hidden" id="user_barcode" value="${user_barcode}">
+				
 			</div>
 		<br><br>
 		<div id="result"></div>
@@ -209,6 +287,7 @@
 					</th>
 				</tr>
 			</table>
+			
 			</form>
 			</center>
 			</section>

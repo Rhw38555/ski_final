@@ -3,6 +3,8 @@
 <!DOCTYPE HTML>
 
 <%@ include file="setting.jsp"%>
+<%@include file="/include/adminmainheader.jsp"%>
+<%@include file="/include/adminmainnav.jsp"%>
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 <script src="${project}jquery-3.2.1.js"></script>
 
@@ -109,7 +111,7 @@
         //$('writeform').append('<input type="hidden" name="img" value="'+img+'">');
    
       	var test = document.getElementById( "test" );
-      	test.innerHTML = img;
+      	//test.innerHTML = img;
       	test.innerHTML += "<input type='hidden' name='img' value='" + img + "'>";
     } else {
 	        console.log("Your browser does not support File API");

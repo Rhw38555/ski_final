@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 	
 <%@ include file="setting.jsp"%>
+<%@include file="/include/mainheader.jsp"%>
+<%@include file="/include/mainnav.jsp"%>
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 
 <!-- 정보 리스트 -->	          
@@ -28,13 +30,13 @@
 			<tr>
 				<th colspan=4 align="right">
 					<c:if test="${sessionScope.memId != null}">
-						<a href="QnaWriteForm.do">1:1문의 등록</a>
+						<a href="qnaWriteForm.do">1:1문의 등록</a>
 					</c:if>
 				</th>
 			</tr>
 			<tr>
 				<th style="width: 8%;"> 
-					${str_num} 
+					${str_num}
 				</th>
 				<th style="width: 40%;"> 
 					${str_subject}

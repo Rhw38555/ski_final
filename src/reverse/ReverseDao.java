@@ -1,7 +1,7 @@
 package reverse;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public interface ReverseDao {
 	public List<SkiReverseDataBean> ski_getReserve( int num );
@@ -13,6 +13,9 @@ public interface ReverseDao {
 	public int room_insert(RoomReverseDataBean roomDto);
 	public int room_delete(int num);
 	public int room_getNum();
-
+	
+	public List<RoomReverseDataBean> roomCount( Map<String, String> map );
+	
+	public List<SkiReverseDataBean> skiCount( Map<String, String> map );
 }
 
