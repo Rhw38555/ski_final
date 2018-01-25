@@ -11,8 +11,8 @@
 		<style type="text/css">
 			#msg
 				{
-					height : 200px;
-					width : 300px;
+					height : 300px;
+					width : 1100px;
 					overflow: auto;
 					text-align : left;
 				}
@@ -100,99 +100,7 @@
 
  	<%@include file="/include/mainheader.jsp" %>
  	
- 				<!--Slider-->
-			<div class="slider">
-				<div class="callbacks_container">
-					<ul class="rslides" id="slider">
-						<li>
-							<div class="slider-img slider-img1 "></div>
-						</li>
-						<li>
-							<div class="slider-img slider-img2"></div>
-						</li>
-						<li>
-							<div class="slider-img slider-img3"></div>
-
-						</li>
-						<li>
-							<div class="slider-img slider-img4"></div>
-						</li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
- 	
-	<div class="content-block" id="portfolio">
-		<div class="container">
-			<section class="block-body">
-				<div class="row">
-					<div class="col-sm-4 blog-post">
-						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
-							<h2 style="color:white">먹거리</h2>
-						</a>
-					</div>
-					<div class="col-sm-4 blog-post">
-						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
-							<h2 style="color:white">부대시설</h2>
-						</a>
-					</div>
-					<div class="col-sm-4 blog-post">
-						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
-							<h2 style="color:white">이벤트 정보</h2>
-						</a>
-					</div>
-					
-				</div>
-				<div class="row">
-					<div class="col-sm-4 blog-post">
-						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
-							<h2 style="color:white">할인 정보</h2>
-						</a>
-					</div>
-					<div class="col-sm-4 blog-post">
-						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
-							<h2 style="color:white">공지사항</h2>
-						</a>
-					</div>
-					<div class="col-sm-4 blog-post">
-						<a href="adminMain.do" class="recent-work" style="background-image:url(assets/images/newsletter-bg.png)">
-							<h2 style="color:white">통합예약</h2>
-						</a>
-					</div>
-				</div>
-				
-				<form name="inputform">
-				<table border="1">
-				<tr>
-					<th>메세지</th>	
-					<td>
-					<input type="text" name="message" autofocus
-						placeholder="대화를 입력하세요">
-					<input type="hidden" id="hiddenid" value="${sessionScope.memId}">
-					</td>
-					<th>
-						<input type="button" value="전송" onclick="sendmsg('${sessionScope.memId}')">
-					</th>
-				</tr>
-				<tr>
-					<th colspan="3">
-						
-					<div id="msg">
-						<div id="starter"></div>
-					</div>
-							
-					</th>
-				</tr>
-			</table>
-			</form>
-			
-			</section>
-		</div>
-	</div><!-- #portfolio -->
-			
-
-		<aside>
-			<table border="1">
+ 	<table border="1">
 				<tr>
 					<td>
 						<c:set var="wfKor" value="${wfKor}"/>
@@ -229,12 +137,104 @@
 				</tr>
 				
 			</table>
+ 	
+ 	
+ 				<!--Slider-->
+			<div class="slider">
+				<div class="callbacks_container">
+					<ul class="rslides" id="slider">
+						<li>
+							<div class="slider-img slider-img1 "></div>
+						</li>
+						<li>
+							<div class="slider-img slider-img2"></div>
+						</li>
+						<li>
+							<div class="slider-img slider-img3"></div>
+
+						</li>
+						<li>
+							<div class="slider-img slider-img4"></div>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+ 	
+			<!-- Locations -->
+	<div class="wthreelocationsaits" id="locations">
+		<div class="container">
+		<div class="location-w3-head">
+			
+			</div>
+			<section class="grid3d vertical" id="grid3d">
+				<div class="grid-wrap">
+					<div class="grid">
+						<figure class="col-md-4 effect-zoe"><img src="/SKI_Final/images/fork.jpg" alt="Odyssey"><figcaption><h4>먹거리</h4></figcaption></figure>
+					</div>
+					<div class="grid">
+						<figure class="col-md-4 effect-zoe"><img src="/SKI_Final/images/market.png" alt="Odyssey"><figcaption><h4>부대시설</h4></figcaption></figure>
+					</div>
+					<div class="grid">
+						<figure class="col-md-4 effect-zoe"><img src="/SKI_Final/images/event.jpg" alt="Odyssey"><figcaption><h4>이벤트</h4></figcaption></figure>
+					</div>
+					<div class="grid">
+						<figure class="col-md-4 effect-zoe"><img src="/SKI_Final/images/discount.jpg" alt="Odyssey"><figcaption><h4>할인정보</h4></figcaption></figure>
+					</div>
+					<div class="grid">
+						<figure class="col-md-4 effect-zoe"><img src="/SKI_Final/images/notice.png" alt="Odyssey"><figcaption><h4>공지사항</h4></figcaption></figure>
+					</div>
+					<div class="grid">
+						<figure class="col-md-4 effect-zoe"><img src="/SKI_Final/images/calendar.jpg" alt="Odyssey"><figcaption><h4>예약하기</h4></figcaption></figure>
+					</div>
+				
+				</div>
+				
+				<center>
+				<form name="inputform">
+				<table border="1">
+				<tr>
+					<th>메세지</th>	
+					<td>
+					<input type="text" name="message" autofocus
+						placeholder="대화를 입력하세요">
+					<input type="hidden" id="hiddenid" value="${sessionScope.memId}">
+					</td>
+					<th>
+						<input type="button" value="전송" onclick="sendmsg('${sessionScope.memId}')">
+					</th>
+				</tr>
+				<tr>
+					<th colspan="3">
+						
+					<div id="msg">
+						<div id="starter"></div>
+					</div>
+							
+					</th>
+				</tr>
+			</table>
+			</form>
+			</center>
+			</section>
+		</div>
+	</div>
+	<!-- //Locations -->
+				
+				
+			
+			</section>
+		</div>
+	</div><!-- #portfolio -->
+			
+
+		<aside>
+			
 			
 		<br><br>
 		<div id="result"></div>
 		
 		</aside>
-			
 		<%@include file="/include/mainfooter.jsp" %>
 	</body>
 </html>
