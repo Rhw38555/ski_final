@@ -4,7 +4,6 @@
 <%@ include file="setting.jsp" %>
  
 <%@include file="/include/mainheader.jsp" %>
-<%@include file="/include/mainnav.jsp" %>
 <%@include file="/include/introaside.jsp" %>
 <!DOCTYPE html>
 <html>

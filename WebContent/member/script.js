@@ -486,6 +486,8 @@ function memberUseHistoryCheck(user_barcode) {
                      
                   $('#findtr').append($('#findtr').text()+msg);   
                }//success
+               getCurrentUserPrice();
+               
                
             },
             error : function(e){
