@@ -42,6 +42,8 @@ public class MemberReservationConfirmPro implements CommandHandler{
 				barcodeDao.deleteUserbarcode(id);
 			}
 		}
+		
+		
 		request.setAttribute("result", result);
 		return new ModelAndView( "member/memberReservationConfirmPro" );
 	}

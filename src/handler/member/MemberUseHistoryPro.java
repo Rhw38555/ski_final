@@ -31,6 +31,8 @@ public class MemberUseHistoryPro implements CommandHandler{
 		int result = barcodeDao.chargeUserbarcode(userbarcodeDto);
 		request.setAttribute("result", result);
 		
+		
+		
 		return new ModelAndView( "member/memberUseHistoryPro" );
 	}
 

@@ -21,6 +21,8 @@ public class UserBarcode2 implements CommandHandler{
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
+		
+		
 		return new ModelAndView( "member/userBarcode2" );
 	}
 
