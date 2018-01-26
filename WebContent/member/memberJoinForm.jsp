@@ -71,6 +71,7 @@
 						</div>
 					</div>
 					<div class="form-group text-center">
+					<br><br>
 						<input class="btn btn-primary" type="submit" value="${btn_in}">
 						<input class="btn btn-primary" type="button" value="${btn_in_cancel}" onclick="location='main.do'">
 					</div>
@@ -79,14 +80,6 @@
 	</form>
 	<%@include file="/include/mainfooter.jsp" %>
 	<script type="text/javascript">
-	$(document).ready(
-			function(){
-            	joinform.passwd.focus();
-            	shortemail.style.display = "none";
-            	shortemail2.style.display = "none";
-        	}
-		);
-    	
         // 회원가입
         $(document).ready(
 			function(){

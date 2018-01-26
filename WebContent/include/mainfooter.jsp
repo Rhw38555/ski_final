@@ -21,7 +21,6 @@
       <script src="${project}assets/js/responsiveslides.min.js"></script>
       
             <script>
-         	// 수정폼
 
                   $(function () {
                      $("#slider").responsiveSlides({

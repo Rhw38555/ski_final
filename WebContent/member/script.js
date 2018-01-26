@@ -277,6 +277,7 @@ function mailsubmit(submit){
 }
 
 // 회원 정보 수정
+
 function viewcheck() {
 	var tel1 = joinform.tel1.value;
 	var tel2 = joinform.tel2.value;
@@ -348,9 +349,6 @@ function viewcheck() {
 }
 
 // 회원 탈퇴
-function passwdfocus() {
-	delpasswdform.passwd.focus();
-}
 function delpasswdcheck() {
 	if( ! delpasswdform.passwd.value ) {
 		alert( passwderror );

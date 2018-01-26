@@ -97,7 +97,6 @@
 
    <body onload="openserver()">
    <script src="${project}member/script.js"></script> 
-
     <%@include file="/include/mainheader.jsp" %>
           <aside>
           <div class="weather">
@@ -134,8 +133,6 @@
       
       </aside>
 
-    
-    
              <!--Slider-->
          <div class="slider">
             <div class="callbacks_container">
@@ -184,7 +181,6 @@
                <div class="grid">
                   <figure class="col-md-4 effect-zoe"><img src="/SKI_Final/images/calendar.jpg" alt="Odyssey"><figcaption><h4>예약하기</h4></figcaption></figure>
                </div>
-            
             </div>
             
             <center>
