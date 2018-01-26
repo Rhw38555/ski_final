@@ -4,9 +4,17 @@
 <%@ include file="setting.jsp" %>
  
 <%@include file="/include/mainheader.jsp" %>
-<%@include file="/include/mainnav.jsp" %>
 <%@include file="/include/introaside.jsp" %> 
-
+<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			
+			
+		</style>		
+	</head>
 <h2> 실시간 웹캠 </h2>
 
 <p><embed style="width: 480px; height: 380px;" 

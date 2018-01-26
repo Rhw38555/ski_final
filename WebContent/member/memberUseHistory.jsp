@@ -50,11 +50,7 @@
 	
 	<script type="text/javascript">
 	//<!--
-		$(document).on(
-			function(){
-				
-			}		
-		);
+		
 	//-->
 	</script>
 	
