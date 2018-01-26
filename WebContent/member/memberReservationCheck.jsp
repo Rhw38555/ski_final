@@ -35,7 +35,7 @@
 						room_price : "${row.room_price}",
 						room_check : "${row.room_check}",
 						num : "${row.num}"
-					},
+					}, 
 				</c:forEach>
 			],
 			member2 : [

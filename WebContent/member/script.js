@@ -562,7 +562,7 @@ function memberReserveCheck(memId){
 				var msg2 ="<tr><th>예약번호</th><th>예약날짜</th>" 
 						+"<th>주간 </th><th>야간</th><th>오전</th><th>예약자명</th>" 
 						+"<th>전화번호</th><th>차량번호</th><th>총 가격</th><th>신청날짜</th></tr>" 
-						
+						 
 						for(var i=0; i<memberdata.member2.length;i++){
 							msg2+="<tr>"
 								+"<td>"
