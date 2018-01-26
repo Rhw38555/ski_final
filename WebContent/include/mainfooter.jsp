@@ -5,9 +5,9 @@
 <!-- 오른쪽 정렬-->
 <!DOCTYPE html>
 <html>
+
    <head>
       <meta charset="UTF-8">
-   
    </head>
 
 	<body>
