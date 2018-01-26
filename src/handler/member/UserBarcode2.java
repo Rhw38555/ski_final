@@ -1,5 +1,6 @@
 package handler.member;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -7,17 +8,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import barcode.BarcodeDao;
 import handler.CommandHandler;
 
 @Controller
-public class MemberReservationConfirmHandler implements CommandHandler{
+public class UserBarcode2 implements CommandHandler{
 
-	@RequestMapping( "/memberReservationConfirm" )
+	@Resource
+	private BarcodeDao barcodeDao;	
+	
+	@RequestMapping( "/userBarcode2" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		 
 		
-		return new ModelAndView( "member/memberReservationConfirm" );
+		
+		
+		return new ModelAndView( "member/userBarcode2" );
 	}
 
 }
