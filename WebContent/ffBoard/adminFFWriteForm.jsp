@@ -4,7 +4,6 @@
 
 <%@ include file="setting.jsp"%>
 <%@include file="/include/adminmainheader.jsp" %>
-<%@include file="/include/adminmainnav.jsp" %>
 
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 <script src="${project}jquery-3.2.1.js"></script>
@@ -12,7 +11,7 @@
 <aside>
 <body>
 	<form method="post" enctype="multipart/form-data" action="adminFFWritePro.do"
-	 	name="writeform" onsubmit="hiddeninput()">
+	 	name="writeform" onsubmit="return hiddeninput()">
 
 		<table>
 			<tr>
@@ -158,6 +157,23 @@
 	}
 	
 	function hiddeninput() {
+		if( ! writeform.name.value ) {
+			writeform.name.focus();
+			return false;
+		} else if( ! writeform.subject.value ) {
+			writeform.subject.focus();
+			return false;
+		} else if( ! writeform.introduce.value ) {
+			writeform.introduce.focus();
+			return false;
+		} else if( ! writeform.location.value ) {
+			writeform.location.focus();
+			return false;
+		} else if( ! writeform.thumbnail.value ) {
+			writeform.thumbnail.focus();
+			return false;
+		}
+		
 		var division = document.getElementById( "division" );
 		var category = document.getElementById( "category" );
 		var test = document.getElementById( "test" );

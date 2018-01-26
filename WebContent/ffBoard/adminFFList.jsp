@@ -42,9 +42,7 @@
 			            </div>
 			            <div class="slide-content">
 			                <h4>${article.name} - ${article.subject}</h4>
-			                <p>
-			                    ${article.introduce}
-			                </p>
+			                    <pre>${article.introduce}</pre>
 			            </div>
 			            <div class="slide-footer">
 			                <span class="pull-right buttons">

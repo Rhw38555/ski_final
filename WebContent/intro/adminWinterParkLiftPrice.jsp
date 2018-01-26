@@ -4,7 +4,6 @@
 <script src="${project}${folder}script.js"></script>
  
 <%@include file="/include/adminmainheader.jsp" %>
-<%@include file="/include/adminmainnav.jsp" %>
 <%@include file="/include/adminWinterParkaside.jsp" %>
 <h2> 리프트요금안내 </h2>
 
