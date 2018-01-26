@@ -20,7 +20,7 @@
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 				function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!-- //for-mobile-apps -->
-		<link href="${project}assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="${project}assets/css/bootstrap2.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- 
 		<link href="${project}assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
 		 -->
@@ -179,7 +179,7 @@
 				});
 			});
 		</script>
-		<!-- start-smoth-scrolling -->	
+		<!-- start-smoth-scrolling -->		
 	</body>
 </html>
 	

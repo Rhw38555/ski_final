@@ -2,9 +2,10 @@
     pageEncoding="UTF-8"%>
 	
 <%@ include file="setting.jsp"%>
-<%@include file="/include/mainheader.jsp"%>
-<%@include file="/include/mainnav.jsp"%>
+<%@include file="/include/mainheader2.jsp"%>
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
 <style>
 .img
@@ -12,16 +13,14 @@
 	max-width : 100%;
 	height : auto;
 }
+.selector {
+	align: center;
+}
 </style>
 
-<c:set var="adminId" value="1" scope="session"/>
 <!-- 정보 리스트 -->	            	
 	<c:if test="${count == 0}">
 		<table class="table">
-			<tr>
-				<th colspan="4" align="right">
-				</th>
-			</tr>
 		    <tr>
 	        	<td colspan="4" align="center">
 				이벤트가 없습니다
@@ -30,36 +29,25 @@
 		</table>
 	</c:if>
 	<c:if test="${count != 0}">
-		<table class="table">
-			<tr>
-				<th colspan="4" align="right">
-				</th>
-			</tr>
-	    	<tbody>
-	            <c:set var="cnt" value="1"/>
-	            <tr>
+		<div class="container">
+			<div class="row">
+				<div class='list-group gallery'>
 					<c:forEach var="article" items="${articles}">
-						<c:if test="${cnt == 5}">
-					    	<tr><c:set var="cnt" value="1"/></tr>
-					    	<!-- <tr><td style="border:0px solid #fff;"></td></tr> -->
-						</c:if>
-						<c:if test="${cnt <= 4}">
-							<td id="apart"
-							align="center">
-								<a href="eventContent.do?num=${article.num}&pageNum=${pageNum}">
-									<img src="${project}event/${article.thumbnail}"
-									class="img"><br>
-									${article.subject}
-								</a>
-							</td>
-						</c:if>
-						<c:set var="cnt" value="${cnt+1}"/>
-					</c:forEach>
-			    </tr>
-			</tbody>
-		</table>
+		            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
+		                <a class="thumbnail fancybox" rel="ligthbox" href="eventContent.do?num=${article.num}&pageNum=${pageNum}">
+		                    <img class="img-responsive" alt="" src="${project}event/${article.thumbnail}" />
+		                    <div class='text-right'>
+		                        <small class='text-muted'>${article.subject}</small>
+		                    </div> <!-- text-right / end -->
+		                </a>
+		            </div> <!-- col-6 / end -->
+		            </c:forEach>
+		        </div> <!-- list-group / end -->
+			</div> <!-- row / end -->
+		</div> <!-- container / end -->
 		<br><br>
 	</c:if>
+<div align="center">
 	<c:if test="${count > 0}">
 	<c:if test="${startPage > pageBlock}">
 		<a href="eventList.do">[◀◀]</a>
@@ -78,3 +66,4 @@
 		<a href="eventList.do?pageNum=${pageCount}">[▶▶]</a>
 	</c:if>
 </c:if>
+</div>

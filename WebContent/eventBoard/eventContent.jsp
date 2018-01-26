@@ -2,36 +2,41 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="setting.jsp"%>
-<%@include file="/include/mainheader.jsp"%>
-<%@include file="/include/mainnav.jsp"%>
-<link href="${project}${location}style.css" rel="stylesheet" type="text/css">
+<%@include file="/include/mainheader2.jsp"%>
+
 <style>
 .img {
 	max-width : 100%;
 	height : auto;
 }
+.span3{
+    		width:100%;
+    		align:center;
+    	}
+    	.well{
+    		width:100%;
+    		height:auto;
+    		align:center;
+    	}
+    	.text-right{
+    		align:right;
+    	}
+    	.btn .btn-large{
+    		align:center;
+    	}
+    	.icon-ok{
+    		align:center;
+    	}
 </style>
 
-
-<table class="table">
-	<tr>
-		<th> ${str_subject} </th>
-		<td align="center">
-			${eventDto.subject}
-		</td>
-	</tr>
-	<tr>
-		<th colspan="2"> ${str_content} </th>
-	</tr>
-	<tr>
-		<th colspan="2">
-			<img src="${project}event/${eventDto.image}" class="img">
-		</th>
-	</tr>
-	<tr>
-		<th colspan="2">
-			<input class="inputbutton" type="button" value="${btn_list}"
-				onclick="location='eventList.do?pageNum=${pageNum}'">			
-		</th>
-	</tr>
-</table>
+ <div class="span3">
+  	<div class="well">
+  		<h2 class="text-info" align="center">${eventDto.subject}</h2>
+  		<hr>
+  			<div class="text-center"><img src="${project}event/${eventDto.image}" class="img"></div>
+  		<hr>
+    	<div class="text-center">
+    		<p><a class="btn btn-large" href="eventList.do?pageNum=${pageNum}"><i class="icon-ok"></i> 뒤로가기 </a></p>
+    	</div>
+  	</div>
+</div>
