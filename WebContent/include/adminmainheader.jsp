@@ -1,75 +1,168 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>   
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+    
     
 <%@ include file="../member/setting.jsp" %>
-<!-- 로그인 -->
-<!-- 오른쪽 정렬-->
 <!DOCTYPE html>
 <html>
-	 <script src="${project}member/jquery-3.2.1.js"></script>
-	 <script src="${project}member/jquery-barcode.js"></script>
+	 
 	<head>
 		<meta charset="UTF-8">
+		
+		<title>Snow tour a Travel Category Bootstrap Responsive Website Template | Home :: w3layouts</title>
+		<!-- for-mobile-apps -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Snow tour Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+				function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!-- //for-mobile-apps -->
+		<link href="${project}assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- 
-		<style type="text/css">
-			
-			body{
-				text-align: center;
-			}
-			header {
-
-				height : 50%;
-				border : 1px solid black;
-			}
-			.loginbutton {
-				width : 100px;
-				margin-top : 23px;
-				float: right;
-			}
-			div{
-				color : red;
-				border : 1px;
-			}
-			.barcodeTarget{
-				width: 50px;
-
-			}
-		</style>
+		<link href="${project}assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
 		 -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="${project}assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<!-- Chocolat-CSS -->
+		<link rel="stylesheet" href="css/chocolat.css"	  type="text/css" media="all">
+		<link href="//fonts.googleapis.com/css?family=Montserrat+Alternates:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+		<link href="//fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+		<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+		<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+		<!--//fonts-->
+		<!-- Supportive-JavaScript -->
+		<script src="js/modernizr.js"></script>
+		<!-- //Supportive-JavaScript -->	
 	</head>
 	
-	<body>
-	
 	<script src="${project}member/script.js"></script>
+		<!--Header-->
 		<header> 
-
+			<div class="header" id="home">
+			<!--Top-Bar-->
+				<div class="top-bar">
+				<div class="container-fluid">
+				
+            <c:if test="${sessionScope.adminId != null}">
+                    	<div class="member-button"> 
+                    	${sessionScope.adminId} ${msg_loginmain}
+                        <div id="barcodeTarget" class="barcodeTarget"></div>
+                        <input type="button" value="${btn_logout}" onclick="location='adminMemberLogout.do'"> 
+                        <input type="button" value="${btn_mypage}" onclick="location='adminMemberModifyForm.do'">
+                        </div>
+                        
+            </c:if>
+            
+			
+					<div class="header-nav">
+						<nav class="navbar navbar-default">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<h1><a class="navbar-brand" href="main.do">WinterPark<sup><i class="fa fa-snowflake-o" aria-hidden="true"></i><sup></a></h1>
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+								<nav class="cl-effect-15" id="cl-effect-15">
+								<ul>
+									<li><a href="adminWinterParkLiftPrice.do" data-hover="${btn_winterPark}">${btn_winterPark}</a></li>
+									<li><a href="adminReverseRoomForm.do" data-hover="${btn_reservation}">${btn_reservation}</a></li>
+									<li><a href="adminIntroSki.do" data-hover="${btn_skioom}">${btn_skioom}</a></li>
+									<li><a href="adminFFList.do" data-hover="${btn_eat}">${btn_eat}</a></li>
+									<li><a href="adminEventList.do" data-hover="${btn_event}">${btn_event}</a></li>
+									<li><a href="adminQnaList.do" data-hover="${btn_qa}">${btn_qa}</a></li>
+								</ul>
+								</nav>
+							</div>
+						</nav>
+					</div>
+					</div>
+			</div>
+			<!--//Top-Bar-->
 		</header>
-		<div id="wrapper">
-			<div id="header" class="content-block header-wrapper">
-				<div class="header-wrapper-inner">
-					<section class="top clearfix">
-						<div class="pull-left">
-							<h1><a class="logo" href="main.do">WinterPark</a></h1>
-						</div>
-						<div class="pull-right">
-							<a class="toggleDrawer" href="#"><i class="fa fa-bars fa-2x"></i></a>
-						</div>
-					</section>
-					<section class="center">
-						<div class="slogan">
-							스키 &amp; 콘도
-						</div>
-						<div class="secondary-slogan">
-							여기는 공간입니다.
-						</div>
-					</section>
-					<section class="bottom">
-						<a id="scrollToContent" href="#">
-							?
-						</a>
-					</section>
-				</div>
-			</div><!-- header -->
+		
+		<!-- js -->
+		<script type="text/javascript" src="${project}assets/js/jquery-2.1.4.min.js"></script>
+	 	<script src="${project}member/jquery-barcode.js"></script>
+		<script src="${project}assets/js/responsiveslides.min.js"></script>
+		
+				<script>
+						$(function () {
+							$("#slider").responsiveSlides({
+								auto: true,
+								pager: true,
+								nav: true,
+								speed: 1000,
+								namespace: "callbacks",
+								before: function () {
+									$('.events').append("<li>before event fired.</li>");
+								},
+								after: function () {
+									$('.events').append("<li>after event fired.</li>");
+								}
+							});
+						});
+					</script>
+			
+		<!-- Calendar -->
+					<link rel="stylesheet" href="${project}assets/css/jquery-ui.css" />
+					<script src="${project}assets/js/jquery-ui.js"></script>
+					  <script>
+							  $(function() {
+								$( "#datepicker,#datepicker1" ).datepicker();
+							  });
+					  </script>
+				<!-- //Calendar -->
+			<!-- Portfolio-Popup-Box-JavaScript -->
+					<script src="${project}assets/js/jquery.chocolat.js"></script>
+					<script type="text/javascript">
+						$(function() {
+							$('.w3portfolioaits-item a').Chocolat();
+						});
+					</script>
+				<!-- //Portfolio-Popup-Box-JavaScript -->
+				<!-- Tour-Locations-JavaScript -->
+					<script src="${project}assets/js/classie.js"></script>
+					<script src="${project}assets/js/helper.js"></script>
+					<script src="${project}assets/js/grid3d.js"></script>
+					<script>
+						new grid3D( document.getElementById( 'grid3d' ) );
+					</script>
+				<!-- //Tour-Locations-JavaScript -->
+					<script src="${project}assets/js/SmoothScroll.min.js"></script>
+				<!-- smooth scrolling-bottom-to-top -->
+						<script type="text/javascript">
+							$(document).ready(function() {
+							/*
+								var defaults = {
+								containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear' 
+								};
+							*/								
+							$().UItoTop({ easingType: 'easeOutQuart' });
+							});
+						</script>
+						<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+				<!-- //smooth scrolling-bottom-to-top -->
+				<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+		<!-- start-smoth-scrolling -->	
 	</body>
 </html>
 	

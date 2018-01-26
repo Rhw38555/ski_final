@@ -9,7 +9,6 @@
 <link href="${project}noticeBoard/style.css" rel="stylesheet" type="text/css">
 
 <%@include file="/include/adminmainheader.jsp" %>
-<%@include file="/include/adminmainnav.jsp" %>
 <%@include file="/include/adminWinterParkaside.jsp" %>
 
 <h2> ${str_notice} </h2>

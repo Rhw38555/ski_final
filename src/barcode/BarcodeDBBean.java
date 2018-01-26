@@ -73,23 +73,27 @@ public class BarcodeDBBean implements BarcodeDao{
 		return SqlMapClient.getSqlSession().selectOne("Barcode.getUser_barcode",id);
 	}
 	public void insertUserBarcode(String id) {
-		
-		String calBarcode = SqlMapClient.getSqlSession().selectOne("Barcode.getUser_barcodeCount");
-		System.out.println("찾아온 바코드"+calBarcode);
-		String cloneBarcode;
-		String user_barcode;
-		int num;
-		if(calBarcode==null || calBarcode=="") {
-			user_barcode = "user1";
-		}else {
-			cloneBarcode = calBarcode.substring(4);
-			num = Integer.parseInt(cloneBarcode)+1;
-			user_barcode = "user" + num;
-		}
-		Map<String, String> map = new HashMap<String, String>();
-		map.put( "user_barcode", user_barcode );
-		map.put( "id", id );
-		SqlMapClient.getSqlSession().insert("Barcode.insertUserBarcode", map);
+			if(getUser_barcode(id)==null) {
+				String calBarcode = SqlMapClient.getSqlSession().selectOne("Barcode.getUser_barcodeCount");
+				System.out.println("찾아온 바코드"+calBarcode);
+				String cloneBarcode;
+				String user_barcode;
+				int num;
+				if(calBarcode==null || calBarcode=="") {
+					user_barcode = "user1";
+				}else {
+					cloneBarcode = calBarcode.substring(4);
+					num = Integer.parseInt(cloneBarcode)+1;
+					user_barcode = "user" + num;
+				}
+				Map<String, String> map = new HashMap<String, String>();
+				map.put( "user_barcode", user_barcode );
+				map.put( "id", id );
+				SqlMapClient.getSqlSession().insert("Barcode.insertUserBarcode", map);
+			}else {
+				
+			}
+			
 	}
 	public void deleteUserbarcode(String id) {
 		SqlMapClient.getSqlSession().delete("Barcode.deleteUserbarcode",id);

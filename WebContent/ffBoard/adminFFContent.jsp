@@ -3,7 +3,7 @@
 
 <%@include file="setting.jsp"%>
 <%@include file="/include/adminmainheader.jsp"%>
-<%@include file="/include/adminmainnav.jsp"%>
+
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 <script src="${project}jquery-3.2.1.js"></script>
 <style>
@@ -46,9 +46,9 @@
 	</tr>
 	<tr>
 		<th colspan="6">
-			<input class="inputbutton" type="button" value="${btn_modify}" onclick="location='adminFFModifyForm.do?num=${ffDto.num}&pageNum=${pageNum}&division=${division}'">
-			<input class="inputbutton" type="button" value="${btn_list}" onclick="location='adminFFList.do?pageNum=${pageNum}&division=${division}'">
-			<input class="inputbutton" type="button" value="${btn_delete}" onclick="location='adminFFDeleteForm.do?num=${ffDto.num}&pageNum=${pageNum}&division=${division}'">
+			<input class="inputbutton" type="button" value="수정" onclick="location='adminFFModifyForm.do?num=${ffDto.num}&pageNum=${pageNum}&division=${division}'">
+			<input class="inputbutton" type="button" value="목록" onclick="location='adminFFList.do?pageNum=${pageNum}&division=${division}'">
+			<input class="inputbutton" type="button" value="삭제" onclick="location='adminFFDeleteForm.do?num=${ffDto.num}&pageNum=${pageNum}&division=${division}'">
 		</th>
 	</tr>
 </table>

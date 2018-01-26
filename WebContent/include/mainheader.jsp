@@ -10,8 +10,13 @@
     
    <head>
       <meta charset="UTF-8">
-      
-      <title>Snow tour a Travel Category Bootstrap Responsive Website Template | Home :: w3layouts</title>
+      <style>
+     	 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);   
+		 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);      
+	      * {
+	      	font-family: 'Noto Sans KR', normal;
+	      }
+      </style>
       <!-- for-mobile-apps -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,21 +26,18 @@
             function hideURLbar(){ window.scrollTo(0,1); } </script>
       <!-- //for-mobile-apps -->
       <link href="${project}assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-      <!-- 
-      <link href="${project}assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
-       -->
+      
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="${project}assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
       <!-- Chocolat-CSS -->
-      <link rel="stylesheet" href="${project}assets/css/chocolat.css"     type="text/css" media="all">
+      <link rel="stylesheet" href="${project}assets/css/chocolat.css" type="text/css" media="all">
       <link href="//fonts.googleapis.com/css?family=Montserrat+Alternates:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
       <link href="//fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
       <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
       <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-      <!--//fonts-->
-      <!-- Supportive-JavaScript -->
+      
       <script src="./assets/js/modernizr.js"></script>
-      <!-- //Supportive-JavaScript -->   
+       
    </head>
    
    <sql:query var="rs" dataSource="jdbc/kh">
@@ -43,19 +45,15 @@
    <sql:param value="${sessionScope.memId}"/>
    </sql:query>
    
-            <c:forEach var="row" items="${rs.rows}">
-                  <c:set var="user_barcode" value="${row.user_barcode}"/>
-            </c:forEach>
-   
-   <body>
-   
+   <c:forEach var="row" items="${rs.rows}">
+         <c:set var="user_barcode" value="${row.user_barcode}"/>
+   </c:forEach>   
+   <body>   
    <script src="${project}member/script.js"></script>
       <!--Header-->
-      <header> 
-         
+      <header>         
          <div class="header" id="home">
-         <!--Top-Bar-->
-         
+         <!--Top-Bar-->     
             <div class="top-bar">
             <div class="container-fluid">
             <c:if test="${sessionScope.memId == null}">
@@ -64,24 +62,21 @@
                         <input type="button" value="${btn_join}" onclick="location='memberJoinForm.do'">
                         </div>
                </c:if>
-            <c:if test="${sessionScope.memId != null}">
-                        
-                       <div class="member-button"> 
-                       <div id="barcodeTarget" class="barcodeTarget"></div>
-                       ${sessionScope.memId} ${msg_loginmain}
-                        <input type="button" value="${btn_logout}" onclick="location='memberLogout.do'"> 
-                        <input type="button" value="${btn_mypage}" onclick="location='memberModifyForm.do'">
-                        <form name="inputhidden">
-                        	<input type="hidden" value="${user_barcode}" name="hiddenBarcode">
-                        </form>
-                        </div>
-                       
+            <c:if test="${sessionScope.memId != null}">                      
+                 <div class="member-button"> 
+                 	<div id="barcodeTarget" class="barcodeTarget"></div>
+                 	${sessionScope.memId} ${msg_loginmain}
+                 <input type="button" value="${btn_logout}" class="btn btn-default" onclick="location='memberLogout.do'"> 
+                 <input type="button" value="${btn_mypage}" class="btn btn-default" onclick="location='memberModifyForm.do'">
+                 <form name="inputhidden">
+                 <input type="hidden" value="${user_barcode}" name="hiddenBarcode">
+                 </form>
+                 </div>                      
             </c:if>
                <div class="header-nav">
                   <nav class="navbar navbar-default">
                      <!-- Brand and toggle get grouped for better mobile display -->
-                     <div class="navbar-header">
-                        
+                     <div class="navbar-header">                   
                         <h1><a class="navbar-brand" href="main.do">WinterPark<sup><i class="fa fa-snowflake-o" aria-hidden="true"></i><sup></a></h1>
                      </div>
                      <!-- Collect the nav links, forms, and other content for toggling -->
@@ -102,15 +97,14 @@
                </div>
          </div>
          <!--//Top-Bar-->
-      </header>
-      
+      </header>     
    </body>
    <script type="text/javascript">
    $(document).ready(
-			function(){
-				generateBarcode(inputhidden.hiddenBarcode.value);
-       		}
-		);
+		function(){
+			generateBarcode(inputhidden.hiddenBarcode.value);
+	     }
+	);
    </script>
 </html>
    

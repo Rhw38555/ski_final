@@ -3,7 +3,6 @@
 
 <%@ include file="setting.jsp"%>
 <%@include file="/include/adminmainheader.jsp"%>
-<%@include file="/include/adminmainnav.jsp"%>
 
 <style>
 .img {
@@ -29,11 +28,11 @@
 	</tr>
 	<tr>
 		<th colspan="2">
-			<input class="inputbutton" type="button" value="${btn_modify}"
+			<input class="inputbutton" type="button" value="수정"
 				onclick="location='adminEventModifyForm.do?num=${eventDto.num}&pageNum=${pageNum}'">
-			<input class="inputbutton" type="button" value="${btn_delete}"
+			<input class="inputbutton" type="button" value="삭제"
 				onclick="location='adminEventDeleteForm.do?num=${eventDto.num}&pageNum=${pageNum}'">
-			<input class="inputbutton" type="button" value="${btn_list}"
+			<input class="inputbutton" type="button" value="목록"
 				onclick="location='adminEventList.do?pageNum=${pageNum}'">
 		</th>
 	</tr>

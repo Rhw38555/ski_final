@@ -5,9 +5,9 @@
 <!-- 오른쪽 정렬-->
 <!DOCTYPE html>
 <html>
+
    <head>
       <meta charset="UTF-8">
-   
    </head>
 
 	<body>
@@ -17,46 +17,31 @@
       
       <!-- js -->
       <script type="text/javascript" src="${project}assets/js/jquery-2.1.4.min.js"></script>
-       <script src="${project}member/jquery-barcode.js"></script>
+      <script src="${project}member/jquery-barcode.js"></script>
       <script src="${project}assets/js/responsiveslides.min.js"></script>
       
             <script>
 
-                  $(function () {
-                     $("#slider").responsiveSlides({
-                        auto: true,
-                        pager: true,
-                        nav: true,
-                        speed: 1000,
-                        namespace: "callbacks",
-                        before: function () {
-                           $('.events').append("<li>before event fired.</li>");
-                        },
-                        after: function () {
-                           $('.events').append("<li>after event fired.</li>");
-                        }
-                     });
-                  });
-               </script>
-         
-      
-         <!-- Portfolio-Popup-Box-JavaScript -->
-               <script src="${project}assets/js/jquery.chocolat.js"></script>
-               <script type="text/javascript">
-                  $(function() {
-                     $('.w3portfolioaits-item a').Chocolat();
-                  });
-               </script>
-            <!-- //Portfolio-Popup-Box-JavaScript -->
-            <!-- Tour-Locations-JavaScript -->
-               <script src="./assets/js/classie.js"></script>
-               <script src="./assets/js/helper.js"></script>
-               <script src="./assets/js/grid3d.js"></script>
-               <script>
-                  new grid3D( document.getElementById( 'grid3d' ) );
-               </script>
-            <!-- //Tour-Locations-JavaScript -->
-               <script src="./assets/js/SmoothScroll.min.js"></script>
+         	// 수정폼
+             $(function () {
+                $("#slider").responsiveSlides({
+                   auto: true,
+                   pager: true,
+                   nav: true,
+                   speed: 1000,
+                   namespace: "callbacks",
+                   before: function () {
+                      $('.events').append("<li>before event fired.</li>");
+                   },
+                   after: function () {
+                      $('.events').append("<li>after event fired.</li>");
+                   }
+                });
+             });
+          </script>    
+
+
+            <script src="./assets/js/SmoothScroll.min.js"></script>
             <!-- smooth scrolling-bottom-to-top -->
                   <script type="text/javascript">
                      $(document).ready(function() {

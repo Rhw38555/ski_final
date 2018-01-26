@@ -5,40 +5,49 @@
 <!DOCTYPE html>
 	<html>		
 		<head>
-			<meta charset="UTF-8">				
+			<meta charset="UTF-8">		
+			<link href="./member/a_re.css" rel="stylesheet">  		
 			<script src="${project}member/script.js"></script> 
-			<script src="${project}member/jquery-3.2.1.js"></script>
+			<script src="${project}member/jquery-3.2.1.js"></script>					
 			<script type="text/javascript">
 				$(document).ready(function(){
-					memberReserveCheck($('#userid').val());
+					memberReserveCheck($('#userid').val());					
+					//$('.roomcheck_a').css('active',true);
+					$('#skicheck').css('display','none');	
+					$('.roomcheck_a').css('color','orange');
+					$('.skicheck_a').css('color','gray');
 				});
 			</script>
 			<%@include file="/include/mainheader.jsp"%>				
 		</head>
-	
+		
 		<body>
 			<script src="${project}member/script.js"></script>    
 			<br><br><br><br><br><br><br>
-			<header>${page_reservationConfirm}</header>
-			<%@include file="/include/mypageaside.jsp" %>
-			<section>
+			
+			<%@include file="/include/mypageaside.jsp" %>				
+			<form class="form">
+			<%--<header>${page_reservationConfirm}</header> --%>
 				<input type="hidden" id="user_barcode" value="${user_barcode}">
 				<input type="hidden" id="userid" value="${sessionScope.memId}">
-					<table border="1"> 
-						<tr>
-							<th colspan="13">콘도 예약 정보</th>
-						</tr>
-						<tbody id="findtr"></tbody>
-					</table>				
-					<table border="1"> 
-						<tr>
-							<th colspan="12">스키 예약 정보</th>
-						</tr>
-						<tbody id="findtr2"></tbody>
-					</table>
-				총가격 : <input type="text" id="allPrice">
-			</section>
-			
+				
+				<div class="checkform">	
+					<div class="checkbtbox">
+						<a href="javascript:showroom();" class="roomcheck_a">콘도</a>
+						<a href="javascript:showski();" class="skicheck_a">스키</a>
+					</div>
+					
+					<div id="roomcheck">
+						<%--<div>콘도 예약 정보</div> --%> 														
+						<div id="findtr"></div>
+					</div>			
+					<div id="skicheck">
+						<%--<div>스키 예약 정보</div> --%> 														
+						<div id="findtr2"></div>
+					</div>
+				</div>	
+				<%--총가격 : <input type="text" id="allPrice"> --%>
+			</form>			
 		</body>
 		<%@include file="/include/mainfooter.jsp" %>
 	</html>

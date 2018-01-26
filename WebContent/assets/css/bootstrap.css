@@ -97,14 +97,12 @@ body {
 }
 header {
 	float : right;
-	width : 95%;
+	width : 100%;
 }
 .member-button, .barcodeTarget{
 	float : right;
 }
-.weather {
-	font-size : 10px;
-}
+
 article,
 aside,
 details,
