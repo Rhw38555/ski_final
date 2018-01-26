@@ -47,7 +47,7 @@
                   <c:set var="user_barcode" value="${row.user_barcode}"/>
             </c:forEach>
    
-   <body onload="generateBarcode('${user_barcode}')">
+   <body>
    
    <script src="${project}member/script.js"></script>
       <!--Header-->
@@ -71,7 +71,9 @@
                        ${sessionScope.memId} ${msg_loginmain}
                         <input type="button" value="${btn_logout}" onclick="location='memberLogout.do'"> 
                         <input type="button" value="${btn_mypage}" onclick="location='memberModifyForm.do'">
-                        
+                        <form name="inputhidden">
+                        	<input type="hidden" value="${user_barcode}" name="hiddenBarcode">
+                        </form>
                         </div>
                        
             </c:if>
@@ -103,5 +105,12 @@
       </header>
       
    </body>
+   <script type="text/javascript">
+   $(document).ready(
+			function(){
+				generateBarcode(inputhidden.hiddenBarcode.value);
+       		}
+		);
+   </script>
 </html>
    

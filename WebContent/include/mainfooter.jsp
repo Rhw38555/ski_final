@@ -22,27 +22,6 @@
       
             <script>
          	// 수정폼
-            $(document).ready(
-				function(){
-	            	joinform.passwd.focus();
-	            	shortemail.style.display = "none";
-	            	shortemail2.style.display = "none";
-            	}
-			);
-        	// 로그인폼
-            $(document).ready(
-				function(){
-	            	loginform.id.focus();
-            	}
-			);	
-            // 회원가입
-            $(document).ready(
-				function(){
-					joinform.id.focus();
-					shortemail.style.display = "none";
-					shortemail2.style.display = "none";
-				}		
-			);
 
                   $(function () {
                      $("#slider").responsiveSlides({

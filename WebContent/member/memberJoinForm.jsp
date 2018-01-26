@@ -78,6 +78,23 @@
 			</div>
 	</form>
 	<%@include file="/include/mainfooter.jsp" %>
-
+	<script type="text/javascript">
+	$(document).ready(
+			function(){
+            	joinform.passwd.focus();
+            	shortemail.style.display = "none";
+            	shortemail2.style.display = "none";
+        	}
+		);
+    	
+        // 회원가입
+        $(document).ready(
+			function(){
+				joinform.id.focus();
+				shortemail.style.display = "none";
+				shortemail2.style.display = "none";
+			}		
+		);
+	</script>
 </body>
 

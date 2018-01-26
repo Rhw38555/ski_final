@@ -34,6 +34,14 @@
 			</div>
 		</div>
 			<%@include file="/include/mainfooter.jsp" %>
+			<script type="text/javascript">
+			// 로그인폼
+            $(document).ready(
+            function(){
+                  loginform.id.focus();
+               }	
+         	);  
+			</script>
 </body>
 
 
