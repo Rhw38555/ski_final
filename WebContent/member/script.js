@@ -566,23 +566,23 @@ function makeRoomTable2(memberdata,i,numcheck){
             +  "</tr>";      
       if(roomlength-1 == i){
          roommsg += "<tr>"
-            +  "<th> 이름 </th>"
-            +  "<td colspan='3'>"+ memberdata.member[roomicheck].name +" </td>"
+            +  "	<th> 이름 </th>"
+            +  "	<td colspan='3'>"+ memberdata.member[roomicheck].name +" </td>"
             +  "</tr>"
             +  "<tr>"
-            +  "<th> 전화번호 </th>"
-            +  "<td colspan='3'>"+ memberdata.member[roomicheck].tel +"</td>"
+            +  "	<th> 전화번호 </th>"
+            +  "	<td colspan='3'>"+ memberdata.member[roomicheck].tel +"</td>"
             +  "</tr>"            
             +  "<tr>"
-            +  "<th> 차량번호 </th>"
-            +  "<td colspan='3'>"+ memberdata.member[roomicheck].carnum +"</td>"
+            +  "	<th> 차량번호 </th>"
+            +  "	<td colspan='3'>"+ memberdata.member[roomicheck].carnum +"</td>"
             +  "</tr>"
             +  "<tr>"
             +  "   <td colspan='4'>"
             +  "      <a href='reverseChangeRoomForm.do?num="+memberdata.member[roomicheck].num+"'>예약변경"
-                +  "      <a onclick='deleteReverseRoom("+memberdata.member[roomicheck].num+")'>예약취소"
-                +  "   </td>"
-                +  "</tr>"
+            +  "      <a onclick='deleteReverseRoom("+memberdata.member[roomicheck].num+")'>예약취소"
+            +  "   </td>"
+            +  "</tr>"
             +  "</table>"
             +  "</div>";
          $(roommsg).appendTo('#findtr');
@@ -602,7 +602,7 @@ function makeRoomTable2(memberdata,i,numcheck){
                +  "</tr>"
                +  "<tr>"
                +  "   <th>체크인/체크아웃</th>"
-                +  "   <td colspan='3'>"+memberdata.member[i].room_check+"</td>"
+               +  "   <td colspan='3'>"+memberdata.member[i].room_check+"</td>"
                +  "</tr>"
                +  "<tr>"   
                +  "   <th> 날짜 </th>"      
@@ -620,23 +620,23 @@ function makeRoomTable2(memberdata,i,numcheck){
             roomicheck = i;
       }else{
          roommsg += "<tr>"
-               +  "<th> 이름 </th>"
-               +  "<td colspan='3'>"+ memberdata.member[roomicheck].name +" </td>"
+               +  "		<th> 이름 </th>"
+               +  "		<td colspan='3'>"+ memberdata.member[roomicheck].name +" </td>"
                +  "</tr>"
                +  "<tr>"
-               +  "<th> 전화번호 </th>"
-               +  "<td colspan='3'>"+ memberdata.member[roomicheck].tel +"</td>"
+               +  "		<th> 전화번호 </th>"
+               +  "		<td colspan='3'>"+ memberdata.member[roomicheck].tel +"</td>"
                +  "</tr>"
                +  "<tr>"
-               +  "<th> 차량번호 </th>"
-               +  "<td colspan='3'>"+ memberdata.member[roomicheck].carnum +"</td>"
+               +  "		<th> 차량번호 </th>"
+               +  "		<td colspan='3'>"+ memberdata.member[roomicheck].carnum +"</td>"
                +  "</tr>"
                +  "<tr>"
                +  "   <td colspan='4'>"
                +  "      <a href='reverseChangeRoomForm.do?num="+memberdata.member[roomicheck].num+"'>예약변경"
-                   +  "      <a onclick='deleteReverseRoom("+memberdata.member[roomicheck].num+")'>예약취소"
-                   +  "   </td>"
-                   +  "</tr>"
+               +  "      <a onclick='deleteReverseRoom("+memberdata.member[roomicheck].num+")'>예약취소"
+               +  "   </td>"
+               +  "</tr>"
                +  "</table>";
             $(roommsg).appendTo('#findtr');
             roommsg = "";
@@ -706,23 +706,23 @@ function makeSkiTable2(memberdata,i,numcheck){
             +  "</tr>";   
       if(skilength-1 == i){
          skimsg += "<tr>"
-            +  "<th> 이름 </th>"
-            +  "<td colspan='3'>"+ memberdata.member2[skiicheck].name +" </td>"
+            +  "	<th> 이름 </th>"
+            +  "	<td colspan='3'>"+ memberdata.member2[skiicheck].name +" </td>"
             +  "</tr>"
             +  "<tr>"
-            +  "<th> 전화번호 </th>"
-            +  "<td colspan='3'>"+ memberdata.member2[skiicheck].tel +"</td>"
+            +  "	<th> 전화번호 </th>"
+            +  "	<td colspan='3'>"+ memberdata.member2[skiicheck].tel +"</td>"
             +  "</tr>"
             +  "<tr>"
-            +  "<th> 차량번호 </th>"
-            +  "<td colspan='3'>"+ memberdata.member2[skiicheck].carnum +"</td>"
+            +  "	<th> 차량번호 </th>"
+            +  "	<td colspan='3'>"+ memberdata.member2[skiicheck].carnum +"</td>"
             +  "</tr>"
             +  "<tr>"
             +  "   <td colspan='4'>"
             +  "      <a href='reverseChangeSkiForm.do?num="+memberdata.member2[skiicheck].num+"'>예약변경"
-                +  "      <a onclick='deleteReverseSki("+memberdata.member2[skiicheck].num+")'>예약취소"
-                +  "   </td>"
-                +  "</tr>"
+            +  "      <a onclick='deleteReverseSki("+memberdata.member2[skiicheck].num+")'>예약취소"
+            +  "   </td>"
+            +  "</tr>"
             +  "</table>";
          $(skimsg).appendTo('#findtr2');
       }
@@ -755,23 +755,23 @@ function makeSkiTable2(memberdata,i,numcheck){
             skiicheck = i;
       }else{
          skimsg += "<tr>"
-               +  "<th> 이름 </th>"
-               +  "<td colspan='3'>"+ memberdata.member2[skiicheck].name +" </td>"
+               +  "		<th> 이름 </th>"
+               +  "		<td colspan='3'>"+ memberdata.member2[skiicheck].name +" </td>"
                +  "</tr>"
                +  "<tr>"
-               +  "<th> 전화번호 </th>"
-               +  "<td colspan='3'>"+ memberdata.member2[skiicheck].tel +"</td>"
+               +  "		<th> 전화번호 </th>"
+               +  "		<td colspan='3'>"+ memberdata.member2[skiicheck].tel +"</td>"
                +  "</tr>"
                +  "<tr>"
-               +  "<th> 차량번호 </th>"
-               +  "<td colspan='3'>"+ memberdata.member2[skiicheck].carnum +"</td>"
+               +  "		<th> 차량번호 </th>"
+               +  "		<td colspan='3'>"+ memberdata.member2[skiicheck].carnum +"</td>"
                +  "</tr>"
                +  "<tr>"
                +  "   <td colspan='4'>"
                +  "      <a href='reverseChangeSkiForm.do?num="+memberdata.member2[skiicheck].num+"'>예약변경"
-                   +  "      <a onclick='deleteReverseSki("+memberdata.member2[skiicheck].num+")'>예약취소"
-                   +  "   </td>"
-                   +  "</tr>"
+               +  "      <a onclick='deleteReverseSki("+memberdata.member2[skiicheck].num+")'>예약취소"
+               +  "   </td>"
+               +  "</tr>"
                +  "</table>"
                +  "</div>";
             $(skimsg).appendTo('#findtr2');
@@ -810,14 +810,14 @@ function showroom(){
    $('#roomcheck').css('display','');
    $('#skicheck').css('display','none');
    $('.roomcheck_a').css('color','orange');
-   $('.skicheck_a').css('color','#FFF');
+   $('.skicheck_a').css('color','gray');
    
 }
 
 function showski(){
    $('#roomcheck').css('display','none');
    $('#skicheck').css('display','');
-   $('.roomcheck_a').css('color','#FFF');
+   $('.roomcheck_a').css('color','gray');
    $('.skicheck_a').css('color','orange');
 }
 

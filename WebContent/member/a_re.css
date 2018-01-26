@@ -1,0 +1,76 @@
+.form{
+					margin-bottom : 100px;
+				}			
+				.checkform{
+					margin-left : 35%;
+				}
+				.tablebox{
+					margin-bottom: 30px;
+				}
+				table.recheck {
+					margin-left : 10px;
+				    border-collapse: separate;
+				    border-spacing: 1px;
+				    text-align: left;
+				    line-height: 1.5;
+				    /*border-top: 1px solid #818181;*/
+				    border : 0px;
+				 	margin : 10px;
+				 	
+				}
+				table.recheck thead{
+					background-color : #EAEAEA;
+				}
+				
+				table.recheck th {
+				    width: 150px;
+				    padding: 10px;
+				    font-weight: bold;
+				    vertical-align: top;
+				    border-bottom: 1px solid #818181;
+				    border-top : 0px;
+				    /*border-bottom: 0px;*/
+				    border-left: 0px;
+				    border-right: 0px;
+				    text-align : center; 
+				}
+				table.recheck td {
+				    width: 150px;
+				    padding: 10px;
+				    vertical-align: top;
+				    border-bottom: 1px solid #818181;
+				    border-top : 0px;
+				    /*border-bottom: 0px;*/
+				    border-left: 0px;
+				    border-right: 0px;
+				    text-align : center;
+				}
+				.checkbtbox{
+					margin-left : 37%;
+				}
+				.checkbtbox a{
+					/*border : 1px solid blue;*/
+					/*float : right;*/
+					font-weight: 400;
+				    font-size: 0.8em;
+				    line-height: 1em;
+				    /*margin: 5px 1px;*/
+				    border: 2px solid #BDBDBD;
+				    cursor: pointer;
+				    background-color: transparent;
+				    color: #FFFFFF;
+				    /*border-width: 1px;*/
+				    border-top-right-radius: 20px !important;
+				    border-top-left-radius: 20px !important;
+				    border-bottom : 0px;
+				    padding: 11px 23px;
+				    text-decoration : none;
+				}				
+				.checkbtbox a:hover{
+					/*text-decoration : underline; */
+					color : gray;
+				}
+				.checkbtbox a:active{
+					/*text-decoration : none; */
+					color : orange;
+				}
