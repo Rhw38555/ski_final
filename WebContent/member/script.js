@@ -496,6 +496,8 @@ function memberUseHistoryCheck(user_barcode) {
 		);//ajax
 }
 
+
+var calPrice = 0;
 function memberReserveCheck(memId){
 	$.ajax(
 	{
@@ -513,97 +515,13 @@ function memberReserveCheck(memId){
 			var codeconfrim = $(data).find('code').text();
 			if(codeconfrim=='success'){
 				var memberdata = eval("("+$(data).find('data').text()+")");
-				var calPrice=0;
-				var msg ="<tr><th>예약번호</th><th>체크인 / 체크아웃</th><th>예약날짜</th>" 
-					+"<th>2인실 </th><th>4인실</th><th>8인실</th><th>예약자명</th>" 
-					+"<th>전화번호</th><th>차량번호</th><th>총 가격</th><th>신청날짜</th></tr>" 
 				
-				for(var i=0; i<memberdata.member.length;i++){
-				msg+="<tr>"
-					+"<td>"
-					+ memberdata.member[i].num
-					+"</td>"
-					+"<td>"
-					+ memberdata.member[i].room_check
-					+"</td>"
-					+"<td>"
-					+ (memberdata.member[i].room_date).substring(0,11)
-					+"</td>"
-					+"<td>"
-					+ memberdata.member[i].room_2
-					+"</td>"
-					+"<td>"
-					+ memberdata.member[i].room_4
-					+"</td>"
-					+"<td>"
-					+ memberdata.member[i].room_8
-					+"</td>"
-					+"<td>"
-					+ memberdata.member[i].name
-					+"</td>"
-					+"<td>"
-					+ memberdata.member[i].tel
-					+"</td>"
-					+"<td>"
-					+ memberdata.member[i].carnum
-					+"</td>"
-					+"<td>"
-					+ memberdata.member[i].room_price
-					+"</td>"
-					+"<td>"
-					+ (memberdata.member[i].reg_date).substring(0,11)
-					+"</td>"
-					+"</tr>";
-					
-					calPrice += Number(memberdata.member[i].room_price);
-				}
+				roomlength = memberdata.member.length;
+				makeRoomTable(memberdata);
 				
-			
-				var msg2 ="<tr><th>예약번호</th><th>예약날짜</th>" 
-						+"<th>주간 </th><th>야간</th><th>오전</th><th>예약자명</th>" 
-						+"<th>전화번호</th><th>차량번호</th><th>총 가격</th><th>신청날짜</th></tr>" 
-						 
-						for(var i=0; i<memberdata.member2.length;i++){
-							msg2+="<tr>"
-								+"<td>"
-								+ memberdata.member2[i].num
-								+"</td>"							
-								+"<td>"
-								+ (memberdata.member2[i].ski_date).substring(0,11)
-								+"</td>"
-								+"<td>"
-								+ memberdata.member2[i].ski_morning
-								+"</td>"
-								+"<td>"
-								+ memberdata.member2[i].ski_night
-								+"</td>"
-								+"<td>"
-								+ memberdata.member2[i].ski_day
-								+"</td>"
-								+"<td>"
-								+ memberdata.member2[i].name
-								+"</td>"
-								+"<td>"
-								+ memberdata.member2[i].tel
-								+"</td>"
-								+"<td>"
-								+ memberdata.member2[i].carnum
-								+"</td>"
-								+"<td>"
-								+ memberdata.member2[i].ski_price
-								+"</td>"
-								+"<td>"
-								+ (memberdata.member2[i].reg_date).substring(0,11)
-								+"</td>"
-								+"</tr>";
-								
-								calPrice += Number(memberdata.member2[i].ski_price);
-							}
+				skilength = memberdata.member2.length;
+				makeSkiTable(memberdata);
 						
-				
-				$('#allPrice').val(calPrice);	
-				$('#findtr').append($('#findtr').text()+msg);	
-				$('#findtr2').append($('#findtr2').text()+msg2);	
 			}//success
 			
 		},
@@ -614,3 +532,346 @@ function memberReserveCheck(memId){
 );//ajax
 }
 
+var roomlength = 0;
+var roomnum = 0;
+var roomfirstcheck = 0;
+var roomicheck = 0;
+var roommsg = "";
+
+function makeRoomTable(memberdata){
+	for(var i=0; i<memberdata.member.length; i++){
+		if(roomnum == memberdata.member[i].num){	// 같은 테이블
+			makeRoomTable2(memberdata,i,1);
+			//alert("같은 테이블 : "+i+"/"+roomnum);
+		}else{										// 테이블 새로 생성
+			makeRoomTable2(memberdata,i,0);
+			//alert("다른 테이블 : "+i+"/"+roomnum);
+		}
+	}
+}
+
+function makeRoomTable2(memberdata,i,numcheck){
+	
+	roomnum = memberdata.member[i].num;
+	//alert(roomnum);
+	
+	if(numcheck == 1){		//같은 테이블 내용 붙이기
+		roommsg += "<tr>"
+				+  "	<th>"+ (memberdata.member[i].room_date).substring(0,11) + "</th>"
+				+  "	<td>"+ memberdata.member[i].room_2 +"</td>"
+				+  "	<td>"+memberdata.member[i].room_4+"</td>"
+				+  "	<td>"+memberdata.member[i].room_8+"</td>"
+				+  "</tr>";		
+		if(roomlength-1 == i){
+			roommsg += "<tr>"
+				+  "<th> 이름 </th>"
+				+  "<td colspan='3'>"+ memberdata.member[roomicheck].name +" </td>"
+				+  "</tr>"
+				+  "<tr>"
+				+  "<th> 전화번호 </th>"
+				+  "<td colspan='3'>"+ memberdata.member[roomicheck].tel +"</td>"
+				+  "</tr>"				
+				+  "<tr>"
+				+  "<th> 차량번호 </th>"
+				+  "<td colspan='3'>"+ memberdata.member[roomicheck].carnum +"</td>"
+				+  "</tr>"
+				+  "<tr>"
+				+  "	<td colspan='4'>"
+				+  "		<a href='reverseChangeRoomForm.do?num="+memberdata.member[roomicheck].num+"'>예약변경"
+                +  "		<input type='button' value='예약삭제' onclick='deleteReverseRoom("+memberdata.member[roomicheck].num+")'>"
+                +  "	</td>"
+                +  "</tr>"
+				+  "</table>"
+				+  "</div>";
+			$(roommsg).appendTo('#findtr');
+		}
+	}else{					//테이블 새로 생성
+		if(roomfirstcheck == 0){
+			roommsg += "<div class='tablebox'>"
+					+  "<table border='1' class='recheck'>"
+					+  "<tr>"
+					+  "<thead>"
+					+  "	<th  colspan='4'> 결제번호 : "+ memberdata.member[i].num +"</th>"
+					+  "</tr>"	
+					+  "</thead>"
+					+  "<tr>"	
+					+  "	<th> 총 가격 </th>"		
+					+  "	<td colspan='3'> "+ memberdata.member[i].room_price +"</td>"		
+					+  "</tr>"
+					+  "<tr>"
+					+  "	<th>체크인/체크아웃</th>"
+				    +  "	<td colspan='3'>"+memberdata.member[i].room_check+"</td>"
+					+  "</tr>"
+					+  "<tr>"	
+					+  "	<th> 날짜 </th>"		
+					+  "	<td> 2인실 </td>"		
+					+  "	<td> 4인실 </td>"		
+					+  "	<td> 8인실 </td>"		
+					+  "</tr>"
+					+  "<tr>"
+					+  "	<th>"+ (memberdata.member[i].room_date).substring(0,11) + "</th>"
+					+  "	<td>"+ memberdata.member[i].room_2 +"</td>"
+					+  "	<td>"+memberdata.member[i].room_4+"</td>"
+					+  "	<td>"+memberdata.member[i].room_8+"</td>"
+					+  "</tr>";
+				roomfirstcheck = 1;
+				roomicheck = i;
+		}else{
+			roommsg += "<tr>"
+					+  "<th> 이름 </th>"
+					+  "<td colspan='3'>"+ memberdata.member[roomicheck].name +" </td>"
+					+  "</tr>"
+					+  "<tr>"
+					+  "<th> 전화번호 </th>"
+					+  "<td colspan='3'>"+ memberdata.member[roomicheck].tel +"</td>"
+					+  "</tr>"
+					+  "<tr>"
+					+  "<th> 차량번호 </th>"
+					+  "<td colspan='3'>"+ memberdata.member[roomicheck].carnum +"</td>"
+					+  "</tr>"
+					+  "<tr>"
+					+  "	<td colspan='4'>"
+					+  "		<a href='reverseChangeRoomForm.do?num="+memberdata.member[roomicheck].num+"'>예약변경"
+	                +  "		<input type='button' value='예약삭제' onclick='deleteReverseRoom("+memberdata.member[roomicheck].num+")'>"
+	                +  "	</td>"
+	                +  "</tr>"
+					+  "</table>";
+				$(roommsg).appendTo('#findtr');
+				roommsg = "";
+			//if(roomlength-1 != i){
+				roommsg += "<div class='tablebox'>"
+						+  "<table border='1' class='recheck'>"
+						+  "<thead>"
+						+  "<tr>"
+						+  "	<th  colspan='4'> 결제번호 : "+ memberdata.member[i].num +"</th>"
+						+  "</tr>"	
+						+  "</thead>"
+						+  "<tr>"	
+						+  "	<th> 총 가격 </th>"		
+						+  "	<td colspan='3'> "+ memberdata.member[i].room_price +"</td>"		
+						+  "</tr>"	
+						+  "<tr>"
+						+  "	<th>체크인/체크아웃</th>"
+					    +  "	<td colspan='3'>"+memberdata.member[i].room_check+"</td>"
+						+  "</tr>"
+						+  "<tr>"	
+						+  "	<th> 날짜 </th>"		
+						+  "	<td> 2인실 </td>"		
+						+  "	<td> 4인실 </td>"		
+						+  "	<td> 8인실 </td>"		
+						+  "</tr>"
+						+  "<tr>"
+						+  "	<th>"+ (memberdata.member[i].room_date).substring(0,11) + "</th>"
+						+  "	<td>"+ memberdata.member[i].room_2 +"</td>"
+						+  "	<td>"+memberdata.member[i].room_4+"</td>"
+						+  "	<td>"+memberdata.member[i].room_8+"</td>"
+						+  "</tr>";
+					roomicheck = i;
+			//}			
+		}
+	}	
+}
+
+
+var skilength = 0;
+var skinum = 0;
+var skifirstcheck = 0;
+var skiicheck = 0;
+var skimsg = "";
+
+function makeSkiTable(memberdata){
+	for(var i=0; i<memberdata.member2.length; i++){
+		if(skinum == memberdata.member2[i].num){	// 같은 테이블
+			makeSkiTable2(memberdata,i,1);
+			//alert("같은 테이블 : "+i);
+		}else{										// 테이블 새로 생성
+			makeSkiTable2(memberdata,i,0);
+			//alert("다른 테이블 : "+i);
+		}
+	}
+}
+
+function makeSkiTable2(memberdata,i,numcheck){
+	
+	skinum = memberdata.member2[i].num;
+	
+	if(numcheck == 1){		//같은 테이블 내용 붙이기
+		skimsg += "<tr>"
+				+  "	<th>"+ (memberdata.member2[i].ski_date).substring(0,11) + "</th>"
+				+  "	<td>"+ memberdata.member2[i].ski_morning +"</td>"
+				+  "	<td>"+memberdata.member2[i].ski_night+"</td>"
+				+  "	<td>"+memberdata.member2[i].ski_day+"</td>"
+				+  "</tr>";	
+		if(skilength-1 == i){
+			skimsg += "<tr>"
+				+  "<th> 이름 </th>"
+				+  "<td colspan='3'>"+ memberdata.member2[skiicheck].name +" </td>"
+				+  "</tr>"
+				+  "<tr>"
+				+  "<th> 전화번호 </th>"
+				+  "<td colspan='3'>"+ memberdata.member2[skiicheck].tel +"</td>"
+				+  "</tr>"
+				+  "<tr>"
+				+  "<th> 차량번호 </th>"
+				+  "<td colspan='3'>"+ memberdata.member2[skiicheck].carnum +"</td>"
+				+  "</tr>"
+				+  "<tr>"
+				+  "	<td colspan='4'>"
+				+  "		<a href='reverseChangeSkiForm.do?num="+memberdata.member2[skiicheck].num+"'>예약변경"
+                +  "		<input type='button' value='예약삭제' onclick='deleteReverseSki("+memberdata.member2[skiicheck].num+")'>"
+                +  "	</td>"
+                +  "</tr>"
+				+  "</table>";
+			$(skimsg).appendTo('#findtr2');
+		}
+	}else{					//테이블 새로 생성
+		if(skifirstcheck == 0){
+			skimsg += "<div class='tablebox'>"
+					+  "<table border='1' class='recheck'>"
+					+  "<thead>"
+					+  "<tr>"
+					+  "	<th  colspan='4'> 결제번호 : "+ memberdata.member2[i].num +"</th>"
+					+  "</tr>"	
+					+  "</thead>"
+					+  "<tr>"	
+					+  "	<th> 총 가격 </th>"		
+					+  "	<td colspan='3'> "+ memberdata.member2[i].ski_price +"</td>"		
+					+  "</tr>"
+					+  "<tr>"	
+					+  "	<th> 날짜 </th>"		
+					+  "	<td> 오전권 </td>"		
+					+  "	<td> 야간권 </td>"		
+					+  "	<td> 종일권 </td>"		
+					+  "</tr>"
+					+  "<tr>"
+					+  "	<th>"+ (memberdata.member2[i].ski_date).substring(0,11) + "</th>"
+					+  "	<td>"+ memberdata.member2[i].ski_morning +"</td>"
+					+  "	<td>"+memberdata.member2[i].ski_night+"</td>"
+					+  "	<td>"+memberdata.member2[i].ski_day+"</td>"
+					+  "</tr>";
+				skifirstcheck = 1;
+				skiicheck = i;
+		}else{
+			skimsg += "<tr>"
+					+  "<th> 이름 </th>"
+					+  "<td colspan='3'>"+ memberdata.member2[skiicheck].name +" </td>"
+					+  "</tr>"
+					+  "<tr>"
+					+  "<th> 전화번호 </th>"
+					+  "<td colspan='3'>"+ memberdata.member2[skiicheck].tel +"</td>"
+					+  "</tr>"
+					+  "<tr>"
+					+  "<th> 차량번호 </th>"
+					+  "<td colspan='3'>"+ memberdata.member2[skiicheck].carnum +"</td>"
+					+  "</tr>"
+					+  "<tr>"
+					+  "	<td colspan='4'>"
+					+  "		<a href='reverseChangeSkiForm.do?num="+memberdata.member2[skiicheck].num+"'>예약변경"
+	                +  "		<input type='button' value='예약삭제' onclick='deleteReverseSki("+memberdata.member2[skiicheck].num+")'>"
+	                +  "	</td>"
+	                +  "</tr>"
+					+  "</table>"
+					+  "</div>";
+				$(skimsg).appendTo('#findtr2');
+				skimsg = "";
+			//if(skilength-1 != i){
+				skimsg += "<div class='tablebox'>"
+						+  "<table border='1' class='recheck'>"
+					    +  "<thead>"
+						+  "<tr>"
+						+  "	<th  colspan='4'> 결제번호 : "+ memberdata.member2[i].num +"</th>"
+						+  "</tr>"	
+						+  "</thead>"
+						+  "<tr>"	
+						+  "	<th> 총 가격 </th>"		
+						+  "	<td colspan='3'> "+ memberdata.member2[i].ski_price +"</td>"		
+						+  "</tr>"	
+						+  "<tr>"	
+						+  "	<th> 날짜 </th>"		
+						+  "	<td> 오전권 </td>"		
+						+  "	<td> 야간권 </td>"		
+						+  "	<td> 종일권 </td>"		
+						+  "</tr>"
+						+  "<tr>"
+						+  "	<th>"+ (memberdata.member2[i].ski_date).substring(0,11) + "</th>"
+						+  "	<td>"+ memberdata.member2[i].ski_morning +"</td>"
+						+  "	<td>"+memberdata.member2[i].ski_night+"</td>"
+						+  "	<td>"+memberdata.member2[i].ski_day+"</td>"
+						+  "</tr>";
+					skiicheck = i;
+			//}			
+		}
+	}	
+}
+
+function showroom(){
+	$('#roomcheck').css('display','');
+	$('#skicheck').css('display','none');
+	$('.roomcheck_a').css('color','orange');
+	$('.skicheck_a').css('color','#FFF');
+	
+}
+
+function showski(){
+	$('#roomcheck').css('display','none');
+	$('#skicheck').css('display','');
+	$('.roomcheck_a').css('color','#FFF');
+	$('.skicheck_a').css('color','orange');
+}
+
+
+function deleteReverseRoom(num){
+	   if(confirm("예약을 취소하시겠습니까?")==true){
+	      location.href="memberReservationConfirmPro.do?num="+num+"&check="+0;
+	   }else{
+	      return;
+	   }
+	}
+
+	function deleteReverseSki(num){
+	   if(confirm("예약을 취소하시겠습니까?")==true){
+	      location.href="memberReservationConfirmPro.do?num="+num+"&check="+1;
+	   }else{
+	      return;
+	   }
+	}
+	function userBarcodeCharge(){
+	   var price = inputPrice.price.value;
+	   if(confirm("충전 하시겠습니까?")==true){
+	      location.href="memberUseHistoryPro.do?price="+price;
+	   }else{
+	      return;
+	   }
+	}
+	function getCurrentUserPrice() {
+	   $.ajax(
+	         {
+	            type : "POST",
+	            url : "userBarcode2.do",
+	            /*data : params,*/
+	            data : {
+	               value : inputPrice.hiddenId.value
+	            },
+	            
+	            //data : $('form').serialize(),
+	            dataType : 'xml',
+	            success : function(data){
+	               
+	               //var code = $(data).find('code').text();
+	               var codeconfrim = $(data).find('code').text();
+	               if(codeconfrim=='success'){
+	                  var memberdata = eval("("+$(data).find('data').text()+")");
+	                  inputPrice.currentPrice.value= memberdata.member[0].wallet;
+	               }else{
+	                  inputPrice.currentPrice.value=0;
+	               }
+	               
+	               
+	            },
+	            error : function(e){
+	               event.target.value="";
+	            }
+	            
+	         }      
+	      );
+	}
