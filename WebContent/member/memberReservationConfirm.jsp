@@ -125,7 +125,8 @@
 					</div>	
 					<%--총가격 : <input type="text" id="allPrice"> --%>
 				</form>
-			</section>
+
+			
 		</body>
 		<%@include file="/include/mainfooter.jsp" %>
 	</html>

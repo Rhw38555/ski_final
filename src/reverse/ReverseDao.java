@@ -17,5 +17,7 @@ public interface ReverseDao {
 	public List<RoomReverseDataBean> roomCount( Map<String, String> map );
 	
 	public List<SkiReverseDataBean> skiCount( Map<String, String> map );
+	public int roomCheck(String id);
+	public int skiCheck(String id);
 }
 

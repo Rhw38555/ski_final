@@ -56,6 +56,15 @@
   		select * from WP_skireserve where 
   		ski_date BETWEEN to_date(#{startDate}, 'MMDDYYYY') AND to_date(#{endDate}, 'MMDDYYYY')
   	</select>
+  	
+  	<select id="roomCheck" parameterType="String" resultType="int">
+  		select count(*) from WP_roomreserve where id=#{id}
+  	</select>
+  	
+  	<select id="skiCheck" parameterType="String" resultType="int">
+  		select count(*) from WP_skireserve where id=#{id}
+  	</select>
+  	
   </mapper>
   
   

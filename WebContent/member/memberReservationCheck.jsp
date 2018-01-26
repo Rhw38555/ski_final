@@ -7,16 +7,17 @@
     
     
 <sql:query var="rs" dataSource="jdbc/kh">
-	select * from WP_roomreserve where id=?
-	<sql:param value="${param.value}"/>
+   select * from WP_roomreserve where id=?
+   <sql:param value="${param.value}"/>
 </sql:query>
 
 <sql:query var="rs2" dataSource="jdbc/kh">
-	select * from WP_skireserve where id=?
-	<sql:param value="${param.value}"/>
+   select * from WP_skireserve where id=?
+   <sql:param value="${param.value}"/>
 </sql:query>
 
 <members>
+
 	<code>success</code>
 	<data>
 		{
@@ -59,4 +60,5 @@
 		}
 		
 	</data>
+
 </members>
