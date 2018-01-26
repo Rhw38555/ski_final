@@ -10,23 +10,40 @@
    
    </head>
 
-   <body>
-      <div class="content-block" id="footer">
-         <div class="container">
-            <div class="row">
-               <div class="col-xs-6">&copy; Copyright Flusk 2014</div>
-               <div class="col-xs-6 text-right">winter_park</a></div>
-            </div>
-         </div>
-      </div><!-- #footer -->
-      
+	<body>
+	    <div class="copyright-agile">
+			<p>&copy; 2017 inom ski. All rights reserved | Design by winter_park</p>
+		</div>
       
       <!-- js -->
       <script type="text/javascript" src="${project}assets/js/jquery-2.1.4.min.js"></script>
        <script src="${project}member/jquery-barcode.js"></script>
       <script src="${project}assets/js/responsiveslides.min.js"></script>
       
-            <script>   
+            <script>
+         	// 수정폼
+            $(document).ready(
+				function(){
+	            	joinform.passwd.focus();
+	            	shortemail.style.display = "none";
+	            	shortemail2.style.display = "none";
+            	}
+			);
+        	// 로그인폼
+            $(document).ready(
+				function(){
+	            	loginform.id.focus();
+            	}
+			);	
+            // 회원가입
+            $(document).ready(
+				function(){
+					joinform.id.focus();
+					shortemail.style.display = "none";
+					shortemail2.style.display = "none";
+				}		
+			);
+
                   $(function () {
                      $("#slider").responsiveSlides({
                         auto: true,

@@ -18,6 +18,16 @@
   	<update id="modifyUserBarcode" parameterType="String">
   		update wp_user_barcodes set wallet=#{calPrice}
   	</update>
+  	
+  	
+  	<insert id="insertUserBarcode" parameterType="HashMap">
+		insert into wp_user_barcodes values(#{user_barcode},0,#{id})
+	</insert>
+	
+	<select id="getUser_barcodeCount" resultType="String"> 
+		select user_barcode from wp_user_barcodes where rownum =1 and user_barcode = (select MAX(user_barcode) from wp_user_barcodes)
+	</select>
+	
   	<update id="modifyProductAllcount" parameterType="barcode.UseHistoryDataBean">
   		update wp_product_barcodes set all_count=all_count-#{product_count} where product_barcode = #{product_barcode}
   	</update>

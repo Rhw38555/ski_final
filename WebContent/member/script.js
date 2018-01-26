@@ -35,11 +35,7 @@ function erroralert( msg ) {
 	alert( msg );
 	history.back();
 }
-
-// 로그인폼(로그인)
-function loginfocus() {
-	loginform.id.focus();
-}
+// 로그인폼
 function logincheck() {
 	if( ! loginform.id.value ) {
 		alert( iderror );
@@ -281,11 +277,6 @@ function mailsubmit(submit){
 }
 
 // 회원 정보 수정
-function viewfocus() {
-	joinform.passwd.focus();
-	shortemail.style.display = "none";
-	shortemail2.style.display = "none";
-}
 function viewcheck() {
 	var tel1 = joinform.tel1.value;
 	var tel2 = joinform.tel2.value;
