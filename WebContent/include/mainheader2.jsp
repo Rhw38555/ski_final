@@ -20,7 +20,7 @@
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 				function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!-- //for-mobile-apps -->
-		<link href="${project}assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="${project}assets/css/bootstrap2.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- 
 		<link href="${project}assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
 		 -->
@@ -38,6 +38,17 @@
 		<!-- //Supportive-JavaScript -->	
 	</head>
 	
+	<sql:query var="rs" dataSource="jdbc/kh">
+      select user_barcode from wp_user_barcodes where id=?
+   <sql:param value="${sessionScope.memId}"/>
+   </sql:query>
+   
+            <c:forEach var="row" items="${rs.rows}">
+                  <c:set var="user_barcode" value="${row.user_barcode}"/>
+            </c:forEach>
+	
+	<body onload="generateBarcode('${user_barcode}')">
+	
 	<script src="${project}member/script.js"></script>
 		<!--Header-->
 		<header> 
@@ -46,12 +57,18 @@
 				<div class="top-bar">
 				<div class="container-fluid">
 				
-            <c:if test="${sessionScope.adminId != null}">
+				<c:if test="${sessionScope.memId == null}">
+               			<div class="member-button">
+                        <input type="button" value="${btn_login}" onclick="location='memberLoginForm.do'">
+                        <input type="button" value="${btn_join}" onclick="location='memberJoinForm.do'">
+                  		</div>
+            </c:if>
+            <c:if test="${sessionScope.memId != null}">
                     	<div class="member-button"> 
-                    	${sessionScope.adminId} ${msg_loginmain}
+                    	${sessionScope.memId} ${msg_loginmain}
                         <div id="barcodeTarget" class="barcodeTarget"></div>
-                        <input type="button" value="${btn_logout}" onclick="location='adminMemberLogout.do'"> 
-                        <input type="button" value="${btn_mypage}" onclick="location='adminMemberModifyForm.do'">
+                        <input type="button" value="${btn_logout}" onclick="location='memberLogout.do'"> 
+                        <input type="button" value="${btn_mypage}" onclick="location='memberModifyForm.do'">
                         </div>
                         
             </c:if>
@@ -73,12 +90,12 @@
 							<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 								<nav class="cl-effect-15" id="cl-effect-15">
 								<ul>
-									<li><a href="adminWinterParkLiftPrice.do" data-hover="${btn_winterPark}">${btn_winterPark}</a></li>
-									<li><a href="adminReverseRoomForm.do" data-hover="${btn_reservation}">${btn_reservation}</a></li>
-									<li><a href="adminIntroSki.do" data-hover="${btn_skioom}">${btn_skioom}</a></li>
-									<li><a href="adminFFList.do" data-hover="${btn_eat}">${btn_eat}</a></li>
-									<li><a href="adminEventList.do" data-hover="${btn_event}">${btn_event}</a></li>
-									<li><a href="adminQnaList.do" data-hover="${btn_qa}">${btn_qa}</a></li>
+									<li><a href="WinterParkLiftPrice.do" data-hover="${btn_winterPark}">${btn_winterPark}</a></li>
+									<li><a href="reverseRoomForm.do" data-hover="${btn_reservation}">${btn_reservation}</a></li>
+									<li><a href="introSki.do" data-hover="${btn_skioom}">${btn_skioom}</a></li>
+									<li><a href="ffList.do" data-hover="${btn_eat}">${btn_eat}</a></li>
+									<li><a href="eventList.do" data-hover="${btn_event}">${btn_event}</a></li>
+									<li><a href="qnaList.do" data-hover="${btn_qa}">${btn_qa}</a></li>
 								</ul>
 								</nav>
 							</div>
@@ -162,7 +179,7 @@
 				});
 			});
 		</script>
-		<!-- start-smoth-scrolling -->	
+		<!-- start-smoth-scrolling -->		
 	</body>
 </html>
 	

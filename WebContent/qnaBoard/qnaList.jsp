@@ -2,24 +2,36 @@
     pageEncoding="UTF-8"%>
 	
 <%@ include file="setting.jsp"%>
-<%@include file="/include/mainheader.jsp"%>
-<%@include file="/include/mainnav.jsp"%>
-<link href="${project}${location}style.css" rel="stylesheet" type="text/css">
+<%@include file="/include/mainheader2.jsp"%>
+
+<style>
+	.al-ct{
+		text-align:right;
+	}
+	.th-num{
+		align: center;
+		 
+	}
+	.th-sub{
+		align: center;
+		
+	}
+	.th-cs{
+		align: center;
+	}
+	.table{
+		align: center;
+	}
+</style>
 
 <!-- 정보 리스트 -->	          
- 
+ 	<c:if test="${sessionScope.memId != null}">
+		<div class="al-ct"><a href="qnaWriteForm.do">1:1문의 등록</a>&nbsp;&nbsp;</div>
+	</c:if>
 	<c:if test="${count == 0}">
 		<table class="table">
-			<tr>
-				<th colspan=4 align="right">
-				<!-- 유저 글 등록 -->
-					<c:if test="${sessionScope.memId != null}">
-						<a href="qnaWriteForm.do">1:1문의 등록</a>
-					</c:if>
-				</th>
-			</tr>
 		    <tr>
-	        	<td colspan="4" align="center">
+	        	<td colspan="3" align="center">
 				등록된 문의가 없습니다.
 				</td>
 			</tr>
@@ -28,22 +40,15 @@
 	<c:if test="${count != 0}">
 		<table class="table">
 			<tr>
-				<th colspan=4 align="right">
-					<c:if test="${sessionScope.memId != null}">
-						<a href="qnaWriteForm.do">1:1문의 등록</a>
-					</c:if>
-				</th>
-			</tr>
-			<tr>
-				<th style="width: 8%;"> 
+				<td align="center"> 
 					${str_num}
-				</th>
-				<th style="width: 40%;"> 
+				</td>
+				<td align="center"> 
 					${str_subject}
-				</th>
-				<th style="width: 10%;">
+				</td>
+				<td align="center">
 					${str_current_status}
-				</th>
+				</td>
 			</tr>
 	    	<tbody>
 	            <tr>
@@ -53,7 +58,7 @@
 								${number}
 								<c:set var="number" value="${number - 1}"/>						
 							</td>
-							<td>
+							<td align="center">
 								<a href="qnaContent.do?num=${article.num}&pageNum=${pageNum}">
 									${article.subject}
 								</a>	
@@ -68,6 +73,7 @@
 		</table>
 		<br><br>
 	</c:if>
+	<div align="center">
 	<c:if test="${count > 0}">
 	<c:if test="${startPage > pageBlock}">
 		<a href="qnaList.do">[◀◀]</a>
@@ -85,4 +91,5 @@
 		<a href="qnaList.do?pageNum=${startPage + pageBlock}">[▶]</a>
 		<a href="qnaList.do?pageNum=${pageCount}">[▶▶]</a>
 	</c:if>
-</c:if>
+	</c:if>
+	</div>
