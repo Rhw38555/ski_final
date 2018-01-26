@@ -80,4 +80,11 @@ public class ReverseDBBean implements ReverseDao{
 	public List<SkiReverseDataBean> skiCount(Map<String, String> map) {
 		return sql.selectList( "reserve.skiCount", map );
 	}
+	
+	public int roomCheck(String id) {
+		return sql.selectOne("reserve.roomCheck",id);
+	}
+	public int skiCheck(String id) {
+		return sql.selectOne("reserve.skiCheck",id);
+	}
 }

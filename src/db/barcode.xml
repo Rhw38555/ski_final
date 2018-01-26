@@ -43,6 +43,14 @@
 		delete from wp_useHistory where product_barcode = #{product_barcode} and user_barcode=#{user_barcode} and buydate= TO_DATE(#{buydate},'YYYYMMDDHH24MISS') 
 	</delete>
 	
+	<delete id="deleteUserbarcode" parameterType="String">
+		delete from wp_user_barcodes where id = #{id}
+	</delete>
+	
+	<update id="chargeUserbarcode" parameterType="barcode.UserBarcodeDataBean">
+  		update wp_user_barcodes set wallet=#{wallet} where id = #{id}
+  	</update>
+  	
   </mapper>
   
   
