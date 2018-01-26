@@ -1,0 +1,40 @@
+/*
+*/
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);   
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+
+.asidebox{
+	width : 30%;
+	height: 1000px;
+	float : left;
+	font-family: 'Noto Sans KR', normal;
+	padding-left : 50px;
+	padding-top : 30px;
+	font-size : 20px;	
+	line-height : 40px;							
+} 
+.asidebox > ul{
+	list-style:none;
+}			
+.aside_a{				
+	color: gray;	
+	margin-bottom : 15px;		
+}			
+.aside_a:hover{				
+	color: orange;
+	text-decoration : underline; 
+}
+.aside_a .fa{				
+	padding-right : 20px;
+}
+	
+#te{
+	width : 100px;
+	font-size : 20px;
+	border-bottom : 2px solid #BDBDBD;
+	padding-top : 30px;
+}
+	
+	
