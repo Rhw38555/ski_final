@@ -21,7 +21,7 @@
 						<input type="text" class="form-control" name="email" placeholder="아이디를 입력해주세요(@주소포함)"/>
 					</div>
 						<input type="submit" class="btn btn-primary" value="비밀번호찾기">
-		     			<input type="button" class="btn btn-primary" value="취소" onclick="location='main.do'">
+		     			<input type="button" class="btn btn-primary" value="취소" onclick="location='memberLoginForm.do'">
 				</div>
 			</form>	
 		</div>
