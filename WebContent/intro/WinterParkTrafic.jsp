@@ -4,7 +4,6 @@
 <script src="${project}${folder}script.js"></script>
  
 <%@include file="/include/mainheader.jsp" %>
-<%@include file="/include/mainnav.jsp" %>
 <%@include file="/include/WinterParkaside.jsp" %>
 	<h2>교통정보</h2>
 <%@ include file="setting.jsp" %>

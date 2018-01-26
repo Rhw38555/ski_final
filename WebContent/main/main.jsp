@@ -103,6 +103,8 @@
                              } else {
                                  $("#msg").html($("#msg").html() 
                                      + sender + content.replace("/" + $("#hiddenid").val(), " : ")  + "<br>");
+                                 var sendmsg = sender+"/"+ content.replace("/" + $("#hiddenid").val(), "");
+                                 notifyMe(sendmsg);
                              }
                          } else {
                             
@@ -130,6 +132,36 @@
          inputform.message.focus();
          //result.innerHTML +="메세지 송신 성공<br>";
       }     
+      
+      function notifyMe(sendmsg) {
+		  if (!"Notification" in window) {
+		    alert("This browser does not support desktop notification");
+		  }
+		  else if (Notification.permission === "granted") {
+			var msg = sendmsg.split("/");
+		    var notification = new Notification(msg[0]+"님의 메세지 도착",{body: msg[1]});
+		    setTimeout(notification.close.bind(notification),4000);
+		    notification.onclick = function(event){
+		    	event.preventDefault();
+		    	alert("메세지 도착");
+		    	inputform.message.focus();
+		    	notification.close();
+		    }
+		  }
+		  else if (Notification.permission !== 'denied') {
+		    Notification.requestPermission(function (permission) {
+		 	
+		      if(!('permission' in Notification)) {
+		        Notification.permission = permission;
+		      }
+		 
+		      if (permission === "granted") {
+		        var notification = new Notification("Hi there!");
+		      }
+		    });
+		  }
+		}
+      
       //-->
       </script>
    </head>
