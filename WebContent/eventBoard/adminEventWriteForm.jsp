@@ -3,10 +3,22 @@
 
 <%@ include file="setting.jsp"%>
 <%@include file="/include/adminmainheader.jsp"%>
-<%@include file="/include/adminmainnav.jsp"%>
+
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 <script src="${project}jquery-3.2.1.js"></script>
-
+<script type="text/javascript">
+	//<!--
+	function writecheck() {
+		if( ! writeform.subject.value ) {
+			writeform.subject.focus();
+			return false;
+		} else if( ! writeform.image.value ) {
+			writeform.image.focus();
+			return false;
+		}
+	}
+	//-->
+</script>
 
 <body>
 	<form method="post" enctype="multipart/form-data" action="adminEventWritePro.do"

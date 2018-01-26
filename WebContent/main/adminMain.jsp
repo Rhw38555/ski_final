@@ -192,7 +192,6 @@
 	<body onload="openserver()">
 	<script src="${project}member/script.js"></script> 
 	
-    <%@include file="/include/adminmainnav.jsp" %>
  	<%@include file="/include/adminmainheader.jsp" %>
  	
 	<div class="content-block" id="portfolio">
