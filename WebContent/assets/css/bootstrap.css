@@ -74,13 +74,19 @@ span.input-group-addon i {
 	margin-left: 35%;
 }
 .main-login{
-	margin-bottom: 100%;
+	margin-bottom: 80%;
 }
 .loginheader{
 	margin-top: 150px;
 }
+.mod {
+	float: right;
+	width: 80%;
+}
 /* loginform */
-
+.login-join{
+	margin-bottom: 30%;
+}
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -2694,7 +2700,7 @@ input[type="search"] {
   }
 }
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 .radio,
 .checkbox {
