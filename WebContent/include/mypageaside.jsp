@@ -5,32 +5,68 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<style type="text/css">
-			body{
-				text-align: center;
-			}
-			aside {
-				width : 150px;
-				height : 500px;				
+		<meta charset="UTF-8">	
+		<style>
+			@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);   
+			@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+			.asidebox{
+				width : 30%;
+				height: 1000px;
 				float : left;
-				border : 1px solid black;
-				margin : 0px;
+				font-family: 'Noto Sans KR', normal;
+				padding-left : 50px;
+				padding-top : 30px;
+				font-size : 20px;	
+				line-height : 40px;							
+			} 
+			.asidebox > ul{
+				list-style:none;
+			}			
+			.aside_a{				
+				color: gray;	
+				margin-bottom : 15px;		
+			}			
+			.aside_a:hover{				
+				color: orange;
+				text-decoration : underline; 
 			}
-			.button {
-				width : 150px;
+			.aside_a .fa{				
+				padding-right : 20px;
 			}
-		</style>		
+		</style>
+		 <script type="text/javascript">
+			 		 
+		</script>
 	</head>
 
 	<body onload="viewfocus()">
-	<script src="${project}member/script.js"></script>    
-		<aside>
-		<br><br>
-			<input class="button" type="button" value="정보수정" onclick="location='memberModifyForm.do'"><br>
-			<input class="button" type="button" value="예약확인" onclick="location='memberReservationConfirm.do'"><br>
-			<input class="button" type="button" value="사용내역" onclick="location='memberUseHistory.do'"><br>
-			<input class="button" type="button" value="${btn_delete}" onclick="location='memberDeleteForm.do'">
-		</aside>
+		<script src="${project}member/script.js"></script>    
+		<br><br><br><br>
+
+		    <div class="asidebox">
+		         <ul>
+		             <li>
+		                 <a href="memberModifyForm.do" class="aside_a">
+		                     <span class="fa fa-angle-double-right text-primary"></span>정보수정
+		                 </a>
+		             </li>
+		             <li>
+		                 <a href="memberReservationConfirm.do" class="aside_a">
+		                     <span class="fa fa-angle-double-right text-primary"></span>예약확인
+		                 </a>
+		             </li>
+		             <li>
+		                 <a href="memberUseHistory.do" class="aside_a">
+		                     <span class="fa fa-angle-double-right text-primary"></span>사용내역
+		                 </a>
+		             </li>
+		             <li>
+		                 <a href="memberDeleteForm.do" class="aside_a">
+		                     <span class="fa fa-angle-double-right text-primary"></span>${btn_delete}
+		                 </a>
+		             </li>
+		         </ul>
+		    </div>
+
 	</body>
 </html>

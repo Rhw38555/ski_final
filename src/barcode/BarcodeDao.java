@@ -12,4 +12,7 @@ public interface BarcodeDao {
 	public void refundModifyProductAllcount(ArrayList<UseHistoryDataBean> product_barcodeInfo);
 	public void deleteUseHistory( ArrayList<UseHistoryDataBean> product_barcodeInfo );
 	public String getUser_barcode(String userid);
+	public void insertUserBarcode(String id);
+	public void deleteUserbarcode(String id);
+	public int chargeUserbarcode(UserBarcodeDataBean userbarcodeDto);
 }

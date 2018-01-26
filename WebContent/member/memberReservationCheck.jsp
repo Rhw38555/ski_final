@@ -7,16 +7,17 @@
     
     
 <sql:query var="rs" dataSource="jdbc/kh">
-	select * from WP_roomreserve where id=?
-	<sql:param value="${param.value}"/>
+   select * from WP_roomreserve where id=?
+   <sql:param value="${param.value}"/>
 </sql:query>
 
 <sql:query var="rs2" dataSource="jdbc/kh">
-	select * from WP_skireserve where id=?
-	<sql:param value="${param.value}"/>
+   select * from WP_skireserve where id=?
+   <sql:param value="${param.value}"/>
 </sql:query>
 
 <members>
+
 	<code>success</code>
 	<data>
 		{
@@ -32,8 +33,10 @@
 						name : "${row.name}",
 						tel : "${row.tel}",
 						carnum : "${row.carnum}",
-						room_price : "${row.room_price}"
-					},
+						room_price : "${row.room_price}",
+						room_check : "${row.room_check}",
+						num : "${row.num}"
+					}, 
 				</c:forEach>
 			],
 			member2 : [
@@ -48,7 +51,8 @@
 						name : "${row2.name}",
 						tel : "${row2.tel}",
 						carnum : "${row2.carnum}",
-						ski_price : "${row2.ski_price}"
+						ski_price : "${row2.ski_price}",
+						num : "${row2.num}"
 					},
 				</c:forEach>
 			]
@@ -56,4 +60,5 @@
 		}
 		
 	</data>
+
 </members>

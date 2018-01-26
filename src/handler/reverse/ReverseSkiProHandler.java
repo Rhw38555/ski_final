@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import barcode.BarcodeDao;
 import handler.CommandHandler;
 import reverse.ReverseDao;
 import reverse.SkiReverseDataBean;
@@ -22,6 +23,8 @@ public class ReverseSkiProHandler implements CommandHandler{
 	
 	@Resource
 	private ReverseDao reserveDao;
+	@Resource
+	private BarcodeDao barcode;
 	
 	@RequestMapping( "/reverseSkiPro" )
 	@Override
@@ -33,6 +36,8 @@ public class ReverseSkiProHandler implements CommandHandler{
 		String[] cnt = (request.getParameter("ski_count")).split(",");
 		
 		SimpleDateFormat tran = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String id = (String) request.getSession().getAttribute("memId");
 		
 		Date date1 = tran.parse(date[0]);
 		int cnt2_1 = Integer.parseInt(cnt[0]);
@@ -52,7 +57,7 @@ public class ReverseSkiProHandler implements CommandHandler{
 		skiDto_1.setSki_morning(cnt2_1);
 		skiDto_1.setSki_night(cnt4_1);
 		skiDto_1.setSki_day(cnt8_1);
-		skiDto_1.setId("id1");
+		skiDto_1.setId(id);
 		skiDto_1.setName(request.getParameter("name"));
 		skiDto_1.setTel(request.getParameter("tel"));
 		skiDto_1.setCarnum(request.getParameter("carnum"));
@@ -71,7 +76,7 @@ public class ReverseSkiProHandler implements CommandHandler{
 			skiDto_2.setSki_morning(cnt2_2);
 			skiDto_2.setSki_night(cnt4_2);
 			skiDto_2.setSki_day(cnt8_2);
-			skiDto_2.setId("id1");
+			skiDto_2.setId(id);
 			skiDto_2.setName(request.getParameter("name"));
 			skiDto_2.setTel(request.getParameter("tel"));
 			skiDto_2.setCarnum(request.getParameter("carnum"));
@@ -89,7 +94,7 @@ public class ReverseSkiProHandler implements CommandHandler{
 				skiDto_3.setSki_morning(cnt2_3);
 				skiDto_3.setSki_night(cnt4_3);
 				skiDto_3.setSki_day(cnt8_3);
-				skiDto_3.setId("id1");
+				skiDto_3.setId(id);
 				skiDto_3.setName(request.getParameter("name"));
 				skiDto_3.setTel(request.getParameter("tel"));
 				skiDto_3.setCarnum(request.getParameter("carnum"));
@@ -99,6 +104,8 @@ public class ReverseSkiProHandler implements CommandHandler{
 		}		
 		request.setAttribute("result", result);
 		request.setAttribute("num", num);
+		
+		barcode.insertUserBarcode(id);
 		
 		return new ModelAndView( "reverse/reverseSkiPro" );
 	}

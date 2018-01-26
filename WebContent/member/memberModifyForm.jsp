@@ -1,41 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>  
 <%@ include file="setting.jsp" %>
+<%@include file="/include/mainheader.jsp" %>
 
 <!DOCTYPE html>
-<center>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<style type="text/css">
-			body{
-				text-align: center;
-			}
-			div {
-				border : 1px solid black;
-				margin : 10px;
-			}
-			header {
-				height : 50px;
-			}
-			aside {
-				width : 150px;
-				height : 500px;				
-				float : left;
-			}
-			section {
-				width : 1300px;			
-				height : 500px;
-				float : left;
-			}
-			.button {
-				width : 150px;
-			}
-			header, aside, section {
-				border : 1px solid black;
-				margin : 0px;
-			}
-		</style>		
+		<meta charset="UTF-8">	
 	</head>
 
 	<body onload="viewfocus()">
@@ -47,6 +18,12 @@
 			<form name="joinform" method="post" action="memberModifyPro.do" onsubmit="return viewcheck()">
 			<input type="hidden" name="hiddenemail" value="1">
 			<input type="hidden" name="hiddenemailvalue" value="${logonDto.email}">
+			<input type="hidden" id="user_barcode" value="${user_barcode}">
+			
+			
+			
+			
+			
 				<table class="table">
 					<tr>
 						<th> ${str_id} </th>
@@ -118,4 +95,3 @@
 		</section>
 	</body>
 </html>
-</center>

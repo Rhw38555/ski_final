@@ -10,29 +10,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import barcode.BarcodeDao;
 import handler.CommandHandler;
-import member.LogonDao;
 
 @Controller
-public class MemberLoginProHandler implements CommandHandler{
+public class UserBarcode2 implements CommandHandler{
 
 	@Resource
-	private LogonDao logonDao;	
+	private BarcodeDao barcodeDao;	
 	
-	
-	@RequestMapping( "/memberLoginPro" )
+	@RequestMapping( "/userBarcode2" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-
-		String id = request.getParameter( "id" );
-		String passwd = request.getParameter( "passwd" );
 		
-		int num = logonDao.numcheck(id, passwd);
-		int result = logonDao.check( id, passwd );
-	
-		request.setAttribute( "result", result );
-		request.setAttribute( "id", id );		
-		request.setAttribute("num", num);
-		return new ModelAndView( "member/memberLoginPro" );
+		
+		
+		return new ModelAndView( "member/userBarcode2" );
 	}
 
 }

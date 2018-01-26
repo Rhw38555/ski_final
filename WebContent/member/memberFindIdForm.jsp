@@ -3,9 +3,11 @@
 
 <%@ include file="setting.jsp" %>
 <link href="${project}member/style.css" rel="stylesheet" type="text/css">
+
 <script src="${project}member/script.js"></script>
     
-<form name="idform" method="post" action="memberFindIdPro.do" onsubmit="return idconfirm()">                              
+<form name="idform" method="post" action="memberFindIdPro.do" onsubmit="return idconfirm()">  
+<input type="hidden" id="user_barcode" value="${user_barcode}">                            
 	<table>
 		<tr>
 			<th>이메일</th>

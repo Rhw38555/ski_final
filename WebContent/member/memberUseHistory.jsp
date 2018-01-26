@@ -27,15 +27,36 @@
 			}
 		</style>		
 	</head>
-
+	
 	<body onload="memberUseHistoryCheck('${user_barcode}')">
 		<header>${page_UseHistory}</header>
 		<%@include file="/include/mypageaside.jsp" %>
 		<section>
+		<input type="hidden" id="user_barcode" value="${user_barcode}">
 			<table border="1"> 
 				<tbody id="findtr"></tbody>
 			</table>
+		<form name="inputPrice">
+			바코드 잔액 : 
+			<input type="text" name="currentPrice">
+			<input type="hidden" name="hiddenId" value="${sessionScope.memId}">
+			<br>
+			<input type="text" name="price"> 
+			<input type="button" value="충전하기" onclick="userBarcodeCharge()">
+		</form>
 		</section>
+		
 	</body>
+	
+	<script type="text/javascript">
+	//<!--
+		$(document).on(
+			function(){
+				
+			}		
+		);
+	//-->
+	</script>
+	
 </html>
 </center>

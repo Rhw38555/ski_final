@@ -11,7 +11,6 @@ $(document).ready(function(){
  * 		load
 /*///////////////////////////////////////	
 	//setdate = setInterval("getdate()",1000);
-	
 	window.addEventListener("beforeunload", function (e) {
 		var confirmationMessage = "\o/";	
 		(e || window.event).returnValue = confirmationMessage; //Gecko + IE			
@@ -37,19 +36,33 @@ $(document).ready(function(){
 	    $('#datepicker2').datepicker('option', 'minDate', '0');
 	    $('#datepicker2').datepicker('option', 'maxDate', '');
 	    $('#datepicker2').datepicker('setDate','');
-	    $('#result').text('');
-	    $('#result2').text('');
+	    $('#re').text('');
+	    $('#re2').text('');
 	    $('#bt1').css('display','');
 		$('#ta > tr').remove();
 		$('#name').val('');
 		$('#tel').val('');
 		$('#carnum').val('');
+		for(var i=0; i<3; i++){
+			$('#mran2_'+i).attr('disabled', false);
+			$('#mran4_'+i).attr('disabled', false);
+			$('#mran8_'+i).attr('disabled', false);
+			$('#pran2_'+i).attr('disabled', false);
+			$('#pran4_'+i).attr('disabled', false);
+			$('#pran8_'+i).attr('disabled', false);
+			
+			$('#cnt2_'+i).val(0);
+			$('#cnt4_'+i).val(0);
+			$('#cnt8_'+i).val(0);
+		}
+		/*
 		$('#ran1').attr('disabled', false);
 	    $('#ran2').attr('disabled', false);
 	    $('#ran3').attr('disabled', false);
 	    $('#ran4').attr('disabled', false);
 	    $('#ran5').attr('disabled', false);
 	    $('#ran6').attr('disabled', false);
+	    */
 	    $('#roompricebox').text('');
 	}	
     
@@ -209,6 +222,9 @@ $(document).ready(function(){
             $('#bt1').css('display','none');
             $('#backbt1').css('display','');
             $('#bt2').css('display','');
+            $('#date1').text('');
+            $('#date2').text('');
+            $('#date3').text('');
             
             if(time >= 1){
            	 $('#date1').text($('#re').text());
@@ -294,6 +310,17 @@ $(document).ready(function(){
 		   $('#room_date').val(roomstr);
 		   $('#room_cnt').val(roomcnt);
 		   $('#room_price').val($('#roompricebox').text());
+		   
+		   $('<tr>'
+	        +'<th>이용자명</th> <td>'+($('#name').val())+'</td>'
+	        +'</tr>'
+	        +'<tr>'
+	        +'<th>전화번호</th> <td>'+($('#tel').val())+'</td>'
+	        +'</tr>'
+	        +'<tr>'
+	        +'<th>차량번호</th> <td>'+($('#carnum').val())+'</td>'
+	        +'</tr>'
+	       ).appendTo('#ta'); 
 	   }
    });//bt3
 
