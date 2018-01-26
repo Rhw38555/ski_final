@@ -3,10 +3,9 @@
 <%@ include file="setting.jsp" %>
 
 <!DOCTYPE html>
-<center>
 <html>
-<script src="${project}member/script.js"></script> 
-<script src="${project}member/jquery-3.2.1.js"></script>
+	<script src="${project}member/script.js"></script> 
+	<script src="${project}member/jquery-3.2.1.js"></script>
 	<head>
 		<meta charset="UTF-8">
 		<style type="text/css">
@@ -47,16 +46,4 @@
 		</section>
 		
 	</body>
-	
-	<script type="text/javascript">
-	//<!--
-		$(document).on(
-			function(){
-				
-			}		
-		);
-	//-->
-	</script>
-	
 </html>
-</center>

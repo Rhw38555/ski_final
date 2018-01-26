@@ -127,28 +127,28 @@ nav.linkEffects.linkHoverEffect_12 ul {
 	margin: 0 auto;
 }
 .slider-img1 {
-	background:url(../images/banner1433.jpg)no-repeat 0px 0px;
+	background:url(../images/back_3.jpg)no-repeat 0px 0px;
 	-webkit-background-size:cover; 
 	-moz-background-size:cover;  
 	background-size:cover; 
 	min-height:700px;
 }
 .slider-img2 {
-background:url(../images/ban-sky2.jpg)no-repeat 0px 0px;
+	background:url(../images/back_img1.jpg)no-repeat 0px 0px;
 	-webkit-background-size:cover; 
 	-moz-background-size:cover;  
 	background-size:cover; 
 	min-height:700px;
 }
 .slider-img3 {
-background:url(../images/ban-sky1.jpg)no-repeat 0px 0px;
+	background:url(../images/back_7.jpg)no-repeat 0px 0px;
 	-webkit-background-size:cover; 
 	-moz-background-size:cover;  
 	background-size:cover; 
 	min-height:700px;
 }
 .slider-img4 {
-background:url(../images/banner5.jpg)no-repeat 0px 0px;
+	background:url(../images/back_img2.jpg)no-repeat 0px 0px;
 	-webkit-background-size:cover; 
 	-moz-background-size:cover;  
 	background-size:cover; 
@@ -477,10 +477,10 @@ a.navbar-brand span {
 /* Effect 15: scale down, reveal */
 .cl-effect-15 a {
     color: #ee4f4f;
-    font-weight: 700;
+    font-weight: 400;
     text-shadow: none;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
     letter-spacing: 2px;
 }
 .cl-effect-15 a::before {
