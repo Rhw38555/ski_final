@@ -91,4 +91,11 @@ public class BarcodeDBBean implements BarcodeDao{
 		map.put( "id", id );
 		SqlMapClient.getSqlSession().insert("Barcode.insertUserBarcode", map);
 	}
+	public void deleteUserbarcode(String id) {
+		SqlMapClient.getSqlSession().delete("Barcode.deleteUserbarcode",id);
+	}
+	public int chargeUserbarcode(UserBarcodeDataBean userbarcodeDto) {
+		return SqlMapClient.getSqlSession().update("Barcode.chargeUserbarcode",userbarcodeDto);
+	}
+	
 }

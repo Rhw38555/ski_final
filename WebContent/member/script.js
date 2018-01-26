@@ -439,7 +439,7 @@ function memberUseHistoryCheck(user_barcode) {
 				
 				//data : $('form').serialize(),
 				dataType : 'xml',
-				success : function(data){
+				success : function(data) {
 					
 					//var code = $(data).find('code').text();
 					var codeconfrim = $(data).find('code').text();
@@ -478,9 +478,10 @@ function memberUseHistoryCheck(user_barcode) {
 							+"</th>"
 							+"</tr>";
 							
-						$('#findtr').append($('#findtr').text()+msg);	
+						$('#findtr').append($('#findtr').text()+msg);
+						
 					}//success
-					
+					getCurrentUserPrice();
 				},
 				error : function(e){
 					event.target.value="";
@@ -491,13 +492,166 @@ function memberUseHistoryCheck(user_barcode) {
 }
 
 function memberReserveCheck(memId){
+	   $.ajax(
+	   {
+	      type : "POST",
+	      url : "memberReservationCheck.do",
+	      /*data : params,*/
+	      data : {
+	         value : memId
+	      },
+	      
+	      //data : $('form').serialize(),
+	      dataType : 'xml',
+	      success : function(data){         
+	         //var code = $(data).find('code').text();
+	         var codeconfrim = $(data).find('code').text();
+	         if(codeconfrim=='success'){
+	            var memberdata = eval("("+$(data).find('data').text()+")");
+	            var calPrice=0;
+	            var msg ="<tr><th>예약번호</th><th>체크인 / 체크아웃</th><th>예약날짜</th>" 
+	               +"<th>2인실 </th><th>4인실</th><th>8인실</th><th>예약자명</th>" 
+	               +"<th>전화번호</th><th>차량번호</th><th>총 가격</th><th>신청날짜</th><th>예약변경</th><th>예약삭제</th></tr>" 
+	            
+	            for(var i=0; i<memberdata.member.length;i++){
+	            msg+="<tr>"
+	               +"<td>"
+	               + memberdata.member[i].num
+	               +"</td>"
+	               +"<td>"
+	               + memberdata.member[i].room_check
+	               +"</td>"
+	               +"<td>"
+	               + (memberdata.member[i].room_date).substring(0,11)
+	               +"</td>"
+	               +"<td>"
+	               + memberdata.member[i].room_2
+	               +"</td>"
+	               +"<td>"
+	               + memberdata.member[i].room_4
+	               +"</td>"
+	               +"<td>"
+	               + memberdata.member[i].room_8
+	               +"</td>"
+	               +"<td>"
+	               + memberdata.member[i].name
+	               +"</td>"
+	               +"<td>"
+	               + memberdata.member[i].tel
+	               +"</td>"
+	               +"<td>"
+	               + memberdata.member[i].carnum
+	               +"</td>"
+	               +"<td>"
+	               + memberdata.member[i].room_price
+	               +"</td>"
+	               +"<td>"
+	               + (memberdata.member[i].reg_date).substring(0,11)
+	               +"</td>"
+	               +"<td>"
+	               + "<a href='reverseChangeRoomForm.do?num="+memberdata.member[i].num+"'>예약변경"
+	               +"</td>"
+	               +"<td>"
+	               + "<input type='button' value='예약삭제' onclick='deleteReverseRoom("+memberdata.member[i].num+")'>"
+	               +"</td>"
+	               +"</tr>";
+	               
+	               calPrice += Number(memberdata.member[i].room_price);
+	            }
+	            
+	         
+	            var msg2 ="<tr><th>예약번호</th><th>예약날짜</th>" 
+	                  +"<th>주간 </th><th>야간</th><th>오전</th><th>예약자명</th>" 
+	                  +"<th>전화번호</th><th>차량번호</th><th>총 가격</th><th>신청날짜</th><th>예약변경</th><th>예약삭제</th></tr>" 
+	                   
+	                  for(var i=0; i<memberdata.member2.length;i++){
+	                     msg2+="<tr>"
+	                        +"<td>"
+	                        + memberdata.member2[i].num
+	                        +"</td>"                     
+	                        +"<td>"
+	                        + (memberdata.member2[i].ski_date).substring(0,11)
+	                        +"</td>"
+	                        +"<td>"
+	                        + memberdata.member2[i].ski_morning
+	                        +"</td>"
+	                        +"<td>"
+	                        + memberdata.member2[i].ski_night
+	                        +"</td>"
+	                        +"<td>"
+	                        + memberdata.member2[i].ski_day
+	                        +"</td>"
+	                        +"<td>"
+	                        + memberdata.member2[i].name
+	                        +"</td>"
+	                        +"<td>"
+	                        + memberdata.member2[i].tel
+	                        +"</td>"
+	                        +"<td>"
+	                        + memberdata.member2[i].carnum
+	                        +"</td>"
+	                        +"<td>"
+	                        + memberdata.member2[i].ski_price
+	                        +"</td>"
+	                        +"<td>"
+	                        + (memberdata.member2[i].reg_date).substring(0,11)
+	                        +"</td>"
+	                        +"<td>"
+	                        + "<a href='reverseChangeSkiForm.do?num="+memberdata.member2[i].num+"'>예약변경"
+	                        +"</td>"
+	                        +"<td>"
+	     	               + "<input type='button' value='예약삭제' onclick='deleteReverseSki("+memberdata.member2[i].num+")'>"
+	     	               +"</td>"
+	                        +"</tr>";
+	                        
+	                        calPrice += Number(memberdata.member2[i].ski_price);
+	                     }
+	                  
+	            
+	            $('#allPrice').val(calPrice);   
+	            $('#findtr').append($('#findtr').text()+msg);   
+	            $('#findtr2').append($('#findtr2').text()+msg2);   
+	         }//success
+	         
+	      },
+	      error : function(e){
+	         event.target.value="";
+	      }
+	   }      
+	);//ajax
+	}
+
+function deleteReverseRoom(num){
+	if(confirm("예약을 취소하시겠습니까?")==true){
+		location.href="memberReservationConfirmPro.do?num="+num+"&check="+0;
+	}else{
+		return;
+	}
+}
+
+function deleteReverseSki(num){
+	if(confirm("예약을 취소하시겠습니까?")==true){
+		location.href="memberReservationConfirmPro.do?num="+num+"&check="+1;
+	}else{
+		return;
+	}
+}
+function userBarcodeCharge(){
+	var price = inputPrice.price.value;
+	if(confirm("충전 하시겠습니까?")==true){
+		location.href="memberUseHistoryPro.do?price="+price;
+	}else{
+		return;
+	}
+}
+function getCurrentUserPrice() {
 	$.ajax(
 			{
 				type : "POST",
-				url : "memberReservationCheck.do",
+				url : "userBarcode2.do",
 				/*data : params,*/
 				data : {
-					value : memId
+					value : inputPrice.hiddenId.value
 				},
 				
 				//data : $('form').serialize(),
@@ -508,101 +662,18 @@ function memberReserveCheck(memId){
 					var codeconfrim = $(data).find('code').text();
 					if(codeconfrim=='success'){
 						var memberdata = eval("("+$(data).find('data').text()+")");
-						var calPrice=0;
-						var msg ="<tr><th>아이디</th><th>예악 시작 날짜</th><th>예약 끝 날짜</th>" 
-							+"<th>2인룸 개수 </th><th>4인룸 개수</th><th>8인룸 개수</th><th>예약자명</th>" 
-							+"<th>전화번호</th><th>차번호</th><th>룸가격</th></tr>" 
-						
-						for(var i=0; i<memberdata.member.length;i++){
-						msg+="<tr>"
-							+"<td>"
-							+ memberdata.member[i].id
-							+"</td>"
-							+"<td>"
-							+ memberdata.member[i].reg_date
-							+"</td>"
-							+"<td>"
-							+ memberdata.member[i].room_date
-							+"</td>"
-							+"<td>"
-							+ memberdata.member[i].room_2
-							+"</td>"
-							+"<td>"
-							+ memberdata.member[i].room_4
-							+"</td>"
-							+"<td>"
-							+ memberdata.member[i].room_8
-							+"</td>"
-							+"<td>"
-							+ memberdata.member[i].name
-							+"</td>"
-							+"<td>"
-							+ memberdata.member[i].tel
-							+"</td>"
-							+"<td>"
-							+ memberdata.member[i].carnum
-							+"</td>"
-							+"<td>"
-							+ memberdata.member[i].room_price
-							+"</td>"
-							+"</tr>";
-							
-							calPrice += Number(memberdata.member[i].room_price);
-						}
-						
+						inputPrice.currentPrice.value= memberdata.member[0].wallet;
+					}else{
+						inputPrice.currentPrice.value=0;
+					}
 					
-						var msg2 ="<tr><th>아이디</th><th>예악 시작 날짜</th><th>예약 끝 날짜</th>" 
-								+"<th>주간 스키권 개수 </th><th>야간 스키권 개수</th><th>일일 스키권 개수</th><th>예약자명</th>" 
-								+"<th>전화번호</th><th>차번호</th><th>룸가격</th></tr>" 
-								
-								for(var i=0; i<memberdata.member2.length;i++){
-									msg2+="<tr>"
-										+"<td>"
-										+ memberdata.member2[i].id
-										+"</td>"
-										+"<td>"
-										+ memberdata.member2[i].reg_date
-										+"</td>"
-										+"<td>"
-										+ memberdata.member2[i].ski_date
-										+"</td>"
-										+"<td>"
-										+ memberdata.member2[i].ski_morning
-										+"</td>"
-										+"<td>"
-										+ memberdata.member2[i].ski_night
-										+"</td>"
-										+"<td>"
-										+ memberdata.member2[i].ski_day
-										+"</td>"
-										+"<td>"
-										+ memberdata.member2[i].name
-										+"</td>"
-										+"<td>"
-										+ memberdata.member2[i].tel
-										+"</td>"
-										+"<td>"
-										+ memberdata.member2[i].carnum
-										+"</td>"
-										+"<td>"
-										+ memberdata.member2[i].ski_price
-										+"</td>"
-										+"</tr>";
-										
-										calPrice += Number(memberdata.member2[i].ski_price);
-									}
-								
-						
-						$('#allPrice').val(calPrice);	
-						$('#findtr').append($('#findtr').text()+msg);	
-						$('#findtr2').append($('#findtr2').text()+msg2);	
-					}//success
 					
 				},
 				error : function(e){
 					event.target.value="";
 				}
+				
 			}		
-		);//ajax
+		);
 }
 

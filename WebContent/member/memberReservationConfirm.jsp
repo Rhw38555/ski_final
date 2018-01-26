@@ -26,18 +26,19 @@
 				<input type="hidden" id="userid" value="${sessionScope.memId}">
 					<table border="1"> 
 						<tr>
-							<th colspan="10">콘도 예약 정보</th>
+							<th colspan="13">콘도 예약 정보</th>
 						</tr>
 						<tbody id="findtr"></tbody>
 					</table>				
 					<table border="1"> 
 						<tr>
-							<th colspan="10">스키 예약 정보</th>
+							<th colspan="12">스키 예약 정보</th>
 						</tr>
 						<tbody id="findtr2"></tbody>
 					</table>
 				총가격 : <input type="text" id="allPrice">
 			</section>
+			
 		</body>
 		<%@include file="/include/mainfooter.jsp" %>
 	</html>
