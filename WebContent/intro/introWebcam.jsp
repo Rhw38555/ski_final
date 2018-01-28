@@ -36,9 +36,8 @@
 				</div> <!-- skitotal -->
 			</div> <!-- row -->
 		</div><!-- container -->
-		<div class="copyright-agile">
-			<p>&copy; 2017 inom ski. All rights reserved | Design by winter_park</p>
-		</div>
+		
+		<%@include file="/include/mainfooter.jsp" %>
 	</body>
 	<script type="text/javascript">   
 	   function changeCos(cosName){

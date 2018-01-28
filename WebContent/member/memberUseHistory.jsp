@@ -4,19 +4,20 @@
 
 <!DOCTYPE html>
 <html>
+		
 	<head>
 		<meta charset="UTF-8">
 		<link href="./member/a_re.css" rel="stylesheet">
 		<script src="${project}member/script.js"></script> 
-		<script src="${project}member/jquery-3.2.1.js"></script>
-		<%@include file="/include/mainheader.jsp"%>			
+			<%@include file="/include/mainheader.jsp"%>			
 	</head>
 	
-	<body onload="memberUseHistoryCheck('${user_barcode}')">
+	<body>
+	
+		
 		<br><br><br><br><br><br><br>
-			
+		
 		<%@include file="/include/mypageaside.jsp" %>	
-		<input type="hidden" id="user_barcode" value="${user_barcode}">
 		<div class="checkform">	
 			<table border="1"> 
 				<tbody id="findtr"></tbody>
@@ -34,7 +35,7 @@
 		</form>
 		</div>
 	</body>
-	
+	<%@include file="/include/mainfooter.jsp" %>
 	<script type="text/javascript">
 	//<!--
 		

@@ -4,9 +4,9 @@
 
 <!DOCTYPE html>
 <html>
-    <script src="${project}member/jquery-3.2.1.js"></script>
-    <script src="${project}member/jquery-barcode.js"></script>
-   <head>
+	    <script src="${project}member/jquery-3.2.1.js"></script>
+	    <script src="${project}member/jquery-barcode.js"></script>
+	   <head>
       <meta charset="UTF-8">
       <link href="./main/a_main.css" rel="stylesheet">
       <script type="text/javascript">
