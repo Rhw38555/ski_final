@@ -62,11 +62,11 @@
 		     <div class="container">
 				<div class="row">
 					<div class="pageselbox">
-						<a href="location='reverseRoomForm.do'">
+						<a href="reverseRoomForm.do">
 							<span class="glyphicon glyphicon-home" aria-hidden="true"> 콘도예약</span>
 						</a> 
 						<br>
-						<a href="location='reverseSkiForm.do'">
+						<a href="reverseSkiForm.do">
 							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"> 스키예약</span>
 						</a>
 					</div>	

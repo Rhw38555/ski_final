@@ -25,16 +25,18 @@
 	</head>
 <center>
 <h2> 실시간 코스 </h2>
-<a href="javascript:changeCos(a)">A코스</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="javascript:changeCos(b)">B코스</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="javascript:changeCos(c)">C코스</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br>
+<a href="javascript:changeCos('a')">A코스</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="javascript:changeCos('b')">B코스</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="javascript:changeCos('c')">C코스</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><br>
+<object id="swfId" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="300" height="120">
+<param name="allowFullScreen" value="true" /> 
 <embed id="cos" style="width: 600px; height: 380px;" 
 title="동영상 프레임" type="application/x-shockwave-flash" 
-src="/SKI_Final/intro/show1.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
-allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false">
- 
-
+src="/SKI_Final/intro/show.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
+allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false" allowFullScreen="true">
+</embed>
+</object>
 <img src="/SKI_Final/images/ski_cos.png"/>
 <br><br>
 <div class="copyright-agile">
