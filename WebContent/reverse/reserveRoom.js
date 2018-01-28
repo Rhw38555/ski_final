@@ -583,10 +583,12 @@ function getcount(){
 }// getcount
 
 function insertcnt(day,check,time){			
-    var str = day.split('-');
+	//alert(day+"/"+check+"/"+time);
+	var str = day.split('-');
 	if(str[2].length == 1) str[2] = '0'+str[2];
 	if(str[1].length == 1) str[1] = '0'+str[1];
 	var d = str[0]+str[1]+str[2];	
+	//alert(d+"/"+check+"/"+time);
 	$.ajax({
 		url : 'insertRoomCount.do',
 		dataType : 'xml',

@@ -11,17 +11,61 @@ var first = 0;
 $(document).ready(function(){
 	
 	setTimeout("getdate()",500);
+	setInterval("getcount()",500);
+	//alert();
 	
-	$('#reset_room_date1').val($('#date1').text());
+	//var fmtarr = '';
+	
+	for(var i=0; i<3; i++){
+		$('#mran2_'+i).attr('disabled', false);
+		$('#mran4_'+i).attr('disabled', false);
+		$('#mran8_'+i).attr('disabled', false);
+		$('#pran2_'+i).attr('disabled', false);
+		$('#pran4_'+i).attr('disabled', false);
+		$('#pran8_'+i).attr('disabled', false);
+	}
+	
+	var fmtarr = $('#fmtdate1').text().trim().split('-');
+	//alert("날짜"+ $('#fmtdate1').text().trim());
+	//alert(fmtarr[1]);
+	if(fmtarr[1].charAt(0) == '0') fmtarr[1] = fmtarr[1].charAt(1);
+	if(fmtarr[2].charAt(0) == '0') fmtarr[2] = fmtarr[2].charAt(1);	
+	var fmtdate = fmtarr[0]+"-"+fmtarr[1]+"-"+fmtarr[2];
+	
+	$('#reset_room_date1').val(fmtdate);
+	$('#date1').text(fmtdate);
+	$('#room_date_0').text(fmtdate);
 	$('#roomdate2').css('display','none');
 	$('#roomdate3').css('display','none');
 	$('#roomdateval0').val('1');
+	$('#re').text(fmtdate);
+	$('#check_in').text(fmtdate);
+	
+	var outarr = $('#reset_checkout').val().split('-');
+	if(outarr[1].charAt(0) == '0') outarr[1] = outarr[1].charAt(1);
+	if(outarr[2].charAt(0) == '0') outarr[2] = outarr[2].charAt(1);	
+	var outdate = outarr[0]+"-"+outarr[1]+"-"+outarr[2];
+	$('#re2').text(outdate);
+	$('#check_out').text(outdate);
+	
 	if($('#datecnt').val() > 1){
-		$('#reset_room_date2').val($('#date2').text());
+		fmtarr = $('#fmtdate2').text().split('-');
+		if(fmtarr[1].charAt(0) == '0') fmtarr[1] = fmtarr[1].charAt(1);
+		if(fmtarr[2].charAt(0) == '0') fmtarr[2] = fmtarr[2].charAt(1);	
+		var fmtdate = fmtarr[0]+"-"+fmtarr[1]+"-"+fmtarr[2];
+		$('#date2').text(fmtdate);
+		$('#reset_room_date2').val(fmtdate);
+		$('#room_date_1').text(fmtdate);
 		$('#roomdate2').css('display','');
 		$('#roomdateval1').val('1');
 		if($('#datecnt').val() >2){
-			$('#reset_room_date3').val($('#date3').text());
+			fmtarr = $('#fmtdate3').text().split('-');
+			if(fmtarr[1].charAt(0) == '0') fmtarr[1] = fmtarr[1].charAt(1);
+			if(fmtarr[2].charAt(0) == '0') fmtarr[2] = fmtarr[2].charAt(1);	
+			var fmtdate = fmtarr[0]+"-"+fmtarr[1]+"-"+fmtarr[2];
+			$('#date3').text(fmtdate);
+			$('#room_date_2').text(fmtdate);
+			$('#reset_room_date3').val(fmtdate);
 			$('#roomdate3').css('display','');
 			$('#roomdateval2').val('1');
 		}
@@ -289,6 +333,14 @@ $(document).ready(function(){
 				$('#room8_2').text($('#reset_room8_cnt2').val());
 			}
 		}
+		for(var i=0; i<3; i++){
+			$('#mran2_'+i).attr('disabled', false);
+			$('#mran4_'+i).attr('disabled', false);
+			$('#mran8_'+i).attr('disabled', false);
+			$('#pran2_'+i).attr('disabled', false);
+			$('#pran4_'+i).attr('disabled', false);
+			$('#pran8_'+i).attr('disabled', false);
+		}
 		
 		$('#name').val($('#reset_name').val());
 		$('#tel').val($('#reset_tel').val());
@@ -297,9 +349,7 @@ $(document).ready(function(){
 		$('#teltd').text($('#reset_tel').val());
 		$('#carnumtd').text($('#reset_carnum').val());
 		
-	});	
-	
-	
+	});		
 	 $('#back').click(function(){
 		   //insertcount();
 		   modcount();
@@ -392,16 +442,19 @@ function showstep2(){
 }
 
 function price(){
-	 var price=(parseInt($('#cnt2_0').val())*20000)
-		 +(parseInt($('#cnt2_1').val())*20000)
-		 +(parseInt($('#cnt2_2').val())*20000)
-		 +(parseInt($('#cnt4_0').val())*40000)
-		 +(parseInt($('#cnt4_1').val())*40000)
-		 +(parseInt($('#cnt4_2').val())*40000)
-		 +(parseInt($('#cnt8_0').val())*80000)
-		 +(parseInt($('#cnt8_1').val())*80000)
-		 +(parseInt($('#cnt8_2').val())*80000);  	
+	//alert($('#cnt2_2').val()+"/"+$('#cnt8_2').val());
+	 var price
+	 	 =($('#cnt2_0').val()*20000)
+		 +($('#cnt2_1').val()*20000)
+		 +($('#cnt2_2').val()*20000)
+		 +($('#cnt4_0').val()*40000)
+		 +($('#cnt4_1').val()*40000)
+		 +($('#cnt4_2').val()*40000)
+		 +($('#cnt8_0').val()*80000)
+		 +($('#cnt8_1').val()*80000)
+		 +($('#cnt8_2').val()*80000);  	
 	 $('#roompricebox').text(price); 		 
+	
 	 $('#room2_0').text($('#cnt2_0').val());
 	 $('#room4_0').text($('#cnt4_0').val());
 	 $('#room8_0').text($('#cnt8_0').val());
@@ -565,15 +618,34 @@ function getcount(){
 						if(Number(dates.room_2) > 3){
 	                        $('#mran2_'+i).attr('disabled', true);
 	                        $('#pran2_'+i).attr('disabled', true);
-	                     }
+	                        //alert()
+	                        if($('#cnt2_'+i).val() > 0){
+	                        	$('#mran2_'+i).attr('disabled', false);
+							}
+	                    }else{
+	                    	 $('#mran2_'+i).attr('disabled', false);
+		                     $('#pran2_'+i).attr('disabled', false);
+	                    }
 						 if(Number(dates.room_4) > 3){
 	                        $('#mran4_'+i).attr('disabled', true);
 	                        $('#pran4_'+i).attr('disabled', true);
-	                     }
+	                        if($('#cnt4_'+i).val() > 0){
+	                        	$('#mran4_'+i).attr('disabled', false);
+							}
+	                     }else{
+	                    	 $('#mran4_'+i).attr('disabled', false);
+		                     $('#pran4_'+i).attr('disabled', false);
+	                    }
 	                     if(Number(dates.room_8) > 3){
 	                        $('#mran8_'+i).attr('disabled', true);
 	                        $('#pran8_'+i).attr('disabled', true);
-	                     } 						
+	                        if($('#cnt8_'+i).val() > 0){
+	                        	$('#mran8_'+i).attr('disabled', false);
+							}
+	                     } 	else{
+	                    	 $('#mran8_'+i).attr('disabled', false);
+		                     $('#pran8_'+i).attr('disabled', false);
+	                    }					
 	                     $('#result2').text('getcount code 성공!!');
 					}else{
 						$('#result2').text('getcount 값 없음');
@@ -679,8 +751,16 @@ function deletecount(){
 		++i;
 		//alert(room_2+"/"+room_4+"/"+room_8);
 		var day = $('#reset_room_date'+i).val().substring(8,18);
+		//alert($('#reset_room_date'+i).val()+"/"+day);
     	if(day.length < 5) day = $('#reset_room_date'+i).val();
-		
+		for(var j=1; j<4; j++){
+			//alert(day + "/" +$('#date'+j).text());
+			if(day == $('#date'+j).text()){
+				room_2 = room_2 - $('#cnt2_'+(j-1).val());
+				room_4 = room_4 - $('#cnt4_'+(j-1).val());
+				room_8 = room_8 - $('#cnt8_'+(j-1).val());
+			}
+		}
 		//alert(day);
 		var str = day.split('-');
 		if(str[2].length == 1) str[2] = '0'+str[2];
