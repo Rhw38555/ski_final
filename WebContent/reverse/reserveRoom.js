@@ -111,6 +111,7 @@ $(document).ready(function(){
         dateFormat: 'yy-mm-dd',
         inline: true,
         minDate: 0,
+        maxDate: 100,
         onSelect: function(){  
             date1 = $("#datepicker1").datepicker('getDate');
             var day1 = $("#datepicker1").datepicker('getDate').getDate();                 

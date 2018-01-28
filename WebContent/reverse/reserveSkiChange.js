@@ -137,8 +137,8 @@ $(function(){
             if(count == 0){
                $('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('#a');
             }else if(count == 1){
-               var alt = strdate($('.alt:first').text());
-               var sel = strdate(fullDate);
+               var alt = strMindate($('.alt:first').text());
+               var sel = strMindate(fullDate);
                if(alt < sel){
 					$('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('#a');
 				}else{
@@ -146,9 +146,9 @@ $(function(){
 				}
             }else if(count >= 2){                              
                clearInterval(setdate);               
-               var alt1 = strdate($('.alt:first').text());
-               var alt2 = strdate($('.alt:eq(1)').text());
-               var sel = strdate(fullDate);
+               var alt1 = strMindate($('.alt:first').text());
+               var alt2 = strMindate($('.alt:eq(1)').text());
+               var sel = strMindate(fullDate);
                
                aaa = new Array();
                aaa.push($('.alt:first').text());
@@ -264,24 +264,18 @@ $(function(){
 		  $('#skidate'+i).css('display','');
 		  $('#skiski_'+i).css('display','');
 		  $('#skidateval'+i).val('1');
-		 
-	     // var firstdate = $('#date'+i).text();    
-	     // alert(firstdate);
-	      //firstarr.push(firstdate);
 	      $('<div class="alt" id="alt_'+ firstarr[i] +'">'+firstarr[i]+'</div>').appendTo('#a');
-	      //$('#date'+i).text(firstdate);
-	      $('#skidateval'+i).val('1');
+	      $('#date'+i).text(firstarr[i]);
 	      $('#ski2_'+i).text($('#reset_ski2_cnt'+i).val());
+	      $('#ski4_'+i).text($('#reset_ski4_cnt'+i).val());
+	      $('#ski8_'+i).text($('#reset_ski8_cnt'+i).val());
 	      $('#cnt2_'+i).val($('#reset_ski2_cnt'+i).val());
+	      $('#cnt4_'+i).val($('#reset_ski4_cnt'+i).val());
+	      $('#cnt8_'+i).val($('#reset_ski8_cnt'+i).val());
 	      $('#ski_date_'+i).text(firstarr[i]);
 	   } // 예약날짜 수를 받아와서 그만큼 step1, 2에 채워넣어준다
 		firstcheck = 0;
-		//$('#date1').text($('#reset_ski_date1').val());
-		$('#skidate2').css('display','none');
-		$('#skidate3').css('display','none');
 		
-		//$('#ski4_0').text($('#reset_ski4_cnt0').val());
-		//$('#ski8_0').text($('#reset_ski8_cnt0').val());
 		if($('#datecnt').val() > 2) $('#multipick').datepicker('option','beforeShowDay',firstgo);
 		else $('#multipick').datepicker('option','beforeShowDay',gogogo);
 		

@@ -191,20 +191,21 @@
                      <li>
                         <c:set var="wfKor" value="${wfKor}"/>
                         <c:if test="${fn:contains(wfKor, '구름')}">
-                           <img src="/SKI_Final/images/구름.PNG" />
+                           <img src="/SKI_Final/images/weather-icon-cloudy.png" />
                         </c:if>
                         <c:if test="${fn:contains(wfKor, '눈')}">
-                           <img src="/SKI_Final/images/눈.PNG"/>
+                           <img src="/SKI_Final/images/weather-icon-snow.png"/>
                         </c:if>
                         <c:if test="${fn:contains(wfKor, '맑음')}">
-                           <img src="/SKI_Final/images/맑음.PNG" />
+                           <img src="/SKI_Final/images/weather-icon-sun.png" />
                         </c:if>
                         <c:if test="${fn:contains(wfKor, '비')}">
-                           <img src="/SKI_Final/images/비.PNG" />
+                           <img src="/SKI_Final/images/weather-icon-rain.png" />
                         </c:if>
                         <c:if test="${fn:contains(wfKor, '흐림')}">
-                           <img src="/SKI_Final/images/흐림.PNG" />
+                           <img src="/SKI_Final/images/weather-icon-fade.png" />
                         </c:if>
+                        <br><br>
                      <div>최저온도 : ${tmn}</div>                     
                      <div>최고온도 : ${tmx}</div>                      
                      <div>${wfKor} </div>                                    

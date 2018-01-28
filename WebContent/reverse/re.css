@@ -14,7 +14,7 @@
 	padding-right: 15px;
 	padding-left: 15px;
 	margin-right: auto;
-	margin-left: 100px;
+	margin-left: 50px;
 	/*background-color : #FFF;*/
 	border-radius: 10px;
 	position: relative;
@@ -377,7 +377,7 @@ input[type="button"]{
 	/*height : 250px;*/
 	min-height : 250px;
 	float : left;
-	margin-left: 55%;
+	margin-left: 60%;
 	background-color : #FFF;
 	background-color: rgba( 255, 255, 255, 0.3 );
 	border-radius: 15px;

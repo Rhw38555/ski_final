@@ -51,6 +51,9 @@ public class ReverseSkiProHandler implements CommandHandler{
 		int num = reserveDao.ski_getNum();
 		int result = 0;
 		
+		System.out.println("num : "+num+"/ date1 : "+date1+"/ ski_m : "+cnt2_1 +"/ ski_n: "+cnt4_1+"/ ski_d :"+cnt8_1);
+		System.out.println("id : "+id+"/ ");
+		
 		skiDto_1.setNum(num);
 		skiDto_1.setSki_date(date1);
 		skiDto_1.setReg_date(new Timestamp(System.currentTimeMillis()));
