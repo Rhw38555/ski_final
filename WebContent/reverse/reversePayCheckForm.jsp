@@ -21,7 +21,12 @@
 	  <script src="./assets/js/jquery.actual.min.js"></script>
 	  <script src="./assets/js/jquery.scrollTo.min.js"></script>
 	  <script src="./assets/js/script.js"></script>
-
+	  <script type="text/javascript">
+	  	gocheck(){
+	  		opener.document.location.href='memberReservationConfirm.do';
+	  		self.close();
+	  	}
+	  </script>
    </head>
 
    <body class="rebody"> 
@@ -82,7 +87,7 @@
 					</table>
 					<div class="paycheckbt">
 						<input type="button" id="paycheckbt" value="확인"
-							onclick="location='main.do'">
+							onclick="gocheck()">
 						<input type="button" id="paycheckbt" value="변경" 
 							onclick="location='reverseChangeSkiForm.do?num=${re.get(0).num}'">
 					</div>
@@ -134,7 +139,7 @@
 						</c:if>
 					</table>
 					<div class="paycheckbt">
-						<input type="button" id="paycheckbt" value="확인" onclick='window.close()'>
+						<input type="button" id="paycheckbt" value="확인" onclick='gocheck()'>
 						<input type="button" id="paycheckbt" value="변경" 
 							onclick="location='reverseChangeRoomForm.do?num=${re.get(0).num}'">
 					</div>

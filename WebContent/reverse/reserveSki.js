@@ -32,6 +32,11 @@ $(function(){
 /*///////////////////////////////////////
  * 		달력 클릭시
 /*///////////////////////////////////////
+	function strMindate(date){
+		   var str = date.split('-');
+		   var day = new Date(str[0],str[1]-1,str[2]);   
+		   return day;
+		}//String to Date
 	$('#multipick').multiDatesPicker({
 		maxPicks: 3,
 		minDate: 0,
@@ -82,8 +87,8 @@ $(function(){
 				if(count == 0){
 					$('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('#a');
 				}else if(count == 1){
-					var alt = strdate($('.alt:first').text());
-					var sel = strdate(fullDate);
+					var alt = strMindate($('.alt:first').text());
+					var sel = strMindate(fullDate);
 					if(alt < sel){
 						$('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('#a');
 					}else{
@@ -91,9 +96,11 @@ $(function(){
 					}
 				}else if(count >= 2){										
 					clearInterval(setdate);					
-					var alt1 = strdate($('.alt:first').text());
-					var alt2 = strdate($('.alt:eq(1)').text());
-					var sel = strdate(fullDate);
+					var alt1 = strMindate($('.alt:first').text());
+					var alt2 = strMindate($('.alt:eq(1)').text());
+					var sel = strMindate(fullDate);
+					
+					//alert(alt1 +"/"+ alt2 +"/"+sel);					
 					
 					aaa = new Array();
 					aaa.push($('.alt:first').text());					
@@ -104,6 +111,7 @@ $(function(){
 					$('#multipick').datepicker('option','beforeShowDay', gogo);
 					//alt1은 alt2보다 작은 상황
 				   if(sel < alt1){
+					  
 	                   $('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').prependTo('#a');
 	               }else if(sel > alt2){
 	                   $('<div class="alt" id="alt_'+ fullDate +'">'+fullDate+'</div>').appendTo('#a');

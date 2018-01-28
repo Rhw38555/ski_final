@@ -300,7 +300,7 @@ $(document).ready(function(){
    
 	$('#resetbt').click(function(){
 		
-		alert($('#datecnt').val());
+		//alert($('#datecnt').val());
 		modcount();
 		first = 0;
 		$('#date1').text($('#reset_room_date1').val());
@@ -546,13 +546,13 @@ function finalcheck(){
 	   	}	   	
     }	
 	if($('#name').val() == '') {
-		   alert('이름을 입력하시라');
-		   return false;
-	   }
-	   if($('#tel').val() == '') {
-		   alert('전화번호를 입력하시라');
-		   return false;
-	   }
+		alert('이름을 입력하시라');
+	   return false;
+    }
+	 if($('#tel').val() == '') {
+		 alert('전화번호를 입력하시라');
+		 return false;
+	}
 }//finalcheck
 
 var aaa = null;
