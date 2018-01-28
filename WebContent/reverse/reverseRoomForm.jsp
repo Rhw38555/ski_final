@@ -50,7 +50,7 @@
    <body onload="InitializeStaticMenu()" onbeforeunload="abc();" class="rebody">   
  	 <!-- <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')"> -->
  	<!--  <div class="image-container set-full-height" style="background-image: url('./reverse/img2.jpg')"> -->
-	   <form method="post" action="reverseRoomPro.do">
+	   <form name="reverseform" method="post" action="reverseRoomPro.do">
 		   <input type="hidden" name="room_date" id="room_date">
 		   <input type="hidden" name="room_cnt" id="room_cnt">
 		   <input type="hidden" name="room_price" id="room_price">	   
@@ -209,13 +209,13 @@
 		               	</div>
 		               	<div class="textbox">
 		               		<div class="textmention">차량번호</div>  
-		               			<input type="text" id="carnum" name="carnum" placeholder="차량번호를 입력해주세요">
+		               			<input type="text" id="carnum" name="carnum" placeholder="차량번호(숫자)를 입력해주세요">
 		               	</div>
 	               	</div>
 	            	<div id="btbox">
 	               		<input type="button" id="backbt2" value="이전으로">
 	               		&nbsp;	
-	               		<input type="button" id="bt3" value="다음">
+	               		<input type="button" id="bt3" value="다음" onclick="reversecheck()">
 	               		&nbsp;
 	            	</div> <!-- btbox -->
 	            </div> <!-- selectbox -->
