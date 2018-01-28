@@ -21,7 +21,6 @@
       <script type="text/javascript" src="${project}assets/js/jquery-2.1.4.min.js"></script>
       <script src="${project}member/jquery-barcode.js"></script>
       <script src="${project}assets/js/responsiveslides.min.js"></script>
-      
             <script>
 
          	// 수정폼
@@ -72,6 +71,8 @@
       <script type="text/javascript" src="./assets/js/move-top.js"></script>
       <script type="text/javascript" src="./assets/js/easing.js"></script>
       <script type="text/javascript" src="./assets/js/bootstrap-3.1.1.min.js"></script>
+       
+      
    </body>
 
 </html>
