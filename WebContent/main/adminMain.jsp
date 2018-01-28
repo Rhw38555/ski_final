@@ -225,14 +225,14 @@
 					<th>
 						<input type="text" name="id" size="5px"
 						 placeholder="대화명">
-						 <input type="hidden" id="hiddenid" value="${sessionScope.adminId}">
+						 <input type="hidden" id="hiddenid" value="관리자">
 					</th>
 					<td>
 					<input type="text" name="message" autofocus
 						placeholder="대화를 입력하세요">
 					</td>
 					<th>
-						<input type="button" value="전송" onclick="sendmsg('${sessionScope.adminId}')">
+						<input type="button" value="전송" onclick="sendmsg('관리자')">
 					</th>
 				</tr>
 				<tr>
