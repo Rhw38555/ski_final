@@ -146,6 +146,7 @@
    <script src="${project}member/script.js"></script> 
 
     <%@include file="/include/mainheader.jsp" %>
+
     <br><br><br><br><br>
        <div id="totalbox">
                   

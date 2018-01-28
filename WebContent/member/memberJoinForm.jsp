@@ -56,9 +56,9 @@
 						<label class="cols-sm-2 control-label">${str_email}</label>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-							<input id="fullemail" type="text" name="email0" maxlength="30" style="width:200px">
-							<input id="shortemail" type="text" name="email1" maxlength="30" style="width:200px">
-							<input id="shortemail2" type="text" name="email2" maxlength="15" style="width:100px" readonly>
+							<input id="fullemail" type="text" name="email0" maxlength="30" style="width:200px; float:left">
+							<input id="shortemail" type="text" name="email1" maxlength="30" style="width:150px; float:left; margin-right: 10px">
+							<input id="shortemail2" type="text" name="email2" maxlength="15" style="width:100px; float:left" readonly>
 							<select class="input" id="select" name="selectemail" onchange="chageLangSelect()">
 								<option value="0"> 직접입력 </option>
 								<option value="@naver.com"> 네이버 </option>
