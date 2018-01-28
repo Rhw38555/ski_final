@@ -15,19 +15,20 @@
 		function(){
 			var result = "GUEST" +Math.floor(Math.random() * 100000);
 			$('#hiddenid').val(result);
+			
 			}	  
 	  );
       
 	  $(document).on(
-			'click','#sendmsg',
+			'click','#msgbt',
 			function(event) {
 				
 				var chatcontent = $("#message").val();
 		         $("#starter").append(chatcontent);
 		         $("#msg").scrollTop($("#msg")[0].scrollHeight); // 스크롤바 아래로 갱신!   
 		         var id = $('#hiddenid').val();
-		         var msg = id + ":/admin" + inputform.message.value;
-		         $("#msg").html($("#msg").html()+ id +" : "+ inputform.message.value  + "<br>");
+		         var msg = id + ":/관리자" + inputform.message.value;
+		         $("#msg").html($("#msg").html()+"<div id='chat_msg'><div id='send_mem'>"+ id +" : "+ inputform.message.value  + "</div></div>");
 		         ws.send(msg);
 		         inputform.message.value="";
 		         inputform.message.focus();	
