@@ -3,7 +3,6 @@
     
 <%@ include file="setting.jsp"%>
 <%@include file="/include/mainheader.jsp"%>
-<%@include file="/include/mainnav.jsp"%>
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 
 <form method="post" action="adminQnaModifyPro.do">

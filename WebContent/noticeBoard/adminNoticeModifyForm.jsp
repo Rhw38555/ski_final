@@ -11,35 +11,34 @@
 <%@include file="/include/adminWinterParkaside.jsp" %>
 
 <h2> ${page_modify} </h2>
-
+<br><br>
 	<body onload="modifyfocus()">
 		<form method="post" action="adminNoticeModifyPro.do" name="modifyform" onsubmit="return modifycheck()">
 
 		<input type="hidden" name="num" value="${num}">
 		<input type="hidden" name="pageNum" value="${pageNum}">
 		
-			<table>
+			<table style="width:70%; margin:auto; text-align: center" border="1">
 				<tr>
-					<th> ${str_subject}</th>
+					<th style="text-align: center;"> ${str_subject}</th>
 					<td>
 						<input class="input" type="text" name="subject" maxlength="50" value="${noticeboardDto.subject}" style="width:260px">
 					</td>
 				</tr>
 					<tr>
-						<th> ${str_content} </th>
+						<th style="text-align: center;"> ${str_content} </th>
 						<td>
 						<textarea name="content" rows="10" cols="35">${noticeboardDto.content}</textarea>
 					</td>
-				</tr>
-				<tr>
-					<th colspan="2">
-						<input class="inputbutton" type="submit" value="${btn_mod}">
-						<input class="inputbutton" type="reset" value="${btn_cancel}">
-						<input class="inputbutton" type="button" value="${btn_mod_cancel}" onclick="location='adminNoticeList.do?pageNum=${pageNum}'">
-					</th>
-				</tr>
-			</table>
+				</tr>					
+			</table>		
 		</form>
+		<div style="width:70%; margin:auto; text-align: center; float:right;">
+			<input class="btn btn-primary" type="submit" value="${btn_mod}">
+			<input class="btn btn-primary" type="reset" value="${btn_cancel}">
+			<input class="btn btn-primary" type="button" value="${btn_mod_cancel}" onclick="location='adminNoticeList.do?pageNum=${pageNum}'">
+		</div>
+		<%@include file="/include/mainfooter.jsp" %>
 	</body>
 
 

@@ -6,6 +6,7 @@
 <%@include file="/include/mainheader.jsp" %>
 <%@include file="/include/WinterParkaside.jsp" %>
 	<h2>교통정보</h2>
+	<br><br>
 <%@ include file="setting.jsp" %>
 <script src="/SKI_Final/intro/jquery-3.2.1.js"></script>
 <script type="text/javascript">
@@ -52,7 +53,7 @@
 	}
 	//-->
 </script>
-<table border="1">
+<table style="margin:auto; text-align: center" border="1">
 	<tr>
 		<th> 출발지 </th>
 		<td class="bg">
@@ -72,12 +73,17 @@
 		<td>
 			<select name="end" id="end" title="도착지">
 				<option value="">선택해주세요</option>
-				<option value="8">지산포레스트 리조트 입구</option>
-				<option value="9">지산포레스트 리조트 메이플콘도</option>
-				<option value="10">지산포레스트 리조트 J센터</option>
+				<option value="8">WinterPark 리조트 입구</option>
+				<option value="9">WinterPark 리조트 메이플콘도</option>
+				<option value="10">WinterPark 리조트 J센터</option>
 			</select>
 			
 			<button id="searchBtn">검색</button>
 		</td>
 	</tr>
 </table>
+<br><br><br><br>
+<div style="margin:0 auto; text-align:center;">
+	<img src="/SKI_Final/intro/img/오시는길.PNG" width="1000px" height="700px">
+</div>
+<%@include file="/include/mainfooter.jsp" %>

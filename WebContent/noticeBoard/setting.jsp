@@ -7,7 +7,12 @@
 
 <c:set var="project" value="/SKI_Final/"/>
 
-<c:set var="msg_list_x" value="게시판에 글이 없습니다. 글쓰기를 선택해 주세요."/>
+<c:set var="page_list" value="공지사항"/>
+<c:set var="page_content" value="글보기"/>
+<c:set var="page_write" value="글쓰기"/>
+
+<c:set var="msg_adminlist_x" value="게시판에 글이 없습니다. 글쓰기를 선택해 주세요."/>
+<c:set var="msg_list_x" value="게시판에 글이 없습니다."/>
 
 <c:set var="str_notice" value="공지사항"/>
 <c:set var="str_list" value="글목록"/>

@@ -436,7 +436,7 @@ function generateBarcode(user_barcode) {
       }
   }
 
-
+// 바코드
 function memberUseHistoryCheck(user_barcode) {
    $.ajax(
          {
@@ -881,3 +881,7 @@ function deleteReverseRoom(num){
             }      
          );
    }
+   
+   
+   
+   

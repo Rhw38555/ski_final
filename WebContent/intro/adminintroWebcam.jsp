@@ -4,7 +4,6 @@
 <%@ include file="setting.jsp" %>
  
 <%@include file="/include/mainheader.jsp" %>
-<%@include file="/include/mainnav.jsp" %>
 <%@include file="/include/introaside.jsp" %> 
 
 <h2> 실시간 웹캠 </h2>

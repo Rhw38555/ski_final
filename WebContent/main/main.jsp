@@ -11,6 +11,30 @@
       <link href="./main/a_main.css" rel="stylesheet">
       <script type="text/javascript">
       //<!--      
+      $(document).ready(
+		function(){
+			var result = "GUEST" +Math.floor(Math.random() * 100000);
+			$('#hiddenid').val(result);
+			
+			}	  
+	  );
+      
+	  $(document).on(
+			'click','#msgbt',
+			function(event) {
+				
+				var chatcontent = $("#message").val();
+		         $("#starter").append(chatcontent);
+		         $("#msg").scrollTop($("#msg")[0].scrollHeight); // 스크롤바 아래로 갱신!   
+		         var id = $('#hiddenid').val();
+		         var msg = id + ":/관리자" + inputform.message.value;
+		         $("#msg").html($("#msg").html()+"<div id='chat_msg'><div id='send_mem'>"+ id +" : "+ inputform.message.value  + "</div></div>");
+		         ws.send(msg);
+		         inputform.message.value="";
+		         inputform.message.focus();	
+			}
+	 );  
+     
       var ws = null;
       function openserver(){
          var result = document.getElementById("result");
@@ -49,9 +73,9 @@
                              if (temp[1].trim() == "") {                               
                              } else {
                                  var chatId = '';                   
-                            	 //if(sender == 'admin') chatId = 'send_admin';
-                            	 //else chatId = 'send_mem';
-                            	 $("#msg").html($("#msg").html() 
+                                //if(sender == 'admin') chatId = 'send_admin';
+                                //else chatId = 'send_mem';
+                                $("#msg").html($("#msg").html() 
                                      +"<div id='chat_msg'><div id='send_admin'>" +sender + content.replace("/" + $("#hiddenid").val(), " : ")  + "</div></div>");
                                  var sendmsg = sender+"/"+ content.replace("/" + $("#hiddenid").val(), "");
                                  notifyMe(sendmsg);
@@ -86,33 +110,33 @@
       }     
       
       function notifyMe(sendmsg) {
-		  if (!"Notification" in window) {
-		    alert("This browser does not support desktop notification");
-		  }
-		  else if (Notification.permission === "granted") {
-			var msg = sendmsg.split("/");
-		    var notification = new Notification(msg[0]+"님의 메세지 도착",{body: msg[1]});
-		    setTimeout(notification.close.bind(notification),4000);
-		    notification.onclick = function(event){
-		    	event.preventDefault();
-		    	alert("메세지 도착");
-		    	inputform.message.focus();
-		    	notification.close();
-		    }
-		  }
-		  else if (Notification.permission !== 'denied') {
-		    Notification.requestPermission(function (permission) {
-		 	
-		      if(!('permission' in Notification)) {
-		        Notification.permission = permission;
-		      }
-		 
-		      if (permission === "granted") {
-		        var notification = new Notification("Hi there!");
-		      }
-		    });
-		  }
-		}
+        if (!"Notification" in window) {
+          alert("This browser does not support desktop notification");
+        }
+        else if (Notification.permission === "granted") {
+         var msg = sendmsg.split("/");
+          var notification = new Notification(msg[0]+"님의 메세지 도착",{body: msg[1]});
+          setTimeout(notification.close.bind(notification),4000);
+          notification.onclick = function(event){
+             event.preventDefault();
+             alert("메세지 도착");
+             inputform.message.focus();
+             notification.close();
+          }
+        }
+        else if (Notification.permission !== 'denied') {
+          Notification.requestPermission(function (permission) {
+          
+            if(!('permission' in Notification)) {
+              Notification.permission = permission;
+            }
+       
+            if (permission === "granted") {
+              var notification = new Notification("Hi there!");
+            }
+          });
+        }
+      }
       
       //-->
       </script>
@@ -122,106 +146,106 @@
    <script src="${project}member/script.js"></script> 
 
     <%@include file="/include/mainheader.jsp" %>
+
     <br><br><br><br><br>
-    	<div id="totalbox">
+       <div id="totalbox">
                   
-	    <!--Slider-->
-	    <div class="slider">
-	       <div class="callbacks_container">
-	          <ul class="rslides" id="slider">
-	             <li>
-	                <div class="slider-img slider-img1 "></div>
-	             </li>
-	             <li>
-	                <div class="slider-img slider-img2"></div>
-	             </li>
-	             <li>
-	                <div class="slider-img slider-img3"></div>
-	             </li>
-	             <li>
-	                <div class="slider-img slider-img4"></div>
-	             </li>
-	          </ul>
-	       </div>
-	       <div class="clearfix"></div>
-	    </div>	         
-	    
-	    <div id="middlebox">      
-			<div class="middlebox">
-				<div>
-					<input type="button" value="먹거리" onclick="location=''">
-					<input type="button" value="부대시설" onclick="location=''">
-					<input type="button" value="이벤트" onclick="location=''">
-					<br><br>
-					<input type="button" value="할인정보" onclick="location=''">
-					<input type="button" value="공지사항" onclick="location=''">
-					<input type="button" value="통합예약" onclick="location=''">
-				</div>
-			</div>
-			
-			<div id="weather_chat">
-				<div class="weatherbox">
-		          <div class="weather">		          
-		            <ul>
-		               <li>
-		                  <c:set var="wfKor" value="${wfKor}"/>
-		                  <c:if test="${fn:contains(wfKor, '구름')}">
-		                     <img src="/SKI_Final/images/구름.PNG" />
-		                  </c:if>
-		                  <c:if test="${fn:contains(wfKor, '눈')}">
-		                     <img src="/SKI_Final/images/눈.PNG"/>
-		                  </c:if>
-		                  <c:if test="${fn:contains(wfKor, '맑음')}">
-		                     <img src="/SKI_Final/images/맑음.PNG" />
-		                  </c:if>
-		                  <c:if test="${fn:contains(wfKor, '비')}">
-		                     <img src="/SKI_Final/images/비.PNG" />
-		                  </c:if>
-		                  <c:if test="${fn:contains(wfKor, '흐림')}">
-		                     <img src="/SKI_Final/images/흐림.PNG" />
-		                  </c:if>
-		               <div>최저온도 : ${tmn}</div>                 	 
-		               <div>최고온도 : ${tmx}</div>                   	
-		               <div>${wfKor} </div>                                    
-		               </li>
-		            </ul>	           
-		         </div><!-- weather -->
-			     <br><br>
-			     <div id="result"></div>      
-				</div><!-- weatherbox -->
-				<!--  
-				<style>
-					
-				</style>
-				-->
-				<div class="chatbox">
-					<form name="inputform">
-						<table id="chatTable">
-							<tr>
-								<th id="msgth">&nbsp;&nbsp;&nbsp;메세지</th>   
-								<td>
-									<input type="text" id="msgtx" name="message" autofocus placeholder="대화를 입력하세요">
-									<input type="hidden" id="hiddenid" value="${sessionScope.memId}">
-								</td>
-								<th>
-									<input type="button" id="msgbt" class="btn btn-default" value="전송" onclick="sendmsg('${sessionScope.memId}')">
-								</th>
-							</tr>
-							<tr>
-								<th colspan="3">	                  
-									<div id="msg">
-									<div id="starter"></div>
-								</div>	                     
-							</th>
-							</tr>
-						</table>
-					</form>  
-				</div>  <!-- chatbox -->
-			</div> 
-		</div>
-	</div>	<!-- totalbox -->   
+       <!--Slider-->
+       <div class="slider">
+          <div class="callbacks_container">
+             <ul class="rslides" id="slider">
+                <li>
+                   <div class="slider-img slider-img1 "></div>
+                </li>
+                <li>
+                   <div class="slider-img slider-img2"></div>
+                </li>
+                <li>
+                   <div class="slider-img slider-img3"></div>
+                </li>
+                <li>
+                   <div class="slider-img slider-img4"></div>
+                </li>
+             </ul>
+          </div>
+          <div class="clearfix"></div>
+       </div>            
+       
+       <div id="middlebox">      
+         <div class="middlebox">
+            <div>
+               <input type="button" value="먹거리" onclick="location=''">
+               <input type="button" value="부대시설" onclick="location=''">
+               <input type="button" value="이벤트" onclick="location=''">
+               <br><br>
+               <input type="button" value="할인정보" onclick="location=''">
+               <input type="button" value="공지사항" onclick="location=''">
+               <input type="button" value="통합예약" onclick="location=''">
+            </div>
+         </div>
+         
+         <div id="weather_chat">
+            <div class="weatherbox">
+                <div class="weather">                
+                  <ul>
+                     <li>
+                        <c:set var="wfKor" value="${wfKor}"/>
+                        <c:if test="${fn:contains(wfKor, '구름')}">
+                           <img src="/SKI_Final/images/구름.PNG" />
+                        </c:if>
+                        <c:if test="${fn:contains(wfKor, '눈')}">
+                           <img src="/SKI_Final/images/눈.PNG"/>
+                        </c:if>
+                        <c:if test="${fn:contains(wfKor, '맑음')}">
+                           <img src="/SKI_Final/images/맑음.PNG" />
+                        </c:if>
+                        <c:if test="${fn:contains(wfKor, '비')}">
+                           <img src="/SKI_Final/images/비.PNG" />
+                        </c:if>
+                        <c:if test="${fn:contains(wfKor, '흐림')}">
+                           <img src="/SKI_Final/images/흐림.PNG" />
+                        </c:if>
+                     <div>최저온도 : ${tmn}</div>                     
+                     <div>최고온도 : ${tmx}</div>                      
+                     <div>${wfKor} </div>                                    
+                     </li>
+                  </ul>              
+               </div><!-- weather -->
+              <br><br>
+              <div id="result"></div>      
+            </div><!-- weatherbox -->
+            <!--  
+            <style>
+               
+            </style>
+            -->
+            <div class="chatbox">
+               <form name="inputform">
+                  <table id="chatTable">
+                     <tr>
+                        <th id="msgth">&nbsp;&nbsp;&nbsp;메세지</th>   
+                        <td>
+                           <input type="text" id="msgtx" name="message" autofocus placeholder="대화를 입력하세요">
+                           <input type="hidden" id="hiddenid">
+                        </td>
+                        <th>
+                           <input type="button" id="msgbt" class="btn btn-default" value="전송">
+                        </th>
+                     </tr>
+                     <tr>
+                        <th colspan="3">                     
+                           <div id="msg">
+                           <div id="starter"></div>
+                        </div>                        
+                     </th>
+                     </tr>
+                  </table>
+               </form>  
+            </div>  <!-- chatbox -->
+         </div> 
+      </div>
+   </div>   <!-- totalbox -->   
    <%@include file="/include/mainfooter.jsp" %>
    </body>
 </html>
-
 
