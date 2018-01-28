@@ -5,31 +5,58 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<style type="text/css">
-			body{
-				text-align: center;
-			}
-			aside {
-				width : 150px;
-				height : 500px;				
+		<meta charset="UTF-8">	
+		<style>
+			@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);   
+			@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+			.asidebox{
+				width : 20%;
+				height: 100%;
 				float : left;
-				border : 1px solid black;
-				margin : 0px;
+				font-family: 'Noto Sans KR', normal;
+				padding-left : 50px;
+				padding-top : 30px;
+				font-size : 20px;	
+				line-height : 40px;							
+			} 
+			.asidebox > ul{
+				list-style:none;
+			}			
+			.aside_a{				
+				color: gray;	
+				margin-bottom : 15px;		
+			}			
+			.aside_a:hover{				
+				color: orange;
+				text-decoration : underline; 
 			}
-			.button {
-				width : 150px;
+			.aside_a .fa{				
+				padding-right : 20px;
 			}
-		</style>		
+		</style>
 	</head>
 
 	<body>
-	<script src="${project}${folder}script.js"></script>    
-		<aside>
-		<br><br>
-			<input class="button" type="button" value="요금안내" onclick="location='WinterParkLiftPrice.do'"><br>
-			<input class="button" type="button" value="공지사항" onclick="location='noticeList.do'"><br>
-			<input class="button" type="button" value="교통정보" onclick="location='WinterParkTrafic.do'"><br>
-		</aside>
+		<script src="${project}member/script.js"></script>    
+		<br><br><br><br>
+	    <div class="asidebox">
+	         <ul>
+	             <li>
+	                 <a href="WinterParkLiftPrice.do" class="aside_a">
+	                     <span class="fa fa-angle-double-right text-primary"></span>요금안내
+	                 </a>
+	             </li>
+	             <li>
+	                 <a href="noticeList.do" class="aside_a">
+	                     <span class="fa fa-angle-double-right text-primary"></span>공지사항
+	                 </a>
+	             </li>
+	             <li>
+	                 <a href="WinterParkTrafic.do" class="aside_a">
+	                     <span class="fa fa-angle-double-right text-primary"></span>교통정보
+	                 </a>
+	             </li>
+	         </ul>
+	    </div>
 	</body>
 </html>

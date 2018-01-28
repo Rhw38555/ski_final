@@ -11,6 +11,8 @@
    </head>
 
 	<body>
+	<div class="info-center">
+	</div>
 	    <div class="copyright-agile">
 			<p>&copy; 2017 inom ski. All rights reserved | Design by winter_park</p>
 		</div>

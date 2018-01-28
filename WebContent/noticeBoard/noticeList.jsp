@@ -6,26 +6,25 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="setting.jsp"%>
-<link href="${project}noticeBoard/style.css" rel="stylesheet" type="text/css">
 
 <%@include file="/include/mainheader.jsp" %>
-<%@include file="/include/mainnav.jsp" %>
 <%@include file="/include/WinterParkaside.jsp" %>
-
-<h2> ${page_list} ( ${str_count} : ${count} ) </h2>
-
-<table>
+<body>
+<h2> ${page_list} </h2>
+<h4 style="text-align: center"">( ${str_count} : ${count} )</h4>
+<br><br>
+<table style="width:50%; margin:auto; text-align: center" border="1">
 	<tr>
-		<th style="width: 8%;"> 
+		<th style="text-align: center; width: 8%"> 
 			${str_num} 
 		</th>
-		<th style="width: 40%;"> 
+		<th style="text-align: center; width: 40%"> 
 			${str_subject}
 		</th>	
 	</tr>
 	<c:if test="${count == 0}">
 		<tr>
-			<td colspan="2" align="center">
+			<td colspan="2" style="text-align: center;">
 				${msg_list_x}
 			</td>
 		</tr>
@@ -33,12 +32,12 @@
 	<c:if test="${count != 0}">
 		<c:forEach var="article" items="${articles}">
 			<tr>	
-				<td align="center">
+				<td>
 					${number}
 					<c:set var="number" value="${number - 1}"/>						
 				</td>
 				<td>
-					<a href="noticeContent.do?num=${article.num}&pageNum=${pageNum}">
+					<a href="noticeContent.do?num=${article.num}&pageNum=${pageNum}" style="float: left;">
 						${article.subject}
 					</a>	
 				</td>
@@ -47,23 +46,27 @@
 	</c:if>
 </table>
 <br>
-<c:if test="${count > 0}">
-	<c:if test="${startPage > pageBlock}">
-		<a href="noticeList.do">[◀◀]</a>
-		<a href="noticeList.do?pageNum=${startPage-pageBlock}">[◀]</a>
+<div style="width:80%; margin:auto; text-align: center; float:right;">
+	<c:if test="${count > 0}">
+		<c:if test="${startPage > pageBlock}">
+			<a href="noticeList.do">[◀◀]</a>
+			<a href="noticeList.do?pageNum=${startPage-pageBlock}">[◀]</a>
+		</c:if>
+		<c:forEach var="i" begin="${	startPage}" end="${endPage}">	
+			<c:if test="${i == currentPage}">
+				<b>[${i}]</b>
+			</c:if>	
+			<c:if test="${i != currentPage}">
+				<a href="noticeList.do?pageNum=${i}">[${i}]</a>
+			</c:if>	
+		</c:forEach>	
+		<c:if test="${pageCount > endPage}">
+			<a href="noticeList.do?pageNum=${startPage + pageBlock}">[▶]</a>
+			<a href="noticeList.do?pageNum=${pageCount}">[▶▶]</a>
+		</c:if>
 	</c:if>
-	<c:forEach var="i" begin="${startPage}" end="${endPage}">	
-		<c:if test="${i == currentPage}">
-			<b>[${i}]</b>
-		</c:if>	
-		<c:if test="${i != currentPage}">
-			<a href="noticeList.do?pageNum=${i}">[${i}]</a>
-		</c:if>	
-	</c:forEach>	
-	<c:if test="${pageCount > endPage}">
-		<a href="noticeList.do?pageNum=${startPage + pageBlock}">[▶]</a>
-		<a href="noticeList.do?pageNum=${pageCount}">[▶▶]</a>
-	</c:if>
-</c:if>
+</div>
+<%@include file="/include/mainfooter.jsp" %>
+</body>
 
 

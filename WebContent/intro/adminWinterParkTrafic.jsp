@@ -6,6 +6,7 @@
 <%@include file="/include/adminmainheader.jsp" %>
 <%@include file="/include/adminWinterParkaside.jsp" %>
 	<h2>교통정보</h2>
+	<br><br>
 <%@ include file="setting.jsp" %>
 <script src="/SKI_Final/intro/jquery-3.2.1.js"></script>
 <script type="text/javascript">
@@ -52,7 +53,7 @@
 	}
 	//-->
 </script>
-<table border="1">
+<table style="margin:auto; text-align: center" border="1">
 	<tr>
 		<th> 출발지 </th>
 		<td class="bg">

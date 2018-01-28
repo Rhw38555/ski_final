@@ -5,45 +5,33 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="setting.jsp"%>
-<link href="${project}noticeBoard/style.css" rel="stylesheet" type="text/css">
 
 <%@include file="/include/adminmainheader.jsp" %>
 <%@include file="/include/adminWinterParkaside.jsp" %>
 
 <h2> ${page_content} </h2>
-<table>
+<br><br>
+<table style="width:70%; margin:auto; text-align: center" border="1">
 	<tr>
-		<th> ${str_subject} </th>
+		<th style="height:50px; text-align: center; width: 20%"> ${str_subject} </th>
 		<td colspan="3">
 			${noticeboardDto.subject}
 		</td>
 	</tr>
 	<tr>
-		<th> ${str_content} </th>
+		<th style="text-align: center"> ${str_content} </th>
 		<td colspan="3">
-			<pre>${noticeboardDto.content}</pre>
+			<pre style="height:300px; text-align: left; background:white;">${noticeboardDto.content}</pre>
 		</td>
 	</tr>
-	<tr>
-		<th colspan="4">
-			<input class="inputbutton" type="button" value="${btn_mod}" onclick="location='adminNoticeModifyForm.do?pageNum=${pageNum}&num=${num}'">
-			<input class="inputbutton" type="button" value="${btn_del}" onclick="location='adminNoticeDeletePro.do?pageNum=${pageNum}&num=${num}'">
-			<input class="inputbutton" type="button" value="${btn_list}" onclick="location='adminNoticeList.do?pageNum=${pageNum}'">			
-		</th>
-	</tr>
-
 </table>
-
-
-
-
-
-
-
-
-
-
-
+<br><br>
+<div style="width:80%; margin:auto; text-align: center; float:right;">
+	<input class="btn btn-primary" type="button" value="${btn_mod}" onclick="location='adminNoticeModifyForm.do?pageNum=${pageNum}&num=${num}'">
+	<input class="btn btn-primary" type="button" value="${btn_del}" onclick="location='adminNoticeDeletePro.do?pageNum=${pageNum}&num=${num}'">
+	<input class="btn btn-primary" type="button" value="${btn_list}" onclick="location='adminNoticeList.do?pageNum=${pageNum}'">			
+</div>
+<%@include file="/include/mainfooter.jsp" %>
 
 
 
