@@ -134,8 +134,7 @@
 						</c:if>
 					</table>
 					<div class="paycheckbt">
-						<input type="button" id="paycheckbt" value="확인"
-							onclick="location='main.do'">
+						<input type="button" id="paycheckbt" value="확인" onclick='window.close()'>
 						<input type="button" id="paycheckbt" value="변경" 
 							onclick="location='reverseChangeRoomForm.do?num=${re.get(0).num}'">
 					</div>

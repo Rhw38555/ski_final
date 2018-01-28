@@ -62,7 +62,7 @@ public class ReverseChangeSkiProHandler implements CommandHandler{
 			skiDto_1.setName(request.getParameter("name"));
 			skiDto_1.setTel(request.getParameter("tel"));
 			skiDto_1.setCarnum(request.getParameter("carnum"));
-			skiDto_1.setSki_price(Integer.parseInt(request.getParameter("ski_price")));
+			skiDto_1.setSki_price(Integer.parseInt(request.getParameter("ski_price").trim()));
 			result = reserveDao.ski_insert(skiDto_1);
 						
 			if(finalcnt > 1) {
@@ -80,7 +80,7 @@ public class ReverseChangeSkiProHandler implements CommandHandler{
 				skiDto_2.setName(request.getParameter("name"));
 				skiDto_2.setTel(request.getParameter("tel"));
 				skiDto_2.setCarnum(request.getParameter("carnum"));
-				skiDto_2.setSki_price(Integer.parseInt(request.getParameter("ski_price")));
+				skiDto_2.setSki_price(Integer.parseInt(request.getParameter("ski_price").trim()));
 				result = reserveDao.ski_insert(skiDto_2);
 				
 				if(finalcnt > 2) {
@@ -98,7 +98,7 @@ public class ReverseChangeSkiProHandler implements CommandHandler{
 					skiDto_3.setName(request.getParameter("name"));
 					skiDto_3.setTel(request.getParameter("tel"));
 					skiDto_3.setCarnum(request.getParameter("carnum"));
-					skiDto_3.setSki_price(Integer.parseInt(request.getParameter("ski_price")));
+					skiDto_3.setSki_price(Integer.parseInt(request.getParameter("ski_price").trim()));
 					result = reserveDao.ski_insert(skiDto_3);
 				}
 			}	

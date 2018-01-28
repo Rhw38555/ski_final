@@ -11,12 +11,29 @@ $(document).ready(function(){
  * 		load
 /*///////////////////////////////////////	
 	//setdate = setInterval("getdate()",1000);
+	/*
 	window.addEventListener("beforeunload", function (e) {
 		var confirmationMessage = "\o/";	
 		(e || window.event).returnValue = confirmationMessage; //Gecko + IE			
 			return confirmationMessage; //Webkit, Safari, Chrome
-			modcount();
+			//modcount();
+			hello();
 	});
+	*/
+	/*
+	$(window).unload( function (){ 
+		alert("Bye now!"); 
+	});
+*//*
+	window.addEventListener("beforeunload", function (event) {
+	 // event.returnValue = "진짜 나감?";
+	 hello();
+	 <%System.out.println("나갈게");%>
+	});
+	*/
+	function hello(){		
+		alert('hi');
+	}
 	
 	setTimeout("getdate()",1000);
 	load();
@@ -360,6 +377,7 @@ $(document).ready(function(){
 	}); //backbt2
 	
 	$('#resetbt').click(function(){
+		
 		load();
 	});
    
@@ -559,15 +577,34 @@ function getcount(){
 						if(Number(dates.room_2) > 3){
 	                        $('#mran2_'+i).attr('disabled', true);
 	                        $('#pran2_'+i).attr('disabled', true);
-	                     }
+	                        if($('#cnt2_'+i).val() > 0){
+	                        	$('#mran2_'+i).attr('disabled', false);
+							}
+	                      
+	                    }else{
+	                    	 $('#mran2_'+i).attr('disabled', false);
+		                     $('#pran2_'+i).attr('disabled', false);
+	                    }
 						 if(Number(dates.room_4) > 3){
 	                        $('#mran4_'+i).attr('disabled', true);
 	                        $('#pran4_'+i).attr('disabled', true);
-	                     }
+	                        if($('#cnt4_'+i).val() > 0){
+	                        	$('#mran4_'+i).attr('disabled', false);
+							}
+	                     }else{
+	                    	 $('#mran4_'+i).attr('disabled', false);
+		                     $('#pran4_'+i).attr('disabled', false);
+	                    }
 	                     if(Number(dates.room_8) > 3){
 	                        $('#mran8_'+i).attr('disabled', true);
 	                        $('#pran8_'+i).attr('disabled', true);
-	                     } 						
+	                        if($('#cnt8_'+i).val() > 0){
+	                        	$('#mran8_'+i).attr('disabled', false);
+							}
+	                     } 	else{
+	                    	 $('#mran8_'+i).attr('disabled', false);
+		                     $('#pran8_'+i).attr('disabled', false);
+	                    } 						
 	                     $('#result2').text('getcount code 성공!!');
 					}else{
 						$('#result2').text('getcount 값 없음');

@@ -315,6 +315,10 @@ $(document).ready(function(){
 		$('#datepicker1').datepicker('option','minDate',date0);
 		$('#datepicker2').datepicker('option','minDate',date0);
 		$('#datepicker2').datepicker('option','maxDate',date11);
+		$('#roompricebox').text($('#reset_room_price').val());
+		$('#cnt2_0').val($('#reset_room2_cnt0').val());
+		$('#cnt4_0').val($('#reset_room4_cnt0').val());
+		$('#cnt8_0').val($('#reset_room8_cnt0').val());
 		if($('#datecnt').val() > 1){
 			$('#roomdate2').css('display','');
 			$('#date2').text($('#reset_room_date2').val());
@@ -323,6 +327,9 @@ $(document).ready(function(){
 			$('#room2_1').text($('#reset_room2_cnt1').val());
 			$('#room4_1').text($('#reset_room4_cnt1').val());
 			$('#room8_1').text($('#reset_room8_cnt1').val());
+			$('#cnt2_1').val($('#reset_room2_cnt1').val());
+			$('#cnt4_1').val($('#reset_room4_cnt1').val());
+			$('#cnt8_1').val($('#reset_room8_cnt1').val());
 			if($('#datecnt').val() >2){
 				$('#room_date_2').text($('#reset_room_date3').val());
 				$('#date2').text($('#reset_room_date2').val());
@@ -331,6 +338,9 @@ $(document).ready(function(){
 				$('#room2_2').text($('#reset_room2_cnt2').val());
 				$('#room4_2').text($('#reset_room4_cnt2').val());
 				$('#room8_2').text($('#reset_room8_cnt2').val());
+				$('#cnt2_2').val($('#reset_room2_cnt2').val());
+				$('#cnt4_2').val($('#reset_room4_cnt2').val());
+				$('#cnt8_2').val($('#reset_room8_cnt2').val());
 			}
 		}
 		for(var i=0; i<3; i++){
@@ -353,7 +363,7 @@ $(document).ready(function(){
 	 $('#back').click(function(){
 		   //insertcount();
 		   modcount();
-		   self.close();
+		   window.close();
 	 });
 });//ready
  
