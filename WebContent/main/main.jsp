@@ -8,82 +8,7 @@
     <script src="${project}member/jquery-barcode.js"></script>
    <head>
       <meta charset="UTF-8">
-      <style type="text/css">
-			#msg{
-				height : 300px;
-				width : 600px;
-				overflow: auto;
-				text-align : left;
-			}
-			.weatherbox{
-				margin-left : 20%;
-				float : left;
-				padding : 20px;
-			}
-			.weather {
-				font-size : 20px;
-				border : 1px solid black;
-				height : 300px;
-				width : 250px;
-				font-family: 'Noto Sans KR', normal;
-			}
-			.weather > ul{
-				list-style:none;
-			}	
-			.weather img{
-				height : 150px;
-				width : 150px;
-				margin-left : 20%;	
-			}
-			
-	       .middlebox{
-		      /*	padding : 20px;*/
-		      	padding : 5%;
-		      	/*height : 300px;*/
-		      	margin-left : 19%;
-		      	margin-top : 30px;
-		      	/*background : url(assets/images/middle_5.jpg)no-repeat 0px 0px;*/
-	       }
-	       #middlebox{
-	       		
-	       }
-	       .middlebox input[type='button']{       	
-		      	width : 280px;
-		      	height : 80px;
-		      	background-color : transparent;
-		      	/*background-color : #FFF;*/
-		      	/*border : 2px solid #BDBDBD;*/
-		      	border-top : 0px;
-		      	border-right : 0px;
-		      	border-left : 0px;
-		      	border-bottom : 2px solid #A6A6A6;
-		      	color : #747474;
-		      	font-size : 17px; 
-		      	margin : 20px;
-		      	margin-right : 10px;
-		      /*	box-shadow: 3px 3px 3px #A6A6A6;*/
-	       }
-	       .middlebox input[type='button']:hover{
-	       		/*background-color : #489CFF;*/
-	       		background-color: rgba( 140, 140, 140, 0.8 );
-	       		color : #FFF;
-	       }
-	       .chatbox{
-	      		margin-left : 40%;
-	       }
-	       #totalbox{
-	      	
-	       }
-	       #weather_chat{
-		       	padding-bottom : 200px;
-		      	/*padding-top : 100px;*/
-	       }
-	       
-		 .body{
-		  		/*background-color : #F6F6F6;*/
-		  }
-		  
-      </style>
+      <link href="./main/a_main.css" rel="stylesheet">
       <script type="text/javascript">
       //<!--      
       var ws = null;
@@ -123,10 +48,15 @@
                              var temp = content.replace("/" + $("#hiddenid").val(), " : ").split(":");
                              if (temp[1].trim() == "") {                               
                              } else {
-                                 $("#msg").html($("#msg").html() 
-                                     + sender + content.replace("/" + $("#hiddenid").val(), " : ")  + "<br>");
+                                 var chatId = '';                   
+                            	 //if(sender == 'admin') chatId = 'send_admin';
+                            	 //else chatId = 'send_mem';
+                            	 $("#msg").html($("#msg").html() 
+                                     +"<div id='chat_msg'><div id='send_admin'>" +sender + content.replace("/" + $("#hiddenid").val(), " : ")  + "</div></div>");
                                  var sendmsg = sender+"/"+ content.replace("/" + $("#hiddenid").val(), "");
                                  notifyMe(sendmsg);
+                                 //sender == 'admin'
+                                 // ().css();
                              }
                          } else {
                             
@@ -148,7 +78,7 @@
          $("#msg").scrollTop($("#msg")[0].scrollHeight); // 스크롤바 아래로 갱신!   
          
          var msg = id + ":/admin" + inputform.message.value;
-         $("#msg").html($("#msg").html()+ id +" : "+ inputform.message.value  + "<br>");
+         $("#msg").html($("#msg").html()+"<div id='chat_msg'><div id='send_mem'>"+ id +" : "+ inputform.message.value  + "</div></div>");
          ws.send(msg);
          inputform.message.value="";
          inputform.message.focus();
@@ -259,18 +189,22 @@
 			     <br><br>
 			     <div id="result"></div>      
 				</div><!-- weatherbox -->
-				
+				<!--  
+				<style>
+					
+				</style>
+				-->
 				<div class="chatbox">
 					<form name="inputform">
-						<table border="1">
+						<table id="chatTable">
 							<tr>
-								<th>메세지</th>   
+								<th id="msgth">&nbsp;&nbsp;&nbsp;메세지</th>   
 								<td>
-									<input type="text" name="message" autofocus placeholder="대화를 입력하세요">
+									<input type="text" id="msgtx" name="message" autofocus placeholder="대화를 입력하세요">
 									<input type="hidden" id="hiddenid" value="${sessionScope.memId}">
 								</td>
 								<th>
-									<input type="button" value="전송" onclick="sendmsg('${sessionScope.memId}')">
+									<input type="button" id="msgbt" class="btn btn-default" value="전송" onclick="sendmsg('${sessionScope.memId}')">
 								</th>
 							</tr>
 							<tr>
@@ -282,7 +216,7 @@
 							</tr>
 						</table>
 					</form>  
-				</div>  
+				</div>  <!-- chatbox -->
 			</div> 
 		</div>
 	</div>	<!-- totalbox -->   
