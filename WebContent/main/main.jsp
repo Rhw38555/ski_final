@@ -35,17 +35,38 @@
 				width : 150px;
 				margin-left : 20%;	
 			}
+			
 	       .middlebox{
-		      	padding : 20px;
-		      	margin-top : 100px;
+		      /*	padding : 20px;*/
+		      	padding : 5%;
+		      	/*height : 300px;*/
+		      	margin-left : 19%;
+		      	margin-top : 30px;
+		      	/*background : url(assets/images/middle_5.jpg)no-repeat 0px 0px;*/
+	       }
+	       #middlebox{
+	       		
 	       }
 	       .middlebox input[type='button']{       	
-		      	width : 300px;
-		      	height : 100px;
+		      	width : 280px;
+		      	height : 80px;
 		      	background-color : transparent;
-		      	border : 4px solid #BDBDBD;
-		      	font-color : #BDBDBD;
-		      	font-size : 20px; 
+		      	/*background-color : #FFF;*/
+		      	/*border : 2px solid #BDBDBD;*/
+		      	border-top : 0px;
+		      	border-right : 0px;
+		      	border-left : 0px;
+		      	border-bottom : 2px solid #A6A6A6;
+		      	color : #747474;
+		      	font-size : 17px; 
+		      	margin : 20px;
+		      	margin-right : 10px;
+		      /*	box-shadow: 3px 3px 3px #A6A6A6;*/
+	       }
+	       .middlebox input[type='button']:hover{
+	       		/*background-color : #489CFF;*/
+	       		background-color: rgba( 140, 140, 140, 0.8 );
+	       		color : #FFF;
 	       }
 	       .chatbox{
 	      		margin-left : 40%;
@@ -55,12 +76,13 @@
 	       }
 	       #weather_chat{
 		       	padding-bottom : 200px;
-		      	padding-top : 100px;
+		      	/*padding-top : 100px;*/
 	       }
 	       
 		 .body{
-		  		background-color : #FCFCFC;
+		  		/*background-color : #F6F6F6;*/
 		  }
+		  
       </style>
       <script type="text/javascript">
       //<!--      
@@ -200,6 +222,7 @@
 					<input type="button" value="먹거리" onclick="location=''">
 					<input type="button" value="부대시설" onclick="location=''">
 					<input type="button" value="이벤트" onclick="location=''">
+					<br><br>
 					<input type="button" value="할인정보" onclick="location=''">
 					<input type="button" value="공지사항" onclick="location=''">
 					<input type="button" value="통합예약" onclick="location=''">

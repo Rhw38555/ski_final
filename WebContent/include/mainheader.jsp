@@ -16,7 +16,17 @@
 	      * {
 	      	font-family: 'Noto Sans KR', normal;
 	      }
+	      
+	      .member-button{
+	      	padding-top : 10px;
+	      	/*padding-right : 10px;*/
+	      }
+	      
+	     .header-nav{
+			/*padding-top : 15px;*/	
+		}
       </style>
+      
       <!-- for-mobile-apps -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -56,23 +66,28 @@
          <!--Top-Bar-->     
             <div class="top-bar">
             <div class="container-fluid">
+            
             <c:if test="${sessionScope.memId == null}">
-                        <div class="member-button">
-                        <input type="button" value="${btn_login}" onclick="location='memberLoginForm.do'">
-                        <input type="button" value="${btn_join}" onclick="location='memberJoinForm.do'">
-                        </div>
+                  <div class="member-button">
+                  
+                        <input type="button" value="${btn_login}" class="btn btn-default" onclick="location='memberLoginForm.do'">
+                        <input type="button" value="${btn_join}" class="btn btn-default" onclick="location='memberJoinForm.do'">
+                   </div>
                </c:if>
             <c:if test="${sessionScope.memId != null}">                      
-                 <div class="member-button"> 
+                 <div class="member-button">                 
                  	<div id="barcodeTarget" class="barcodeTarget"></div>
                  	${sessionScope.memId} ${msg_loginmain}
                  <input type="button" value="${btn_logout}" class="btn btn-default" onclick="location='memberLogout.do'"> 
                  <input type="button" value="${btn_mypage}" class="btn btn-default" onclick="location='memberModifyForm.do'">
+                  
                  <form name="inputhidden">
                  <input type="hidden" value="${user_barcode}" name="hiddenBarcode">
                  </form>
-                 </div>                      
+                 </div> 
+                 <br>                     
             </c:if>
+           
                <div class="header-nav">
                   <nav class="navbar navbar-default">
                      <!-- Brand and toggle get grouped for better mobile display -->
