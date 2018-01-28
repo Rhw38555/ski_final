@@ -74,13 +74,13 @@
 		
 		
 		#img1{
-			width : 800px;
+			width : 70%;
 			heigth : 450px;
 			margin-left : 3%;
 		}
 		
 		#img2, #img3{
-			width : 1000px;
+			width : 100%;
 			heigth : 500px;
 			margin-left : 5%;
 		}

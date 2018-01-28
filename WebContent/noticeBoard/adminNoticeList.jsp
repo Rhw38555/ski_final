@@ -35,7 +35,7 @@
 	<c:if test="${count == 0}">
 		<tr>
 			<td colspan="3" align="center">
-				${msg_list_x}
+				${msg_adminlist_x}
 			</td>
 		</tr>
 	</c:if>
