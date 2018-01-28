@@ -99,7 +99,13 @@
                         <nav class="cl-effect-15" id="cl-effect-15">
                         <ul>
                            <li><a href="WinterParkLiftPrice.do" data-hover="${btn_winterPark}">${btn_winterPark}</a></li>
-                           <li><a href="reverseRoomForm.do" target="_blank" data-hover="${btn_reservation}">${btn_reservation}</a></li>
+                           <c:if test="${sessionScope.memId == null}">                      
+                           		<li><a href="javascript:alertLogin()" target="_blank" data-hover="${btn_reservation}">${btn_reservation}</a></li>
+                           </c:if>
+                           <c:if test="${sessionScope.memId != null}">                      
+                           		<li><a href="reverseRoomForm.do" target="_blank" data-hover="${btn_reservation}">${btn_reservation}</a></li>
+                           </c:if>
+                           
                            <li><a href="introSki.do" data-hover="${btn_skioom}">${btn_skioom}</a></li>
                            <li><a href="ffList.do" data-hover="${btn_eat}">${btn_eat}</a></li>
                            <li><a href="eventList.do" data-hover="${btn_event}">${btn_event}</a></li>
@@ -117,9 +123,17 @@
    <script type="text/javascript">
    $(document).ready(
 		function(){
-			generateBarcode(inputhidden.hiddenBarcode.value);
+			if($('input[name=hiddenBarcode]').val()){			
+				generateBarcode($('input[name=hiddenBarcode]').val());
+			}
 	     }
 	);
+   
+   
+   function alertLogin(){
+	   alert("로그인 후 이용해주세요");
+	   location.href="memberLoginForm.do";
+   }
    </script>
 </html>
    
