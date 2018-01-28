@@ -85,7 +85,30 @@
 		  
       </style>
       <script type="text/javascript">
-      //<!--      
+      //<!-- 
+	  $(document).ready(
+		function(){
+			var result = "GUEST" +Math.floor(Math.random() * 100000);
+			$('#hiddenid').val(result);
+			}	  
+	  );
+      
+	  $(document).on(
+			'click','#sendmsg',
+			function(event) {
+				
+				var chatcontent = $("#message").val();
+		         $("#starter").append(chatcontent);
+		         $("#msg").scrollTop($("#msg")[0].scrollHeight); // 스크롤바 아래로 갱신!   
+		         var id = $('#hiddenid').val();
+		         var msg = id + ":/admin" + inputform.message.value;
+		         $("#msg").html($("#msg").html()+ id +" : "+ inputform.message.value  + "<br>");
+		         ws.send(msg);
+		         inputform.message.value="";
+		         inputform.message.focus();	
+			}
+	 );
+      
       var ws = null;
       function openserver(){
          var result = document.getElementById("result");
@@ -267,10 +290,10 @@
 								<th>메세지</th>   
 								<td>
 									<input type="text" name="message" autofocus placeholder="대화를 입력하세요">
-									<input type="hidden" id="hiddenid" value="${sessionScope.memId}">
+									<input type="hidden" id="hiddenid">
 								</td>
 								<th>
-									<input type="button" value="전송" onclick="sendmsg('${sessionScope.memId}')">
+									<input type="button" value="전송" id="sendmsg">
 								</th>
 							</tr>
 							<tr>
@@ -282,7 +305,8 @@
 							</tr>
 						</table>
 					</form>  
-				</div>  
+				</div> <!-- chatbox --> 
+				
 			</div> 
 		</div>
 	</div>	<!-- totalbox -->   
