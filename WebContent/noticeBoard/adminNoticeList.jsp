@@ -6,29 +6,29 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="setting.jsp"%>
-<link href="${project}noticeBoard/style.css" rel="stylesheet" type="text/css">
 
 <%@include file="/include/adminmainheader.jsp" %>
 <%@include file="/include/adminWinterParkaside.jsp" %>
-
-<h2> ${str_notice} </h2>
-<div align="left">${page_list} ( ${str_count} : ${count} )</div>
-<table>
+<body>
+<h2> ${page_list} </h2>
+<h4 style="text-align: center"">( ${str_count} : ${count} )</h4>
+<br><br>
+<table style="width:50%; margin:auto; text-align: center" border="1">
 	<tr>
-		<th colspan="3" align="right">
-			<a href="adminNoticeWriteForm.do">
+		<th colspan="3">
+			<a href="adminNoticeWriteForm.do" style="float:right;">
 				${str_write}
-			</a>&nbsp;&nbsp;&nbsp;
+			</a>
 		</th> 
 	</tr>
 	<tr>
-		<th style="width: 8%;">
+		<th style="text-align: center; width: 8%">
 			${str_del}
 		</th>
-		<th style="width: 8%;"> 
+		<th style="text-align: center; width: 8%"> 
 			${str_num} 
 		</th>
-		<th style="width: 40%;"> 
+		<th style="text-align: center; width: 40%"> 
 			${str_subject}
 		</th>	
 	</tr>
@@ -43,14 +43,14 @@
 		<c:forEach var="article" items="${articles}">
 			<tr>	
 				<td>
-					<input class="inputbutton" type="button" value="${btn_del}" onclick="location='adminNoticeDeletePro.do?pageNum=${pageNum}&num=${article.num}'">
+					<input class="btn btn-primary" type="button" value="${btn_del}" onclick="location='adminNoticeDeletePro.do?pageNum=${pageNum}&num=${article.num}'">
 				</td>
 				<td align="center">
 					${number}
 					<c:set var="number" value="${number - 1}"/>						
 				</td>
 				<td>
-					<a href="adminNoticeContent.do?num=${article.num}&pageNum=${pageNum}">
+					<a href="adminNoticeContent.do?num=${article.num}&pageNum=${pageNum}" style="float: left;">
 						${article.subject}
 					</a>	
 				</td>
@@ -60,7 +60,7 @@
 </table>
 <br>
 <!-- 검색기능 -->
-
+<div style="width:80%; margin:auto; text-align: center; float:right;">
 <c:if test="${count > 0}">
 	<c:if test="${startPage > pageBlock}">
 		<a href="adminNoticeList.do">[◀◀]</a>
@@ -79,7 +79,9 @@
 		<a href="adminNoticeList.do?pageNum=${pageCount}">[▶▶]</a>
 	</c:if>
 </c:if>
-
+</div>
+<%@include file="/include/mainfooter.jsp" %>
+</body>
 
 
 

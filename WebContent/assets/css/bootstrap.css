@@ -53,7 +53,6 @@ input::-webkit-input-placeholder {
 	background:#ffffff;
 	    color: #000000;
     text-shadow: none;
-
 }
 span.input-group-addon i {
     color: #009edf;
@@ -85,8 +84,19 @@ span.input-group-addon i {
 }
 /* loginform */
 .login-join{
-	margin-bottom: 30%;
+	margin-bottom: 80%;
 }
+/* info */
+.info-center{
+ 	margin-top: 10px;
+ 	margin: 150px auto;
+ 	max-width: 100%;
+    padding: 10px 40px;
+	background:#ffffff;
+	    color: #000000;
+    text-shadow: none;
+}
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;

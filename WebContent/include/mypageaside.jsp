@@ -34,12 +34,9 @@
 				padding-right : 20px;
 			}
 		</style>
-		 <script type="text/javascript">
-			 		 
-		</script>
 	</head>
 
-	<body onload="viewfocus()">
+	<body>
 		<script src="${project}member/script.js"></script>    
 		<br><br><br><br>
 
