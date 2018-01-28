@@ -4,17 +4,22 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);   
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+#asidebox{
+	padding-top : 200px;
+}
 
 .asidebox{
 	width : 30%;
-	height: 1000px;
+	height: 100%;
 	float : left;
 	font-family: 'Noto Sans KR', normal;
 	padding-left : 50px;
-	padding-top : 30px;
+	padding-top : 50px;
 	font-size : 20px;	
-	line-height : 40px;							
+	line-height : 40px;	
+							
 } 
+
 .asidebox > ul{
 	list-style:none;
 }			
@@ -37,4 +42,239 @@
 	padding-top : 30px;
 }
 	
+ul{
+	list-style: none outside none;
+    padding-left: 0;
+          margin: 0;
+}
+.demo .item{
+    margin-bottom: 60px;
+}
+.content-slider li{
+    background-color: #ed3020;
+   /* text-align: center;*/
+    color: #FFF;
+    padding-left : 20%;
+}
+/*
+.content-slider h3 {
+    margin: 0;
+    padding: 70px 0;
+}
+*/
+.demo{
+	margin-left : 10%;
+}
+
+
+.skitotal{
+	margin-left : 5%; 
+	padding-top : 10%;
+}
+.skitotal h2{
+	margin-left : 40%;
+	/*text-align : center;*/
+	margin-top : 150px;
+	margin-bottom : 30px;
+	padding-bottom : 10px;
+	border-bottom : 1px solid gray;
+	width : 250px; 
+	color : #747474;
 	
+}
+
+.clearfix{
+	/*margin-left : 10%;*/
+}
+
+.image-gallery img{
+	width : 800px;
+	height :450px;
+	margin-left : 4%;
+}
+
+.skitotal p{
+	margin-bottom : 30px;
+	
+	text-align : center;
+	margin-right : 10%;
+	
+}
+		
+#img1{
+	width : 70%;
+	heigth : 450px;
+	margin-left : 3%;
+}
+
+#img2, #img3{
+	width : 100%;
+	heigth : 500px;
+	margin-left : 5%;
+}		
+			
+
+.intrototal{
+	margin-left : 5%; 
+	padding-top : 2%;
+}
+
+.intrototal h2{
+	margin-left : 40%;
+	/*text-align : center;*/
+	margin-top : 30px;
+	margin-bottom : 30px;
+	padding-bottom : 10px;
+	border-bottom : 1px solid gray;
+	width : 250px; 
+	color : #747474;
+}
+.intrototal .introbtbox{
+	padding-left : 45%;
+	
+}
+
+.intrototal .introtablebox{
+	/*
+	padding-bottom : 1000px;*/	
+	height : 300px;
+	/*width : 1000px;*/
+	margin-top : 5%;
+}
+
+.intrototal input[type='button']{
+	font-size : 15px;
+}
+
+.introtablebox table{
+	width : 80%;
+	padding-bottom : 500px;
+	margin :0; 
+	text-align : center;
+	border : 1px solid #A6A6A6;
+	font-size : 20px;
+	/*width : 1000px;
+	float : right;*/
+}
+
+.introtablebox table th{
+	text-align : center;
+	border : 1px solid #A6A6A6;
+	/*height : 30px;*/
+	
+	padding-top : 5px;
+	padding-bottom : 5px;
+	padding-right : 30px;
+	padding-left : 30px;
+	/*witdh : 100px;*/
+}
+
+.introtablebox table .th{
+	background-color : #D5D5D5;
+}
+
+.introtablebox table td{
+	text-align : center;
+	border : 1px solid #A6A6A6;
+	padding-top : 5px;
+	padding-bottom : 5px;
+	padding-right : 10px;
+	padding-left : 10px;
+	/*witdh : 150%;*/
+}
+
+.intrototal h4{
+	padding-left : 46%;
+}
+
+.intrototal .introimg{
+	width : 30%;
+	float : right;
+	margin-right : 50%;
+}
+
+.intrototal .noticetablebox table{
+	width : 90%;
+	padding-bottom : 500px;
+	margin-left :10%; 
+	text-align : center;
+	/*border : 1px solid #5D5D5D;*/
+	border : 0px;
+	background-color : #EAEAEA;
+	font-size : 20px;
+	border-radius : 20px;
+	/*width : 1000px;
+	float : right;*/
+}
+
+.intrototal .noticetablebox table th{
+	text-align : center;
+	/*border-bottom : 1px solid #5D5D5D;*/
+	/*height : 30px;*/
+	
+	padding-top : 5px;
+	padding-bottom : 10px;
+	padding-right : 30px;
+	padding-left : 30px;
+	/*witdh : 100px;*/
+}
+
+.intrototal .noticetablebox table td{
+	text-align : center;
+	/*border-bottom : 1px solid #5D5D5D;*/
+	padding-top : 5px;
+	padding-bottom : 10px;
+	padding-right : 10px;
+	padding-left : 10px;
+}
+
+.noticetablebox #top{
+	background-color : #F6F6F6;
+	border-top-left-radius : 20px;
+	border-top-right-radius : 20px;
+	/*
+	border-radius : 20px;
+	*/
+}
+
+.intrototal .trafic{
+	margin-left : 25%;
+	font-size : 16px;
+	
+}
+
+.intrototal .trafic th{
+	padding : 15px;
+	
+}
+
+.intrototal .trafic td{
+	/*margin-left : 30%;*/	
+}
+
+.intrototal .trafic select{
+	height : 35px;
+	margin-right : 10px;
+}
+
+.intrototal .trafic button{
+	width : 80px;
+	height : 35px;
+	padding-bottom : 5px;
+	margin-bottom : 5px;
+	padding-top : 5px;
+	
+}
+
+.skitotal .webbox{
+	margin-left : 27%;
+	margin-top : 50px;
+}
+.skitotal .web_a{
+	margin-left : 10%;
+}
+
+.skitotal #swfId{
+	margin-left : 10%;	
+}
+
