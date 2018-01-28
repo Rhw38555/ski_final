@@ -19,7 +19,6 @@
   		update wp_user_barcodes set wallet=#{calPrice}
   	</update>
   	
-  	
   	<insert id="insertUserBarcode" parameterType="HashMap">
 		insert into wp_user_barcodes values(#{user_barcode},0,#{id})
 	</insert>
