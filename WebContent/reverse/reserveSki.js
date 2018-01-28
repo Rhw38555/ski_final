@@ -334,7 +334,17 @@ $(function(){
 	   	}else if( $('#tel').val() == '' ){
 	   		alert('전화번호를 입력해주세요');
 	   		return false;
-	   	}else{
+	   	}else if( isNaN(reverseform.tel.value)){
+			   alert('숫자를 입력하세요.');
+			   return false;
+			   reverseform.name.focus();
+		}else if ($('#carnum').val() != '') {
+			if(isNaN(reverseform.carnum.value)) {
+				   alert('숫자를 입력하세요.');
+				   return false;
+				   reverseform.name.focus();
+			}
+		}else{
 	   		$('#paybt').css('display','');
 	   		$('#bt3').css('display','none');
 	   		$('#backbt2').css('display','none');

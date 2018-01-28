@@ -70,7 +70,7 @@
 		</div>	   
 	</div>
 	
-	<form method="post" action="reverseChangeSkiPro.do" onsubmit="return finalcheck()">
+	<form name="reverseform" method="post" action="reverseChangeSkiPro.do" onsubmit="return finalcheck()">
 		<c:set var="cnt" value="0"/>
 	    <c:forEach var="rs" items="${re}">
 	   		<c:set var="cnt" value="${cnt+1}"/>

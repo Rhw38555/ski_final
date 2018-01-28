@@ -350,13 +350,22 @@ function finalcheck(){
 	        return false;
 	   	}	   	
     }	
-	if($('#name').val() == '') {
-		alert('이름을 입력하시라');
-		return false;
-	}
-	if($('#tel').val() == '') {
-		alert('전화번호를 입력하시라');
-		return false;
+    if( $('#name').val() == '' ){
+   		alert('이용자 이름을 입력해주세요');
+   		return false;
+   	}else if( $('#tel').val() == '' ){
+   		alert('전화번호를 입력해주세요');
+   		return false;
+   	}else if( isNaN(reverseform.tel.value)){
+		   alert('숫자를 입력하세요.');
+		   return false;
+		   reverseform.name.focus();
+	}else if ($('#carnum').val() != '') {
+		if(isNaN(reverseform.carnum.value)) {
+			   alert('숫자를 입력하세요.');
+			   return false;
+			   reverseform.name.focus();
+		}
 	}
 }//finalcheck
 
