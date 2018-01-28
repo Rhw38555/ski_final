@@ -19,11 +19,6 @@
 		<script src="/SKI_Final/reverse/jquery-ui.js"></script>
 		<script src="/SKI_Final/reverse/jquery-ui.multidatespicker.js"></script>
 	
-		<script src="./assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="./assets/js/bootstrap.min.js"></script>
-	<script src="./assets/js/jquery.actual.min.js"></script>
-	<script src="./assets/js/jquery.scrollTo.min.js"></script>
-	<script src="./assets/js/script.js"></script> 
 	  	  <script type="text/javascript">
 		 var stmnLEFT = 10; // 오른쪽 여백 
 		 var stmnGAP1 = 0; // 위쪽 여백 
@@ -50,13 +45,14 @@
 		  document.getElementById('STATICMENU').style.top = document.body.scrollTop + stmnBASE + 'px'; 
 		  RefreshStaticMenu();
 		  }
+		 /*
 		window.addEventListener("beforeunload", function (e) {
 			var confirmationMessage = "\o/";	
 			(e || window.event).returnValue = confirmationMessage; //Gecko + IE			
 				return confirmationMessage; //Webkit, Safari, Chrome
 				modcount();
 		});
-
+*/
 		
 		
 		</script>
@@ -67,12 +63,9 @@
 		<div class="row">
 			<div class="pageselbox">
 				<div id="topdiv">
-					&nbsp;&nbsp;<span class="glyphicon glyphicon-home" aria-hidden="true"> 콘도 예약 변경 페이지</span>
+					&nbsp;&nbsp;<span class="glyphicon glyphicon-asterisk" aria-hidden="true"> 스키권 예약변경 페이지입니다</span>
 				</div> 
 				<br>
-				<div id="topdiv">
-					&nbsp;&nbsp;<span class="glyphicon glyphicon-asterisk" aria-hidden="true"> 야호</span>
-				</div>
 			</div>	
 		</div>	   
 	</div>
@@ -89,7 +82,8 @@
 		<input type="hidden" id="reset_ski_price" value="${re.get(0).ski_price}">
 		<input type="hidden" id="reset_carnum" value="${re.get(0).carnum}">
 		<input type="hidden" id="reset_tel" value="${re.get(0).tel}">
-		<input type="hidden" id="reset_ski_date1" value="${re.get(0).ski_date}">
+		
+		<input type="hidden" id="reset_ski_date1" value="">
 		<input type="hidden" id="reset_ski2_cnt0" value="${re.get(0).ski_morning}">
 		<input type="hidden" id="reset_ski4_cnt0" value="${re.get(0).ski_night}">
 		<input type="hidden" id="reset_ski8_cnt0" value="${re.get(0).ski_day}">
@@ -97,22 +91,52 @@
 		<input type="hidden" class="skidateval" id="skidateval1" value="0">
 		<input type="hidden" class="skidateval" id="skidateval2" value="0">
 		<c:if test="${cnt > 1}"> <!--스키예약 이틀 이상 했을 경우--> 
-			<input type="hidden" id="reset_ski_date2" value="${re.get(1).ski_date}">
+			<input type="hidden" id="reset_ski_date2" value="">
 			<input type="hidden" id="reset_ski2_cnt1" value="${re.get(1).ski_morning}">
 			<input type="hidden" id="reset_ski4_cnt1" value="${re.get(1).ski_night}">
 			<input type="hidden" id="reset_ski8_cnt1" value="${re.get(1).ski_day}">
+			<c:set var="ski_2_1" value="${re.get(1).ski_morning}"/>
+			<c:set var="ski_4_1" value="${re.get(1).ski_night}"/>
+			<c:set var="ski_8_1" value="${re.get(1).ski_day}"/>
+			<c:set var="ski2_1" value="${re.get(1).ski_morning }"/>
+			<c:set var="ski4_1" value="${re.get(1).ski_night }"/>
+			<c:set var="ski8_1" value="${re.get(1).ski_day }"/>
+		</c:if>
+		<c:if test="${cnt < 2}">
+			<c:set var="ski_2_1" value="0"/>
+			<c:set var="ski_4_1" value="0"/>
+			<c:set var="ski_8_1" value="0"/>
+			
+			<c:set var="ski2_1" value="0"/>
+			<c:set var="ski4_1" value="0"/>
+			<c:set var="ski8_1" value="0"/>
 		</c:if>
 		<c:if test="${cnt > 2}"> <!--스키예약 3일 다 했을 경우--> 
-			<input type="hidden" id="reset_ski_date3" value="${re.get(2).ski_date}">
+			<input type="hidden" id="reset_ski_date3" value="">
 			<input type="hidden" id="reset_ski2_cnt2" value="${re.get(2).ski_morning}">
 			<input type="hidden" id="reset_ski4_cnt2" value="${re.get(2).ski_night}">
 			<input type="hidden" id="reset_ski8_cnt2" value="${re.get(2).ski_day}">
+			<c:set var="ski_2_2" value="${re.get(2).ski_morning}"/>
+			<c:set var="ski_4_2" value="${re.get(2).ski_night}"/>
+			<c:set var="ski_8_2" value="${re.get(2).ski_day}"/>
+			
+			<c:set var="ski2_2" value="${re.get(2).ski_morning}"/>
+			<c:set var="ski4_2" value="${re.get(2).ski_night }"/>
+			<c:set var="ski8_2" value="${re.get(2).ski_day }"/>
 		</c:if>	 
+		<c:if test="${cnt < 3}">
+			<c:set var="ski_2_2" value="0"/>
+			<c:set var="ski_4_2" value="0"/>
+			<c:set var="ski_8_2" value="0"/>
+			
+			<c:set var="ski2_2" value="0"/>
+			<c:set var="ski4_2" value="0"/>
+			<c:set var="ski8_2" value="0"/>
+		</c:if>  
 		<input type="hidden" id="ski_date" name="ski_date">
 		<input type="hidden" id="ski_count" name="ski_count">
-		<input type="hidden" id="ski_price" name="ski_price">
-		
-		
+		<input type="hidden" id="ski_price" name="ski_price">											
+										
 		<div class="container">
 		    <div class="row">	
 				<div class="totalbox">
@@ -137,8 +161,6 @@
 							<div id="skicntbox">              
 								<div id="skidate0">
 									<div class="date" id="date0">
-										<fmt:formatDate value="${re.get(0).ski_date}"
-											type="both" pattern="yyyy-MM-dd"/>
 									</div>
 									<div class="__count_range">
 										오전권 (20,000) &nbsp;&nbsp;
@@ -161,18 +183,7 @@
 								</div> <!-- skidate0 -->
 								<div id="skidate1">
 									<div class="date" id="date1">
-										<c:if test="${cnt > 1}">
-											<fmt:formatDate value="${re.get(1).ski_date}"
-												type="both" pattern="yyyy-MM-dd"/>
-											<c:set var="ski_2_1" value="${re.get(1).ski_morning}"/>
-											<c:set var="ski_4_1" value="${re.get(1).ski_night}"/>
-											<c:set var="ski_8_1" value="${re.get(1).ski_day}"/>
-										</c:if>   
-										<c:if test="${cnt < 2}">
-											<c:set var="ski_2_1" value="0"/>
-											<c:set var="ski_4_1" value="0"/>
-											<c:set var="ski_8_1" value="0"/>
-										</c:if>
+										
 									</div>
 									<div class="__count_range">
 										오전권 (20,000) &nbsp;&nbsp;
@@ -196,18 +207,7 @@
 							
 								<div id="skidate2">
 									<div class="date" id="date2">
-										<c:if test="${cnt > 2}">
-											<fmt:formatDate value="${re.get(2).ski_date}"
-												type="both" pattern="yyyy-MM-dd"/>
-											<c:set var="ski_2_2" value="${re.get(2).ski_morning}"/>
-											<c:set var="ski_4_2" value="${re.get(2).ski_night}"/>
-											<c:set var="ski_8_2" value="${re.get(2).ski_day}"/>
-										</c:if> 
-											<c:if test="${cnt < 3}">
-											<c:set var="ski_2_2" value="0"/>
-											<c:set var="ski_4_2" value="0"/>
-											<c:set var="ski_8_2" value="0"/>
-										</c:if>  
+										
 									</div>
 									<div class="__count_range">
 										오전권 (20,000) &nbsp;&nbsp;
@@ -282,46 +282,20 @@
 					</tr>
 					<tr id="skiski_0">
 						<th id="ski_date_0">  
-							<fmt:formatDate value="${re.get(0).ski_date}"
-								type="both" pattern="yyyy-MM-dd"/>
 						</th>
-						<td id="ski2_0"> ${re.get(0).ski_morning } </td>
-						<td id="ski4_0"> ${re.get(0).ski_night } </td>
-						<td id="ski8_0"> ${re.get(0).ski_day } </td>
+						<td id="ski2_0"> ${re.get(0).ski_morning} </td>
+						<td id="ski4_0"> ${re.get(0).ski_night} </td>
+						<td id="ski8_0"> ${re.get(0).ski_day} </td>
 					</tr>			
 					<tr id="skiski_1">
 						<th id="ski_date_1">  
-							<c:if test="${cnt > 1}">
-								<fmt:formatDate value="${re.get(1).ski_date}"
-									type="both" pattern="yyyy-MM-dd"/>
-								<c:set var="ski2_1" value="${re.get(1).ski_morning }"/>
-								<c:set var="ski4_1" value="${re.get(1).ski_night }"/>
-								<c:set var="ski8_1" value="${re.get(1).ski_day }"/>
-							</c:if>
-								<c:if test="${cnt < 2}">
-								<c:set var="ski2_1" value="0"/>
-								<c:set var="ski4_1" value="0"/>
-								<c:set var="ski8_1" value="0"/>
-							</c:if>
 						</th>
 						<td id="ski2_1"> ${ski2_1} </td>
 						<td id="ski4_1"> ${ski4_1} </td>
 						<td id="ski8_1"> ${ski8_1} </td>
 					</tr>			
 					<tr id="skiski_2">
-						<th id="ski_date_2">  
-							<c:if test="${cnt > 2}">
-								<fmt:formatDate value="${re.get(2).ski_date}"
-									type="both" pattern="yyyy-MM-dd"/>
-								<c:set var="ski2_2" value="${re.get(2).ski_morning}"/>
-								<c:set var="ski4_2" value="${re.get(2).ski_night }"/>
-								<c:set var="ski8_2" value="${re.get(2).ski_day }"/>
-							</c:if>
-							<c:if test="${cnt < 3}">
-								<c:set var="ski2_2" value="0"/>
-								<c:set var="ski4_2" value="0"/>
-								<c:set var="ski8_2" value="0"/>
-							</c:if>                        
+						<th id="ski_date_2">                       
 						</th>
 						<td id="ski2_2"> ${ski2_2} </td>
 						<td id="ski4_2"> ${ski4_2} </td>
@@ -358,6 +332,24 @@
 		<div id="result2"></div>
 		<div id="result3"></div>
 		<div id="result4"></div>
+		<div id="fmtdate">
+			<div id="fmtdate1">
+				<fmt:formatDate value="${re.get(0).ski_date}"
+					type="both" pattern="yyyy-MM-dd"/>
+			</div>
+			<div id="fmtdate2">
+			<c:if test="${cnt > 1}">
+				<fmt:formatDate value="${re.get(1).ski_date}"
+					type="both" pattern="yyyy-MM-dd"/>
+			</c:if>
+			</div>
+			<div id="fmtdate3">
+			<c:if test="${cnt > 2}">	
+				<fmt:formatDate value="${re.get(2).ski_date}"
+					type="both" pattern="yyyy-MM-dd"/>
+			</c:if>
+			</div>
+		</div>
 	</body>
 </html>  
     

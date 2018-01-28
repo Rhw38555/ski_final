@@ -14,11 +14,6 @@
 		<script src="/SKI_Final/reverse/jquery-ui.js"></script>
 		<script src="/SKI_Final/reverse/jquery-ui.multidatespicker.js"></script>
 		
-		<script src="./assets/js/jquery-migrate-1.2.1.min.js"></script>
-		<script src="./assets/js/bootstrap.min.js"></script>
-		<script src="./assets/js/jquery.actual.min.js"></script>
-		<script src="./assets/js/jquery.scrollTo.min.js"></script>
-		<script src="./assets/js/script.js"></script>
 		<script type="text/javascript">
 		 var stmnLEFT = 10; // 오른쪽 여백 
 		 var stmnGAP1 = 0; // 위쪽 여백 
@@ -62,11 +57,11 @@
 		     <div class="container">
 				<div class="row">
 					<div class="pageselbox">
-						<a href="location='reverseRoomForm.do'">
+						<a href="reverseRoomForm.do">
 							<span class="glyphicon glyphicon-home" aria-hidden="true"> 콘도예약</span>
 						</a> 
 						<br>
-						<a href="location='reverseSkiForm.do'">
+						<a href="reverseSkiForm.do">
 							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"> 스키예약</span>
 						</a>
 					</div>	

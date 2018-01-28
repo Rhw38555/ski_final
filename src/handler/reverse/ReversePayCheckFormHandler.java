@@ -28,7 +28,7 @@ public class ReversePayCheckFormHandler implements CommandHandler{
 		int num = Integer.parseInt(request.getParameter("num"));
 		
 		String check = request.getParameter("check");
-		System.out.println("check: "+check);		
+		//System.out.println("check: "+check);		
 		
 		if(check.equals("ski")) {
 			List<SkiReverseDataBean> re = reserveDao.ski_getReserve(num);

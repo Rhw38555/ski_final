@@ -515,15 +515,34 @@ function getcount(){
 						if(Number(dates.ski_morning) > 3){
 	                        $('#mran2_'+i).attr('disabled', true);
 	                        $('#pran2_'+i).attr('disabled', true);
-	                     }
+	                        if($('#cnt2_'+i).val() > 0){
+	                        	$('#mran2_'+i).attr('disabled', false);
+							}
+	                      
+	                    }else{
+	                    	 $('#mran2_'+i).attr('disabled', false);
+		                     $('#pran2_'+i).attr('disabled', false);
+	                    }
 						 if(Number(dates.ski_night) > 3){
 	                        $('#mran4_'+i).attr('disabled', true);
 	                        $('#pran4_'+i).attr('disabled', true);
-	                     }
+	                        if($('#cnt4_'+i).val() > 0){
+	                        	$('#mran4_'+i).attr('disabled', false);
+							}
+	                     }else{
+	                    	 $('#mran4_'+i).attr('disabled', false);
+		                     $('#pran4_'+i).attr('disabled', false);
+	                    }
 	                     if(Number(dates.ski_day) > 3){
 	                        $('#mran8_'+i).attr('disabled', true);
 	                        $('#pran8_'+i).attr('disabled', true);
-	                     } 						
+	                        if($('#cnt8_'+i).val() > 0){
+	                        	$('#mran8_'+i).attr('disabled', false);
+							}
+	                     } 	else{
+	                    	 $('#mran8_'+i).attr('disabled', false);
+		                     $('#pran8_'+i).attr('disabled', false);
+	                    } 						
 	                     $('#result2').text('getcount code 성공!!');
 					}else{
 						$('#result2').text('getcount code 실패');

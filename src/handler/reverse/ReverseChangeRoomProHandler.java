@@ -30,12 +30,14 @@ public class ReverseChangeRoomProHandler implements CommandHandler{
 		
 		String[] date = (request.getParameter("room_date")).split(",");
 		String[] cnt = (request.getParameter("room_cnt")).split(",");
+		System.out.println(date[0]);
 		
 		String id = (String) request.getSession().getAttribute("memId");
 		
 		SimpleDateFormat tran = new SimpleDateFormat("yyyy-MM-dd");
-		System.out.println(date.length);
-		Date date1 = tran.parse(date[0]);
+		
+		Date date1 = tran.parse(date[0].trim());
+		System.out.println(date1);
 		int cnt2_1 = Integer.parseInt(cnt[0]);
 		int cnt4_1 = Integer.parseInt(cnt[1]);
 		int cnt8_1 = Integer.parseInt(cnt[2]);
@@ -66,7 +68,7 @@ public class ReverseChangeRoomProHandler implements CommandHandler{
 			result = reserveDao.room_insert(roomDto_1);	
 			
 			if(finalcnt > 1) {
-				Date date2 = tran.parse(date[1]);
+				Date date2 = tran.parse(date[1].trim());
 				int cnt2_2 = Integer.parseInt(cnt[3]);
 				int cnt4_2 = Integer.parseInt(cnt[4]);
 				int cnt8_2 = Integer.parseInt(cnt[5]);
@@ -85,7 +87,7 @@ public class ReverseChangeRoomProHandler implements CommandHandler{
 				result = reserveDao.room_insert(roomDto_2);
 				
 				if(finalcnt > 2) {
-					Date date3 = tran.parse(date[2]);
+					Date date3 = tran.parse(date[2].trim());
 					int cnt2_3 = Integer.parseInt(cnt[6]);
 					int cnt4_3 = Integer.parseInt(cnt[7]);
 					int cnt8_3 = Integer.parseInt(cnt[8]);

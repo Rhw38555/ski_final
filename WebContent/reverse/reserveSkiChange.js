@@ -11,7 +11,44 @@
    var firstarr = new Array();   
 $(function(){
    
-   setInterval("getcount()",1000); //선택한 날짜별로 스키권 남은 개수 알려준다
+    setInterval("getcount()",1000); //선택한 날짜별로 스키권 남은 개수 알려준다
+	
+    var fmtarr = $('#fmtdate1').text().trim().split('-');
+	if(fmtarr[1].charAt(0) == '0') fmtarr[1] = fmtarr[1].charAt(1);
+	if(fmtarr[2].charAt(0) == '0') fmtarr[2] = fmtarr[2].charAt(1);	
+	var fmtdate_first = fmtarr[0]+"-"+fmtarr[1]+"-"+fmtarr[2];
+	fmtdate = fmtdate_first.trim();
+	//alert(fmtdate);
+	
+	$('#reset_ski_date1').val(fmtdate);
+	$('#date0').text(fmtdate);
+	$('#ski_date_0').text(fmtdate);
+	 $('#multipick').datepicker('option','beforeShowDay', gogogo);
+	if($('#datecnt').val() > 1){
+		fmtarr = $('#fmtdate2').text().split('-');
+		if(fmtarr[1].charAt(0) == '0') fmtarr[1] = fmtarr[1].charAt(1);
+		if(fmtarr[2].charAt(0) == '0') fmtarr[2] = fmtarr[2].charAt(1);	
+		fmtdate_first = fmtarr[0]+"-"+fmtarr[1]+"-"+fmtarr[2];
+		fmtdate = fmtdate_first.trim();
+		$('#date1').text(fmtdate);
+		$('#reset_ski_date2').val(fmtdate);
+		$('#ski_date_1').text(fmtdate);
+		//alert(fmtdate);
+	}
+	
+	if($('#datecnt').val() > 2){
+		fmtarr = $('#fmtdate3').text().split('-');
+		if(fmtarr[1].charAt(0) == '0') fmtarr[1] = fmtarr[1].charAt(1);
+		if(fmtarr[2].charAt(0) == '0') fmtarr[2] = fmtarr[2].charAt(1);	
+		fmtdate_first = fmtarr[0]+"-"+fmtarr[1]+"-"+fmtarr[2];
+		fmtdate = fmtdate_first.trim();
+		$('#date2').text(fmtdate);
+		$('#reset_ski_date3').val(fmtdate);
+		$('#ski_date_2').text(fmtdate);
+		 $('#multipick').datepicker('option','beforeShowDay', firstgo);
+		 //alert(fmtdate);
+	}
+	
 	
    for(var i=0; i<3; i++){
 	   $('#skidate'+i).css('display','none');
@@ -23,20 +60,22 @@ $(function(){
 	  $('#skiski_'+i).css('display','');
 	  $('#skidateval'+i).val('1');
 	  
-      var firstdate = fulldate(new Date($('#date'+i).text()));      
+      var firstdate = $('#date'+i).text().trim();      
       firstarr.push(firstdate);
       $('<div class="alt" id="alt_'+ firstdate +'">'+firstdate+'</div>').appendTo('#a');
       $('#date'+i).text(firstdate);
+     // alert(firstdate);
    } // 예약날짜 수를 받아와서 그만큼 step1, 2에 채워넣어준다
-   insertcount();
-   modcount();
+   
+   //insertcount();
+   //modcount();
    /*alert($('#skidateval0').val()+"/"+$('#skidateval1').val()+"/"+$('#skidateval2').val());*/
 /////// 달력
    $('#multipick').multiDatesPicker({
       maxPicks: 3,
       minDate: 0,
       maxDate: 100,
-      beforeShowDay: firstgo,
+      //beforeShowDay: firstgo,
       onSelect : function(){   
          setTimeout("getdate()",1000);
          var date1 = $("#multipick").datepicker('getDate');
@@ -212,6 +251,7 @@ $(function(){
    }
    
    $('#resetbt').click(function(){
+	  // alert('들어와땅');
 	   $('.alt').each(function(i,t){
 		   $(t).remove();
 	   });
@@ -224,24 +264,27 @@ $(function(){
 		  $('#skidate'+i).css('display','');
 		  $('#skiski_'+i).css('display','');
 		  $('#skidateval'+i).val('1');
-		  
-	      var firstdate = fulldate(new Date($('#date'+i).text()));      
-	      firstarr.push(firstdate);
-	      $('<div class="alt" id="alt_'+ firstdate +'">'+firstdate+'</div>').appendTo('#a');
-	      $('#date'+i).text(firstdate);
+		 
+	     // var firstdate = $('#date'+i).text();    
+	     // alert(firstdate);
+	      //firstarr.push(firstdate);
+	      $('<div class="alt" id="alt_'+ firstarr[i] +'">'+firstarr[i]+'</div>').appendTo('#a');
+	      //$('#date'+i).text(firstdate);
+	      $('#skidateval'+i).val('1');
+	      $('#ski2_'+i).text($('#reset_ski2_cnt'+i).val());
+	      $('#cnt2_'+i).val($('#reset_ski2_cnt'+i).val());
+	      $('#ski_date_'+i).text(firstarr[i]);
 	   } // 예약날짜 수를 받아와서 그만큼 step1, 2에 채워넣어준다
 		firstcheck = 0;
-		$('#date1').text($('#reset_ski_date1').val());
+		//$('#date1').text($('#reset_ski_date1').val());
 		$('#skidate2').css('display','none');
 		$('#skidate3').css('display','none');
-		$('#skidateval0').val('1');
-		$('#skidateval1').val('0');
-		$('#skidateval2').val('0');
-		$('#ski_date_0').text($('#reset_ski_date1').val());
-		$('#ski2_0').text($('#reset_ski2_cnt0').val());
-		$('#ski4_0').text($('#reset_ski4_cnt0').val());
-		$('#ski8_0').text($('#reset_ski8_cnt0').val());
-		$('#multipick').datepicker('option','beforeShowDay',firstgo);
+		
+		//$('#ski4_0').text($('#reset_ski4_cnt0').val());
+		//$('#ski8_0').text($('#reset_ski8_cnt0').val());
+		if($('#datecnt').val() > 2) $('#multipick').datepicker('option','beforeShowDay',firstgo);
+		else $('#multipick').datepicker('option','beforeShowDay',gogogo);
+		
 		$('#skipricebox').text($('#reset_ski_price').val());	
 		$('#name').val($('#reset_name').val());
 		$('#tel').val($('#reset_tel').val());
@@ -252,9 +295,10 @@ $(function(){
 	}); //리셋버튼   
    
    $('#back').click(function(){
+	   //alert('들어왔다');
 	   insertcount();
 	   modcount();
-	   self.close();
+	  window.close();
    });
 });   //ready
 
@@ -412,18 +456,37 @@ function ajaxcount(day,i){
 			var dates = eval("("+$(data).find('dates').text()+")");
 			var code = $(data).find('code').text();
 			if(code == 'success'){
-			if(Number(dates.ski_morning) > 3){
-				$('#mran2_'+i).attr('disabled', true);
-				$('#pran2_'+i).attr('disabled', true);
-			}
-			if(Number(dates.ski_night) > 3){
-				$('#mran4_'+i).attr('disabled', true);
-				$('#pran4_'+i).attr('disabled', true);
-			}
-			if(Number(dates.ski_day) > 3){
-				$('#mran8_'+i).attr('disabled', true);
-				$('#pran8_'+i).attr('disabled', true);
-			}                   
+				if(Number(dates.ski_morning) > 3){
+                    $('#mran2_'+i).attr('disabled', true);
+                    $('#pran2_'+i).attr('disabled', true);
+                    if($('#cnt2_'+i).val() > 0){
+                    	$('#mran2_'+i).attr('disabled', false);
+					}
+                  
+                }else{
+                	 $('#mran2_'+i).attr('disabled', false);
+                     $('#pran2_'+i).attr('disabled', false);
+                }
+				 if(Number(dates.ski_night) > 3){
+                    $('#mran4_'+i).attr('disabled', true);
+                    $('#pran4_'+i).attr('disabled', true);
+                    if($('#cnt4_'+i).val() > 0){
+                    	$('#mran4_'+i).attr('disabled', false);
+					}
+                 }else{
+                	 $('#mran4_'+i).attr('disabled', false);
+                     $('#pran4_'+i).attr('disabled', false);
+                }
+                 if(Number(dates.ski_day) > 3){
+                    $('#mran8_'+i).attr('disabled', true);
+                    $('#pran8_'+i).attr('disabled', true);
+                    if($('#cnt8_'+i).val() > 0){
+                    	$('#mran8_'+i).attr('disabled', false);
+					}
+                 } 	else{
+                	 $('#mran8_'+i).attr('disabled', false);
+                     $('#pran8_'+i).attr('disabled', false);
+                }                  
 				$('#result2').text('getcount code 성공!!');
 			}else{
 				$('#result2').text('getcount code 실패');
@@ -610,6 +673,7 @@ function carnum_keyup(){
 
 
 function modcount(){
+	//alert('mod');
 	for(var i=0; i<3; i++){
 		if($('#skidateval'+i).val()==1){
 			var str = $('#date'+i).text().split('-');
@@ -649,28 +713,19 @@ function modcount(){
 
 
 function insertcount(){
-	//alert('들어왔당');
-	//alert($('#datecnt').val());
-	//alert(firstarr[0]+"/"+firstarr[1]+"/"+firstarr[2]);
-	for(var i=0; i<3; i++){			
+	//alert('insert');
+	for(var i=0; i<$('#datecnt').val(); i++){			
 		var ski2 = $('#reset_ski2_cnt'+i).val();
 		var ski4 = $('#reset_ski4_cnt'+i).val();
 		var ski8 = $('#reset_ski8_cnt'+i).val();
-		var day = firstarr[i];
-		//alert(ski2+"/"+ski4+"/"+ski8+"/"+day);
-		//++i;
-		//var day = $('#reset_ski_date'+i).val().substring(8,18);
-		//alert(firstday+'/'+day);
-		//var day = $('#reset_ski_date'+i).val().substring(0,10);
-    	//if(day.length < 5) day = $('#reset_ski_date'+i).val();
-		if(day == null || day == '' || day == 'undefined') return;
+		var day = $('#reset_ski_date'+(i+1)).val();
+		//if(day == null || day == '' || day == 'undefined') return;
 		var str = day.split('-');
 		
 		if(str[2].length == 1) str[2] = '0'+str[2];
 		if(str[1].length == 1) str[1] = '0'+str[1];
 		var d = str[0]+str[1]+str[2];
-		//alert(d);
-					
+		
 		$.ajax(
 	      {
 	         url : '/SKI_Final/reverse/insertSkiChangeCount.jsp',

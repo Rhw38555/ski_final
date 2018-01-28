@@ -19,12 +19,7 @@
 	<script src="/SKI_Final/reverse/reserveRoomChange.js"></script>   
 	<script src="/SKI_Final/reverse/request.js"></script>
 	<script src="/SKI_Final/reverse/jquery-ui.js"></script>	  
-	  
-	<script src="./assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="./assets/js/bootstrap.min.js"></script>
-	<script src="./assets/js/jquery.actual.min.js"></script>
-	<script src="./assets/js/jquery.scrollTo.min.js"></script>
-	<script src="./assets/js/script.js"></script>
+	
 	  	  <script type="text/javascript">
 		 var stmnLEFT = 10; // 오른쪽 여백 
 		 var stmnGAP1 = 0; // 위쪽 여백 
@@ -57,7 +52,14 @@
 				return confirmationMessage; //Webkit, Safari, Chrome
 				modcount();
 		});
+		
+		//window.addEventListener("beforeunload", function (event) {
+		
+		  //event.returnValue = "진짜 나감?";
+
+		//});
 		</script>	
+		 
 	</head>
 	<body onload="InitializeStaticMenu()" class="rebody"> 	 
 	
@@ -65,12 +67,9 @@
 		<div class="row">
 			<div class="pageselbox">
 				<div id="topdiv">
-					&nbsp;&nbsp;<span class="glyphicon glyphicon-home" aria-hidden="true"> 콘도 예약 변경 페이지</span>
+					&nbsp;&nbsp;<span class="glyphicon glyphicon-home" aria-hidden="true"> 콘도 예약변경 페이지입니다</span>
 				</div> 
 				<br>
-				<div id="topdiv">
-					&nbsp;&nbsp;<span class="glyphicon glyphicon-asterisk" aria-hidden="true"> 야호</span>
-				</div>
 			</div>	
 		</div>	   
 	</div>
@@ -81,6 +80,7 @@
 			<c:forEach var="rs" items="${re}">
 				<c:set var="cnt" value="${cnt+1}"/>
 			</c:forEach> 
+			<input type="hidden" id="room_checkdate" value="${re.get(0).room_check}">
 			<input type="hidden" id="finalcnt" name="finalcnt" value="0">
 			<input type="hidden" name="num" id="num" value="${re.get(0).num}">
 			<input type="hidden" id="reset_checkin" value="${roomcheck[0]}">
@@ -109,15 +109,42 @@
 				<input type="hidden" id="reset_room2_cnt1" value="${re.get(1).room_2}">
 				<input type="hidden" id="reset_room4_cnt1" value="${re.get(1).room_4}">
 				<input type="hidden" id="reset_room8_cnt1" value="${re.get(1).room_8}">
+				<c:set var="room_02" value="${re.get(1).room_2}"/>
+				<c:set var="room_04" value="${re.get(1).room_4}"/>
+				<c:set var="room_08" value="${re.get(1).room_8}"/>
+				<c:set var="room2_1" value="${re.get(1).room_2 }"/>
+				<c:set var="room4_1" value="${re.get(1).room_4 }"/>
+				<c:set var="room8_1" value="${re.get(1).room_8 }"/>
+			</c:if>
+			<c:if test="${cnt < 1}">
+				<c:set var="room_02" value="0"/>
+				<c:set var="room_04" value="0"/>
+				<c:set var="room_08" value="0"/>				
+				<c:set var="room2_1" value="0"/>
+				<c:set var="room4_1" value="0"/>
+				<c:set var="room8_1" value="0"/>
 			</c:if>
 			<c:if test="${cnt > 2}">
 				<input type="hidden" id="reset_room_date3" value="${re.get(2).room_date}">
 				<input type="hidden" id="reset_room2_cnt2" value="${re.get(2).room_2}">
 				<input type="hidden" id="reset_room4_cnt2" value="${re.get(2).room_4}">
 				<input type="hidden" id="reset_room8_cnt2" value="${re.get(2).room_8}">
-			</c:if>	   		
-			
-			  
+				<c:set var="room_12" value="${re.get(2).room_2}"/>
+				<c:set var="room_14" value="${re.get(2).room_4}"/>
+				<c:set var="room_18" value="${re.get(2).room_8}"/>
+				<c:set var="room2_2" value="${re.get(2).room_2}"/>
+				<c:set var="room4_2" value="${re.get(2).room_4 }"/>
+				<c:set var="room8_2" value="${re.get(2).room_8 }"/>
+			</c:if>			
+			<c:if test="${cnt < 2}">
+				<c:set var="room_12" value="0"/>
+				<c:set var="room_14" value="0"/>
+				<c:set var="room_18" value="0"/>
+				<c:set var="room2_2" value="0"/>
+				<c:set var="room4_2" value="0"/>
+				<c:set var="room8_2" value="0"/>
+			</c:if> 
+											  
 			<!-- Datepicker -->
 		<div class="container">
         	<div class="row">	
@@ -134,14 +161,14 @@
 								체크인<br><br> 
 								<div id="datepicker1"></div>
 								<div id="re">
-									${roomcheck[0]}
+									
 								</div>
 							</div>  <!-- calbox -->
 							<div id="calbox">      
 								체크아웃     <br><br>
 								<div id="datepicker2"></div>
 								<div id="re2">
-									${roomcheck[1]}
+									
 								</div>
 							</div> <!-- calbox -->
 						</div><!-- calbox -->
@@ -157,9 +184,7 @@
 						<div class="selectbox">
 							<div id="roomcntbox">              
 								<div id="roomdate1">
-									<div class="date" id="date1">
-										<fmt:formatDate value="${re.get(0).room_date}"
-											type="both" pattern="yyyy-MM-dd"/>
+									<div class="date" id="date1">										
 									</div>
 								<div class="__count_range">
 									2인실 (20,000) &nbsp;&nbsp;
@@ -182,18 +207,6 @@
 								</div> <!-- roomdate1 -->
 								<div id="roomdate2">
 									<div class="date" id="date2">
-										<c:if test="${cnt > 1}">
-											<fmt:formatDate value="${re.get(1).room_date}"
-											type="both" pattern="yyyy-MM-dd"/>
-											<c:set var="room_02" value="${re.get(1).room_2}"/>
-											<c:set var="room_04" value="${re.get(1).room_4}"/>
-											<c:set var="room_08" value="${re.get(1).room_8}"/>
-										</c:if>	
-										<c:if test="${cnt < 1}">
-											<c:set var="room_02" value="0"/>
-											<c:set var="room_04" value="0"/>
-											<c:set var="room_08" value="0"/>
-										</c:if>
 									</div> <!-- date2 -->
 									<div class="__count_range">
 										2인실 (20,000) &nbsp;&nbsp;
@@ -216,18 +229,7 @@
 								</div><!-- roomdate2 -->						
 								<div id="roomdate3">
 									<div class="date" id="date3">
-										<c:if test="${cnt > 2}">
-											<fmt:formatDate value="${re.get(2).room_date}"
-											type="both" pattern="yyyy-MM-dd"/>
-											<c:set var="room_12" value="${re.get(2).room_2}"/>
-											<c:set var="room_14" value="${re.get(2).room_4}"/>
-											<c:set var="room_18" value="${re.get(2).room_8}"/>
-										</c:if>	
-										<c:if test="${cnt < 2}">
-											<c:set var="room_12" value="0"/>
-											<c:set var="room_14" value="0"/>
-											<c:set var="room_18" value="0"/>
-										</c:if>  	
+										 	
 									</div> <!-- date3 -->
 									<div class="__count_range">
 										2인실 (20,000) &nbsp;&nbsp;
@@ -298,11 +300,11 @@
 					<tbody  id="ta">
 						<tr>   	
 							<th> 체크인 </th>	            		
-							<td id="check_in" colspan="3"> ${roomcheck[0]} </td>
+							<td id="check_in" colspan="3">  </td>
 						</tr>
 						<tr>
 							<th> 체크아웃 </th>
-							<td id="check_out" colspan="3"> ${roomcheck[1]} </td>
+							<td id="check_out" colspan="3"> </td>
 						</tr>
 						<tr>
 							<td> 날짜 </td>
@@ -312,47 +314,22 @@
 						</tr>
 						<tr id="roomroom_0">
 							<th id="room_date_0">  
-								<fmt:formatDate value="${re.get(0).room_date}"
-								type="both" pattern="yyyy-MM-dd"/>
 							</th>
 							<td id="room2_0"> ${re.get(0).room_2 } </td>
 							<td id="room4_0"> ${re.get(0).room_4 } </td>
 							<td id="room8_0"> ${re.get(0).room_8 } </td>
 						</tr> <!-- roomroom_0 -->				
 						<tr id="roomroom_1">
-							<th id="room_date_1">  
-								<c:if test="${cnt > 1}">
-									<fmt:formatDate value="${re.get(1).room_date}"
-									type="both" pattern="yyyy-MM-dd"/>
-									<c:set var="room2_1" value="${re.get(1).room_2 }"/>
-									<c:set var="room4_1" value="${re.get(1).room_4 }"/>
-									<c:set var="room8_1" value="${re.get(1).room_8 }"/>
-								</c:if>
-								<c:if test="${cnt < 1 }">
-									<c:set var="room2_1" value="0"/>
-									<c:set var="room4_1" value="0"/>
-									<c:set var="room8_1" value="0"/>
-								</c:if>
+							<th id="room_date_1">  								
 							</th>
-							<td id="room2_1"> ${room_2} </td>
-							<td id="room4_1"> ${room_4} </td>
-							<td id="room8_1"> ${room_8} </td>
+							<td id="room2_1"> ${room2_1} </td>
+							<td id="room4_1"> ${room4_1} </td>
+							<td id="room8_1"> ${room8_1} </td>
 						</tr> <!-- roomroom_1 -->
 						
 						<tr id="roomroom_2">
 							<th id="room_date_2">  
-								<c:if test="${cnt > 2}">
-									<fmt:formatDate value="${re.get(2).room_date}"
-									type="both" pattern="yyyy-MM-dd"/>
-									<c:set var="room2_2" value="${re.get(2).room_2}"/>
-									<c:set var="room4_2" value="${re.get(2).room_4 }"/>
-									<c:set var="room8_2" value="${re.get(2).room_8 }"/>
-								</c:if>
-								<c:if test="${cnt < 2 }">
-									<c:set var="room2_2" value="0"/>
-									<c:set var="room4_2" value="0"/>
-									<c:set var="room8_2" value="0"/>
-								</c:if>	            			
+           			
 							</th>
 							<td id="room2_2"> ${room2_2} </td>
 							<td id="room4_2"> ${room4_2} </td>
@@ -389,5 +366,23 @@
 		<div id="result2"></div>
 		<div id="result3"></div>
 		<div id="result4"></div>
+			<div id="fmtdate">
+				<div id="fmtdate1">
+					<fmt:formatDate value="${re.get(0).room_date}"
+						type="both" pattern="yyyy-MM-dd"/>
+				</div>
+				<div id="fmtdate2">
+				<c:if test="${cnt > 1}">
+					<fmt:formatDate value="${re.get(1).room_date}"
+						type="both" pattern="yyyy-MM-dd"/>
+				</c:if>
+				</div>
+				<div id="fmtdate3">
+				<c:if test="${cnt > 2}">	
+					<fmt:formatDate value="${re.get(2).room_date}"
+						type="both" pattern="yyyy-MM-dd"/>
+				</c:if>
+				</div>
+			</div>
 	</body>
 </html>

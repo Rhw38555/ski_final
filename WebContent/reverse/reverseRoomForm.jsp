@@ -9,19 +9,12 @@
       <link href="/SKI_Final/reverse/datepicker.css" rel="stylesheet">  
       <link href="/SKI_Final/reverse/re.css" rel="stylesheet">  
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-      
+            
       <script src="/SKI_Final/reverse/jquery.js"></script>     
       <script src="/SKI_Final/reverse/reserveRoom.js"></script>   
 	  <script src="/SKI_Final/reverse/request.js"></script>
 	  <script src="/SKI_Final/reverse/jquery-ui.js"></script>	 
 	  <script src="/SKI_Final/reverse/refoot.js"></script>	
-	 
-	  <script src="./assets/js/jquery-migrate-1.2.1.min.js"></script>
-	  <script src="./assets/js/bootstrap.min.js"></script>
-	  <script src="./assets/js/jquery.actual.min.js"></script>
-	  <script src="./assets/js/jquery.scrollTo.min.js"></script>
-	  <script src="./assets/js/script.js"></script>
 		   
 	  <%-- <%@include file="/include/mainheader2.jsp"%> --%>
 	  <script type="text/javascript">
@@ -50,16 +43,11 @@
 		  document.getElementById('STATICMENU').style.top = document.body.scrollTop + stmnBASE + 'px'; 
 		  RefreshStaticMenu();
 		  }
-		window.addEventListener("beforeunload", function (e) {
-			var confirmationMessage = "\o/";	
-			(e || window.event).returnValue = confirmationMessage; //Gecko + IE			
-				return confirmationMessage; //Webkit, Safari, Chrome
-				//modcount();
-		});
+		 
 		</script>	  
    </head>
 
-   <body onload="InitializeStaticMenu()" class="rebody">   
+   <body onload="InitializeStaticMenu()" onbeforeunload="abc();" class="rebody">   
  	 <!-- <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')"> -->
  	<!--  <div class="image-container set-full-height" style="background-image: url('./reverse/img2.jpg')"> -->
 	   <form method="post" action="reverseRoomPro.do">
@@ -258,7 +246,7 @@
       <div id="result4"></div>
       </form>
 
-      </div>
+
    </body>
    
 </html>
