@@ -28,7 +28,7 @@
 	                 </a>
 	             </li>
 	             <li>
-	         	 	<div id="te">스키장</div>
+	         	 	<div id="te">콘도</div>
 	         	 </li>
 	             <li>
 	                 <a href="introCondo.do" class="aside_a">

@@ -299,6 +299,8 @@ $(document).ready(function(){
 	}); // 셋째날 종일 +
    
 	$('#resetbt').click(function(){
+		
+		alert($('#datecnt').val());
 		modcount();
 		first = 0;
 		$('#date1').text($('#reset_room_date1').val());

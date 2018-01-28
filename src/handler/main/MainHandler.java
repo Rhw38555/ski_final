@@ -57,7 +57,7 @@ public class MainHandler implements CommandHandler{
 		if(request.getSession().getAttribute("memId") !=null && request.getSession().getAttribute("memId")!="") {
 			String user_barcode = barcodeDao.getUser_barcode((String)request.getSession().getAttribute("memId"));
 			request.setAttribute("user_barcode", user_barcode);
-			System.out.println(user_barcode);
+			//System.out.println(user_barcode);
 		}
 		
 		
