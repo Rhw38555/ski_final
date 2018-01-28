@@ -524,10 +524,17 @@ function memberReserveCheck(memId){
             
             roomlength = memberdata.member.length;
             makeRoomTable(memberdata);
-            
+            //alert(roomlength);         
             skilength = memberdata.member2.length;
             makeSkiTable(memberdata);
-                  
+            
+            if(roomlength == 0){
+            	$('#noroom').val(1);
+            	$('#notable').css('display','');
+            }
+            if(skilength == 0){
+            	$('#noski').val(1);
+            }
          }//success
          
       },
@@ -584,7 +591,7 @@ function makeRoomTable2(memberdata,i,numcheck){
             +  "<tr>"
             +  "   <td colspan='4'>"
             +  "      <a href='reverseChangeRoomForm.do?num="+memberdata.member[roomicheck].num+"'>예약변경"
-            +  "      <a onclick='deleteReverseRoom("+memberdata.member[roomicheck].num+")'>예약취소"
+            +  "      <a href='javascript:deleteReverseRoom("+memberdata.member[roomicheck].num+");'>예약취소"
             +  "   </td>"
             +  "</tr>"
             +  "</table>"
@@ -638,7 +645,7 @@ function makeRoomTable2(memberdata,i,numcheck){
                +  "<tr>"
                +  "   <td colspan='4'>"
                +  "      <a href='reverseChangeRoomForm.do?num="+memberdata.member[roomicheck].num+"'>예약변경"
-               +  "      <a onclick='deleteReverseRoom("+memberdata.member[roomicheck].num+")'>예약취소"
+               +  "      <a href='javascript:deleteReverseRoom("+memberdata.member[roomicheck].num+");'>예약취소"
                +  "   </td>"
                +  "</tr>"
                +  "</table>";
@@ -724,7 +731,7 @@ function makeSkiTable2(memberdata,i,numcheck){
             +  "<tr>"
             +  "   <td colspan='4'>"
             +  "      <a href='reverseChangeSkiForm.do?num="+memberdata.member2[skiicheck].num+"'>예약변경"
-            +  "      <a onclick='deleteReverseSki("+memberdata.member2[skiicheck].num+")'>예약취소"
+            +  "      <a href='javascript:deleteReverseSki("+memberdata.member2[skiicheck].num+");'>예약취소"
             +  "   </td>"
             +  "</tr>"
             +  "</table>";
@@ -773,11 +780,12 @@ function makeSkiTable2(memberdata,i,numcheck){
                +  "<tr>"
                +  "   <td colspan='4'>"
                +  "      <a href='reverseChangeSkiForm.do?num="+memberdata.member2[skiicheck].num+"'>예약변경"
-               +  "      <a onclick='deleteReverseSki("+memberdata.member2[skiicheck].num+")'>예약취소"
+               +  "      <a href='javascript:deleteReverseSki("+memberdata.member2[skiicheck].num+");'>예약취소"
                +  "   </td>"
                +  "</tr>"
                +  "</table>"
                +  "</div>";
+         
             $(skimsg).appendTo('#findtr2');
             skimsg = "";
          //if(skilength-1 != i){
@@ -815,7 +823,11 @@ function showroom(){
    $('#skicheck').css('display','none');
    $('.roomcheck_a').css('color','orange');
    $('.skicheck_a').css('color','gray');
-   
+   if($('#noroom').val() == 1){
+	   $('#notable').css('display','');
+   }else{
+	   $('#notable').css('display','none');
+   }
 }
 
 function showski(){
@@ -823,6 +835,11 @@ function showski(){
    $('#skicheck').css('display','');
    $('.roomcheck_a').css('color','gray');
    $('.skicheck_a').css('color','orange');
+   if($('#noski').val() == 1){
+	   $('#notable').css('display','');
+   }else{
+	   $('#notable').css('display','none');
+   }
 }
 
 

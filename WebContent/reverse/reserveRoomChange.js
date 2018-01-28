@@ -80,6 +80,7 @@ $(document).ready(function(){
         dateFormat: 'yy-mm-dd',
         inline: true,
         minDate : date0,
+        maxDate : 100,
         onSelect: function(){ 
         	++first;
         	$('#datepicker1').datepicker('option','minDate','0');
@@ -508,11 +509,14 @@ function finalcheck(){
     }
     $('#finalcnt').val(c);
    // alert($('#finalcnt').val());
+    deletecount();
+    /*
     var delresult = deletecount();
 	   if(delresult == 'fail'){
 		   alert('삭제 실패');
 		   return false;
 	   }
+	   */
    if($('#re').text() == ''){
 	   alert('체크인 날짜를 선택해주세ㅛㅇ');
 	   return false;
@@ -609,11 +613,14 @@ function gogogo(date){
 
 function getcount(){
 	$('.date').each(function(i,t) {
-		if($(t).text() == '') return;
-		var str = $(t).text().split('-');
+		//alert($(t).text());
+		
+		if($(t).text().trim() == '') return;
+		var str = $(t).text().trim().split('-');
 		if(str[2].length == 1) str[2] = '0'+str[2];
 		if(str[1].length == 1) str[1] = '0'+str[1];
 		var d = str[0]+str[1]+str[2];		
+		//alert(d);
 		$.ajax(
 			{
 				url : 'selectRoomCount.do',
@@ -625,6 +632,7 @@ function getcount(){
 					var dates = eval("("+$(data).find('dates').text()+")");
 					var code = $(data).find('code').text();
 					if(code == 'success'){
+						//alert(dates.room_2 +"/"+dates.room_4+"/"+dates.room_8);
 						if(Number(dates.room_2) > 3){
 	                        $('#mran2_'+i).attr('disabled', true);
 	                        $('#pran2_'+i).attr('disabled', true);
@@ -701,19 +709,21 @@ function insertcnt(day,check,time){
 }//중간디비 넣기
          
 function modcount(){
+	//alert('들어왔어');
 	$('.roomdateval').each(function(i,t) {
 		var t = '';
 		if($('#roomdateval'+i).val() == '0') {
 			return;
 		}
 		
-		if( $('#date'+i).text() > 20){
+		if( $('#date'+i).text().length > 20){
 			t =  $('#date'+i).text().substring(23,33);
 		}else{
 			t = $('#date'+i).text();
 		}
+		//alert(t);
 		if(t == '' || t == null){
-			return false;
+			return;
 		}
 		var str = t.split('-');
 		//alert(str[2]);

@@ -16,6 +16,7 @@
 					$('#skicheck').css('display','none');	
 					$('.roomcheck_a').css('color','orange');
 					$('.skicheck_a').css('color','gray');
+					$('#notable').css('display','none');
 				});
 			</script>
 			<%@include file="/include/mainheader.jsp"%>				
@@ -30,13 +31,16 @@
 			<%--<header>${page_reservationConfirm}</header> --%>
 				<input type="hidden" id="user_barcode" value="${user_barcode}">
 				<input type="hidden" id="userid" value="${sessionScope.memId}">
-				
+				<input type="hidden" id="noroom" value="0">
+				<input type="hidden" id="noski" value="0">
 				<div class="checkform">	
 					<div class="checkbtbox">
 						<a href="javascript:showroom();" class="roomcheck_a">콘도</a>
 						<a href="javascript:showski();" class="skicheck_a">스키</a>
 					</div>
-					
+					<div id="notable">
+						<b>예약 내역이 없습니다 ! !</b>
+					</div>
 					<div id="roomcheck">
 						<%--<div>콘도 예약 정보</div> --%> 														
 						<div id="findtr"></div>

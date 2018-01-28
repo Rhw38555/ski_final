@@ -7,6 +7,7 @@ member
 }         
 .checkform{
    margin-left : 35%;
+   min-height : 800px;
 }
 .tablebox{
    margin-bottom: 30px;
@@ -78,3 +79,19 @@ table.recheck td {
    /*text-decoration : none; */
    color : orange;
 }
+
+#notable{
+	/*padding-top : 30%;*/
+	width : 630px;
+	height : 400px;
+	margin-top : 13px;
+	text-align : center;
+ 	border-top : 4px solid lightgray; 
+	border-bottom : 4px solid lightgray;
+	padding-top : 13%;
+	/*border-radius : 20px;*/
+	font-size : 25px;
+	font-weigth : 900;
+	
+}
+
