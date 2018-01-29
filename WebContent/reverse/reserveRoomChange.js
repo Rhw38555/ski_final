@@ -10,7 +10,7 @@ var first = 0;
 
 $(document).ready(function(){
 	
-	setTimeout("getdate()",300);
+	//setTimeout("getdate()",300);
 	setInterval("getcount()",300);
 	//alert();
 	

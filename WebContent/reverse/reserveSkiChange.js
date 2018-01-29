@@ -11,7 +11,7 @@
    var firstarr = new Array();   
 $(function(){
    
-    setInterval("getcount()",1000); //선택한 날짜별로 스키권 남은 개수 알려준다
+    setInterval("getcount()",300); //선택한 날짜별로 스키권 남은 개수 알려준다
 	
     var fmtarr = $('#fmtdate1').text().trim().split('-');
 	if(fmtarr[1].charAt(0) == '0') fmtarr[1] = fmtarr[1].charAt(1);
@@ -45,7 +45,7 @@ $(function(){
 		$('#date2').text(fmtdate);
 		$('#reset_ski_date3').val(fmtdate);
 		$('#ski_date_2').text(fmtdate);
-		 $('#multipick').datepicker('option','beforeShowDay', firstgo);
+		$('#multipick').datepicker('option','beforeShowDay', firstgo);
 		 //alert(fmtdate);
 	}
 	
@@ -77,7 +77,7 @@ $(function(){
       maxDate: 100,
       //beforeShowDay: firstgo,
       onSelect : function(){   
-         setTimeout("getdate()",1000);
+        // setTimeout("getdate()",300);
          var date1 = $("#multipick").datepicker('getDate');
          var fullDate = fulldate(date1);                                         
          var cnt = 0;
