@@ -10,8 +10,8 @@ var first = 0;
 
 $(document).ready(function(){
 	
-	setTimeout("getdate()",500);
-	setInterval("getcount()",500);
+	setTimeout("getdate()",300);
+	setInterval("getcount()",300);
 	//alert();
 	
 	//var fmtarr = '';
@@ -685,6 +685,7 @@ function getcount(){
 			}		
 		);//ajax
 	});//.date	
+	//setTimeout("getdate()",300);
 }// getcount
 
 function insertcnt(day,check,time){			
@@ -715,15 +716,17 @@ function insertcnt(day,check,time){
 			$('#result2').text('중간 db 접속 실패');
 		}
 	});	
+	setTimeout("getdate()",500);
 }//중간디비 넣기
          
 function modcount(){
 	//alert('들어왔어');
 	$('.roomdateval').each(function(i,t) {
 		var t = '';
-		if($('#roomdateval'+i).val() == '0') {
-			return;
-		}
+		//alert(i+"번째 :"+$('#roomdateval'+i).val()+"/"+$('#date'+i).text());
+		//if($('#roomdateval'+i).val() == '0') {
+		//	return;
+		//}
 		
 		if( $('#date'+i).text().length > 20){
 			t =  $('#date'+i).text().substring(23,33);
@@ -772,8 +775,7 @@ function modcount(){
 
 function deletecount(){
 	//alert($('#datecnt').val());
-	for(var i=0; i<$('#datecnt').val(); i++){	
-		
+	for(var i=0; i<$('#datecnt').val(); i++){			
 		var room_2 = $('#reset_room2_cnt'+i).val();
 		var room_4 = $('#reset_room4_cnt'+i).val();
 		var room_8 = $('#reset_room8_cnt'+i).val();

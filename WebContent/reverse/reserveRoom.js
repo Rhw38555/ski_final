@@ -136,13 +136,13 @@ $(document).ready(function(){
             		var day = strMindate(arrdate[i]);
             		var strday = fulldate(day);
             		if(strmy_1 == strday){
-            			alert('같당1');
+            			//alert('같당1');
             			mydate.setDate (day.getDate());
             			rere = 1;
             		}else if(strmy_2 == strday){
             			
             			if(rere == 0){
-            				alert('같당2');
+            				//alert('같당2');
             				mydate.setDate (day.getDate());
             			}
             		}else{
