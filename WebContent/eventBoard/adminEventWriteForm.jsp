@@ -74,3 +74,5 @@
 	});
 	//-->
 </script>
+
+<%@include file="/include/mainfooter.jsp" %>

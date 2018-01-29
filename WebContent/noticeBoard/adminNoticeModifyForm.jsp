@@ -31,13 +31,13 @@
 						<textarea name="content" rows="10" cols="35">${noticeboardDto.content}</textarea>
 					</td>
 				</tr>					
-			</table>		
+			</table>	
+			<div style="width:70%; margin:auto; text-align: center; float:right;">
+				<input class="btn btn-primary" type="submit" value="${btn_mod}">
+				<input class="btn btn-primary" type="reset" value="취소">
+				<input class="btn btn-primary" type="button" value="${btn_mod_cancel}" onclick="location='adminNoticeList.do?pageNum=${pageNum}'">
+			</div>	
 		</form>
-		<div style="width:70%; margin:auto; text-align: center; float:right;">
-			<input class="btn btn-primary" type="submit" value="${btn_mod}">
-			<input class="btn btn-primary" type="reset" value="${btn_cancel}">
-			<input class="btn btn-primary" type="button" value="${btn_mod_cancel}" onclick="location='adminNoticeList.do?pageNum=${pageNum}'">
-		</div>
 		<%@include file="/include/mainfooter.jsp" %>
 	</body>
 

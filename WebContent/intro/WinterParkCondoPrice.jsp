@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="intrototal">
-				<h2> 리프트요금안내 </h2>
+				<h2> 콘도요금안내 </h2>
 				<br><br>
 				<div class="introbtbox">
 					<input class="btn btn-primary" type="button" value="${btn_Lift}" onclick="location='WinterParkLiftPrice.do'">

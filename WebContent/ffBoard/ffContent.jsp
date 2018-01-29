@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="setting.jsp"%>
-<%@include file="/include/mainheader2.jsp"%>
+<%@include file="/include/mainheader.jsp"%>
 <html>
 <head>
 	<script src="${project}jquery-3.2.1.js"></script>
@@ -113,4 +113,5 @@
        	</div>
    </div>
 </body>
+<%@include file="/include/mainfooter.jsp" %>
 </html>

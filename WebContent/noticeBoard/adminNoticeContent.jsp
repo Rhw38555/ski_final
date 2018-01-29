@@ -27,9 +27,9 @@
 </table>
 <br><br>
 <div style="width:80%; margin:auto; text-align: center; float:right;">
-	<input class="btn btn-primary" type="button" value="${btn_mod}" onclick="location='adminNoticeModifyForm.do?pageNum=${pageNum}&num=${num}'">
-	<input class="btn btn-primary" type="button" value="${btn_del}" onclick="location='adminNoticeDeletePro.do?pageNum=${pageNum}&num=${num}'">
-	<input class="btn btn-primary" type="button" value="${btn_list}" onclick="location='adminNoticeList.do?pageNum=${pageNum}'">			
+	<input class="btn btn-primary" type="button" value="수정" onclick="location='adminNoticeModifyForm.do?pageNum=${pageNum}&num=${num}'">
+	<input class="btn btn-primary" type="button" value="삭제" onclick="location='adminNoticeDeletePro.do?pageNum=${pageNum}&num=${num}'">
+	<input class="btn btn-primary" type="button" value="목록" onclick="location='adminNoticeList.do?pageNum=${pageNum}'">			
 </div>
 <%@include file="/include/mainfooter.jsp" %>
 

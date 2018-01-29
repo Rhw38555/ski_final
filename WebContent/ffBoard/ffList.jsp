@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 	
 <%@ include file="setting.jsp"%>
-<%@include file="/include/mainheader2.jsp"%>
+<%@include file="/include/mainheader.jsp"%>
 <link href="ffBoard/ffboot.css" rel="stylesheet" type="text/css">
 
 
@@ -75,3 +75,4 @@
 		<a href="ffList.do?pageNum=${pageCount}">[▶▶]</a>
 	</c:if>
 </c:if>
+<%@include file="/include/mainfooter.jsp" %>
