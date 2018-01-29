@@ -14,6 +14,8 @@ import ffBoard.FFBoardDBBean;
 import ffBoard.FFBoardDao;
 import member.LogonDBBean;
 import member.LogonDao;
+import memo.MemoDBBean;
+import memo.MemoDao;
 import noticeBoard.NoticeBoardDBBean;
 import noticeBoard.NoticeBoardDao;
 import qnaBoard.QnaBoardDBBean;
@@ -28,9 +30,10 @@ public class CreateBean {
 	public LogonDao logonDao() {
 		return new LogonDBBean();
 	}
-	
-	
-	
+	@Bean
+	public MemoDao memoDao() {
+		return new MemoDBBean();
+	}
 	@Bean
 	public QnaBoardDao qnaBoardDao() {
 		return new QnaBoardDBBean();
