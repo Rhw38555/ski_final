@@ -153,7 +153,7 @@
 	height : 400px;
 	/*overflow: auto;*/
 	text-align : left;
-	background-color : #B8B8B8;
+	background-color : #5586EB;
 	font-size : 15px;
 }
 
@@ -162,19 +162,20 @@
 #send_admin{
 	font-color : #4C4C4C;
 	padding-bottom : 5px;
-	border-bottom : 1.5px solid rgba(241, 95, 95, 0.7);
+	border : 1.5px solid rgba(0, 0, 0, 0);
 	width : 100px;
 	clear : right;
 	margin-bottom : 10px;
 	margin-left : 10px;
 	font-size : 13px;
 	font-weight : 500;
-	
+	background-color : #ffffff;
+	overflow:auto;
 }
 #send_mem{
 	font-color : #4C4C4C;
 	padding-bottom : 5px;
-	border-bottom : 1.5px solid rgba(61, 183, 204, 0.7);
+	border : 1.5px solid rgba(0, 0, 0, 0);
 	width : 100px;
 	text-align : right;
 	float : right;
@@ -182,6 +183,8 @@
 	margin-right : 10px;
 	font-size : 13px;
 	font-weight : 500;
+	background-color : #ffff80;
+	overflow:auto;
 }
 #chat_msg{
 	clear : right;	

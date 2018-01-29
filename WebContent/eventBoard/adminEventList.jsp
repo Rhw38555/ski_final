@@ -6,7 +6,6 @@
 
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 
-<c:set var="adminId" value="1" scope="session"/>
 <!-- 정보 리스트 -->	            	
 	<c:if test="${count == 0}">
 		<table class="table">
