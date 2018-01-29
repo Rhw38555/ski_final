@@ -215,7 +215,7 @@
 	            	<div id="btbox">
 	               		<input type="button" id="backbt2" value="이전으로">
 	               		&nbsp;	
-	               		<input type="button" id="bt3" value="다음" onclick="reversecheck()">
+	               		<input type="button" id="bt3" value="다음">
 	               		&nbsp;
 	            	</div> <!-- btbox -->
 	            </div> <!-- selectbox -->

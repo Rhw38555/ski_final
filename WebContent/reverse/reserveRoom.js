@@ -34,7 +34,7 @@ $(document).ready(function(){
 		alert('hi');
 	}
 	
-	setTimeout("getdate()",1000);
+	setTimeout("getdate()",300);
 	load();
 	function load(){
 		$('#box2').css('display','none');
@@ -269,7 +269,7 @@ $(document).ready(function(){
            		 }
            	   }
             }
-            setcount = setInterval("getcount()",1000);
+            setcount = setInterval("getcount()",300);
    	 	}                
    }); //bt1
     
@@ -311,12 +311,13 @@ $(document).ready(function(){
 	   }else if( isNaN(reverseform.tel.value)){
 		   alert('숫자를 입력하세요.');
 		   return false;
-	   }else if ($('#carnum').val() != '') {
+	   }/*else if ($('#carnum').val() != '') {
 		   if(isNaN(reverseform.carnum.value)) {
 			   alert('숫자를 입력하세요.');
 			   return false;
 		   }
-	   }else{
+	   }*/else{
+		   //alert('들어왔땅');
 		   $('#paybt').css('display','');
 		   $('#bt3').css('display','none');
 		   $('#backbt2').css('display','none');
@@ -380,8 +381,8 @@ $(document).ready(function(){
 	   	$('#tt3').remove();
 	   	$('#tt4').remove();
 	   	$('#bt2').css('display','');
-	   	$('#roompricebox').text('');
-	   	setcount = setInterval("setcount()",1000);
+	   //	$('#roompricebox').text('');
+	   	setcount = setInterval("setcount()",300);
 	}); //backbt2
 	
 	$('#resetbt').click(function(){
