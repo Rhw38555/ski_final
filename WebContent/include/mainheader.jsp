@@ -50,6 +50,7 @@
       <script src="./assets/js/modernizr.js"></script>
        <script src="${project}member/script.js"></script> 
 		<script src="${project}member/jquery-3.2.1.js"></script>
+		 <script src="${project}member/html2canvas.js"></script>
    </head>
    
    <sql:query var="rs" dataSource="jdbc/kh">
@@ -78,8 +79,7 @@
                </c:if>
             <c:if test="${sessionScope.memId != null}">                      
                  <div class="member-button">                 
-                 	<div id="barcodeTarget" class="barcodeTarget" onclick=""></div>
-                 	<div id="layerbarcode"></div>
+                 	<div id="barcodeTarget" class="barcodeTarget" onclick="clickdiv('${user_barcode}')"></div>
                  	${sessionScope.memId} ${msg_loginmain}
                  <input type="button" value="${btn_logout}" class="btn btn-default" onclick="location='memberLogout.do'"> 
                  <input type="button" value="${btn_mypage}" class="btn btn-default" onclick="location='memberModifyForm.do'">
@@ -129,7 +129,7 @@
 		function(){
 			if($('input[name=hiddenBarcode]').val()){			
 				generateBarcode($('input[name=hiddenBarcode]').val());
-				$('#layerbarcode').hide();
+				
 			}
 	     }
 	);
@@ -139,15 +139,11 @@
 	   alert("로그인 후 이용해주세요");
 	   location.href="memberLoginForm.do";
    }
-   function addclone(){
-	   var top = ( $(window).scrollTop() + ($(window).height() - $('#layerbarcode').height()) / 2 )
-       var left = ( $(window).scrollLeft() + ($(window).width() - $('#layerbarcode').width()) / 2 )
-       $("#layerbarcode").css('top', top);
-       $("#layerbarcode").css('left', left);
-	   $('#layerbarcode').append($('#barcodeTarget').clone());
-	   $('#layerbarcode').show();
-   }
-
+   
+   function clickdiv(user_barcode){
+	   window.open("barcodePopup.do?user_barcode="+user_barcode,'pop','width=600, height=600, menubar=no, status=no, toolbar=no');
+   }	
+  	
    </script>
 </html>
    
