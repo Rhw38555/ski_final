@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import handler.CommandHandler;
+import memo.MemoDao;
+import memo.MemoDataBean;
 import reverse.ReverseDao;
 import reverse.RoomReverseDataBean;
 import reverse.SkiReverseDataBean;
@@ -25,6 +27,9 @@ public class AdminCalandarHandler implements CommandHandler {
 	
 	@Resource
 	ReverseDao reserveDao;
+	
+	@Resource
+	MemoDao memoDao;
 	
 	@RequestMapping( "/adminCalandar" )
 	@Override
@@ -101,6 +106,14 @@ public class AdminCalandarHandler implements CommandHandler {
 		
 		System.out.println( skiDto.size() );
 		
+		// Memo
+		List<MemoDataBean> memoDto = new ArrayList<MemoDataBean>();
+		memoDto = memoDao.getMemo( map );
+		
+		request.setAttribute( "memoDto", memoDto );
+		
+		System.out.println( "memoSize : " + memoDto.size() );
+		
 		// chart 용 room / ski 정보 저장
 		int chartroom2 = 0;
 		int chartroom4 = 0;
@@ -145,6 +158,11 @@ public class AdminCalandarHandler implements CommandHandler {
 		
 		request.setAttribute( "roomDto", roomDto );
 		request.setAttribute( "skiDto", skiDto );
+		
+		request.setAttribute( "startDate", startDate );
+		request.setAttribute( "endDate", endDate );
+		
+		System.out.println( startDate + " / " + endDate );
 		
 		System.out.println( "startDay 체크 : " + startDay );
 		

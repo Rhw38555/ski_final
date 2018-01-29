@@ -57,30 +57,72 @@
              chart.draw(data, options);
      	  
        }
+       
+       /* 팝업 */
+       
+       function memoPopup( day_check, startDate, endDate ) {
+    	   window.name = day_check + " 일 메모 페이지";
+    	   var url = "memoView.do?startDate=" + startDate + "&endDate=" + endDate + "&day_check=" + day_check;
+    	   window.open( url, 'form', 'width=350, height=200, toolbar=no, scrollbars=no, resizable=no');
+       }
 
        /* 레이어 팝업 */
        /* 
-       $('document').ready(
-    	function() {
-    		$('.layerPopup').click(function(){
-    	           var $href = $('.layerPopup').attr('href');
-    	           layer_popup($href);
-    	           alert( $href );
-    	    });
-    	});
-        */
-        
-       /*  
-       $(document).on(
-               'onclick','.layerPopup',
-               function(event) {
-            	   alert( 'abcd11' );
-
-               }
-                        
-               );
-        */
-        
+       function move_box(an, box) {
+		//링크된 위치에서 부터의 설정값 지정
+		  var cleft = 20;  //왼쪽마진  
+		  var ctop = -10;  //상단마진
+		  var obj = an;
+		  while (obj.offsetParent) {
+		    cleft += obj.offsetLeft;
+		    ctop += obj.offsetTop;
+		    obj = obj.offsetParent;
+		  }
+		  box.style.left = cleft + 'px';
+		  ctop += an.offsetHeight + 8;
+		  if (document.body.currentStyle &&
+		    document.body.currentStyle['marginTop']) {
+		    ctop += parseInt(
+		      document.body.currentStyle['marginTop']);
+		  }
+		  box.style.top = ctop + 'px';
+		}
+		
+		function show_hide_box(an, width, height, borderStyle) {
+		  var href = an.href;
+		  var boxdiv = document.getElementById(href);
+		
+		  if (boxdiv != null) {
+		    if (boxdiv.style.display=='none') {
+		      move_box(an, boxdiv);
+		      boxdiv.style.display='block';
+		    } else
+		      boxdiv.style.display='none';
+		    return false;
+		  }
+		
+		  boxdiv = document.createElement('div');
+		  boxdiv.setAttribute('id', href);
+		  boxdiv.style.display = 'block';
+		  boxdiv.style.position = 'absolute';
+		  boxdiv.style.width = width + 'px';
+		  boxdiv.style.height = height + 'px';
+		  boxdiv.style.border = borderStyle;
+		  boxdiv.style.backgroundColor = '#fff';
+		
+		  var contents = document.createElement('iframe');
+		  contents.scrolling = 'no';
+		  contents.frameBorder = '0';
+		  contents.style.width = width + 'px';
+		  contents.style.height = height + 'px';
+		  contents.src = href;
+		
+		  boxdiv.appendChild(contents);
+		  document.body.appendChild(boxdiv);
+		  move_box(an, boxdiv);
+		
+		  return false;
+		} */
        </script>
        <style TYPE="text/css">
              body {
@@ -291,11 +333,27 @@
 								</c:if>
 							</c:if>
 						</c:forEach>
+						<c:set var="memoCheck" value="0"/>
+						<c:set var="dateCheck" value="${i}"/>
 						
 						<td valign="top" align="left" height="90px"
 						bgcolor="${backColor}" nowrap>
 							<font color="${color}">
+								<c:if test="${fn:length(i) == 1 }">
+									<c:set var="dateCheck" value="${0}${i}"/>
+								</c:if>
+								<c:forEach var="mDto" items="${memoDto}">
+									<c:if test="${mDto.day_check == dateCheck}">
+										<c:set var="memoCheck" value="${mDto.day_check}"/>
+									</c:if>
+								</c:forEach>
+								<a class="memo" onclick="memoPopup('${dateCheck}','${startDate}','${endDate}')">
 								<b>${t}</b>
+								<c:if test="${dateCheck == memoCheck}">									
+									<img src="main/memoicon.png" width="20px" height="20px"
+									align="right">
+								</c:if>
+								</a>
 								<br>
 							</font>
 							
