@@ -6,14 +6,39 @@ member
    margin-bottom : 100px;
 }         
 .checkform{
-   margin-left : 35%;
+   margin-left : 38%;
+   min-height : 500px;
+}
+
+.checkform2{
+   margin-left : 10%;
    min-height : 800px;
 }
+
+.checkform2 form{
+   margin-left : 40%;
+   
+}
+
+.checkform2 form input[type='text']{
+   border-radius : 5px;
+   margin : 5px;
+   width : 170px;
+   text-align : center;
+}
+.checkform2 form #tx1{
+   
+}
+.checkform2 form #tx2{
+   /*width : 250px;*/
+   
+}
+
 .tablebox{
    margin-bottom: 30px;
 }
 table.recheck {
-   margin-left : 10px;
+    margin-left : 10px;
     border-collapse: separate;
     border-spacing: 1px;
     text-align: left;
@@ -53,6 +78,11 @@ table.recheck td {
 .checkbtbox{
    margin-left : 37%;
 }
+
+.check_a{
+   margin-left : 50%;   
+}
+
 .checkbtbox a{
    /*border : 1px solid blue;*/
    /*float : right;*/
@@ -63,7 +93,7 @@ table.recheck td {
     border: 2px solid #BDBDBD;
     cursor: pointer;
     background-color: transparent;
-    color: #FFFFFF;
+    color: gray;
     /*border-width: 1px;*/
     border-top-right-radius: 20px !important;
     border-top-left-radius: 20px !important;
@@ -71,6 +101,7 @@ table.recheck td {
     padding: 11px 23px;
     text-decoration : none;
 }            
+
 .checkbtbox a:hover{
    /*text-decoration : underline; */
    color : gray;
@@ -81,17 +112,16 @@ table.recheck td {
 }
 
 #notable{
-	/*padding-top : 30%;*/
-	width : 630px;
-	height : 400px;
-	margin-top : 13px;
-	text-align : center;
- 	border-top : 4px solid lightgray; 
-	border-bottom : 4px solid lightgray;
-	padding-top : 13%;
-	/*border-radius : 20px;*/
-	font-size : 25px;
-	font-weigth : 900;
-	
+   /*padding-top : 30%;*/
+   width : 630px;
+   height : 400px;
+   margin-top : 13px;
+   text-align : center;
+    border-top : 4px solid lightgray; 
+   border-bottom : 4px solid lightgray;
+   padding-top : 13%;
+   /*border-radius : 20px;*/
+   font-size : 25px;
+   font-weigth : 900;
+   
 }
-
