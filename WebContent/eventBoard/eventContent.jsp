@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="setting.jsp"%>
-<%@include file="/include/mainheader2.jsp"%>
+<%@include file="/include/mainheader.jsp"%>
 
 <style>
 .img {
@@ -40,3 +40,5 @@
     	</div>
   	</div>
 </div>
+
+<%@include file="/include/mainfooter.jsp" %>

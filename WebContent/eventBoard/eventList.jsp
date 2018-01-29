@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 	
 <%@ include file="setting.jsp"%>
-<%@include file="/include/mainheader2.jsp"%>
+<%@include file="/include/mainheader.jsp"%>
 <link href="${project}${location}style.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
@@ -67,3 +67,5 @@
 	</c:if>
 </c:if>
 </div>
+
+<%@include file="/include/mainfooter.jsp" %>

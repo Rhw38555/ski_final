@@ -26,7 +26,7 @@
 					<param name="allowFullScreen" value="true" /> 
 					<embed id="cos" style="width: 600px; height: 380px;" 
 					title="동영상 프레임" type="application/x-shockwave-flash" 
-					src="/SKI_Final/intro/show.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
+					src="/SKI_Final/intro/show1.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
 					allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false" allowFullScreen="true">
 					</embed>
 					</object>

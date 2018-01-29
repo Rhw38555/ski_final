@@ -75,3 +75,4 @@
 		<a href="adminEventList.do?pageNum=${pageCount}">[▶▶]</a>
 	</c:if>
 </c:if>
+<%@include file="/include/mainfooter.jsp" %>

@@ -18,10 +18,11 @@
 			</tr>
 			<tr>
 				<th colspan="2">
-					<input class="inputbutton" type="submit" value="${btn_del}">
-					<input class="inputbutton" type="button" value="${btn_del_cancel}"
+					<input class="inputbutton" type="submit" value="삭제">
+					<input class="inputbutton" type="button" value="취소"
 						onclick="location='adminEventList.do?num=${num}&pageNum=${pageNum}&division=${division}'">
 				</th>
 			</tr>
 		</table>	
 	</form>
+<%@include file="/include/mainfooter.jsp" %>

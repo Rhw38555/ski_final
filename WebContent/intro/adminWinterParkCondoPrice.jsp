@@ -6,7 +6,7 @@
 <%@include file="/include/adminmainheader.jsp" %>
 <%@include file="/include/adminWinterParkaside.jsp" %>
 <body>
-	<h2> 리프트요금안내 </h2>
+	<h2> 콘도요금안내 </h2>
 	<br><br>
 	<div style="width:80%; margin:auto; text-align: center; float:right;">
 		<input class="btn btn-primary" type="button" value="${btn_Lift}" onclick="location='adminWinterParkLiftPrice.do'">

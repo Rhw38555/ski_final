@@ -5,18 +5,15 @@
 <!-- 오른쪽 정렬-->
 <!DOCTYPE html>
 <html>
-
    <head>
       <meta charset="UTF-8">
    </head>
-
 	<body>
 	<div class="info-center">
 	</div>
 	    <div class="copyright-agile">
 			<p>&copy; 2017 inom ski. All rights reserved | Design by winter_park</p>
-		</div>
-      
+		</div>   
       <!-- js -->
       <script type="text/javascript" src="${project}assets/js/jquery-2.1.4.min.js"></script>
       <script src="${project}member/jquery-barcode.js"></script>
@@ -40,8 +37,6 @@
                 });
              });
           </script>    
-
-
             <script src="./assets/js/SmoothScroll.min.js"></script>
             <!-- smooth scrolling-bottom-to-top -->
                   <script type="text/javascript">
@@ -71,9 +66,5 @@
       <script type="text/javascript" src="./assets/js/move-top.js"></script>
       <script type="text/javascript" src="./assets/js/easing.js"></script>
       <script type="text/javascript" src="./assets/js/bootstrap-3.1.1.min.js"></script>
-       
-      
    </body>
-
 </html>
-   

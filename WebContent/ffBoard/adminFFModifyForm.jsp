@@ -68,10 +68,9 @@
 			</tr>
 			<tr>
 				<th colspan="2">	
-					<input class="inputbutton" type="button" value="취소취소" onclick="location='adminFFList.do'">
-					<input class="inputbutton" type="submit" value="${btn_write}">
+					<input class="inputbutton" type="button" value="취소" onclick="location='adminFFList.do'">
+					<input class="inputbutton" type="submit" value="수정">
 					<input class="inputbutton" type="reset" value="리셋">
-					
 				</th>
 			</tr>
 		</table>
@@ -135,3 +134,4 @@
 	}
 	//-->
 </script>
+<%@include file="/include/mainfooter.jsp" %>

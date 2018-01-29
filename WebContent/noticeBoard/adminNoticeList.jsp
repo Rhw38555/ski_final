@@ -43,7 +43,7 @@
 		<c:forEach var="article" items="${articles}">
 			<tr>	
 				<td>
-					<input class="btn btn-primary" type="button" value="${btn_del}" onclick="location='adminNoticeDeletePro.do?pageNum=${pageNum}&num=${article.num}'">
+					<input class="btn btn-primary" type="button" value="삭제" onclick="location='adminNoticeDeletePro.do?pageNum=${pageNum}&num=${article.num}'">
 				</td>
 				<td align="center">
 					${number}

@@ -146,3 +146,4 @@
 	<br><br>
 	<img src="/SKI_Final/images/리프트정보.PNG" width="70%" height="70%"/>
 </body>
+<%@include file="/include/mainfooter.jsp" %>
