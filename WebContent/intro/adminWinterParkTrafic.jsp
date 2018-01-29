@@ -5,8 +5,6 @@
  
 <%@include file="/include/adminmainheader.jsp" %>
 <%@include file="/include/adminWinterParkaside.jsp" %>
-	<h2>교통정보</h2>
-	<br><br>
 <%@ include file="setting.jsp" %>
 <script src="/SKI_Final/intro/jquery-3.2.1.js"></script>
 <script type="text/javascript">
@@ -53,33 +51,48 @@
 	}
 	//-->
 </script>
-<table style="margin:auto; text-align: center" border="1">
-	<tr>
-		<th> 출발지 </th>
-		<td class="bg">
-			<select name="start" id="start" title="출발지">
-				<option value="0">서울 강남</option>
-				<option value="11">동서울 TG</option>
-				<option value="1">동수원 I.C</option>
-				<option value="2">신갈 JCT</option>
-				<option value="3">호법 JCT</option>
-				<option value="4">분당 구미동</option>
-				<option value="5">충청권</option>
-				<option value="6">경상권</option>
-				<option value="7">전라권</option>
-			</select>
-		</td>
-		<th> 도착지 </th>
-		<td>
-			<select name="end" id="end" title="도착지">
-				<option value="">선택해주세요</option>
-				<option value="8">지산포레스트 리조트 입구</option>
-				<option value="9">지산포레스트 리조트 메이플콘도</option>
-				<option value="10">지산포레스트 리조트 J센터</option>
-			</select>
-			
-			<button id="searchBtn">검색</button>
-		</td>
-	</tr>
-</table>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="intrototal">
+				<h2>교통정보</h2>
+				<br><br>
+				<table class="trafic">
+					<tr>
+						<th> 출발지 </th>
+						<td class="bg">
+							<select name="start" id="start" title="출발지">
+								<option value="0">서울 강남</option>
+								<option value="11">동서울 TG</option>
+								<option value="1">동수원 I.C</option>
+								<option value="2">신갈 JCT</option>
+								<option value="3">호법 JCT</option>
+								<option value="4">분당 구미동</option>
+								<option value="5">충청권</option>
+								<option value="6">경상권</option>
+								<option value="7">전라권</option>
+							</select>
+						</td>
+						<th> 도착지 </th>
+						<td>
+							<select name="end" id="end" title="도착지">
+								<option value="">선택해주세요</option>
+								<option value="8">WinterPark 리조트 입구</option>
+								<option value="9">WinterPark 리조트 메이플콘도</option>
+								<option value="10">WinterPark 리조트 J센터</option>
+							</select>
+							
+							<button id="searchBtn" class="btn btn-primary">검색</button>
+						</td>
+					</tr>
+				</table>
+			<br><br><br><br>
+			<div class="introimg">
+				<img src="/SKI_Final/intro/img/오시는길.PNG" width="1000px" height="700px">
+			</div>
+			</div>
+		</div>
+	</div>
+</body>
+	
 <%@include file="/include/mainfooter.jsp" %>

@@ -22,7 +22,7 @@
 	  <script src="./assets/js/jquery.scrollTo.min.js"></script>
 	  <script src="./assets/js/script.js"></script>
 	  <script type="text/javascript">
-	  	gocheck(){
+	  	function gocheck(){
 	  		opener.document.location.href='memberReservationConfirm.do';
 	  		self.close();
 	  	}

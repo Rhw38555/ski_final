@@ -234,7 +234,7 @@ input[type="button"]{
 
 #roompricebox{
 	/*border : solid 1px black;*/
-	width : 50%;
+	width : 200px;
 	/*height : 50px;*/
 	font-size : 20px;
 	/*float : left;*/
@@ -253,7 +253,7 @@ input[type="button"]{
 }
 #skipricebox {
 	/*border : solid 1px black;*/
-	width : 50%;
+	width : 200px;
 	/*height : 50px;*/
 	font-size : 20px;
 	/*float : left;*/

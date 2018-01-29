@@ -59,8 +59,14 @@ form {
 </style>
 </head>
 	<body onload="getUsers()">
+	
 	<script src="/SKI_Final/member/jquery-3.2.1.js"></script>
 	<script src="${project}member/script.js"></script>
+	<%@include file="/include/adminmainheader.jsp" %>
+	
+	<input type="button" value="회원관리" onclick="location.href='adminMemberModifyForm.do'">
+	<input type="button" value="예약내역" onclick="location.href='adminCalandar.do'">
+	<br><br>
 	<table border="1">
 	<tr>
 		<th>아이디</th>

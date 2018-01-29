@@ -20,6 +20,14 @@
 		}
 	);
 	
+	
+	$(document).on(
+		'click','#barcodeTarget',
+		function(event){
+			self.close();			
+		}
+	);
+	
 	 function generateBarcode(user_barcode) {
 		    
 		    var value = user_barcode;
