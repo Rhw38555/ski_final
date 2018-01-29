@@ -5,37 +5,42 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<style type="text/css">
-			body{
-				text-align: center;
-			}
-			aside {
-				width : 150px;
-				height : 100%;				
-				float : left;
-				margin : 0px;
-			}
-			.button {
-				width : 150px;
-			}
-			Pre {
-				font-size : 20px;
-				float : left;
-			}
-		</style>		
+		<meta charset="UTF-8">	
+		<link href="./include/a_include.css" rel="stylesheet">	
 	</head>
 
 	<body>
 	<script src="${project}${folder}script.js"></script>    
-		<aside>
-		<br><br>
-			<pre>스키장</pre>
-			<input class="button" type="button" value="스키장 안내 및 제원" onclick="location='adminintroSki.do'"><br>
-			<input class="button" type="button" value="실시간웹캠" onclick="location='adminintroWebcam.do'"><br>
-			<pre>콘도</pre>
-			<input class="button" type="button" value="콘도소개" onclick="location='adminintroCondo.do'"><br>
-			<input class="button" type="button" value="객실 미리보기" onclick="location='adminintroCondoView2.do'"><br>
-		</aside>
+		
+		<div class="asidebox">
+	         <ul>
+	         	 <li>
+	         	 	<div id="te">스키장</div>
+	         	 </li>
+	             <li>
+	                 <a href="adminintroSki.do" class="aside_a">
+	                     <span class="fa fa-angle-double-right text-primary"></span>스키장 안내 및 제원
+	                 </a>
+	             </li>
+	             <li>
+	                 <a href="adminintroWebcam.do" class="aside_a">
+	                     <span class="fa fa-angle-double-right text-primary"></span>실시간웹캠
+	                 </a>
+	             </li>
+	             <li>
+	         	 	<div id="te">콘도</div>
+	         	 </li>
+	             <li>
+	                 <a href="adminintroCondo.do" class="aside_a">
+	                     <span class="fa fa-angle-double-right text-primary"></span>콘도소개
+	                 </a>
+	             </li>
+	             <li>
+	                 <a href="adminintroCondoView2.do" class="aside_a">
+	                     <span class="fa fa-angle-double-right text-primary"></span>객실 미리보기
+	                 </a>
+	             </li>
+	         </ul>
+	    </div>
 	</body>
 </html>

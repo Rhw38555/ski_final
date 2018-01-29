@@ -153,6 +153,10 @@
        </style>
 </HEAD>
 <body>
+	<%@include file="/include/adminmainheader.jsp" %>
+	<input type="button" value="회원관리" onclick="location.href='adminMemberModifyForm.do'">
+	<input type="button" value="예약내역" onclick="location.href='adminCalandar.do'">
+	<br><br>
 	<form name="calendarForm" id="calendarForm" action="" method="post">
 		<div id="content" style="width:100%;">
 			<table width="100%"	border="0" cellspacing="1" cellpadding="1">
