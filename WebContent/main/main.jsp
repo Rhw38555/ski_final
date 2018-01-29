@@ -4,9 +4,9 @@
 
 <!DOCTYPE html>
 <html>
-    <script src="${project}member/jquery-3.2.1.js"></script>
-    <script src="${project}member/jquery-barcode.js"></script>
-   <head>
+	    <script src="${project}member/jquery-3.2.1.js"></script>
+	    <script src="${project}member/jquery-barcode.js"></script>
+	   <head>
       <meta charset="UTF-8">
       <link href="./main/a_main.css" rel="stylesheet">
       <script type="text/javascript">
@@ -35,7 +35,7 @@
 			}
 	 );  
      
-      var ws = null;
+     var ws = null;
       function openserver(){
          var result = document.getElementById("result");
          if(!window.WebSocket){
@@ -76,7 +76,7 @@
                                 //if(sender == 'admin') chatId = 'send_admin';
                                 //else chatId = 'send_mem';
                                 $("#msg").html($("#msg").html() 
-                                     +"<div id='chat_msg'><div id='send_admin'>" +sender + content.replace("/" + $("#hiddenid").val(), " : ")  + "</div></div>");
+                                     +"<div id='chat_msg'><div id='send_admin'><pre>" +sender + content.replace("/" + $("#hiddenid").val(), " : ")  + "<pre></div></div>");
                                  var sendmsg = sender+"/"+ content.replace("/" + $("#hiddenid").val(), "");
                                  notifyMe(sendmsg);
                                  //sender == 'admin'
@@ -102,7 +102,7 @@
          $("#msg").scrollTop($("#msg")[0].scrollHeight); // 스크롤바 아래로 갱신!   
          
          var msg = id + ":/admin" + inputform.message.value;
-         $("#msg").html($("#msg").html()+"<div id='chat_msg'><div id='send_mem'>"+ id +" : "+ inputform.message.value  + "</div></div>");
+         $("#msg").html($("#msg").html()+"<div id='chat_msg'><div id='send_mem'><pre>"+ id +" : "+ inputform.message.value  + "</pre></div></div>");
          ws.send(msg);
          inputform.message.value="";
          inputform.message.focus();
@@ -147,7 +147,7 @@
 
     <%@include file="/include/mainheader.jsp" %>
 
-    <br><br><br><br><br>
+    <br><br><br><br><br><br><br>
        <div id="totalbox">
                   
        <!--Slider-->
@@ -224,9 +224,15 @@
                <form name="inputform">
                   <table id="chatTable">                    
                      <tr>
+                     	<th colspan="2" style="text-align: center;">
+                     		궁금한 사항이 있으면 물어보세요.
+                     	</th>
+                     </tr>
+                     <tr>
                         <th colspan="2">                  
-                           <div id="msg">	                           
+                           <div id="msg" style="overflow:auto;">	                           
 	                           	<div id="starter"></div>       
+	                           	
                            </div>            
                      	</th>
                      </tr>

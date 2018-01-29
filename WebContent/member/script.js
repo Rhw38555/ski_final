@@ -544,7 +544,6 @@ function memberReserveCheck(memId){
    }      
 );//ajax
 }
-
 var roomlength = 0;
 var roomnum = 0;
 var roomfirstcheck = 0;

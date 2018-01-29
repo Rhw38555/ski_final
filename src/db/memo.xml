@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Memo">
+	<select id="getMemo" parameterType="HashMap" resultType="memo.MemoDataBean">
+		select * from WP_memo
+		where memo_date BETWEEN to_date(#{startDate}, 'MMDDYYYY') AND to_date(#{endDate}, 'MMDDYYYY')+1
+	</select>
+	<select id="getMemoOne" parameterType="HashMap" resultType="memo.MemoDataBean">
+		select * from WP_memo
+		where memo_date BETWEEN to_date(#{startDate}, 'MMDDYYYY') AND to_date(#{endDate}, 'MMDDYYYY')+1
+		and day_check = #{day_check}
+	</select>
+	<insert id="insertMemo" parameterType="HashMap">
+		insert into WP_memo values( sysdate, #{memo}, #{day_check} )
+	</insert>
+	<update id="updateMemo" parameterType="HashMap">
+		update WP_memo set memo = #{memo}
+		where memo_date BETWEEN to_date(#{startDate}, 'MMDDYYYY') AND to_date(#{endDate}, 'MMDDYYYY')+1
+		and day_check = #{day_check}
+	</update>
+	<delete id="deleteMemo" parameterType="HashMap">
+		delete from WP_memo
+		where memo_date BETWEEN to_date(#{startDate}, 'MMDDYYYY') AND to_date(#{endDate}, 'MMDDYYYY')+1
+		and day_check = #{day_check}
+	</delete>
+</mapper>

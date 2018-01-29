@@ -19,37 +19,30 @@
 				<div class="introtablebox">
 					<table>
 						<tr>
-							<th rowspan="2" class="th"> 구분 </th>
-							<th rowspan="2" colspan="2"  class="th"> 시간 </th>
-							<th colspan="2"  class="th"> 이용요금 </th>
-							<th rowspan="2"  class="th"> 비고 </th>
-						</tr>
-						<tr>
-							<th class="th"> 대인 </th> 
-							<th class="th"> 소인 </th>
+							<th class="th"> 구분 </th>
+							<th colspan="2" class="th"> 시간 </th>
+							<th class="th"> 이용요금 </th>
+							<th class="th"> 비고 </th>
 						</tr>
 						<tr>
 							<th> 오전권 </th>
 							<td> 09:00 ~ 17:00 </td>
 							<td> 8h </td>
-							<td> 대인가격 </td>
-							<td> 소인가격 </td>
+							<td> 20,000원 </td>
 							<td></td>
 						</tr>
 						<tr>
 							<th> 야간권 </th>
 							<td> 18:30 ~ 23:00 </td>
 							<td> 4.5h </td>
-							<td> 대인가격 </td>
-							<td> 소인가격 </td>
+							<td> 30,000원 </td>
 							<td></td>
 						</tr>
 						<tr>
 							<th> 종일권 </th>
 							<td> 09:00 ~ 23:00 </td>
 							<td> 14h </td>
-							<td> 대인가격 </td>
-							<td> 소인가격 </td>
+							<td> 40,000원 </td>
 							<td></td>
 						</tr>
 					</table>

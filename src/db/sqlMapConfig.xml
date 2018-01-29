@@ -30,5 +30,6 @@
   		<mapper resource="db/eventBoard.xml"/>
   		<mapper resource="db/reverse.xml"/>
   		<mapper resource="db/barcode.xml"/>
+  		<mapper resource="db/memo.xml"/>
   	</mappers>
   </configuration>

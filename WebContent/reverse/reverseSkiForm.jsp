@@ -49,7 +49,7 @@
 		</script>
 	</head>	
 	<body onload="InitializeStaticMenu()" class="rebody">
-		<form method="post" action="reverseSkiPro.do">
+		<form name="reverseform" method="post" action="reverseSkiPro.do">
 			<input type="hidden" id="ski_date" name="ski_date">
 			<input type="hidden" id="ski_count" name="ski_count">
 			<input type="hidden" id="ski_price" name="ski_price">

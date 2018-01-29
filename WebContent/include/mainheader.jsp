@@ -19,6 +19,7 @@
 	      
 	      .member-button{
 	      	padding-top : 10px;
+	      
 	      	/*padding-right : 10px;*/
 	      }
 	      
@@ -47,7 +48,9 @@
       <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
       
       <script src="./assets/js/modernizr.js"></script>
-       
+       <script src="${project}member/script.js"></script> 
+		<script src="${project}member/jquery-3.2.1.js"></script>
+		 <script src="${project}member/html2canvas.js"></script>
    </head>
    
    <sql:query var="rs" dataSource="jdbc/kh">
@@ -76,7 +79,7 @@
                </c:if>
             <c:if test="${sessionScope.memId != null}">                      
                  <div class="member-button">                 
-                 	<div id="barcodeTarget" class="barcodeTarget"></div>
+                 	<div id="barcodeTarget" class="barcodeTarget" onclick="clickdiv('${user_barcode}')"></div>
                  	${sessionScope.memId} ${msg_loginmain}
                  <input type="button" value="${btn_logout}" class="btn btn-default" onclick="location='memberLogout.do'"> 
                  <input type="button" value="${btn_mypage}" class="btn btn-default" onclick="location='memberModifyForm.do'">
@@ -117,6 +120,7 @@
                </div>
                </div>
          </div>
+         </div>
          <!--//Top-Bar-->
       </header>     
    </body>
@@ -125,6 +129,7 @@
 		function(){
 			if($('input[name=hiddenBarcode]').val()){			
 				generateBarcode($('input[name=hiddenBarcode]').val());
+				
 			}
 	     }
 	);
@@ -134,6 +139,11 @@
 	   alert("로그인 후 이용해주세요");
 	   location.href="memberLoginForm.do";
    }
+   
+   function clickdiv(user_barcode){
+	   window.open("barcodePopup.do?user_barcode="+user_barcode,'pop','width=600, height=600, menubar=no, status=no, toolbar=no');
+   }	
+  	
    </script>
 </html>
    

@@ -74,7 +74,7 @@
       </div>      
    </div>
       
-      <form method="post" action="reverseChangeRoomPro.do" onsubmit="return finalcheck()">
+      <form name="reverseform" method="post" action="reverseChangeRoomPro.do" onsubmit="return finalcheck()">
          <c:set var="roomcheck" value="${fn:split( re.get(0).room_check, '/')}" />
          <c:set var="cnt" value="0"/>
          <c:forEach var="rs" items="${re}">

@@ -9,7 +9,7 @@
 		<link href="./include/a_include.css" rel="stylesheet">
 	</head>
 
-	<body onload="viewfocus()">
+	<body>
 		<script src="${project}member/script.js"></script>    
 		<br><br><br><br>
 	    <div class="asidebox">
