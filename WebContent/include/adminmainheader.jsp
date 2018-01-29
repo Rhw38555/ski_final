@@ -67,15 +67,14 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<h1><a class="navbar-brand" href="main.do">WinterPark<sup><i class="fa fa-snowflake-o" aria-hidden="true"></i><sup></a></h1>
+								<h1><a class="navbar-brand" href="adminMain.do">WinterPark<sup><i class="fa fa-snowflake-o" aria-hidden="true"></i><sup></a></h1>
 							</div>
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 								<nav class="cl-effect-15" id="cl-effect-15">
 								<ul>
 									<li><a href="adminWinterParkLiftPrice.do" data-hover="${btn_winterPark}">${btn_winterPark}</a></li>
-									<li><a href="adminReverseRoomForm.do" data-hover="${btn_reservation}">${btn_reservation}</a></li>
-									<li><a href="adminIntroSki.do" data-hover="${btn_skioom}">${btn_skioom}</a></li>
+									<li><a href="adminintroSki.do" data-hover="${btn_skioom}">${btn_skioom}</a></li>
 									<li><a href="adminFFList.do" data-hover="${btn_eat}">${btn_eat}</a></li>
 									<li><a href="adminEventList.do" data-hover="${btn_event}">${btn_event}</a></li>
 									<li><a href="adminQnaList.do" data-hover="${btn_qa}">${btn_qa}</a></li>
