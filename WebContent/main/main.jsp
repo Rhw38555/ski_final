@@ -35,7 +35,7 @@
 			}
 	 );  
      
-      var ws = null;
+     var ws = null;
       function openserver(){
          var result = document.getElementById("result");
          if(!window.WebSocket){
