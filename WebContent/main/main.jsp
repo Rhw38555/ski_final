@@ -222,29 +222,29 @@
             -->
             <div class="chatbox">
                <form name="inputform">
-                  <table id="chatTable">
+                  <table id="chatTable">                    
                      <tr>
-                        <th id="msgth">&nbsp;&nbsp;&nbsp;메세지</th>   
-                        <td>
-                           <input type="text" id="msgtx" name="message" autofocus placeholder="대화를 입력하세요">
+                        <th colspan="2">                  
+                           <div id="msg">	                           
+	                           	<div id="starter"></div>       
+                           </div>            
+                     	</th>
+                     </tr>
+                     <tr>  
+                        <td>                      	
+                           <textarea id="msgtx" cols="32" rows="5" name="message" autofocus placeholder="대화를 입력하세요">
+						</textarea>
                            <input type="hidden" id="hiddenid">
                         </td>
                         <th>
                            <input type="button" id="msgbt" class="btn btn-default" value="전송">
                         </th>
                      </tr>
-                     <tr>
-                        <th colspan="3">                     
-                           <div id="msg">
-                           <div id="starter"></div>
-                        </div>                        
-                     </th>
-                     </tr>
                   </table>
                </form>  
             </div>  <!-- chatbox -->
-         </div> 
-      </div>
+         </div> <!-- weather_chat -->
+      </div> <!-- middlebox -->
    </div>   <!-- totalbox -->   
    <%@include file="/include/mainfooter.jsp" %>
    </body>
