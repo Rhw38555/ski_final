@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 	
 <%@ include file="setting.jsp"%>
-<%@include file="/include/mainheader2.jsp"%>
+<%@include file="/include/mainheader.jsp"%>
 
 <style>
 	.al-ct{
