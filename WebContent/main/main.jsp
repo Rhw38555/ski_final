@@ -174,13 +174,16 @@
        <div id="middlebox">      
          <div class="middlebox">
             <div>
-               <input type="button" value="먹거리" onclick="location=''">
-               <input type="button" value="부대시설" onclick="location=''">
-               <input type="button" value="이벤트" onclick="location=''">
+          		<c:if test="${sessionScope.memId == null}">  
+	            	<input type="button" value="통합예약" style="width:900px"onclick="location='javascript:alertLogin()'">
+	           </c:if> 
+	           <c:if test="${sessionScope.memId != null}">  
+	            	<input type="button" value="통합예약" style="width:900px"onclick="window.open('reverseRoomForm.do')">
+	           </c:if> 
                <br><br>
-               <input type="button" value="할인정보" onclick="location=''">
-               <input type="button" value="공지사항" onclick="location=''">
-               <input type="button" value="통합예약" onclick="location=''">
+               <input type="button" value="먹거리" onclick="location='ffList.do'">
+               <input type="button" value="공지사항" onclick="location='noticeList.do'">
+               <input type="button" value="이벤트" onclick="location='eventList.do'">
             </div>
          </div>
          
