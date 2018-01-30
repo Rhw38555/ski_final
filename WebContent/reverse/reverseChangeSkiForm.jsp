@@ -149,6 +149,7 @@
 				        <div class="selectbox">
 							<div id="multipick" class="multipickchange"></div>
 							<div id="a"></div>
+							
 						</div>
 					</div><!-- box1 -->
 					<div id="box2">
@@ -228,10 +229,10 @@
 										<input class="ran" id="pran8_2" value="+" count_range="p" type="button">
 									</div>
 								</div> <!-- skidate2 -->                    
-								<br>            		                  
+								<br><br>   		  <br>                
 								<div id="skipricemention">총 가격 : &nbsp; </div> 
 								<div id="skipricebox"> ${re.get(0).ski_price} </div> 
-								<br><br>
+								<br>
 								
 							</div> <!-- skicntbox -->
 						</div> <!-- selectbox -->

@@ -8,7 +8,9 @@
    var setcount = 0;
    var getdateresult = 0;
    var firstcheck = 0;
-   var firstarr = new Array();   
+   var firstarr = new Array();  
+   
+   var ff = 0;
 $(function(){
    
     setInterval("getcount()",300); //선택한 날짜별로 스키권 남은 개수 알려준다
@@ -23,7 +25,11 @@ $(function(){
 	$('#reset_ski_date1').val(fmtdate);
 	$('#date0').text(fmtdate);
 	$('#ski_date_0').text(fmtdate);
-	 $('#multipick').datepicker('option','beforeShowDay', gogogo);
+	//$('#multipick').datepicker('option','beforeShowDay', gogogo);
+	
+	//if($('#datecnt').val() < 3) $('#multipick').datepicker('option','beforeShowDay', gogogo);
+	//else $('#multipick').datepicker('option','beforeShowDay', firstgo);
+	
 	if($('#datecnt').val() > 1){
 		fmtarr = $('#fmtdate2').text().split('-');
 		if(fmtarr[1].charAt(0) == '0') fmtarr[1] = fmtarr[1].charAt(1);
@@ -45,7 +51,7 @@ $(function(){
 		$('#date2').text(fmtdate);
 		$('#reset_ski_date3').val(fmtdate);
 		$('#ski_date_2').text(fmtdate);
-		$('#multipick').datepicker('option','beforeShowDay', firstgo);
+		//$('#multipick').datepicker('option','beforeShowDay', firstgo);
 		 //alert(fmtdate);
 	}
 	
@@ -75,7 +81,7 @@ $(function(){
       maxPicks: 3,
       minDate: 0,
       maxDate: 100,
-      //beforeShowDay: firstgo,
+      beforeShowDay: firstgo,
       onSelect : function(){   
         // setTimeout("getdate()",300);
          var date1 = $("#multipick").datepicker('getDate');
@@ -410,11 +416,16 @@ function getdate(){
 }// getdate
 
 function firstgo(date) { 
-   var m = date.getMonth(), d = date.getDate(), y = date.getFullYear(); 
-   for (i = 0; i < firstarr.length; i++) { 
-       if($.inArray(y + '-' +(m+1) + '-' + d,firstarr) != -1)  return [true];         
-   } 
-   return [false]; 
+   if($('#datecnt').val() < 3){
+	   return [true];
+   }else{
+	   var m = date.getMonth(), d = date.getDate(), y = date.getFullYear(); 
+	   for (i = 0; i < firstarr.length; i++) { 
+	       if($.inArray(y + '-' +(m+1) + '-' + d,firstarr) != -1)  return [true];         
+	   } 
+	   return [false];   
+   }
+    
 } //처음 켰을 때 예약했던 날짜만 풀림
 
 function go(date){

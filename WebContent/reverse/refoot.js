@@ -338,7 +338,7 @@ $(document).ready(function(){
     $.material.init();
 
     /*  Activate the tooltips      */
-    $('[rel="tooltip"]').tooltip();
+    //$('[rel="tooltip"]').tooltip();
 
     // Code for the Validator
     var $validator = $('.wizard-card form').validate({

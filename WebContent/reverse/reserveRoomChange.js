@@ -721,10 +721,10 @@ function modcount(){
 		//	return;
 		//}
 		
-		if( $('#date'+i).text().length > 20){
-			t =  $('#date'+i).text().substring(23,33);
+		if( $('#date'+(i+1)).text().length > 20){
+			t =  $('#date'+(i+1)).text().substring(23,33);
 		}else{
-			t = $('#date'+i).text();
+			t = $('#date'+(i+1)).text();
 		}
 		//alert(t);
 		if(t == '' || t == null){
@@ -764,6 +764,7 @@ function modcount(){
 			}		
 		);//ajax
 	});//.date	
+	setTimeout("getdate()",500);
 } // modcount 중간디비 빼기
 
 function deletecount(){

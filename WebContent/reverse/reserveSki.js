@@ -27,8 +27,12 @@ $(function(){
 	$('#paybt').css('display','none');
 	$('#multipick').datepicker('option', 'disabled', false);	
 	//setdate = setInterval("getdate()",1000);
-	setTimeout("getdate()",1000);
+	setTimeout("getdate()",300);
 	
+	$('#outbt').click(function(){
+		modcount();
+		self.close();
+	});
 /*///////////////////////////////////////
  * 		달력 클릭시
 /*///////////////////////////////////////
@@ -286,7 +290,7 @@ $(function(){
 			$(t).attr('disabled', false);
 		});
 		//clearInterval(setdate);
-		setcount = setInterval("getcount()", 1000);	// + 최대값 걸어주기 
+		setcount = setInterval("getcount()", 400);	// + 최대값 걸어주기 
 	}); // bt1
 	
 	$('#bt2').click(function(){
@@ -302,6 +306,7 @@ $(function(){
 			}		 
 		});			
 		if(ch == 0){
+			clearInterval(setInterval("getcount()", 300));
 			$('#bt2').css('display','none');
 			$('#backbt1').css('display','none');
 			$('#box3').css('display','');
@@ -331,7 +336,9 @@ $(function(){
 	        +'<tr class="skicnt">'
 	        +'	<th>총 가격</th> <td name="price">'+$('#skipricebox').text()+'</td>'
 	        +'</tr>').appendTo('#ta');
+			
 			clearInterval(setcount);
+			//clearInterval(setInterval("getcount()", 300));
 		}
 	}); // bt2
 	
@@ -346,13 +353,13 @@ $(function(){
 			   alert('숫자를 입력하세요.');
 			   return false;
 			   reverseform.name.focus();
-		}else if ($('#carnum').val() != '') {
+		}/*else if ($('#carnum').val() != '') {
 			if(isNaN(reverseform.carnum.value)) {
 				   alert('숫자를 입력하세요.');
 				   return false;
 				   reverseform.name.focus();
 			}
-		}else{
+		}*/else{
 	   		$('#paybt').css('display','');
 	   		$('#bt3').css('display','none');
 	   		$('#backbt2').css('display','none');
@@ -406,7 +413,8 @@ $(function(){
 			$(t).remove();
 		});
 		$('#bt2').css('display','');
-		setcount = setInterval("getcount()",1000);
+		$('#backbt1').css('display','');
+		setcount = setInterval("getcount()",300);
 	}); // backbt2
 	
 	$('#resetbt').click(function(){
@@ -445,8 +453,8 @@ function reset(){
 	$('.alt').each(function(i,t){
 		$(t).remove();
 	});
-	clearInterval(setcount);	
-	setdate = setTimeout("getdate()",1000);
+	clearInterval(setInterval("getcount()", 300));	
+	setdate = setTimeout("getdate()",300);
 	if(getdateresult == 1){
 		$('#multipick').datepicker('option','beforeShowDay', gogogo);	
 	}

@@ -9,6 +9,10 @@ $(document).ready(function(){
 /*///////////////////////////////////////
  * 		load
 /*///////////////////////////////////////	
+	
+	setTimeout("getdate()",300);
+	load();
+	
 	//setdate = setInterval("getdate()",1000);
 	/*
 	window.addEventListener("beforeunload", function (e) {
@@ -30,12 +34,12 @@ $(document).ready(function(){
 	 <%System.out.println("나갈게");%>
 	});
 	*/
-	function hello(){		
-		alert('hi');
-	}
+	$('#outbt').click(function(){
+		modcount();
+		self.close();
+	});
 	
-	setTimeout("getdate()",300);
-	load();
+	
 	function load(){
 		$('#box2').css('display','none');
 	    $('#box3').css('display','none');
@@ -59,6 +63,7 @@ $(document).ready(function(){
 		$('#name').val('');
 		$('#tel').val('');
 		$('#carnum').val('');
+		
 		for(var i=0; i<3; i++){
 			$('#mran2_'+i).attr('disabled', false);
 			$('#mran4_'+i).attr('disabled', false);
@@ -587,9 +592,8 @@ function getcount(){
 	                        $('#mran2_'+i).attr('disabled', true);
 	                        $('#pran2_'+i).attr('disabled', true);
 	                        if($('#cnt2_'+i).val() > 0){
-	                        	$('#mran2_'+i).attr('disabled', false);
-							}
-	                      
+	                        	$('#mran2_'+i).attr('disabled', false);						
+	                        }	                      
 	                    }else{
 	                    	 $('#mran2_'+i).attr('disabled', false);
 		                     $('#pran2_'+i).attr('disabled', false);

@@ -43,7 +43,6 @@
 		  document.getElementById('STATICMENU').style.top = document.body.scrollTop + stmnBASE + 'px'; 
 		  RefreshStaticMenu();
 		  }
-		 
 		</script>	  
    </head>
 
@@ -236,6 +235,7 @@
 		         <div id="btbox">
 		            <input type="button" id="resetbt" value="다시설정">
 		            <input type="submit" id="paybt" value="결제">
+		            <input type="button" id="outbt" value="나가기">
 		         </div> <!-- btbox -->
 		      </div><!-- checkbox -->
 	      </div>
