@@ -102,7 +102,7 @@
          $("#msg").scrollTop($("#msg")[0].scrollHeight); // 스크롤바 아래로 갱신!   
          
          var msg = id + ":/admin" + inputform.message.value;
-         $("#msg").html($("#msg").html()+"<div id='chat_msg'><div id='send_mem'><pre>"+ id +" : "+ inputform.message.value  + "</pre></div></div>");
+         $("#msg").html($("#msg").html()+"<div id='chat_msg'><div id='send_mem'>"+ id +" : "+ inputform.message.value  + "</div></div>");
          ws.send(msg);
          inputform.message.value="";
          inputform.message.focus();
@@ -226,11 +226,10 @@
                      	</th>
                      </tr>
                      <tr>
-                        <th colspan="2">                  
+                        <th colspan="2">  
                            <div id="msg" style="overflow:auto;">	                           
 	                           	<div id="starter"></div>       
-	                           	
-                           </div>            
+                           </div>          
                      	</th>
                      </tr>
                      <tr>  
@@ -247,11 +246,13 @@
                   </table>
                </form>  
             </div>  <!-- chatbox -->
-               <button class="webbtbox">
-            	<img src="/SKI_Final/images/camera.png" class="webcam_img" alt="웹캠 바로가기" />
-            	<br><br><br>
-            	웹캠 바로가기
-            </button>
+            <div class="webcambox">               
+               <button class="webbtbox" onclick="location='introWebcam.do'">
+	            	<img src="/SKI_Final/images/camera.png" class="webcam_img" alt="웹캠 바로가기" />
+	            	<br><br><br>
+	            	웹캠 바로가기
+            	</button>
+            </div>
             
          </div> <!-- weather_chat -->
                      

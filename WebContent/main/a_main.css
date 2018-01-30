@@ -19,8 +19,12 @@
 	padding-left : 10%;
 	margin-top : 10%;
 }
-
-
+.webcambox{
+	margin-left : 20%;
+	float : left;
+	padding : 20px;
+	margin-top: -15%;	
+}
 
 .weatherbox{
 	margin-left : 20%;
@@ -91,7 +95,7 @@
 	
 	margin-top : 20px;
 	/*padding-top : 100px;*/
-	background : url(ban-sky2.jpg);
+	/*background : url(ban-sky2.jpg);
 	/*margin-left: 30px;*/
 	background-position: center;
     background-size: cover;
@@ -181,6 +185,7 @@
 	text-align : left;
 	background-color : #6b96ed;
 	font-size : 15px;
+	word-break: break-all;
 }
 
 	
