@@ -15,6 +15,8 @@
 		} else if( ! writeform.image.value ) {
 			writeform.image.focus();
 			return false;
+		} else if( ! writeform.timage.value ) {
+			writeform.timage.focus();
 		}
 	}
 	//-->
@@ -40,6 +42,7 @@
 			<tr>
 				<th> ${str_img} </th>
 				<td>
+					<input type="file" name="timage" accept="image/*"/><br>
 					<input type="file" name="image" id="image" accept="image/*"	/><br>
 					<label for="image"></label>
 					<div id="imageP"></div>
