@@ -5,7 +5,7 @@
 	var aaa = null;
 	var arrdate = null;
 	var setdate = 0;
-	var setcount = 0;
+	var setcount = null;
 	var getdateresult = 0;
 $(function(){
 	/*
@@ -27,11 +27,14 @@ $(function(){
 	$('#paybt').css('display','none');
 	$('#multipick').datepicker('option', 'disabled', false);	
 	//setdate = setInterval("getdate()",1000);
-	setTimeout("getdate()",300);
+	setTimeout("getdate()",500);
 	
 	$('#outbt').click(function(){
 		modcount();
 		self.close();
+	});
+	$('#a_mod').click(function(){
+		modcount();
 	});
 /*///////////////////////////////////////
  * 		달력 클릭시
@@ -74,7 +77,7 @@ $(function(){
 				//alert(cc);
 				if(2 > cc) $('#multipick').datepicker('option','beforeShowDay', gogogo);				
 			}else{
-				if(ch == 1) setTimeout("getdate()",500);
+				//if(ch == 1) setTimeout("getdate()",1000);
 			}
 			
 			if(cnt > -1) {		
@@ -290,7 +293,8 @@ $(function(){
 			$(t).attr('disabled', false);
 		});
 		//clearInterval(setdate);
-		setcount = setInterval("getcount()", 400);	// + 최대값 걸어주기 
+		setcount = setInterval("getcount()", 300);	// + 최대값 걸어주기
+		//setcount;
 	}); // bt1
 	
 	$('#bt2').click(function(){
@@ -306,7 +310,8 @@ $(function(){
 			}		 
 		});			
 		if(ch == 0){
-			clearInterval(setInterval("getcount()", 300));
+			//clearInterval(setInterval("getcount()", 300));
+			clearInterval(setcount);
 			$('#bt2').css('display','none');
 			$('#backbt1').css('display','none');
 			$('#box3').css('display','');
@@ -337,8 +342,8 @@ $(function(){
 	        +'	<th>총 가격</th> <td name="price">'+$('#skipricebox').text()+'</td>'
 	        +'</tr>').appendTo('#ta');
 			
-			clearInterval(setcount);
-			//clearInterval(setInterval("getcount()", 300));
+			//clearInterval(setInterval("getcount()", 100));
+			//clearInterval(setcount);
 		}
 	}); // bt2
 	
@@ -415,6 +420,7 @@ $(function(){
 		$('#bt2').css('display','');
 		$('#backbt1').css('display','');
 		setcount = setInterval("getcount()",300);
+		//setcount;
 	}); // backbt2
 	
 	$('#resetbt').click(function(){
@@ -453,8 +459,9 @@ function reset(){
 	$('.alt').each(function(i,t){
 		$(t).remove();
 	});
-	clearInterval(setInterval("getcount()", 300));	
-	setdate = setTimeout("getdate()",300);
+	//clearInterval(setInterval("getcount()", 300));
+	clearInterval(setcount);
+	setTimeout("getdate()",500);
 	if(getdateresult == 1){
 		$('#multipick').datepicker('option','beforeShowDay', gogogo);	
 	}
@@ -518,7 +525,18 @@ function gogo(date) {
 }
 
 function gogogo(date){
-	return [true, "", ""];
+	var it = 0;
+	$('.alt').each(function(i,t){
+		++it;
+	});
+	if(it > 2){
+		if(arrdate.indexOf($.datepicker.formatDate('yy-mm-dd', date)) != -1) 
+			return [false, "arrdate", "블록"];		 
+	    else return [true, "", ""];
+	}else{
+		return [true, "", ""];
+	}
+	
 }
 
 function getcount(){

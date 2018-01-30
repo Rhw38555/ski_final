@@ -60,11 +60,12 @@ label{
 .top-bar {
     width: 100%;
     z-index: 99999;
-    background: #fff;
+    background: #EAEAEA;
+    height : 180px;
 }
 /*-- Logo --*/
 h1 a {
-    color: #fd2929;
+    color: #ff8000;
     font-family: 'Montserrat Alternates', sans-serif;
     letter-spacing: 2px;
 }
@@ -477,13 +478,14 @@ a.navbar-brand span {
 /*-- //nav --*/
 /* Effect 15: scale down, reveal */
 .cl-effect-15 a {
-    color: #ee4f4f;
+    color: #ff8000;
     font-weight: 400;
     text-shadow: none;
     text-decoration: none;
     font-size: 20px;
     letter-spacing: 2px;
 }
+
 .cl-effect-15 a::before {
 	color: #168eea;
 	content: attr(data-hover);

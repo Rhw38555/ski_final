@@ -24,7 +24,7 @@
         vertical: false,
         verticalHeight: 500,
         vThumbWidth: 100,
-        thumbItem: 10,
+        thumbItem: 3,
         pager: true,
         gallery: false,
         galleryMargin: 5,

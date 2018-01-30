@@ -40,12 +40,6 @@
 		  document.getElementById('STATICMENU').style.top = document.body.scrollTop + stmnBASE + 'px'; 
 		  RefreshStaticMenu();
 		  }
-		window.addEventListener("beforeunload", function (e) {
-			var confirmationMessage = "\o/";	
-			(e || window.event).returnValue = confirmationMessage; //Gecko + IE			
-				return confirmationMessage; //Webkit, Safari, Chrome
-				modcount();
-		});
 		</script>
 	</head>	
 	<body onload="InitializeStaticMenu()" class="rebody">
@@ -57,13 +51,13 @@
 		     <div class="container">
 				<div class="row">
 					<div class="pageselbox">
-						<a href="reverseRoomForm.do">
-							<span class="glyphicon glyphicon-home" aria-hidden="true"> 콘도예약</span>
-						</a> 
-						<br>
-						<a href="reverseSkiForm.do">
-							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"> 스키예약</span>
+						<a href="reverseSkiForm.do" id="a_mod">
+							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"> 스키예약입니다</span>
 						</a>
+						<br>
+						<a href="reverseRoomForm.do" id="a_mod">
+							<span class="glyphicon glyphicon-home" aria-hidden="true"> 콘도예약가기</span>
+						</a> 	
 					</div>	
 				</div>	   
 			</div>	

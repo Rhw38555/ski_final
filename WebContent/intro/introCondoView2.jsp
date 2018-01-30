@@ -22,67 +22,47 @@
         }
 		.content-slider li{
 		    background-color: #ed3020;
-		   /* text-align: center;*/
+		    text-align: center;
 		    color: #FFF;
-		    padding-left : 20%;
 		}
-		/*
-		.content-slider h3 {
-		    margin: 0;
-		    padding: 70px 0;
-		}
-		*/
 		.demo{
 			margin-left : 10%;
 		}
-		
-		
 		.skitotal{
 			margin-left : 5%; 
 		}
-		
-		
 		.skitotal h2{
 			margin-left : 40%;
 			/*text-align : center;*/
 			margin-top : 150px;
-			margin-bottom : 30px;
 			padding-bottom : 10px;
 			border-bottom : 1px solid gray;
 			width : 250px; 
-			color : #747474;
-			
+			color : #747474;			
 		}
 		.clearfix{
 			/*margin-left : 10%;*/
-		}
-		
+		}		
 		.image-gallery img{
-			width : 800px;
-			height :450px;
-			margin-left : 4%;
+		/*
+			width : 1000px;
+			height :450px;*/
+			width : 100%;
 		}
-		
 		.skitotal p{
-			margin-bottom : 30px;
-			
+			margin-bottom : 30px;			
 			text-align : center;
 			margin-right : 10%;
 			
 		}
-		
-		
-		
 		#img1{
-			width : 800px;
-			heigth : 450px;
-			margin-left : 3%;
+			width : 1000px;
+			heigth : 500px;
 		}
 		
 		#img2, #img3{
 			width : 1000px;
 			heigth : 500px;
-			margin-left : 5%;
 		}
 		
     </style>
@@ -101,7 +81,7 @@
 	            $('.image-gallery').lightSlider({
 	                gallery:true,
 	                item:1,
-	                thumbItem:9,
+	                thumbItem:5,
 	                slideMargin: 0,
 	                speed:500,
 	                auto:true,
@@ -120,10 +100,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="skitotal">
-				<br><br><br><br>
-				<a href="introCondoView2.do">2인실</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="introCondoView4.do">4인실</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="introCondoView8.do">8인실</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br><br><br>
 				<h2> 2인실 소개 </h2>
 				
 				<br><br>
@@ -147,11 +124,53 @@
 			        </div>
 			    </div>	
 				<br>
+				<h2> 4인실 소개 </h2>
 				
-				</div>
-			</div>
-			
-		</div>
+				<br><br>
+					
+				<div class="demo">
+			        <div class="item">            
+			            <div class="clearfix">
+			                <ul  class="image-gallery gallery list-unstyled cS-hidden">
+			                    <li data-thumb="/SKI_Final/images/thumb/condoIntro5.jpg"> 
+			                        <img src="/SKI_Final/images/condoIntro5.jpg"/>
+			                    </li>
+			                    <li data-thumb="/SKI_Final/images/thumb/condoIntro6.jpg"> 
+			                        <img src="/SKI_Final/images/condoIntro6.jpg"/>
+			                    </li>
+			                    <li data-thumb="/SKI_Final/images/thumb/condoIntro7.jpg"> 
+			                        <img src="/SKI_Final/images/condoIntro7.jpg"/>
+			                    </li>
+			                    
+			                </ul>
+			            </div>
+			        </div>
+			    </div> <!-- 4인실 demo -->
+			    <h2> 8인실 소개 </h2>
+				
+				<br><br>
+					
+				<div class="demo">
+			        <div class="item">            
+			            <div class="clearfix">
+			                <ul  class="image-gallery gallery list-unstyled cS-hidden">
+			                    <li data-thumb="/SKI_Final/images/thumb/condoIntro8.jpg"> 
+			                        <img src="/SKI_Final/images/condoIntro8.jpg"/>
+			                    </li>
+			                    <li data-thumb="/SKI_Final/images/thumb/condoIntro9.jpg"> 
+			                        <img src="/SKI_Final/images/condoIntro9.jpg"/>
+			                    </li>
+			                    <li data-thumb="/SKI_Final/images/thumb/condoIntro10.jpg"> 
+			                        <img src="/SKI_Final/images/condoIntro10.jpg"/>
+			                    </li>
+			                    
+			                </ul>
+			            </div>
+			        </div>
+			    </div>	<!-- 8인실 demo -->
+				</div> <!-- skitotal -->
+			</div><!-- row -->
+		</div><!-- container -->
 		
 		<%@include file="/include/mainfooter.jsp" %>		
 	</body>

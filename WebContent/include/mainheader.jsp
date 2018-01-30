@@ -16,7 +16,9 @@
 	      * {
 	      	font-family: 'Noto Sans KR', normal;
 	      }
-	      
+	      .cl-effect-15 a{
+	      	font-family: 'Noto Sans KR';
+	      }
 	      .member-button{
 	      	padding-top : 10px;
 	      
@@ -61,6 +63,14 @@
    <c:forEach var="row" items="${rs.rows}">
          <c:set var="user_barcode" value="${row.user_barcode}"/>
    </c:forEach>   
+   <style>
+   	.navbar-header{
+   		padding-top : 1%;
+   	}
+   	.cl-effect-15{
+   		padding-top : 2.5%;
+   	}
+   </style>
    <body>   
    <script src="${project}member/script.js"></script>
       <!--Header-->
@@ -95,7 +105,7 @@
                   <nav class="navbar navbar-default">
                      <!-- Brand and toggle get grouped for better mobile display -->
                      <div class="navbar-header">                   
-                        <h1><a class="navbar-brand" href="main.do">WinterPark<sup><i class="fa fa-snowflake-o" aria-hidden="true"></i><sup></a></h1>
+                        <h1><a class="navbar-brand" id="logo_winter" href="main.do">WinterPark<sup><i class="fa fa-snowflake-o" aria-hidden="true"></i><sup></a></h1>
                      </div>
                      <!-- Collect the nav links, forms, and other content for toggling -->
                      <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">

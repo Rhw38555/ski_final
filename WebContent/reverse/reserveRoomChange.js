@@ -4,7 +4,7 @@
  */
 
 var setdate = 0;
-var setcount = 0;
+var setcount = setInterval("getcount()",300);
 var a = null;
 var first = 0;
 
@@ -12,6 +12,7 @@ $(document).ready(function(){
 	
 	setTimeout("getdate()",300);
 	setInterval("getcount()",300);
+	//setcount;
 	//alert();
 	
 	//var fmtarr = '';
