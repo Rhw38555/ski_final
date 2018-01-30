@@ -76,7 +76,7 @@
                                 //if(sender == 'admin') chatId = 'send_admin';
                                 //else chatId = 'send_mem';
                                 $("#msg").html($("#msg").html() 
-                                     +"<div id='chat_msg'><div id='send_admin'><pre>" +sender + content.replace("/" + $("#hiddenid").val(), " : ")  + "<pre></div></div>");
+                                     +"<div id='chat_msg'><div id='send_admin'>" +sender + content.replace("/" + $("#hiddenid").val(), " : ")  + "</div></div>");
                                  var sendmsg = sender+"/"+ content.replace("/" + $("#hiddenid").val(), "");
                                  notifyMe(sendmsg);
                                  //sender == 'admin'
@@ -238,7 +238,7 @@
                      </tr>
                      <tr>  
                         <td>                      	
-                           <textarea id="msgtx" cols="32" rows="5" name="message" autofocus placeholder="대화를 입력하세요">
+                           <textarea id="msgtx" cols="32" rows="5" name="message" autofocus>
 						</textarea>
                            <input type="hidden" id="hiddenid">
                         </td>

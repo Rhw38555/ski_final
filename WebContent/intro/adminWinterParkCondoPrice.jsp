@@ -12,8 +12,8 @@
 				<h2> 리프트요금안내 </h2>
 				<br><br>
 				<div class="introbtbox">
-					<input class="btn btn-primary" type="button" value="${btn_Lift}" onclick="location='WinterParkLiftPrice.do'">
-					<input class="btn btn-primary" type="button" value="${btn_Condo}" onclick="location='WinterParkCondoPrice.do'">
+					<input class="btn btn-primary" type="button" value="${btn_Lift}" onclick="location='adminWinterParkLiftPrice.do'">
+					<input class="btn btn-primary" type="button" value="${btn_Condo}" onclick="location='adminWinterParkCondoPrice.do'">
 				</div>	
 				<div class="introtablebox">
 					<table>
