@@ -862,9 +862,11 @@ function deleteReverseRoom(num){
       if(confirm("충전 하시겠습니까?")==true){
          location.href="memberUseHistoryPro.do?price="+price;
       }else{
-         return;
+         return;	
       }
    }
+   
+   
    function getCurrentUserPrice() {
       $.ajax(
             {
