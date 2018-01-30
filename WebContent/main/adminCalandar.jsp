@@ -310,6 +310,7 @@
 						<c:forEach var="rDto" items="${roomDto}">
 							<fmt:formatDate var="tdate" value="${rDto.room_date}" pattern="MM/DD/YYYY"/>
 							<c:set var="rdate" value="${fn:split(tdate, '/')[1]}"/>
+							
 							<c:if test="${rdate == t}">
 								<c:if test="${rDto.room_2 != 0}">
 									<c:set var="room2" value="${room2+rDto.room_2}"/>
@@ -339,28 +340,31 @@
 						</c:forEach>
 						<c:set var="memoCheck" value="0"/>
 						<c:set var="dateCheck" value="${i}"/>
+						<c:set var="monthP" value="${monthplus}"/>
+						<c:set var="daychk"/>
 						
 						<td valign="top" align="left" height="90px"
 						bgcolor="${backColor}" nowrap>
 							<font color="${color}">
-								<c:if test="${fn:length(i) == 1 }">
-									<c:set var="dateCheck" value="${0}${i}"/>
+								<c:if test="${monthP >= 1 and monthP <= 9 }">
+									<c:set var="monthPP" value="${0}${monthP}"/>
 								</c:if>
-								<c:forEach var="mDto" items="${memoDto}">
-									<c:if test="${mDto.day_check == dateCheck}">
-										<c:set var="memoCheck" value="${mDto.day_check}"/>
-									</c:if>
-								</c:forEach>
+								<c:if test="${fn:length(i) == 1 }">
+									<c:set var="dateCheck" value="${monthPP}${0}${i}${year}"/>
+								</c:if>
+								<c:if test="${fn:length(i) == 2 }">
+									<c:set var="dateCheck" value="${monthPP}${i}${year}"/>
+								</c:if>
 								<a class="memo" onclick="memoPopup('${dateCheck}','${startDate}','${endDate}')">
 								<b>${t}</b>
-								<c:if test="${dateCheck == memoCheck}">									
-									<img src="main/memoicon.png" width="20px" height="20px"
-									align="right">
-								</c:if>
+								<c:forEach var="mDto" items="${memoDto}">
+									<c:if test="${mDto.day_check == dateCheck}">									
+										<img src="main/memoicon.png" width="20px" height="20px">
+									</c:if>
+								</c:forEach>
 								</a>
 								<br>
 							</font>
-							
 							<c:if test="${room2 == 0}">
 							</c:if>
 							<c:if test="${room2 != 0}">

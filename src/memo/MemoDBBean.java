@@ -11,8 +11,8 @@ public class MemoDBBean implements MemoDao{
 		return SqlMapClient.getSqlSession().selectList( "Memo.getMemo", map );
 	}
 	@Override
-	public MemoDataBean getMemoOne(Map<String, String> map) {
-		return SqlMapClient.getSqlSession().selectOne( "Memo.getMemoOne", map );
+	public MemoDataBean getMemoOne(String day_check) {
+		return SqlMapClient.getSqlSession().selectOne( "Memo.getMemoOne", day_check );
 	}
 	@Override
 	public int insertMemo(Map<String, String> map) {
@@ -25,7 +25,7 @@ public class MemoDBBean implements MemoDao{
 	}
 	
 	@Override
-	public int deleteMemo(Map<String, String> map) {
-		return SqlMapClient.getSqlSession().delete( "Memo.deleteMemo", map );
+	public int deleteMemo(String day_check) {
+		return SqlMapClient.getSqlSession().delete( "Memo.deleteMemo", day_check );
 	}
 }

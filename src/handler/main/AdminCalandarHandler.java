@@ -161,10 +161,11 @@ public class AdminCalandarHandler implements CommandHandler {
 		
 		request.setAttribute( "startDate", startDate );
 		request.setAttribute( "endDate", endDate );
+		request.setAttribute( "mp", mp );
 		
 		System.out.println( startDate + " / " + endDate );
 		
-		System.out.println( "startDay 체크 : " + startDay );
+		System.out.println( "------------------------------------------------------------" );
 		
 		return new ModelAndView( "main/adminCalandar" );
 	}

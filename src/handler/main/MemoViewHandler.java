@@ -1,8 +1,5 @@
 package handler.main;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,24 +23,12 @@ public class MemoViewHandler implements CommandHandler {
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
 		MemoDataBean memoDto = new MemoDataBean();
-		String startDate = request.getParameter( "startDate" );
-		String endDate = request.getParameter( "endDate" );
 		String day_check = request.getParameter( "day_check" );
 		
-		System.out.println( "startDate " + startDate );
-		System.out.println( "endDate " + endDate );
 		System.out.println( "day_check " + day_check );
 		
-		Map<String, String> map = new HashMap<String, String>();
-		
-		map.put( "startDate", startDate );
-		map.put( "endDate", endDate );
-		map.put( "day_check", day_check );
-		
-		memoDto = memoDao.getMemoOne( map );
-		
-		request.setAttribute( "startDate", startDate );
-		request.setAttribute( "endDate", endDate );
+		memoDto = memoDao.getMemoOne( day_check );
+
 		request.setAttribute( "day_check", day_check );
 		request.setAttribute( "memoDto", memoDto );
 		

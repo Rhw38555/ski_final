@@ -28,9 +28,6 @@ public class MemoWriteHandler implements CommandHandler {
 		String day_check = request.getParameter( "day_check" );
 		String check = request.getParameter( "check" );
 		
-		String startDate;
-		String endDate;
-		
 		System.out.println( memo + " / " + day_check );
 		System.out.println( "구분 : " + check );
 		
@@ -43,13 +40,9 @@ public class MemoWriteHandler implements CommandHandler {
 			
 			result = memoDao.insertMemo( map );
 		} else if( check.equals( "2" ) ) { // 수정
-			startDate = request.getParameter( "startDate" );
-			endDate = request.getParameter( "endDate" );
 			map.put( "memo", memo );
-			map.put( "startDate", startDate );
-			map.put( "endDate", endDate );
 			map.put( "day_check", day_check );
-			
+
 			result = memoDao.updateMemo( map );
 		}
 		
