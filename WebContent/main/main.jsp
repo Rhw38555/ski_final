@@ -215,11 +215,8 @@
               <br><br>
               <div id="result"></div>      
             </div><!-- weatherbox -->
-            <!--  
-            <style>
-               
-            </style>
-            -->
+
+            
             <div class="chatbox">
                <form name="inputform">
                   <table id="chatTable">                    
@@ -244,12 +241,21 @@
                         </td>
                         <th>
                            <input type="button" id="msgbt" class="btn btn-default" value="전송">
+                    
                         </th>
                      </tr>
                   </table>
                </form>  
             </div>  <!-- chatbox -->
+               <button class="webbtbox">
+            	<img src="/SKI_Final/images/camera.png" class="webcam_img" alt="웹캠 바로가기" />
+            	<br><br><br>
+            	웹캠 바로가기
+            </button>
+            
          </div> <!-- weather_chat -->
+                     
+         
       </div> <!-- middlebox -->
    </div>   <!-- totalbox -->   
    <%@include file="/include/mainfooter.jsp" %>
