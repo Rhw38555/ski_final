@@ -159,7 +159,7 @@
 
 	
 	
-#send_admin{
+#send_admin {
 	font-color : #4C4C4C;
 	padding-bottom : 5px;
 	border : 1.5px solid rgba(0, 0, 0, 0);
@@ -170,7 +170,6 @@
 	font-size : 13px;
 	font-weight : 500;
 	background-color : #ffffff;
-	overflow:auto;
 }
 #send_mem{
 	font-color : #4C4C4C;
@@ -184,7 +183,6 @@
 	font-size : 13px;
 	font-weight : 500;
 	background-color : #ffff80;
-	overflow:auto;
 }
 #chat_msg{
 	clear : right;	
