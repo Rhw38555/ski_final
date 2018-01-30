@@ -1,8 +1,5 @@
 package handler.main;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,17 +20,9 @@ public class MemoDeleteHandler implements CommandHandler {
 	@RequestMapping( "/memoDelete" )
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		String startDate = request.getParameter( "startDate" );
-		String endDate = request.getParameter( "endDate" );
 		String day_check = request.getParameter( "day_check" );
 		
-		Map<String, String> map = new HashMap<String, String>();
-		
-		map.put( "startDate", startDate );
-		map.put( "endDate", endDate );
-		map.put( "day_check", day_check );
-		
-		int result = memoDao.deleteMemo( map );
+		int result = memoDao.deleteMemo( day_check );
 		
 		request.setAttribute( "result", result );
 		

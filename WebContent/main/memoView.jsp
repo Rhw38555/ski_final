@@ -32,8 +32,9 @@
 			</div>
 		</c:if>
 		<c:if test="${memoDto != null}">
+			<input type="hidden" name="check" value="2">
 			<div >
-				<fmt:formatDate value="${memoDto.memo_date}" var="memoDate" pattern="yyyy/mm/dd"/>
+				<fmt:formatDate value="${memoDto.memo_date}" var="memoDate" pattern="YYYY/MM/DD"/>
 				${memoDate} 에 남김 <br>
 				<pre>${memoDto.memo}</pre>
 				<hr>

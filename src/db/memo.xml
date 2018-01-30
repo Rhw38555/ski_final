@@ -5,25 +5,24 @@
 
 <mapper namespace="Memo">
 	<select id="getMemo" parameterType="HashMap" resultType="memo.MemoDataBean">
+		<![CDATA[
 		select * from WP_memo
-		where memo_date BETWEEN to_date(#{startDate}, 'MMDDYYYY') AND to_date(#{endDate}, 'MMDDYYYY')+1
+		where day_check >= #{startDate} AND day_check <= #{endDate}
+		]]>
 	</select>
-	<select id="getMemoOne" parameterType="HashMap" resultType="memo.MemoDataBean">
+	<select id="getMemoOne" parameterType="String" resultType="memo.MemoDataBean">
 		select * from WP_memo
-		where memo_date BETWEEN to_date(#{startDate}, 'MMDDYYYY') AND to_date(#{endDate}, 'MMDDYYYY')+1
-		and day_check = #{day_check}
+		where day_check = #{day_check}
 	</select>
 	<insert id="insertMemo" parameterType="HashMap">
 		insert into WP_memo values( sysdate, #{memo}, #{day_check} )
 	</insert>
 	<update id="updateMemo" parameterType="HashMap">
 		update WP_memo set memo = #{memo}
-		where memo_date BETWEEN to_date(#{startDate}, 'MMDDYYYY') AND to_date(#{endDate}, 'MMDDYYYY')+1
-		and day_check = #{day_check}
+		where day_check = #{day_check}
 	</update>
-	<delete id="deleteMemo" parameterType="HashMap">
+	<delete id="deleteMemo" parameterType="String">
 		delete from WP_memo
-		where memo_date BETWEEN to_date(#{startDate}, 'MMDDYYYY') AND to_date(#{endDate}, 'MMDDYYYY')+1
-		and day_check = #{day_check}
+		where day_check = #{day_check}
 	</delete>
 </mapper>
