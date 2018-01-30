@@ -46,18 +46,6 @@
         document.getElementById('STATICMENU').style.top = document.body.scrollTop + stmnBASE + 'px'; 
         RefreshStaticMenu();
         }
-      window.addEventListener("beforeunload", function (e) {
-         var confirmationMessage = "\o/";   
-         (e || window.event).returnValue = confirmationMessage; //Gecko + IE         
-            return confirmationMessage; //Webkit, Safari, Chrome
-            modcount();
-      });
-      
-      //window.addEventListener("beforeunload", function (event) {
-      
-        //event.returnValue = "진짜 나감?";
-
-      //});
       </script>   
        
    </head>
@@ -183,7 +171,7 @@
                   </div>
                   <div class="selectbox">
                      <div id="roomcntbox">              
-                        <div id="roomdate1">
+                        <div id="roomdate1" class="roomdate">
                            <div class="date" id="date1">                              
                            </div>
                         <div class="__count_range">
@@ -205,7 +193,7 @@
                            <input class="ran" id="pran8_0" value="+" count_range="p" type="button">
                          </div>
                         </div> <!-- roomdate1 -->
-                        <div id="roomdate2">
+                        <div id="roomdate2" class="roomdate">
                            <div class="date" id="date2">
                            </div> <!-- date2 -->
                            <div class="__count_range">
@@ -227,9 +215,8 @@
                               <input class="ran" id="pran8_1" value="+" count_range="p" type="button">
                            </div>
                         </div><!-- roomdate2 -->                  
-                        <div id="roomdate3">
+                        <div id="roomdate3" class="roomdate">
                            <div class="date" id="date3">
-                                  
                            </div> <!-- date3 -->
                            <div class="__count_range">
                               2인실 (20,000) &nbsp;&nbsp;

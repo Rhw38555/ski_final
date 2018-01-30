@@ -1,6 +1,8 @@
 /*
 */
 
+
+
 .rebody{
 	/*background : #8C8C8C;*/
 	background-color : #24A6BD;
@@ -14,10 +16,11 @@
 	padding-right: 15px;
 	padding-left: 15px;
 	margin-right: auto;
-	margin-left: 50px;
+	margin-left: 20%;
 	/*background-color : #FFF;*/
 	border-radius: 10px;
 	position: relative;
+	
 	
 }
 
@@ -78,6 +81,9 @@
 }
 .roomdate, .skidate{
 	padding : 10px;
+	
+		/*border-top : 1px solid black;*/
+	
 }
 
 input[type="button"]{
@@ -87,22 +93,22 @@ input[type="button"]{
 
 }
 .ran{
-    display: inline-block;
-    font-weight: 500;
-    text-align: top;
-    white-space: nowrap;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  display: inline-block;
+  font-weight: 500;
+  text-align: top;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
     /*border: 1px solid transparent;
     padding: .5rem .75rem;
     font-size: 1rem;
     line-height: 1.25;
     border-radius: .25rem;*/
-    transition: all .15s ease-in-out;
-    color: #333;
+  transition: all .15s ease-in-out;
+  color: #333;
   background-color: #fff;
   border-color: #ccc;
 
@@ -146,7 +152,7 @@ input[type="button"]{
 }
 .calbox{
 	margin : auto;
-	margin-left : 65px;
+	margin-left : 40px;
 }
 
 #calbox{
@@ -162,8 +168,9 @@ input[type="button"]{
 	padding : 20px;
 }
 .a{
-	margin-left : -200px;
+	padding-right : 200px;
 }
+
 .alt{
 }
 
@@ -210,24 +217,33 @@ input[type="button"]{
 
 #textbox{
 	/*float : center;*/
-	margin-left : 50px;
+	margin-left : 150px;
 }
-
 .textbox{
-	
+	width : 400px;
+	height : 50px;
+	clear :left;
 }
-
-/*#textbox > input[type='text']*/
-#name, #tel, #carnum{
-	/*clear : left;*/
-
+.textbox input[type='text']{
+	float : right;
+	width : 200px;
+	height : 35px;
+	margin-top : 2px;
+	border-radius : 10px;
+	padding-left : 10px;
+}
+.textbox input[type='text']:hover{
+	border : 2px solid orange;
+}
+.textbox input[type='text']:focus{
+	border : 2px solid orange;
 }
 
 .textmention{
 	font-size : 15px;
-	width : 100px;
+	width : 120px;
 	margin : 10px;
-	/*float : left;*/
+	float : left;
 	/*margin-left : 30px;*/
 }
 
@@ -289,7 +305,7 @@ input[type="button"]{
 	/*position: relative;*/
 }
 
-#bt1,#bt2,#bt3,#backbt,#backbt1,#backbt2, #paybt, #resetbt, #back{
+#bt1,#bt2,#bt3,#backbt,#backbt1,#backbt2, #paybt, #resetbt, #back, #outbt{
 	float : right;
 	font-weight: 400;
     font-size: 0.8571em;
@@ -306,10 +322,10 @@ input[type="button"]{
 
 
 .pageselbox{
-	margin : 0 auto;
 	padding : 10px;
 	/*margin-left: 200px;*/
-	margin-left: 120px;
+	/*margin-left: 50px;*/
+	margin-left : 25%;
 	margin-top: 30px;
 }
 
@@ -344,14 +360,6 @@ input[type="button"]{
 */
 
 
-#STATICMENU { 
-	margin: 0pt; 
-	padding: 0pt;  
-	position: absolute; 
-	top: 0px;
-	margin-right: 170px;
-}
-
 .image-container {
   min-height: 100vh;
   background-position: center center;
@@ -371,13 +379,21 @@ input[type="button"]{
 }
 
 
+#STATICMENU { 
+	margin: 0pt; 
+	padding: 0pt;  
+	position: absolute; 
+	top: 0px;
+	/*margin-right: 170px;*/
+	float : right;
+}
 
 .checkbox{
 	width : 300px;
 	/*height : 250px;*/
-	min-height : 250px;
-	float : left;
-	margin-left: 60%;
+	min-height : 300px;
+	/*float : left;*/
+	margin-left: 60px;
 	background-color : #FFF;
 	background-color: rgba( 255, 255, 255, 0.3 );
 	border-radius: 15px;

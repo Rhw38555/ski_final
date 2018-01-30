@@ -124,16 +124,16 @@
 			               	</div> 
 			               	<div class="textbox">
 			               		<div class="textmention">*휴대폰번호</div>  
-			               			<input type="text" id="tel" name="tel" placeholder="-을 빼고 입력해주세요">
+			               		<input type="text" id="tel" name="tel" placeholder="-을 빼고 입력해주세요">
 			               	</div>
 			               	<div class="textbox">
 			               		<div class="textmention">차량번호</div>  
-			               			<input type="text" id="carnum" name="carnum" placeholder="차량번호를 입력해주세요">
+			               		<input type="text" id="carnum" name="carnum" placeholder="차량번호를 입력해주세요">
 			               	</div>
 						</div> <!-- textbox -->
 						<div id="btbox">
 							<input type="button" id="backbt2" value="이전으로">	
-							<input type="button" id="bt3" value="다음">
+							<input type="button" id="bt3" value="다음">							
 						</div> <!-- btbox -->
 					</div><!-- selectbox -->
 				</div><!-- box3 -->
@@ -152,6 +152,7 @@
 				<div id="btbox">
 					<input type="button" id="resetbt" value="다시설정">
 					<input type="submit" id="paybt" value="결제">
+					<input type="button" id="outbt" value="나가기">
 				</div> <!-- btbox -->
 			</div> <!-- checkbox -->
 		</div>
