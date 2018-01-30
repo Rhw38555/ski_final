@@ -112,7 +112,9 @@
                            <li><a href="introSki.do" data-hover="${btn_skioom}">${btn_skioom}</a></li>
                            <li><a href="ffList.do" data-hover="${btn_eat}">${btn_eat}</a></li>
                            <li><a href="eventList.do" data-hover="${btn_event}">${btn_event}</a></li>
+                           <c:if test="${sessionScope.memId != null}"> 
                            <li><a href="qnaList.do" data-hover="${btn_qa}">${btn_qa}</a></li>
+                           </c:if>
                         </ul>
                         </nav>
                      </div>

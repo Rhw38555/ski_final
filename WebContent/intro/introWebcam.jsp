@@ -29,6 +29,20 @@
 					src="/SKI_Final/intro/show1.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
 					allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false" allowFullScreen="true">
 					</embed>
+					<object id="swfId" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="300" height="120">
+					<param name="allowFullScreen" value="true" /> 
+					<embed id="cos" style="width: 600px; height: 380px;" 
+					title="동영상 프레임" type="application/x-shockwave-flash" 
+					src="/SKI_Final/intro/show2.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
+					allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false" allowFullScreen="true">
+					</embed>
+					<object id="swfId" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="300" height="120">
+					<param name="allowFullScreen" value="true" /> 
+					<embed id="cos" style="width: 600px; height: 380px;" 
+					title="동영상 프레임" type="application/x-shockwave-flash" 
+					src="/SKI_Final/intro/show3.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
+					allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false" allowFullScreen="true">
+					</embed>
 					</object>
 					<img src="/SKI_Final/images/ski_cos.png"/>
 					<br><br><br><br>
