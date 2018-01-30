@@ -334,14 +334,16 @@ $(document).ready(function(){
 			$('#cnt4_1').val($('#reset_room4_cnt1').val());
 			$('#cnt8_1').val($('#reset_room8_cnt1').val());
 			if($('#datecnt').val() >2){
+				$('#roomroom_2').css('display','');
 				$('#room_date_2').text($('#reset_room_date3').val());
-				$('#date2').text($('#reset_room_date2').val());
+				$('#date3').text($('#reset_room_date3').val());
 				$('#roomdate3').css('display','');
 				$('#roomdateval2').val('1');
 				$('#room2_2').text($('#reset_room2_cnt2').val());
 				$('#room4_2').text($('#reset_room4_cnt2').val());
 				$('#room8_2').text($('#reset_room8_cnt2').val());
 				$('#cnt2_2').val($('#reset_room2_cnt2').val());
+				
 				$('#cnt4_2').val($('#reset_room4_cnt2').val());
 				$('#cnt8_2').val($('#reset_room8_cnt2').val());
 			}
@@ -363,6 +365,7 @@ $(document).ready(function(){
 		$('#carnumtd').text($('#reset_carnum').val());
 		
 	});		
+	
 	 $('#back').click(function(){
 		   //insertcount();
 		   modcount();
@@ -721,15 +724,17 @@ function modcount(){
 		//	return;
 		//}
 		
-		if( $('#date'+(i+1)).text().length > 20){
-			t =  $('#date'+(i+1)).text().substring(23,33);
-		}else{
-			t = $('#date'+(i+1)).text();
-		}
-		//alert(t);
+		//if( $('#date'+(i+1)).text().length > 20){
+		//	t =  $('#date'+(i+1)).trim();
+		//}else{
+			t = $('#date'+(i+1)).text().trim();
+		//}
+		
 		if(t == '' || t == null){
 			return;
 		}
+		//alert(t);
+		
 		var str = t.split('-');
 		//alert(str[2]);
 		if(str[2].length == 1) str[2] = '0'+str[2];
