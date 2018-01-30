@@ -308,9 +308,8 @@
 							<c:set var="backColor" value="#C9C9C9"/>
 						</c:if>
 						<c:forEach var="rDto" items="${roomDto}">
-							<fmt:formatDate var="tdate" value="${rDto.room_date}" pattern="MM/DD/YYYY"/>
+							<fmt:formatDate var="tdate" value="${rDto.room_date}" pattern="MM/dd/YYYY"/>
 							<c:set var="rdate" value="${fn:split(tdate, '/')[1]}"/>
-							
 							<c:if test="${rdate == t}">
 								<c:if test="${rDto.room_2 != 0}">
 									<c:set var="room2" value="${room2+rDto.room_2}"/>
@@ -324,7 +323,7 @@
 							</c:if>
 						</c:forEach>
 						<c:forEach var="sDto" items="${skiDto}">
-							<fmt:formatDate var="tdate" value="${sDto.ski_date}" pattern="MM/DD/YYYY"/>
+							<fmt:formatDate var="tdate" value="${sDto.ski_date}" pattern="MM/dd/YYYY"/>
 							<c:set var="sdate" value="${fn:split(tdate, '/')[1]}"/>
 							<c:if test="${sdate == t}">
 								<c:if test="${sDto.ski_morning != 0}">

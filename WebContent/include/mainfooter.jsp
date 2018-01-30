@@ -66,5 +66,6 @@
       <script type="text/javascript" src="./assets/js/move-top.js"></script>
       <script type="text/javascript" src="./assets/js/easing.js"></script>
       <script type="text/javascript" src="./assets/js/bootstrap-3.1.1.min.js"></script>
+      <script src="/SKI_Final/intro/js/lightslider.js"></script>
    </body>
 </html>

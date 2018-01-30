@@ -50,7 +50,7 @@
       <script src="./assets/js/modernizr.js"></script>
        <script src="${project}member/script.js"></script> 
 		<script src="${project}member/jquery-3.2.1.js"></script>
-		 <script src="${project}member/html2canvas.js"></script>
+		<script src="/SKI_Final/intro/js/lightslider.js"></script>
    </head>
    
    <sql:query var="rs" dataSource="jdbc/kh">
