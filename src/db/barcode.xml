@@ -47,7 +47,7 @@
 	</delete>
 	
 	<update id="chargeUserbarcode" parameterType="barcode.UserBarcodeDataBean">
-  		update wp_user_barcodes set wallet=#{wallet} where id = #{id}
+  		update wp_user_barcodes set wallet= (wallet + #{wallet}) where id = #{id}
   	</update>
   	
   </mapper>
