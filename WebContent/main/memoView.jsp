@@ -8,7 +8,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<script type="text/javascript">
 			//<!--
-
+				function writecheck() {
+				if( ! mod.memoP.value ) {
+					mod.memoP.focus();
+					return false;
+				}
+			}
 			//-->
 		</script>
 		<style>
@@ -18,7 +23,7 @@
 		</style>
 	</head>
 	<body>
-		<form name="mod" action="memoWrite.do">
+		<form name="mod" action="memoWrite.do" onsubmit="return writecheck()">
 		<c:if test="${memoDto == null}">
 			<input type="hidden" name="day_check" value="${day_check}">
 			<input type="hidden" name="check" value="1">
