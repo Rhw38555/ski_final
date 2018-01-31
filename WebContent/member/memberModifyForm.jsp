@@ -10,6 +10,7 @@
 		<input type="hidden" name="hiddenemail" value="1">
 		<input type="hidden" name="hiddenemailvalue" value="${logonDto.email}">
 		<input type="hidden" id="user_barcode" value="${user_barcode}">
+		<br><br><br><br><br><br>
 		<div style="margin-left:10%">
 		<div class="main-center">
 			<h2>${page_modify}<br><br></h2>

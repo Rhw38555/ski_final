@@ -27,7 +27,7 @@
 					src="/SKI_Final/intro/show1.swf" allowhtmlpopupwindow="false" enablehtmlaccess="false" 
 					allownetworking="internal" allowscriptaccess="never" invokeurls="false" autostart="false" allowFullScreen="true">
 					</embed>
-					<img src="/SKI_Final/images/ski_cos.png"/>
+					<img src="/SKI_Final/images/ski_cos.png" style="margin-top: -100px;"/>
 					<br><br>							
 				</div> <!-- skitotal -->
 			</div> <!-- row -->

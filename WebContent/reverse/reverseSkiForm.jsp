@@ -151,10 +151,6 @@
 			</div> <!-- checkbox -->
 		</div>
 		</form> <!-- form -->
-		<div id="result"></div>
-		<div id="result2"></div>
-		<div id="result3"></div>
-		<div id="result4"></div>
 		
 	</body>
 </html>  

@@ -4,6 +4,7 @@
  */
 var setdate = 0;
 var setcount = null;
+var setcount2 = null;
 var a = null;
 $(document).ready(function(){
 	
@@ -275,7 +276,10 @@ $(document).ready(function(){
 	   	}	   	
     }
     //clearInterval(setInterval("getcount()",100));
+   
     clearInterval(setcount);
+    if(setcountfirst != 0) clearInterval(setcount2);
+    
     showstep3();
   });//bt2
  
@@ -345,8 +349,10 @@ $(document).ready(function(){
        $('#bt1').css('display','');
    	   $('#ta > tr').remove();
    	   $('#roompricebox').text('');
+       clearInterval(setcount);
 	}); //backbt1
 	
+   var setcountfirst = 0;
 	$('#backbt2').click(function(){
 		$('#box3').css('display','none');
 		
@@ -365,6 +371,7 @@ $(document).ready(function(){
 	   //	$('#roompricebox').text('');
 	    //setInterval("getcount()",300);
 	   	setcount = setInterval("getcount()",300);
+	   	//++setcountfirst;
 	}); //backbt2
 	
 	$('#resetbt').click(function(){

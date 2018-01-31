@@ -27,7 +27,7 @@
 	            $('.image-gallery').lightSlider({
 	                gallery:true,
 	                item:1,
-	                thumbItem:9,
+	                thumbItem:6,
 	                slideMargin: 0,
 	                speed:500,
 	                auto:true,
@@ -54,9 +54,11 @@
 					마련되어 있어 초보자 부터 상급자 모두가 최고의 만족을 느끼실 수 있습니다.
 					</p>				
 				<img src="/SKI_Final/images/안내.PNG" id="img1"/>
-								
+				<br><br><br>				
 				<h2> 슬로프 </h2>
-				<p> 초보자 부터 상급자 모두에게 최고의 만족을 드립니다. </p> 
+				
+				<p style="padding-left:5%;"> 
+			 초보자 부터 상급자 모두에게 최고의 만족을 드립니다. </p> 
 				
 				<div class="demo">
 			        <div class="item">            
@@ -85,23 +87,17 @@
 			        </div>
 			    </div>	
 				<br>
-				<p>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<p style="padding-left:4%;">
 				5km 최장 중급자 코스 총연장 7,300m, 10면(주 슬로프 7면 보조슬로프 3면)의 슬로프는 
 				<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				선키드(에스컬레이터) 및 다양한 경사 (7~30도) 가 마련되어 있어 초보자 부터 상급자 모두가 최고의 만족을 느끼실 수 있습니다.
 				</p>
-				
+				<br><br><br>
 				<h2> 코스정보 </h2>				
 				<img src="/SKI_Final/images/코스정보.PNG" id="img2"/>
-				
+				<br><br><br>
 				<h2> 리프트 </h2>
-				<p>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<p style="padding-left:3%;">
 				여유롭고 즐겁게 스키 및 보드를 즐기실 수 있습니다.</p>
 				
 				<div class="demo">
@@ -134,12 +130,10 @@
 			        </div>
 			    </div>	
 				<br>
-					<p>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<p style="padding-left:3%;">
 					4인승 및 6인승 등 총 5기의 고속 리프트 가동으로 리프트 대기시간의 지루함 없이 여유롭고 즐겁게 스키 및 보드를 즐기실 수 있습니다.
 					</p>
-				
+				<br><br><br>
 				<h2> 리프트정보 </h2>
 				
 				<img src="/SKI_Final/images/리프트정보.PNG" id="img3"/>

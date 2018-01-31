@@ -321,10 +321,6 @@
 		</div>
 		
 		</form>
-		<div id="result"></div>
-		<div id="result2"></div>
-		<div id="result3"></div>
-		<div id="result4"></div>
 		<div id="fmtdate">
 			<div id="fmtdate1">
 				<fmt:formatDate value="${re.get(0).ski_date}"
