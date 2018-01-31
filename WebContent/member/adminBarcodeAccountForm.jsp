@@ -214,6 +214,7 @@ form {
 													
 													
 													$('input[name=price'+num+']').val(memberdata.member[0].price);
+													$('input[name=price'+num+']').attr("readonly",true);
 													$('input[name=productCounts'+num+']').val(1);
 													$('input[name=hiddenprice'+num+']').val(memberdata.member[0].price);
 													
@@ -268,8 +269,10 @@ form {
 							//$('input[name=calPrice]').val("");
 							$('input[name=product'+num+']').attr("readonly",false);
 							$('input[name=productName'+num+']').attr("readonly",false);
+							$('input[name=price'+num+']').attr("readonly",false);
 							$('input[name=product'+num+']').val("");
 							$('input[name=price'+num+']').val("");
+							$('input[name=hiddenprice'+num+']').val("");
 							$('input[name=productName'+num+']').val("");
 							$('input[name=productMaket'+num+']').val("");
 							$('input[name=productCounts'+num+']').val("");
