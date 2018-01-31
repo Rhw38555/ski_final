@@ -488,7 +488,10 @@ table.type04 td {
 	color : #FFF;
 }
 
-.alt{
-	/*border : 1px solid black;*/
+.labelbox{
+
+	margin-left : 70%;
+	font-weight : 400;
+		
 }
 

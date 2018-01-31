@@ -44,6 +44,7 @@
 	</head>	
 	<body onload="InitializeStaticMenu()" class="rebody">
 		<form name="reverseform" method="post" action="reverseSkiPro.do">
+		<input type="hidden" id="session_id" value="${sessionScope.memId}">
 			<input type="hidden" id="ski_date" name="ski_date">
 			<input type="hidden" id="ski_count" name="ski_count">
 			<input type="hidden" id="ski_price" name="ski_price">
@@ -112,6 +113,9 @@
 					</div>
 					<div class="selectbox">
 						<div id="textbox">
+						<div class="labelbox">
+	            		<label><input type='checkbox' id='check_all' class='input_check' /> 회원 정보와 동일 </label>
+	            	</div>
 			               	<div class="textbox">
 			               		<div class="textmention">*이용자명</div> 
 			               		<input type="text" id="name" name="name" placeholder="이름을 입력해주세요">
