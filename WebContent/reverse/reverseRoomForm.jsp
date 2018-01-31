@@ -50,6 +50,7 @@
  	 <!-- <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')"> -->
  	<!--  <div class="image-container set-full-height" style="background-image: url('./reverse/img2.jpg')"> -->
 	   <form name="reverseform" method="post" action="reverseRoomPro.do">
+		   <input type="hidden" id="session_id" value="${sessionScope.memId}">
 		   <input type="hidden" name="room_date" id="room_date">
 		   <input type="hidden" name="room_cnt" id="room_cnt">
 		   <input type="hidden" name="room_price" id="room_price">	   
@@ -198,6 +199,10 @@
 	            </div>
 	            <div class="selectbox">
 	            	<div id="textbox">
+	            	<div class="labelbox">
+	            		<label><input type='checkbox' id='check_all' class='input_check' /> 회원 정보와 동일 </label>
+	            	</div>
+	            	
 		               	<div class="textbox">
 		               		<div class="textmention">*이용자명</div> 
 		               		<input type="text" id="name" name="name" placeholder="이름을 입력해주세요">

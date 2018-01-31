@@ -291,7 +291,7 @@ $(document).ready(function(){
 	   }else if( $('#tel').val() == '' ){
 		   alert('전화번호를 입력해주세요');
 		   return false;
-	   }else if( isNaN(reverseform.tel.value)){
+	   }/*else if( isNaN(reverseform.tel.value)){
 		   alert('숫자를 입력하세요.');
 		   return false;
 	   }/*else if ($('#carnum').val() != '') {
@@ -374,11 +374,38 @@ $(document).ready(function(){
 	   	//++setcountfirst;
 	}); //backbt2
 	
-	$('#resetbt').click(function(){
-		
+	$('#resetbt').click(function(){		
 		load();
 	});
-   
+	
+	$(".input_check").click(function(){
+		if($(".input_check").is(":checked")){
+			$.ajax({
+				url : '/SKI_Final/reverse/getName.jsp',
+				dataType : 'xml',
+				data : {
+					id : $('#session_id').val()
+				},
+				success : function(data){
+					var data = eval("("+$(data).find('data').text()+")");
+					$('#name').val(data.name);
+					$('#tel').val(data.tel);
+					
+				},
+				error : function(e){
+					alert('실패');
+					$('#result').html('getdate 실패 : '+e);
+				}
+			});//ajax
+		}else{
+			$('#name').val('');
+			$('#tel').val('');
+		}
+	});
+	
+		
+	
+	
    function showstep3(){
   	 $('<tr id="tt1">'
         +'<th>2인실</th> <td>'+(parseInt($('#cnt2_0').val())+parseInt($('#cnt2_1').val())+parseInt($('#cnt2_2').val()))+'</td>'

@@ -246,7 +246,30 @@ $(function(){
 /*///////////////////////////////////////
  * 		'다음', '이전으로' 클릭시
 /*///////////////////////////////////////	
-	
+	$(".input_check").click(function(){
+		if($(".input_check").is(":checked")){
+			$.ajax({
+				url : '/SKI_Final/reverse/getName.jsp',
+				dataType : 'xml',
+				data : {
+					id : $('#session_id').val()
+				},
+				success : function(data){
+					var data = eval("("+$(data).find('data').text()+")");
+					$('#name').val(data.name);
+					$('#tel').val(data.tel);
+					
+				},
+				error : function(e){
+					alert('실패');
+					$('#result').html('getdate 실패 : '+e);
+				}
+			});//ajax
+		}else{
+			$('#name').val('');
+			$('#tel').val('');
+		}
+	});
 	$('#bt1').click(function(){	
 		$('.alt').each(function(i,t){
 			var tstr = $(t).text();
@@ -357,7 +380,7 @@ $(function(){
 	   	}else if( $('#tel').val() == '' ){
 	   		alert('전화번호를 입력해주세요');
 	   		return false;
-	   	}else if( isNaN(reverseform.tel.value)){
+	   	}/*else if( isNaN(reverseform.tel.value)){
 			   alert('숫자를 입력하세요.');
 			   return false;
 			   reverseform.name.focus();
