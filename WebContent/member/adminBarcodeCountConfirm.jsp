@@ -111,8 +111,13 @@ form {
 							if (evt.keyCode == 13) return false; 
 						}
 					);//자동으로 서브밋 넘기는거 막기
-					
-					
+		 $(document).ready(
+				 function(){
+					 $('.findP').attr("readonly",true);		 
+				 }
+					 
+		 );			
+		
   		 $(document).on(
 						'keyup','.findP',
 						function(event) {
@@ -136,7 +141,7 @@ form {
 											$('input[name=price'+Number(index+1)+']').val(calprice);
 											
 											event.target.value="";
-											event.target.focus();
+											//event.target.focus();
 										} else {
 											
 										}//마지막else
@@ -168,9 +173,11 @@ form {
 													$('input[name=product'+num+']').val(memberdata.member[0].product_barcode);
 													$('input[name=product'+num+']').attr("readonly",true);
 													$('input[name=productName'+num+']').val(memberdata.member[0].product_name);
-													$('input[name=productName'+num+']').attr("readonly",true);
+													$('input[name=productName'+num+']').attr("readonly",true);]
+													
 													$('input[name=product'+nextnum+']').focus();
 													$('input[name=price'+num+']').val(memberdata.member[0].price);
+													$('input[name=price'+num+']').attr("readonly",true);
 													$('input[name=productCounts'+num+']').val(1);
 													$('input[name=hiddenprice'+num+']').val(memberdata.member[0].price);
 													
@@ -201,11 +208,13 @@ form {
 										
 										$('input[name=product'+num+']').attr("readonly",false);
 										$('input[name=productName'+num+']').attr("readonly",false);
+										$('input[name=price'+num+']').attr("readonly",false);
 										$('input[name=product'+num+']').val("");
 										$('input[name=productName'+num+']').val("");
 										$('input[name=price'+num+']').val("");
 										$('input[name=productCounts'+num+']').val("");
 										$('input[name=buydate'+(num)+']').val("");
+										$('input[name=hiddenprice'+num+']').val("");
 									}
 								);//findbtn	
 								
