@@ -93,3 +93,5 @@
 	</c:if>
 	</c:if>
 	</div>
+	
+   <%@include file="/include/mainfooter.jsp" %>

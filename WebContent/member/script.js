@@ -859,14 +859,16 @@ function deleteReverseRoom(num){
    }
    function userBarcodeCharge(){
       var price = inputPrice.price.value;
-      if(confirm("충전 하시겠습니까?")==true){
-         location.href="memberUseHistoryPro.do?price="+price;
+      if(isNaN(price)==true){
+    	  alert("숫자를 입력해주세요");
+    	  return;
       }else{
-         return;	
+    	  if(confirm("충전 하시겠습니까?")==true){
+    	         location.href="memberUseHistoryPro.do?price="+price;
+    	  }
       }
+      
    }
-   
-   
    function getCurrentUserPrice() {
       $.ajax(
             {
