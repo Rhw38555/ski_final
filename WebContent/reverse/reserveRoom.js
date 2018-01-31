@@ -3,42 +3,22 @@
  * 
  */
 var setdate = 0;
-var setcount = 0;
+var setcount = null;
 var a = null;
 $(document).ready(function(){
-/*///////////////////////////////////////
- * 		load
-/*///////////////////////////////////////	
 	
 	setTimeout("getdate()",300);
+	//setcount;
 	load();
 	
-	//setdate = setInterval("getdate()",1000);
-	/*
-	window.addEventListener("beforeunload", function (e) {
-		var confirmationMessage = "\o/";	
-		(e || window.event).returnValue = confirmationMessage; //Gecko + IE			
-			return confirmationMessage; //Webkit, Safari, Chrome
-			//modcount();
-			hello();
-	});
-	*/
-	/*
-	$(window).unload( function (){ 
-		alert("Bye now!"); 
-	});
-*//*
-	window.addEventListener("beforeunload", function (event) {
-	 // event.returnValue = "진짜 나감?";
-	 hello();
-	 <%System.out.println("나갈게");%>
-	});
-	*/
 	$('#outbt').click(function(){
 		modcount();
 		self.close();
 	});
 	
+	$('#a_mod').click(function(){
+		modcount();
+	});
 	
 	function load(){
 		$('#box2').css('display','none');
@@ -76,14 +56,6 @@ $(document).ready(function(){
 			$('#cnt4_'+i).val(0);
 			$('#cnt8_'+i).val(0);
 		}
-		/*
-		$('#ran1').attr('disabled', false);
-	    $('#ran2').attr('disabled', false);
-	    $('#ran3').attr('disabled', false);
-	    $('#ran4').attr('disabled', false);
-	    $('#ran5').attr('disabled', false);
-	    $('#ran6').attr('disabled', false);
-	    */
 	    $('#roompricebox').text('');
 	}	
 	
@@ -275,6 +247,7 @@ $(document).ready(function(){
            	   }
             }
             setcount = setInterval("getcount()",300);
+            //setcount;
    	 	}                
    }); //bt1
     
@@ -301,10 +274,11 @@ $(document).ready(function(){
 	        return false;
 	   	}	   	
     }
-    
-    showstep3();
+    //clearInterval(setInterval("getcount()",100));
     clearInterval(setcount);
+    showstep3();
   });//bt2
+ 
    
    $('#bt3').click(function(){
 	   if( $('#name').val() == '' ){
@@ -375,6 +349,8 @@ $(document).ready(function(){
 	
 	$('#backbt2').click(function(){
 		$('#box3').css('display','none');
+		
+		$('#backbt1').css('display','');
 		$('.ran').each(function(i,t){
 			$(t).attr('disabled', false);
 		});
@@ -387,7 +363,8 @@ $(document).ready(function(){
 	   	$('#tt4').remove();
 	   	$('#bt2').css('display','');
 	   //	$('#roompricebox').text('');
-	   	setcount = setInterval("setcount()",300);
+	    //setInterval("getcount()",300);
+	   	setcount = setInterval("getcount()",300);
 	}); //backbt2
 	
 	$('#resetbt').click(function(){
@@ -507,9 +484,8 @@ $(document).ready(function(){
    
 });//ready
  
-////////////////////////////////////////////////////
+///////////////////////
 
-///////////////////////////////////////////////////
 
 var aaa = null;
 var arrdate = null;

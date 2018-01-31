@@ -88,7 +88,7 @@
 				</table>
 			<br><br><br><br>
 			<div class="introimg">
-				<img src="/SKI_Final/intro/img/오시는길.PNG" width="1000px" height="700px">
+				<img src="/SKI_Final/intro/img/오시는길.PNG">
 			</div>
 			</div>
 		</div>

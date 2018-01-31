@@ -5,7 +5,7 @@
    var aaa = null;
    var arrdate = null;
    var setdate = 0;
-   var setcount = 0;
+   var setcount = setInterval("getcount()",300); 
    var getdateresult = 0;
    var firstcheck = 0;
    var firstarr = new Array();  
@@ -14,6 +14,7 @@
 $(function(){
    
     setInterval("getcount()",300); //선택한 날짜별로 스키권 남은 개수 알려준다
+	//setcount;
 	
     var fmtarr = $('#fmtdate1').text().trim().split('-');
 	if(fmtarr[1].charAt(0) == '0') fmtarr[1] = fmtarr[1].charAt(1);

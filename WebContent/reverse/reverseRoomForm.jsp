@@ -58,12 +58,12 @@
 	      		<div class="container">
 					<div class="row">
 						<div class="pageselbox">
-							<a href="reverseRoomForm.do">
-								<span class="glyphicon glyphicon-home" aria-hidden="true"> 콘도예약</span>
+							<a href="reverseRoomForm.do" id="a_mod">
+								<span class="glyphicon glyphicon-home" aria-hidden="true"> 콘도예약입니다</span>
 							</a> 
 							<br>
-							<a href="reverseSkiForm.do">
-								<span class="glyphicon glyphicon-asterisk" aria-hidden="true"> 스키예약</span>
+							<a href="reverseSkiForm.do" id="a_mod">
+								<span class="glyphicon glyphicon-asterisk" aria-hidden="true"> 스키예약가기</span>
 							</a>
 						</div>	
 					</div>	   
@@ -240,10 +240,7 @@
 		      </div><!-- checkbox -->
 	      </div>
 	  </div><!-- container -->
-	  <div id="result"></div>
-      <div id="result2"></div>
-      <div id="result3"></div>
-      <div id="result4"></div>
+	  
       </form>
 
 

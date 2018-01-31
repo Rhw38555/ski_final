@@ -158,7 +158,7 @@
 			</div>
 			
 		</div>
-		<br><br><br><br><br><br>
-		<%@include file="/include/mainfooter.jsp" %>	
+		<br><br><br><br><br><br>			
 	</body>
+	<%@include file="/include/mainfooter.jsp" %>
  </html>

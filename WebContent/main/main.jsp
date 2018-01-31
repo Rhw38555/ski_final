@@ -14,11 +14,9 @@
       $(document).ready(
 		function(){
 			var result = "GUEST" +Math.floor(Math.random() * 100000);
-			$('#hiddenid').val(result);
+			$('#hiddenid').val(result);		
 			
-			}	  
-	  );
-      
+	  });      
 	  $(document).on(
 			'click','#msgbt',
 			function(event) {
@@ -140,13 +138,16 @@
       
       //-->
       </script>
+      <%@include file="/include/mainheader.jsp" %>
+      <style>
+      .top-bar {
+		    background: #FFF;			   
+		}
+      </style>
    </head>
 
    <body onload="openserver()" class="body">
-   <script src="${project}member/script.js"></script> 
-
-    <%@include file="/include/mainheader.jsp" %>
-
+   <script src="${project}member/script.js"></script> 	
     <br><br><br><br><br><br><br>
        <div id="totalbox">
                   
@@ -171,61 +172,14 @@
           <div class="clearfix"></div>
        </div>            
        
-       <div id="middlebox">      
-         <div class="middlebox">
-            <div>
-          		<c:if test="${sessionScope.memId == null}">  
-	            	<input type="button" value="통합예약" style="width:900px"onclick="location='javascript:alertLogin()'">
-	           </c:if> 
-	           <c:if test="${sessionScope.memId != null}">  
-	            	<input type="button" value="통합예약" style="width:900px"onclick="window.open('reverseRoomForm.do')">
-	           </c:if> 
-               <br><br>
-               <input type="button" value="먹거리" onclick="location='ffList.do'">
-               <input type="button" value="공지사항" onclick="location='noticeList.do'">
-               <input type="button" value="이벤트" onclick="location='eventList.do'">
-            </div>
-         </div>
-         
-         <div id="weather_chat">
-            <div class="weatherbox">
-                <div class="weather">                
-                  <ul>
-                     <li>
-                        <c:set var="wfKor" value="${wfKor}"/>
-                        <c:if test="${fn:contains(wfKor, '구름')}">
-                           <img src="/SKI_Final/images/weather-icon-cloudy.png" />
-                        </c:if>
-                        <c:if test="${fn:contains(wfKor, '눈')}">
-                           <img src="/SKI_Final/images/weather-icon-snow.png"/>
-                        </c:if>
-                        <c:if test="${fn:contains(wfKor, '맑음')}">
-                           <img src="/SKI_Final/images/weather-icon-sun.png" />
-                        </c:if>
-                        <c:if test="${fn:contains(wfKor, '비')}">
-                           <img src="/SKI_Final/images/weather-icon-rain.png" />
-                        </c:if>
-                        <c:if test="${fn:contains(wfKor, '흐림')}">
-                           <img src="/SKI_Final/images/weather-icon-fade.png" />
-                        </c:if>
-                        <br><br>
-                     <div>최저온도 : ${tmn}</div>                     
-                     <div>최고온도 : ${tmx}</div>                      
-                     <div>${wfKor} </div>                                    
-                     </li>
-                  </ul>              
-               </div><!-- weather -->
-              <br><br>
-              <div id="result"></div>      
-            </div><!-- weatherbox -->
-
-            
-            <div class="chatbox">
+       <div id="middlebox">  
+           
+       <div class="chatbox inline">
                <form name="inputform">
                   <table id="chatTable">                    
                      <tr>
-                     	<th colspan="2" style="text-align: center;">
-                     		궁금한 사항이 있으면 물어보세요.
+                     	<th colspan="2" style="text-align: center; height : 30px;">
+                     		관리자와 채팅이 가능합니다
                      	</th>
                      </tr>
                      <tr>
@@ -249,20 +203,90 @@
                   </table>
                </form>  
             </div>  <!-- chatbox -->
-            <div class="webcambox">               
-               <button class="webbtbox" onclick="location='introWebcam.do'">
-	            	<img src="/SKI_Final/images/camera.png" class="webcam_img" alt="웹캠 바로가기" />
-	            	<br><br><br>
-	            	웹캠 바로가기
+           
+         	<div class="middlebox inline"> 
+				<div class="btbox">         
+				<br><br>
+          		<c:if test="${sessionScope.memId == null}">  
+	            	<button class="webbtbox" onclick="location='javascript:alertLogin()'">
+		            	<img src="/SKI_Final/images/reserved.png" class="webcam_img" />
+		            	<br><br>
+		            	통합예약
+	            	</button>
+	           </c:if> 
+	           <c:if test="${sessionScope.memId != null}">  
+	            	<button class="webbtbox" onclick="window.open('reverseRoomForm.do')">
+		            	<img src="/SKI_Final/images/reserved.png" class="webcam_img" />
+		            	<br><br>
+		            	통합예약
+	            	</button>
+	           </c:if>               
+               <button class="webbtbox" onclick="location='ffList.do'">
+	            	<img src="/SKI_Final/images/spaguetti.png" class="webcam_img"/>
+	            	<br><br>
+	            	먹거리
             	</button>
-            </div>
-            
-         </div> <!-- weather_chat -->
-                     
+            	<button class="webbtbox" onclick="location='noticeList.do'">
+	            	<img src="/SKI_Final/images/problem.png" class="webcam_img" />
+	            	<br><br>
+	            	공지사항
+            	</button>
+               <br>
+               <button class="webbtbox" onclick="location='eventList.do'">
+	            	<img src="/SKI_Final/images/calendar.png" class="webcam_img" />
+	            	<br><br>
+	            	이벤트
+               </button> 
+               
+               <button class="webbtbox" onclick="">
+	            	<img src="/SKI_Final/images/bouquet.png" class="webcam_img" />
+	            	<br><br>
+	            	방가방가
+               </button>
+                <button class="webbtbox" onclick="location='introWebcam.do'">
+	            	<img src="/SKI_Final/images/camera.png" class="webcam_img" alt="웹캠 바로가기" />
+	            	<br><br>
+	            	웹캠 바로가기
+            	</button>   
+            	<div id="weather_chat">
+		            <div class="weatherbox">
+		                <div class="weather">                
+		                  <ul>
+		                     <li>
+		                        <c:set var="wfKor" value="${wfKor}"/>
+		                        <c:if test="${fn:contains(wfKor, '구름')}">
+		                           <img src="/SKI_Final/images/weather-icon-cloudy.png" />
+		                        </c:if>
+		                        <c:if test="${fn:contains(wfKor, '눈')}">
+		                           <img src="/SKI_Final/images/weather-icon-snow.png"/>
+		                        </c:if>
+		                        <c:if test="${fn:contains(wfKor, '맑음')}">
+		                           <img src="/SKI_Final/images/weather-icon-sun.png" />
+		                        </c:if>
+		                        <c:if test="${fn:contains(wfKor, '비')}">
+		                           <img src="/SKI_Final/images/weather-icon-rain.png" />
+		                        </c:if>
+		                        <c:if test="${fn:contains(wfKor, '흐림')}">
+		                           <img src="/SKI_Final/images/weather-icon-fade.png" />
+		                        </c:if>
+		                        <br><br>
+		                     <div>최저온도 : ${tmn}</div>                     
+		                     <div>최고온도 : ${tmx}</div>                      
+		                     <div>${wfKor} </div>                                    
+		                     </li>
+		                  </ul>              
+		               </div><!-- weather -->
+		              <br><br>
+		              <div id="result"></div>      
+		            </div><!-- weatherbox -->  
+		         </div> <!-- weather_chat -->
+            </div> <!-- btbox -->         
+         </div> <!-- .middlebox -->
          
       </div> <!-- middlebox -->
    </div>   <!-- totalbox -->   
-   <%@include file="/include/mainfooter.jsp" %>
+  
    </body>
+    <%@include file="/include/mainfooter.jsp" %>
 </html>
 

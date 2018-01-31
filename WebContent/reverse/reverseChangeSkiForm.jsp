@@ -45,15 +45,7 @@
 		  document.getElementById('STATICMENU').style.top = document.body.scrollTop + stmnBASE + 'px'; 
 		  RefreshStaticMenu();
 		  }
-		 /*
-		window.addEventListener("beforeunload", function (e) {
-			var confirmationMessage = "\o/";	
-			(e || window.event).returnValue = confirmationMessage; //Gecko + IE			
-				return confirmationMessage; //Webkit, Safari, Chrome
-				modcount();
-		});
-*/
-		
+	
 		
 		</script>
 	</head>
@@ -160,7 +152,7 @@
 						</div>
 						<div class="selectbox">
 							<div id="skicntbox">              
-								<div id="skidate0">
+								<div id="skidate0" class="skidate">
 									<div class="date" id="date0">
 									</div>
 									<div class="__count_range">
@@ -182,7 +174,7 @@
 										<input class="ran" id="pran8_0" value="+" count_range="p" type="button">
 									</div>
 								</div> <!-- skidate0 -->
-								<div id="skidate1">
+								<div id="skidate1" class="skidate">
 									<div class="date" id="date1">
 										
 									</div>
@@ -206,7 +198,7 @@
 									</div>
 								</div><!-- skidate1 -->
 							
-								<div id="skidate2">
+								<div id="skidate2" class="skidate">
 									<div class="date" id="date2">
 										
 									</div>
