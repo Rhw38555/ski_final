@@ -6,7 +6,9 @@
 	var arrdate = null;
 	var setdate = 0;
 	var setcount = null;
+	var setcount2 = null;
 	var getdateresult = 0;
+	var setcountfirst = 0;
 $(function(){
 	/*
 	window.addEventListener("beforeunload", function (e) {
@@ -312,6 +314,7 @@ $(function(){
 		if(ch == 0){
 			//clearInterval(setInterval("getcount()", 300));
 			clearInterval(setcount);
+			if(setcountfirst != 0) clearInterval(setcount2);
 			$('#bt2').css('display','none');
 			$('#backbt1').css('display','none');
 			$('#box3').css('display','');
@@ -407,6 +410,7 @@ $(function(){
    		$(t).remove();
    	   });      	   
    	   //setTimeout("getdate()",500);
+   	   clearInterval(setcount);
 	}); // backbt1
 	
 	$('#backbt2').click(function(){
@@ -461,6 +465,7 @@ function reset(){
 	});
 	//clearInterval(setInterval("getcount()", 300));
 	clearInterval(setcount);
+	if(setcountfirst != 0) clearInterval(setcount2);
 	setTimeout("getdate()",500);
 	if(getdateresult == 1){
 		$('#multipick').datepicker('option','beforeShowDay', gogogo);	

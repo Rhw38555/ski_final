@@ -88,31 +88,30 @@ ul{
 }
 
 .image-gallery img{
-	width : 800px;
+	width : 1000px;
 	height :450px;
-	margin-left : 4%;
 }
 
 .skitotal p{
 	margin-bottom : 30px;
-	
 	text-align : center;
-	margin-right : 10%;
+	
 	
 }
 		
 #img1{
-	width : 70%;
+	width : 1000px;
 	heigth : 450px;
-	margin-left : 3%;
+	margin-left : 9%;
+	margin-top : -100px;
 }
 
+
 #img2, #img3{
-	width : 100%;
-	heigth : 500px;
-	margin-left : 5%;
-}		
-			
+	width : 1000px;
+	heigth : 450px;
+	margin-left : 10%;
+}			
 
 .intrototal{
 	margin-left : 5%; 

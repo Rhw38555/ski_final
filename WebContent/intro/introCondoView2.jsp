@@ -11,61 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <link rel="stylesheet"  href="/SKI_Final/intro/css/lightslider.css"/>
-    <style>
-    	ul{
-			list-style: none outside none;
-		    padding-left: 0;
-            margin: 0;
-		}
-        .demo .item{
-            margin-bottom: 60px;
-        }
-		.content-slider li{
-		    background-color: #ed3020;
-		    text-align: center;
-		    color: #FFF;
-		}
-		.demo{
-			margin-left : 10%;
-		}
-		.skitotal{
-			margin-left : 5%; 
-		}
-		.skitotal h2{
-			margin-left : 40%;
-			/*text-align : center;*/
-			margin-top : 150px;
-			padding-bottom : 10px;
-			border-bottom : 1px solid gray;
-			width : 250px; 
-			color : #747474;			
-		}
-		.clearfix{
-			/*margin-left : 10%;*/
-		}		
-		.image-gallery img{
-		/*
-			width : 1000px;
-			height :450px;*/
-			width : 100%;
-		}
-		.skitotal p{
-			margin-bottom : 30px;			
-			text-align : center;
-			margin-right : 10%;
-			
-		}
-		#img1{
-			width : 1000px;
-			heigth : 500px;
-		}
-		
-		#img2, #img3{
-			width : 1000px;
-			heigth : 500px;
-		}
-		
-    </style>
+    
 	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	    
 	    <script type="text/javascript" src="${project}assets/js/jquery-2.1.4.min.js"></script>
@@ -81,7 +27,7 @@
 	            $('.image-gallery').lightSlider({
 	                gallery:true,
 	                item:1,
-	                thumbItem:5,
+	                thumbItem:3,
 	                slideMargin: 0,
 	                speed:500,
 	                auto:true,
@@ -105,7 +51,7 @@
 				
 				<br><br>
 					
-				<div class="demo">
+				<div class="demo" style="margin-right:40px;">
 			        <div class="item">            
 			            <div class="clearfix">
 			                <ul  class="image-gallery gallery list-unstyled cS-hidden">
@@ -146,6 +92,7 @@
 			            </div>
 			        </div>
 			    </div> <!-- 4인실 demo -->
+			    <br><br>
 			    <h2> 8인실 소개 </h2>
 				
 				<br><br>

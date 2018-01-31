@@ -24,7 +24,7 @@
 		
 		<body>
 			<script src="${project}member/script.js"></script>    
-			<br><br><br><br><br><br><br>
+			<br><br><br><br>
 			
 			<%@include file="/include/mypageaside.jsp" %>				
 			<form class="form">
@@ -33,6 +33,7 @@
 				<input type="hidden" id="userid" value="${sessionScope.memId}">
 				<input type="hidden" id="noroom" value="0">
 				<input type="hidden" id="noski" value="0">
+				<br><br><br><br>
 				<div class="checkform">	
 					<div class="checkbtbox">
 						<a href="javascript:showroom();" class="roomcheck_a">콘도</a>

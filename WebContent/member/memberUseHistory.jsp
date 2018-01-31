@@ -16,13 +16,8 @@
       <br><br><br>
       <%@include file="/include/mypageaside.jsp" %>   
       <input type="hidden" id="user_barcode" value="${user_barcode}">
-      <br><br>   
+      <br><br> <br><br><br> 
       <div class="checkform2">   
-         <div class="check_a">
-            <div class="checkbtbox">
-               <a href="javascript:userBarcodeCharge();" class="roomcheck_a">충전하기</a>
-            </div>
-         </div>
          <table class='recheck'> 
             <tbody id="findtr"></tbody>
          </table>
@@ -33,7 +28,8 @@
             <input type="hidden" name="hiddenId" value="${sessionScope.memId}">
             <br>
             충 전 금 액&nbsp; : 
-            <input type="text" id="tx2" name="price" placeholder='충전할 금액을 입력해주세요'>             
+            <input type="text" id="tx2" name="price" placeholder='충전할 금액을 입력해주세요'> 
+            <input type="button" class="btn btn-default" value="충전" onclick="userBarcodeCharge()" >           
          </form>
       </div>
    </body>
